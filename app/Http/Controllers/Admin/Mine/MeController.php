@@ -1,0 +1,92 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Mine;
+
+use App\Http\Controllers\Admin\BackController;
+
+use App\Http\Requests\MeRequest;
+use Illuminate\Http\Request;
+use App\Repositories\UserRepository;
+use Gate;
+
+/**
+ * 我的账户控制器
+ *
+ */
+class MeController extends BackController
+{
+
+
+    /**
+     * The UserRepository instance.
+     *
+     * @var App\Repositories\UserRepository
+     */
+    protected $user;
+
+
+    public function __construct(UserRepository $user)
+    {
+        parent::__construct();
+        if (Gate::denies('@me')) {
+            $this->middleware('deny403');
+        }
+        $this->user = $user;
+    }
+
+
+    /**
+     * 个人资料页面
+     *
+     * @return Response
+     */
+    public function getMeInforation()
+    {
+        $me = auth()->user();
+        return view('admin.back.mine.index', compact('me'));
+    }
+
+
+    /**
+     * 提交修改个人资料
+     *
+     * @return Response
+     */
+    public function putMeInforation(MeRequest $request)
+    {
+        if (Gate::denies('meinforation')) {
+            return deny();
+        }
+        //使用Bootstrap后台框架，可以废弃ajax提交方式，使用表单自动验证
+        $this->user->updateMe(auth()->user(), $request->all());
+        return redirect()->back()->with('message', '成功更新个人资料！');
+    }
+    
+    
+    /**
+     * 修改密码页面
+     *
+     * @return Response
+     */
+    public function getMePassword()
+    {
+        $me = auth()->user();
+        return view('admin.back.mine.password', compact('me'));
+    }
+    
+    
+    /**
+     * 提交新密码
+     *
+     * @return Response
+     */
+    public function putMePassword(MeRequest $request)
+    {
+        if (Gate::denies('mepassword')) {
+            return deny();
+        }
+        //使用Bootstrap后台框架，可以废弃ajax提交方式，使用表单自动验证
+        $this->user->updateMe(auth()->user(), $request->all());
+        return redirect()->back()->with('message', '成功更新密码！');
+    }
+}

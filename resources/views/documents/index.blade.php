@@ -1,0 +1,1 @@
+@extends('documents._layout._doc')
