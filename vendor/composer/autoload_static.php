@@ -221,7 +221,7 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
         ),
         'Syrator\\IdentityCard\\' => 
         array (
-            0 => __DIR__ . '/..' . '/Syrator/identity-card',
+            0 => __DIR__ . '/..' . '/syrator/identity-card',
         ),
         'Syrator\\' => 
         array (
