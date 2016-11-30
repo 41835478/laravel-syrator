@@ -5,10 +5,10 @@ Identity Card（中国大陆）公民身份证类
 >   Chinese Identity Card package, data from `GB/T 2260-2007`.  
 
 
-[![Latest Stable Version](https://poser.pugx.org/douyasi/identity-card/v/stable.svg?format=flat-square)](https://packagist.org/packages/douyasi/identity-card)
-[![Latest Unstable Version](https://poser.pugx.org/douyasi/identity-card/v/unstable.svg?format=flat-square)](https://packagist.org/packages/douyasi/identity-card)
-[![License](https://poser.pugx.org/douyasi/identity-card/license?format=flat-square)](https://packagist.org/packages/douyasi/identity-card)
-[![Total Downloads](https://poser.pugx.org/douyasi/identity-card/downloads?format=flat-square)](https://packagist.org/packages/douyasi/identity-card)
+[![Latest Stable Version](https://poser.pugx.org/syrator/identity-card/v/stable.svg?format=flat-square)](https://packagist.org/packages/syrator/identity-card)
+[![Latest Unstable Version](https://poser.pugx.org/syrator/identity-card/v/unstable.svg?format=flat-square)](https://packagist.org/packages/syrator/identity-card)
+[![License](https://poser.pugx.org/syrator/identity-card/license?format=flat-square)](https://packagist.org/packages/syrator/identity-card)
+[![Total Downloads](https://poser.pugx.org/syrator/identity-card/downloads?format=flat-square)](https://packagist.org/packages/syrator/identity-card)
 
 
 ### 安装说明(Installation)
@@ -17,7 +17,7 @@ Identity Card（中国大陆）公民身份证类
 
 ```json
     "require": {
-        "douyasi/identity-card": "~1.0"
+        "syrator/identity-card": "~1.0"
     }
 ```
 
@@ -27,7 +27,7 @@ Get [Composer](https://getcomposer.org/), then run in terminal:
 
 ```bash
 cd /path/to/your-project
-composer require "douyasi/identity-card:~1.0"
+composer require "syrator/identity-card:~1.0"
 ```
 
 ### 使用说明(Usage and Example)
@@ -39,7 +39,7 @@ composer require "douyasi/identity-card:~1.0"
 
 ```php
 Route::get('test', function() {
-    $ID = new Douyasi\IdentityCard\ID;
+    $ID = new Syrator\IdentityCard\ID;
     $is_pass = $ID->validateIDCard('42032319930606629x');
     $area = $ID->getArea('42032319930606629x');
     $gender = $ID->getGender('42032319930606629x');

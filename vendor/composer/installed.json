@@ -1,16 +1,16 @@
 [
     {
-        "name": "douyasi/identity-card",
+        "name": "syrator/identity-card",
         "version": "1.1",
         "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/douyasi/identity-card.git",
+            "url": "https://github.com/syrator/identity-card.git",
             "reference": "4917c3d1beda502dec9606002989f9878eda741a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/douyasi/identity-card/zipball/4917c3d1beda502dec9606002989f9878eda741a",
+            "url": "https://api.github.com/repos/syrator/identity-card/zipball/4917c3d1beda502dec9606002989f9878eda741a",
             "reference": "4917c3d1beda502dec9606002989f9878eda741a",
             "shasum": ""
         },
@@ -19,7 +19,7 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Douyasi\\IdentityCard\\": ""
+                "Syrator\\IdentityCard\\": ""
             }
         },
         "notification-url": "https://packagist.org/downloads/",

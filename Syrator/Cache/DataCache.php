@@ -1,6 +1,6 @@
 <?php
 
-namespace Douyasi\Cache;
+namespace Syrator\Cache;
 
 use Cache;
 use App\Model\SystemOptionModel;

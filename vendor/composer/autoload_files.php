@@ -18,5 +18,5 @@ return array(
     'f0906e6318348a765ffb6eb24e0d0938' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     'd219718cc7b55f71014d4b58f90947c4' => $baseDir . '/app/helper.php',
-    '1670c896c7ec90406a5360325df0980f' => $baseDir . '/douyasi/helper.php',
+    '1670c896c7ec90406a5360325df0980f' => $baseDir . '/Syrator/helper.php',
 );

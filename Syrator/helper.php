@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Get Douyasi third-party package directory：\douyasi
+ * Get Syrator third-party package directory：\syrator
  *
  * @return string
  **/
@@ -18,6 +18,6 @@ function dys_path() {
  */
 function dict($dot_key = null, $default = null)
 {
-    $dict = app('Douyasi\Dict');
+    $dict = app('Syrator\Dict');
     return $dict->getDict($dot_key, $default);
 }

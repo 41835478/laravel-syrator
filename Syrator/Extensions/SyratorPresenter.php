@@ -1,16 +1,16 @@
 <?php
 
-namespace Douyasi\Extensions;
+namespace Syrator\Extensions;
 
 use Illuminate\Contracts\Pagination\Paginator as PaginatorContract;
 use Illuminate\Contracts\Pagination\Presenter as PresenterContract;
 
 /**
- * DouyasiPresenter
+ * SyratorPresenter
  * 扩展分页样式（Laravel 5 中已经移除了分页模版）
  *
  */
-class DouyasiPresenter implements PresenterContract
+class SyratorPresenter implements PresenterContract
 {
 
     /**
@@ -21,7 +21,7 @@ class DouyasiPresenter implements PresenterContract
     protected $paginator;
 
     /**
-     * Create a DouyasiPresenter.
+     * Create a SyratorPresenter.
      *
      * @param  \Illuminate\Contracts\Pagination\Paginator  $paginator
      * @return void

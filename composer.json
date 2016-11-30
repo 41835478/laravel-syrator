@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "erusev/parsedown-extra": "0.7.0",
-        "douyasi/identity-card": "~1.0",
+        "syrator/identity-card": "~1.0",
         "jlapp/swaggervel": "dev-master",
         "stevenyangecho/laravel-u-editor": " ~1.1"
     },
@@ -25,11 +25,11 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Douyasi\\": "douyasi/"
+            "Syrator\\": "syrator/"
         },
         "files": [
             "app/helper.php",
-            "douyasi/helper.php"
+            "syrator/helper.php"
         ]
     },
     "autoload-dev": {

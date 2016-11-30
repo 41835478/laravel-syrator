@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\BackController;
 use Illuminate\Http\Request;
 use Validator;
 use App\Events\UserUpload;
-use Douyasi\Cache\DataCache;
+use Syrator\Cache\DataCache;
 
 
 /**

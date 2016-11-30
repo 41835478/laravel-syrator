@@ -1,18 +1,18 @@
 <?php
 
-namespace Douyasi\Providers;
+namespace Syrator\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Douyasi\Extensions\DouyasiValidator;
-use Douyasi\Extensions\DouyasiBlade;
+use Syrator\Extensions\SyratorValidator;
+use Syrator\Extensions\SyratorBlade;
 
 //use Validator;
 
 /**
- * DouyasiValidator 扩展自定义验证类 服务提供者
+ * SyratorValidator 扩展自定义验证类 服务提供者
  *
  */
-class DouyasiServiceProvider extends ServiceProvider
+class SyratorServiceProvider extends ServiceProvider
 {
 
     /**
@@ -24,16 +24,16 @@ class DouyasiServiceProvider extends ServiceProvider
     {
         //
         /*注册自定义Blade标签*/
-        DouyasiBlade::register();
+        SyratorBlade::register();
         /*注册自定义验证类*/
         /*
         Validator::resolver(function($translator, $data, $rules, $messages)
         {
-            return new DouyasiValidator($translator, $data, $rules, $messages);
+            return new SyratorValidator($translator, $data, $rules, $messages);
         });
         */
         $this->app['validator']->resolver(function ($translator, $data, $rules, $messages) {
-            return new DouyasiValidator($translator, $data, $rules, $messages);
+            return new SyratorValidator($translator, $data, $rules, $messages);
         });
     }
 

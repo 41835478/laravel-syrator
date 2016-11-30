@@ -396,7 +396,7 @@ function chinese_excerpt($content)
  */
 function page_links($model, $data = [])
 {
-    $presenter = new \Douyasi\Extensions\DouyasiPresenter($model);
+    $presenter = new \Syrator\Extensions\SyratorPresenter($model);
     if (empty($data)) {
         $links = $model->render($presenter);
     } else {

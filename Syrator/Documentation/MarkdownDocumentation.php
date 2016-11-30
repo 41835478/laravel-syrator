@@ -1,6 +1,6 @@
 <?php
 
-namespace Douyasi\Documentation;
+namespace Syrator\Documentation;
 
 use ParsedownExtra;
 

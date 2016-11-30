@@ -1,9 +1,9 @@
 <?php
 
-namespace Douyasi\Data;
+namespace Syrator\Data;
 
 use App\Interfaces\IData;
-use Douyasi\AppException;
+use Syrator\AppException;
 
 abstract class BaseData implements IData
 {
@@ -26,7 +26,7 @@ abstract class BaseData implements IData
      * Get Model by id.
      *
      * @param  int $id
-     * @return App\Model|Douyasi\Models\Model
+     * @return App\Model|Syrator\Models\Model
      */
     public function getById($id)
     {

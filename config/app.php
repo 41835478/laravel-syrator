@@ -159,7 +159,7 @@ return [
         /**
          * Third Party Service Providers...
          */
-        Douyasi\Providers\DouyasiServiceProvider::class,
+        Syrator\Providers\SyratorServiceProvider::class,
         
         Jlapp\Swaggervel\SwaggervelServiceProvider::class,
         

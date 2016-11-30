@@ -1,6 +1,6 @@
 <?php
 
-namespace Douyasi\IdentityCard;
+namespace Syrator\IdentityCard;
 
 /**
  * Class ID

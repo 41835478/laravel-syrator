@@ -1,16 +1,16 @@
 <?php
 
-namespace Douyasi\Extensions;
+namespace Syrator\Extensions;
 
 use Illuminate\Validation\Validator;
 
 
 /**
- * DouyasiValidator
+ * SyratorValidator
  * 扩展自定义验证
  *
  */
-class DouyasiValidator extends Validator
+class SyratorValidator extends Validator
 {
 
     /*只允许英文字母组合A-Za-z*/
@@ -97,14 +97,14 @@ class DouyasiValidator extends Validator
 
     /**
      * 验证身份证是否合法，该判定条件有限，只能作为简单的校验
-     * 依赖于douyasi/identity-card
+     * 依赖于syrator/identity-card
      * 如要使用，请在composer require加入：
-     *      "douyasi/identity-card": "dev-master"
+     *      "syrator/identity-card": "dev-master"
      * 
      */
     public function validateIdentityCard($attribute, $value)
     {
-        $ID = new \Douyasi\IdentityCard\ID;
+        $ID = new \Syrator\IdentityCard\ID;
         return $ID->validateIDCard($value);
     }
 

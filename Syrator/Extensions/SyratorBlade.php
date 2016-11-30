@@ -1,16 +1,16 @@
 <?php
 
-namespace Douyasi\Extensions;
+namespace Syrator\Extensions;
 
 use Blade;
 
 /**
- * DouyasiBlade
+ * SyratorBlade
  * 扩展Blade标签
  * 一般来说，标签都是使用正则来解析的，blade标签解析也是一样的
  *
  */
-class DouyasiBlade
+class SyratorBlade
 {
     public static function register()
     {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Douyasi\Documentation\MarkdownDocumentation;
+use Syrator\Documentation\MarkdownDocumentation;
 
 /**
  * Class MarkdownController

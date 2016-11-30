@@ -1,5 +1,5 @@
 {
-    "name": "douyasi/identity-card",
+    "name": "syrator/identity-card",
     "description": "Chinese Identity Card package",
     "keywords": ["identity", "personal identity card", "Chinese"],
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Douyasi\\IdentityCard\\": ""
+            "Syrator\\IdentityCard\\": ""
         }
     },
     "minimum-stability": "stable",

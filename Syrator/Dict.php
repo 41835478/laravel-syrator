@@ -1,6 +1,6 @@
 <?php
 
-namespace Douyasi;
+namespace Syrator;
 
 /**
  * 词典配置类

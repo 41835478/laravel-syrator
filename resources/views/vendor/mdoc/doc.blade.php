@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="SYRATOR官方文档">
-    <meta name="author" content="http://douyasi.com">
+    <meta name="author" content="http://syrator.com">
 
     <title>{{ $md_doc_title }} - SYRATOR官方文档</title>
 
