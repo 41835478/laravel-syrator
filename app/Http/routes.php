@@ -68,10 +68,10 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
         Route::get('home', 'HomeController@getIndex');
 
         // 文件上传
-        Route::get('upload/picture', 'AssistantController@getUploadPicture');
-        Route::get('upload/document', 'AssistantController@getUploadDocument');
-        Route::post('upload/picture', 'AssistantController@postUploadPicture');
-        Route::post('upload/document', 'AssistantController@postUploadDocument');
+        Route::get('upload/picture', 'System\AssistantController@getUploadPicture');
+        Route::get('upload/document', 'System\AssistantController@getUploadDocument');
+        Route::post('upload/picture', 'System\AssistantController@postUploadPicture');
+        Route::post('upload/document', 'System\AssistantController@postUploadDocument');
         
         // 系统管理
         Route::group(['prefix' => 'system', 'namespace' => 'System'], function () {
