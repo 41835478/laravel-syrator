@@ -1,6 +1,6 @@
 @extends('admin.layout._layer')
 
-@section('head_style'){{-- layer 表单样式 --}}
+@section('head_style')
     <style type="text/css">
         .close_button{
             margin-bottom: 25px;
@@ -67,8 +67,8 @@
 @stop
 
 @section('endLayerJS')
-<script src="{{ _asset(ref('layer.js')) }}"></script>{{-- 加载layer插件 --}}
-<script src="{{ _asset(ref('form.js')) }}"></script>{{-- 加载jquery.form插件 --}}
+<script src="{{ _asset(ref('layer.js')) }}"></script>
+<script src="{{ _asset(ref('form.js')) }}"></script>
 <script type="text/javascript">
 
     //比如在iframe中关闭自身
