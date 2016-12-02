@@ -82,11 +82,27 @@ return [
 
         #静态资源缩略别名，用于引用 路径较长 的资源，也为了方便后续静态类库的版本升级
         'alias' => [
-            'bootstrap.js'                  => 'lib/bootstrap/js/bootstrap.min.js',
-            'bootstrap.css'                 => 'lib/bootstrap/css/bootstrap.min.css',
+            #基础通用样式和js
+            'bootstrap.css'                 => 'assets/metronic/css/bootstrap.min.css',
+            'font-awesome.css'              => 'assets/metronic/css/font-awesome.min.css',
+            'style-metro.css'               => 'assets/metronic/css/style-metro.css',
+            'style.css'                     => 'assets/metronic/css/style.css',
+            'style-responsive.css'          => 'assets/metronic/css/style-responsive.css',
+            'default.css'                   => 'assets/metronic/css/default.css',
+            'uniform.default.css'           => 'assets/metronic/css/uniform.default.css',
             
-            'font-awesome.css'              => 'lib/font-awesome-4.6.3/css/font-awesome.min.css',
+            'jquery.js'                     => 'assets/metronic/js/jquery-1.10.1.min.js',
+            'jquery-migrate.js'             => 'assets/metronic/js/jquery-migrate-1.2.1.min.js',
+            'jquery-ui.custom.js'           => 'assets/metronic/js/jquery-ui-1.10.1.custom.min.js',
+            'bootstrap.js'                  => 'assets/metronic/js/bootstrap.min.js',
+            'jquery.slimscroll.js'          => 'assets/metronic/js/jquery.slimscroll.min.js',
+            'jquery.blockui.js'             => 'assets/metronic/js/jquery.blockui.min.js',
+            'jquery.cookie.js'              => 'assets/metronic/js/jquery.cookie.min.js',
+            'jquery.uniform.js'             => 'assets/metronic/js/jquery.uniform.min.js',
             
+            'app.js'                        => 'assets/metronic/js/app.js',
+            
+            #相关插件样式和js            
             'icheck.js'                     => 'lib/icheck-1.x/icheck.min.js',
             'icheck_all.css'                => 'lib/icheck-1.x/skins/all.css',
             'icheck_blue.css'               => 'lib/icheck-1.x/skins/square/blue.css',
@@ -96,9 +112,6 @@ return [
             'html5shiv.js'                  => 'lib/html5shiv/dist/html5shiv.min.js',
             
             'respond.js'                    => 'lib/respond/dest/respond.min.js',
-            
-            'jquery.js'                     => 'lib/jquery/jquery-2.2.3.min.js',
-            'jquery-v1.js'                  => 'lib/jquery/jquery-1.8.3.min.js',
             
             'layer.js'                      => 'lib/layer-2.x/layer.js',
             
