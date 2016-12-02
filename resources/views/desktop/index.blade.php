@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ trans('syrator.lang_code') }}">
+@extends('desktop._layout._front')
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ trans('syrator.description') }}">
-    <meta name="author" content="{{ trans('syrator.author_url') }}">
-
-    <title>{{ trans('syrator.framework_name') }} - {{ trans('syrator.alias') }}</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ _asset(ref('bootstrap.css')) }}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="{{ _asset('assets/css/landing-page.css') }}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{{ _asset(ref('font-awesome.css')) }}" rel="stylesheet" type="text/css">
-    <link href="{{ _asset('assets/Lato_300,400,700,300italic,400italic,700italic.css') }}" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="{{ _asset(ref('html5shiv.js')) }}"></script>
-        <script src="{{ _asset(ref('respond.js')) }}"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
+@section('content')
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
@@ -240,33 +209,4 @@
             </div>
         </div>
     </footer>
-
-    <!-- jQuery -->
-    <script src="{{ _asset(ref('jquery.js')) }}"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ _asset(ref('bootstrap.js')) }}"></script>
-
-    <script src="{{ _asset(ref('layer.js')) }}"></script>
-
-    <script type="text/javascript">
-$(document).ready(function(){
-
-    $('a.layer_open').on('click', function() {
-        var title = $(this).data('title');
-        var content = '<div class="layer_content">{!! trans('syrator.intro.qr_text') !!}</div>';
-        layer.open({
-          type: 1,
-          title: title,
-          skin: 'layui-layer-rim',
-          area: [ '685px', '635px'],
-          content: content
-        });
-    });
-
-});
-    </script>
-
-</body>
-
-</html>
+@stop
