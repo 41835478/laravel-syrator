@@ -1,4 +1,9 @@
-@extends('desktop._layout._front')
+@extends('_layout._common')
+
+@section('content')
+@parent
+@include('widgets.main-header')
+@stop
 
 @section('content')
     <!-- Navigation -->
