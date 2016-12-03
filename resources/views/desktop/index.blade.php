@@ -2,12 +2,12 @@
 
 @section('body_attr') class="page-header-fixed page-full-width" @stop
 
-@section('content')
+@section('content-header')
 @parent
 @include('widgets.main-header')
 @stop
 
-@section('content')
+@section('content-footer')
 @parent
 @include('widgets.main-footer')
 @stop
@@ -17,13 +17,14 @@
 @stop
 
 @section('filledScript')
+@parent
 <script>
-	jQuery(document).ready(function() {    
-	   App.init();
-	   jQuery('#promo_carousel').carousel({
-	      interval: 10000,
-	      pause: 'hover'
-	   });
-	});
+jQuery(document).ready(function() {    
+   App.init();
+   jQuery('#promo_carousel').carousel({
+      interval: 10000,
+      pause: 'hover'
+   });
+});
 </script>
-@show
+@stop

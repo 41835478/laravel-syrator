@@ -85,7 +85,7 @@
     @show
 
     @section('extraSection')
-    @show{
+    @show
 
 @stop
 

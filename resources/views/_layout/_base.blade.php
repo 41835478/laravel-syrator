@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="{{ trans('syrator.lang_code') }}"> <!--<![endif]-->
+<!--[if !IE]><!--> 
+<html lang="{{ trans('syrator.lang_code') }}"> 
+<!--<![endif]-->
 <head>
     <meta charset="UTF-8">
     <title>{{ cache('website_title') }}</title>
@@ -12,10 +14,11 @@
     <meta name="_token" content="{{ csrf_token() }}"/>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    
+    <link rel="shortcut icon" href="{{ _asset('favicon.ico') }}" type="image/x-icon">
 
     @section('meta')
     @show
-    <link rel="shortcut icon" href="{{ _asset('favicon.ico') }}" type="image/x-icon">{{-- favicon --}}
 
     @section('head_css')
     @show
@@ -30,18 +33,18 @@
     @show
 
     @section('afterStyle')
-    @show{
+    @show
 </head>
 <body @section('body_attr') class="" @show>
 
     @section('beforeBody')
-    @show{{--在正文之后填充一些东西 --}}
+    @show
 
     @section('body')
-    @show{{-- 正文部分 --}}
+    @show
 
     @section('afterBody')
-    @show{{-- 在正文之后填充一些东西，比如统计代码之类的东东 --}}
+    @show
 
 </body>
 </html>
