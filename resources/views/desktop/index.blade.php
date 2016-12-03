@@ -1,217 +1,29 @@
 @extends('_layout._common')
 
+@section('body_attr') class="page-header-fixed page-full-width" @stop
+
 @section('content')
 @parent
 @include('widgets.main-header')
 @stop
 
 @section('content')
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="http://www.syrator.com">SYRATOR</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="http://www.syrator.com/documents/index">{{ trans('syrator.bottom_nav.doc') }}</a>
-                    </li>
-                    <li>
-                        <a href="http://www.syrator.com/blog">{{ trans('syrator.bottom_nav.blog') }}</a>
-                    </li>
-                    <li>
-                        <a href="http://shang.qq.com/wpa/qunwpa?idkey=c43a551e4bc0ff5c5051ec8f6d901ab21c1e89e3001d6cf0b0b4a28c0fa4d4f8" alt="云应用网络开发交流群：260655062" title="云应用网络开发交流群：260655062">{{ trans('syrator.bottom_nav.qq_group') }}</a>
-                    </li>
-                    <li>
-                        <a href="#intro">{{ trans('syrator.top_nav.intro') }}</a>
-                    </li>
-                    <li>
-                        <a href="#feature">{{ trans('syrator.top_nav.feature') }}</a>
-                    </li>
-                    <li>
-                        <a href="#contact">{{ trans('syrator.top_nav.contact') }}</a>
-                    </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i>  {{ trans('syrator.lang.text') }}<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{{ _route('desktop:lang?lng=zh-CN') }}">{{ trans('syrator.lang.zh-CN') }}</a></li>
-                          <li><a href="{{ _route('desktop:lang?lng=en') }}">{{ trans('syrator.lang.en') }}</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-
-    <!-- Header -->
-    <a name="intro"></a>
-    <div class="intro-header">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>SYRATOR</h1>
-                        <h3>{!! trans('syrator.intro.text') !!}</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="/documents" class="btn btn-default btn-lg"><i class="fa fa-eye fa-fw"></i> <span class="network-name">{{ trans('syrator.intro.preview') }}</span></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/syrator/base" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">{{ trans('syrator.intro.source') }}</span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="btn btn-default btn-lg layer_open" data-title="{{ trans('syrator.intro.donation') }}"><i class="fa fa-rmb fa-fw"></i> <span class="network-name">{{ trans('syrator.intro.donation') }}</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.intro-header -->
-
-    <!-- Page Content -->
-
-    <a  name="feature"></a>
-    <div class="content-section-a">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">{!! trans('syrator.feature.thanks.heading') !!}</h2>
-                    <p class="lead">{!! trans('syrator.feature.thanks.paragraph') !!}</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="{{ _asset('assets/img/ipad.png') }}" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
-    <div class="content-section-b">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">{!! trans('syrator.feature.advantages.heading') !!}</h2>
-                    <p class="lead">{!! trans('syrator.feature.advantages.paragraph') !!}</p>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="{{ _asset('assets/img/dog.png') }}" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-b -->
-
-    <div class="content-section-a">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">{!! trans('syrator.feature.ui.heading') !!}</h2>
-                    <p class="lead">{!! trans('syrator.feature.ui.paragraph') !!}</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="{{ _asset('assets/img/phones.png') }}" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
-    <a  name="contact"></a>
-    <div class="banner">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2>{{ trans('syrator.social_contact.text') }}</h2>
-                </div>
-                <div class="col-lg-6">
-                    <ul class="list-inline banner-social-buttons">
-                        <li>
-                            <a href="{{ trans('syrator.social_contact.twitter.url') }}" class="btn btn-default btn-lg" alt="Twitter" title="Twitter"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                        </li>
-                        <li>
-                            <a href="{{ trans('syrator.social_contact.github.url') }}" class="btn btn-default btn-lg" alt="Github" title="Github"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                        </li>
-                        <li>
-                            <a href="{{ trans('syrator.social_contact.weibo.url') }}" class="btn btn-default btn-lg" alt="{{ trans('syrator.social_contact.weibo.text') }}" title="{{ trans('syrator.social_contact.weibo.text') }}"><i class="fa fa-weibo fa-fw"></i> <span class="network-name">{{ trans('syrator.social_contact.weibo.text') }}</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.banner -->
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="http://www.syrator.com">{{ trans('syrator.bottom_nav.home') }}</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="http://www.syrator.com/documents/index">{{ trans('syrator.bottom_nav.doc') }}</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="http://www.syrator.com/blog">{{ trans('syrator.bottom_nav.blog') }}</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="https://github.com/syrator/base">{{ trans('syrator.bottom_nav.source') }}</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="http://shang.qq.com/wpa/qunwpa?idkey=c43a551e4bc0ff5c5051ec8f6d901ab21c1e89e3001d6cf0b0b4a28c0fa4d4f8" alt="云应用网络开发交流群：260655062" title="云应用网络开发交流群：260655062">{{ trans('syrator.bottom_nav.qq_group') }}</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">{!! trans('syrator.copyright_text', ['yas' => trans('syrator.yas'), 'yas_url' => trans('syrator.yas_url')]) !!}  ICP : <a href="http://www.miibeian.gov.cn/">{{ cache('website_icp', '鄂ICP备15014910号-3') }}</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+@parent
+@include('widgets.main-footer')
 @stop
+
+@section('content')
+
+@stop
+
+@section('filledScript')
+<script>
+	jQuery(document).ready(function() {    
+	   App.init();
+	   jQuery('#promo_carousel').carousel({
+	      interval: 10000,
+	      pause: 'hover'
+	   });
+	});
+</script>
+@show
