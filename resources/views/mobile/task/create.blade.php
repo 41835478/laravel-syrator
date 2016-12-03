@@ -4,7 +4,7 @@
 
 @section('head_css')
 @parent
-<link href="{{ _asset('wapstyle/css/mui.picker.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/default.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ _asset('wapstyle/css/feedback.css') }}" rel="stylesheet" type="text/css" />
 @stop
 

@@ -12,20 +12,6 @@
 @stop
 
 @section('head_js')
-    <script src="{{ _asset(ref('jquery.js')) }}" type="text/javascript"></script>
-	<script src="{{ _asset(ref('jquery-migrate.js')) }}" type="text/javascript"></script>
-	<script src="{{ _asset(ref('jquery-ui.custom.js')) }}" type="text/javascript"></script>
-	<script src="{{ _asset(ref('bootstrap.js')) }}" type="text/javascript"></script>
-	<!--[if lt IE 9]>
-	<script src="{{ _asset(ref('excanvas.js')) }}"></script>
-	<script src="{{ _asset(ref('respond.js')) }}"></script>  
-	<![endif]-->       
-	<script src="{{ _asset(ref('jquery.slimscroll.js')) }}" type="text/javascript"></script>
-	<script src="{{ _asset(ref('jquery.blockui.js')) }}" type="text/javascript"></script>
-	<script src="{{ _asset(ref('jquery.cookie.js')) }}" type="text/javascript"></script>
-	<script src="{{ _asset(ref('jquery.uniform.js')) }}" type="text/javascript" ></script>
-	<!-- END CORE PLUGINS -->
-	<script src="{{ _asset(ref('app.js')) }}"></script> 
 @parent
 @stop
 
@@ -82,6 +68,20 @@
     @show
 
     @section('filledScript')
+    <script src="{{ _asset(ref('jquery.js')) }}" type="text/javascript"></script>
+	<script src="{{ _asset(ref('jquery-migrate.js')) }}" type="text/javascript"></script>
+	<script src="{{ _asset(ref('jquery-ui.custom.js')) }}" type="text/javascript"></script>
+	<script src="{{ _asset(ref('bootstrap.js')) }}" type="text/javascript"></script>
+	<!--[if lt IE 9]>
+	<script src="{{ _asset(ref('excanvas.js')) }}"></script>
+	<script src="{{ _asset(ref('respond.js')) }}"></script>  
+	<![endif]-->       
+	<script src="{{ _asset(ref('jquery.slimscroll.js')) }}" type="text/javascript"></script>
+	<script src="{{ _asset(ref('jquery.blockui.js')) }}" type="text/javascript"></script>
+	<script src="{{ _asset(ref('jquery.cookie.js')) }}" type="text/javascript"></script>
+	<script src="{{ _asset(ref('jquery.uniform.js')) }}" type="text/javascript" ></script>
+	<!-- END CORE PLUGINS -->
+	<script src="{{ _asset(ref('app.js')) }}"></script> 
     @show
 
     @section('extraSection')

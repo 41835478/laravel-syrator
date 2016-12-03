@@ -84,6 +84,7 @@ return [
         'alias' => [
             #基础通用样式和js
             'bootstrap.css'                 => 'assets/metronic/css/bootstrap.min.css',
+            'bootstrap-responsive.css'      => 'assets/metronic/css/bootstrap-responsive.min.css',
             'font-awesome.css'              => 'assets/metronic/css/font-awesome.min.css',
             'style-metro.css'               => 'assets/metronic/css/style-metro.css',
             'style.css'                     => 'assets/metronic/css/style.css',
