@@ -1,5 +1,26 @@
 @extends('_layout._common')
 
+@section('head_css')
+@parent
+<link href="{{ _asset('assets/metronic/css/jquery.gritter.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/css/daterangepicker.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/css/fullcalendar.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/css/jqvmap.css') }}" rel="stylesheet" type="text/css" media="screen" />
+<link href="{{ _asset('assets/metronic/css/jquery.easy-pie-chart.css') }}" rel="stylesheet" type="text/css" media="screen" />
+@stop
+
+@section('body_attr') class="page-header-fixed" @stop
+
+@section('content-header')
+@parent
+@include('admin._widgets._main-header')
+@stop
+
+@section('content-footer')
+@parent
+@include('admin._widgets._main-footer')
+@stop
+
 @section('content-header')
 @parent
           <h1>

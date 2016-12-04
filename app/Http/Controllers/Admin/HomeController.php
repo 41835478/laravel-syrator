@@ -8,10 +8,8 @@ namespace App\Http\Controllers\Admin;
  */
 class HomeController extends BackController
 {
-
     public function getIndex()
     {
         return view('admin.back.home.index');
     }
-
 }

@@ -1,12 +1,12 @@
 @extends('_layout._common')
 
-@section('body_attr') class="page-header-fixed page-full-width" @stop
-
 @section('head_css')
 @parent
 <link href="{{ _asset('assets/metronic/css/promo.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ _asset('assets/metronic/css/animate.css') }}" rel="stylesheet" type="text/css" />
 @stop
+
+@section('body_attr') class="page-header-fixed page-full-width" @stop
 
 @section('content-header')
 @parent
