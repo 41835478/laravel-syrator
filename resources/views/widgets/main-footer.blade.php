@@ -2,7 +2,7 @@
 <div class="footer">
 	<div class="container">
 		<div class="footer-inner">
-			2013 &copy; Metronic by keenthemes.
+			2016 &copy; Syrator by recoding.
 		</div>
 		<div class="footer-tools">
 			<span class="go-top">
