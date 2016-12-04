@@ -10,12 +10,12 @@
 
 @section('content-header')
 @parent
-@include('widgets.main-header')
+@include('_widgets._main-header')
 @stop
 
 @section('content-footer')
 @parent
-@include('widgets.main-footer')
+@include('_widgets._main-footer')
 @stop
 
 @section('content')
