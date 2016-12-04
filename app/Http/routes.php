@@ -1,50 +1,14 @@
 <?php
 
-require __DIR__.'/routes/routes-mygz.php';
+require __DIR__.'/routes/routes-desktop.php';       // PC前台
+require __DIR__.'/routes/routes-mobile.php';        // 手机端wap
 
-// 文档站点路由群组
-Route::group(['prefix' => config('site.route.prefix.document', 'documents'), 'namespace' => 'Documents',  'middleware' => ['block:document', 'web']], function () {
+require __DIR__.'/routes/routes-api.php';           // api
 
-    Route::get('/', 'HomeController@getIndex');
-    
-    // 开发演示
-    Route::get('demo/form', 'Demo\DemoController@getForm');
-    Route::get('demo/icon', 'Demo\DemoController@getIcon');
-});
+require __DIR__.'/routes/routes-documents.php';     // 文档
 
-// API站点路由群组
-Route::group(['prefix' => config('site.route.prefix.api', 'api'), 'namespace' => 'API', 'middleware' => ['block:api', 'web']], function () {
-    
-    // 会员模块
-    Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
-        Route::resource('login', 'ApiMemberController@login');
-        Route::resource('register', 'ApiMemberController@register');
-        
-        Route::resource('sendverifycode', 'ApiMemberController@sendVerifyCode');
-        Route::resource('validateverifycode', 'ApiMemberController@validateVerifyCode');
-        
-        Route::resource('resetpassword', 'ApiMemberController@resetPassword');
-    });
-    
-    // 论坛模块
-    Route::group(['prefix' => 'forum', 'namespace' => 'Forum'], function () {
-    	Route::resource('list', 'ApiForumController@getList');
-    });    
-});
-
-// PC前台站点路由群组
-Route::group(['prefix' => config('site.route.prefix.desktop', ''), 'namespace' => 'Desktop', 'middleware' => ['block:desktop', 'web']], function () {
-
-    // 桌面站主页
-    Route::get('/', 'HomeController@getIndex');
-
-    // 设置语言版本
-    Route::get('lang', 'HomeController@getLang');
-    
-    // 文章查看
-    Route::get('article', 'Article\ArticleController@index');
-    Route::get('article/{id}', 'Article\ArticleController@show');
-});
+// 应用路由
+require __DIR__.'/routes/cms/routes-cms.php';       // cms应用
 
 // 管理后台站点路由群组
 Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace' => 'Admin', 'middleware' => ['block:admin', 'web']], function () {
@@ -133,5 +97,21 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
         // 文章管理
         Route::resource('article', 'Article\ArticleController');
         Route::post('article/remove', 'Article\ArticleController@remove');
-    });    
+    });
+    
+    // 蚂蚁公装 应用-后台
+    Route::group(['prefix' => 'mygz', 'namespace' => 'Mygz', 'middleware' => ['multi-site.auth:admin']], function () {
+        Route::get('/', 'MygzHomeController@getIndex');
+    
+        // 材料模块
+        Route::group(['prefix' => 'material', 'namespace' => 'Material'], function () {
+            Route::resource('/', 'MaterialController');
+            Route::post('remove', 'MaterialController@remove');
+    
+            // 材料分类
+            Route::resource('cat', 'MaterialCatController');
+            Route::post('cat/remove', 'MaterialCatController@remove');
+            Route::get('cat/show/{id}', 'MaterialCatController@show');
+        });
+    });
 });
