@@ -1,13 +1,13 @@
-{{-- widget.main-header --}}
+{{-- widget._main-header --}}
 <div class="header navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container-fluid">
 			<!-- BEGIN LOGO -->
 			<a class="brand" href="index.html">
-			<img src="media/image/logo.png" alt="logo"/>
+			<img src="{{ _asset('assets/metronic/image/logo.png') }}" alt="logo"/>
 			</a>
 			<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-			<img src="media/image/menu-toggler.png" alt="" />
+			<img src="{{ _asset('assets/metronic/image/menu-toggler.png') }}" alt="" />
 			</a>                      
 			<ul class="nav pull-right"> 
 				<li class="dropdown" id="header_notification_bar">
@@ -77,7 +77,7 @@
 						</li>
 						<li>
 							<a href="inbox.html?a=view">
-							<span class="photo"><img src="media/image/avatar2.jpg" alt="" /></span>
+							<span class="photo"><img src="{{ _asset('assets/metronic/image/avatar2.jpg') }}" alt="" /></span>
 							<span class="subject">
 							<span class="from">Lisa Wong</span>
 							<span class="time">Just Now</span>
@@ -90,7 +90,7 @@
 						</li>
 						<li>
 							<a href="inbox.html?a=view">
-							<span class="photo"><img src="./media/image/avatar3.jpg" alt="" /></span>
+							<span class="photo"><img src="{{ _asset('assets/metronic/image/avatar3.jpg') }}" alt="" /></span>
 							<span class="subject">
 							<span class="from">Richard Doe</span>
 							<span class="time">16 mins</span>
@@ -103,7 +103,7 @@
 						</li>
 						<li>
 							<a href="inbox.html?a=view">
-							<span class="photo"><img src="./media/image/avatar1.jpg" alt="" /></span>
+							<span class="photo"><img src="{{ _asset('assets/metronic/image/avatar1.jpg') }}" alt="" /></span>
 							<span class="subject">
 							<span class="from">Bob Nilson</span>
 							<span class="time">2 hrs</span>
@@ -201,7 +201,7 @@
 				</li>
 				<li class="dropdown user">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<img alt="" src="media/image/avatar1_small.jpg" />
+					<img alt="" src="{{ _asset('assets/metronic/image/avatar1_small.jpg') }}" />
 					<span class="username">Bob Nilson</span>
 					<i class="icon-angle-down"></i>
 					</a>

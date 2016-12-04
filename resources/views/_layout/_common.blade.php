@@ -65,9 +65,6 @@
 @section('afterBody')
     
     @section('extraPlugin')
-    @show
-
-    @section('filledScript')
     <script src="{{ _asset(ref('jquery.js')) }}" type="text/javascript"></script>
 	<script src="{{ _asset(ref('jquery-migrate.js')) }}" type="text/javascript"></script>
 	<script src="{{ _asset(ref('jquery-ui.custom.js')) }}" type="text/javascript"></script>
@@ -81,7 +78,10 @@
 	<script src="{{ _asset(ref('jquery.cookie.js')) }}" type="text/javascript"></script>
 	<script src="{{ _asset(ref('jquery.uniform.js')) }}" type="text/javascript" ></script>
 	<!-- END CORE PLUGINS -->
-	<script src="{{ _asset(ref('app.js')) }}"></script> 
+	<script src="{{ _asset(ref('app.js')) }}"></script>
+    @show
+
+    @section('filledScript')
     @show
 
     @section('extraSection')

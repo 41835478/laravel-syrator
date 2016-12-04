@@ -21,561 +21,1286 @@
 @include('admin._widgets._main-footer')
 @stop
 
-@section('content-header')
-@parent
-          <h1>
-            控制面板
-            <small>概述</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="{{ site_url('home', 'admin') }}"><i class="fa fa-home"></i> 主页</a></li>
-            <li class="active">控制面板 - 概述</li>
-          </ol>
-@stop
-
 @section('content')
-          <!-- Small boxes (Stat box) -->
-          <div class="row">
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                  <h3>150<sup style="font-size: 20px">个</sup></h3>
-                  <p>本周新增话题</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-chatboxes"></i>
-                </div>
-                <a href="#" class="small-box-footer">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-green">
-                <div class="inner">
-                  <h3>120<sup style="font-size: 20px">篇</sup></h3>
-                  <p>本周新增内容(文章)</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-document"></i>
-                </div>
-                <a href="#" class="small-box-footer">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-yellow">
-                <div class="inner">
-                  <h3>44<sup style="font-size: 20px">人</sup></h3>
-                  <p>本周新增注册用户</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-red">
-                <div class="inner">
-                  <h3>65<sup style="font-size: 20px">人次</sup></h3>
-                  <p>本周活跃用户访问量</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-          </div><!-- /.row -->
-          <!-- Main row -->
-          <div class="row">
-            <!-- Left col -->
-            <section class="col-lg-7 connectedSortable">
-              <!-- Custom tabs (Charts with tabs)-->
-              <div class="nav-tabs-custom">
-                <!-- Tabs within a box -->
-                <ul class="nav nav-tabs pull-right">
-                  <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-                  <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-                  <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
-                </ul>
-                <div class="tab-content no-padding">
-                  <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-                </div>
-              </div>
-              <!-- /.nav-tabs-custom -->
-    
-              <!-- Chat box -->
-              <div class="box box-success">
-                <div class="box-header">
-                  <i class="fa fa-comments-o"></i>
-    
-                  <h3 class="box-title">Chat</h3>
-    
-                  <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
-                    <div class="btn-group" data-toggle="btn-toggle">
-                      <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i>
-                      </button>
-                      <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
-                    </div>
-                  </div>
-                </div>
-                <div class="box-body chat" id="chat-box">
-                  <!-- chat item -->
-                  <div class="item">
-                    <img src="{{ _asset('back/dist/img/user4-128x128.jpg') }}" alt="user image" class="online">
-    
-                    <p class="message">
-                      <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                        Mike Doe
-                      </a>
-                      I would like to meet you to discuss the latest news about
-                      the arrival of the new theme. They say it is going to be one the
-                      best themes on the market
-                    </p>
-                    <div class="attachment">
-                      <h4>Attachments:</h4>
-    
-                      <p class="filename">
-                        Theme-thumbnail-image.jpg
-                      </p>
-    
-                      <div class="pull-right">
-                        <button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
-                      </div>
-                    </div>
-                    <!-- /.attachment -->
-                  </div>
-                  <!-- /.item -->
-                  <!-- chat item -->
-                  <div class="item">
-                    <img src="{{ _asset('back/dist/img/user3-128x128.jpg') }}" alt="user image" class="offline">
-    
-                    <p class="message">
-                      <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
-                        Alexander Pierce
-                      </a>
-                      I would like to meet you to discuss the latest news about
-                      the arrival of the new theme. They say it is going to be one the
-                      best themes on the market
-                    </p>
-                  </div>
-                  <!-- /.item -->
-                  <!-- chat item -->
-                  <div class="item">
-                    <img src="{{ _asset('back/dist/img/user2-160x160.jpg') }}" alt="user image" class="offline">
-    
-                    <p class="message">
-                      <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
-                        Susan Doe
-                      </a>
-                      I would like to meet you to discuss the latest news about
-                      the arrival of the new theme. They say it is going to be one the
-                      best themes on the market
-                    </p>
-                  </div>
-                  <!-- /.item -->
-                </div>
-                <!-- /.chat -->
-                <div class="box-footer">
-                  <div class="input-group">
-                    <input class="form-control" placeholder="Type message...">
-    
-                    <div class="input-group-btn">
-                      <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.box (chat box) -->
-    
-              <!-- TO DO List -->
-              <div class="box box-primary">
-                <div class="box-header">
-                  <i class="ion ion-clipboard"></i>
-    
-                  <h3 class="box-title">To Do List</h3>
-    
-                  <div class="box-tools pull-right">
-                    <ul class="pagination pagination-sm inline">
-                      <li><a href="#">&laquo;</a></li>
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">&raquo;</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                  <ul class="todo-list">
-                    <li>
-                      <!-- drag handle -->
-                          <span class="handle">
-                            <i class="fa fa-ellipsis-v"></i>
-                            <i class="fa fa-ellipsis-v"></i>
-                          </span>
-                      <!-- checkbox -->
-                      <input type="checkbox" value="">
-                      <!-- todo text -->
-                      <span class="text">Design a nice theme</span>
-                      <!-- Emphasis label -->
-                      <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                      <!-- General tools such as edit or delete-->
-                      <div class="tools">
-                        <i class="fa fa-edit"></i>
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </li>
-                    <li>
-                          <span class="handle">
-                            <i class="fa fa-ellipsis-v"></i>
-                            <i class="fa fa-ellipsis-v"></i>
-                          </span>
-                      <input type="checkbox" value="">
-                      <span class="text">Make the theme responsive</span>
-                      <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                      <div class="tools">
-                        <i class="fa fa-edit"></i>
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </li>
-                    <li>
-                          <span class="handle">
-                            <i class="fa fa-ellipsis-v"></i>
-                            <i class="fa fa-ellipsis-v"></i>
-                          </span>
-                      <input type="checkbox" value="">
-                      <span class="text">Let theme shine like a star</span>
-                      <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                      <div class="tools">
-                        <i class="fa fa-edit"></i>
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </li>
-                    <li>
-                          <span class="handle">
-                            <i class="fa fa-ellipsis-v"></i>
-                            <i class="fa fa-ellipsis-v"></i>
-                          </span>
-                      <input type="checkbox" value="">
-                      <span class="text">Let theme shine like a star</span>
-                      <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                      <div class="tools">
-                        <i class="fa fa-edit"></i>
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </li>
-                    <li>
-                          <span class="handle">
-                            <i class="fa fa-ellipsis-v"></i>
-                            <i class="fa fa-ellipsis-v"></i>
-                          </span>
-                      <input type="checkbox" value="">
-                      <span class="text">Check your messages and notifications</span>
-                      <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                      <div class="tools">
-                        <i class="fa fa-edit"></i>
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </li>
-                    <li>
-                          <span class="handle">
-                            <i class="fa fa-ellipsis-v"></i>
-                            <i class="fa fa-ellipsis-v"></i>
-                          </span>
-                      <input type="checkbox" value="">
-                      <span class="text">Let theme shine like a star</span>
-                      <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                      <div class="tools">
-                        <i class="fa fa-edit"></i>
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer clearfix no-border">
-                  <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
-                </div>
-              </div>
-              <!-- /.box -->
-    
-              <!-- quick email widget -->
-              <div class="box box-info">
-                <div class="box-header">
-                  <i class="fa fa-envelope"></i>
-    
-                  <h3 class="box-title">Quick Email</h3>
-                  <!-- tools box -->
-                  <div class="pull-right box-tools">
-                    <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
-                      <i class="fa fa-times"></i></button>
-                  </div>
-                  <!-- /. tools -->
-                </div>
-                <div class="box-body">
-                  <form action="#" method="post">
-                    <div class="form-group">
-                      <input type="email" class="form-control" name="emailto" placeholder="Email to:">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="subject" placeholder="Subject">
-                    </div>
-                    <div>
-                      <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                    </div>
-                  </form>
-                </div>
-                <div class="box-footer clearfix">
-                  <button type="button" class="pull-right btn btn-default" id="sendEmail">Send
-                    <i class="fa fa-arrow-circle-right"></i></button>
-                </div>
-              </div>
-    
-            </section>
-            <!-- /.Left col -->
-            <!-- right col (We are only adding the ID to make the widgets sortable)-->
-            <section class="col-lg-5 connectedSortable">
-    
-              <!-- Map box -->
-              <div class="box box-solid bg-light-blue-gradient">
-                <div class="box-header">
-                  <!-- tools box -->
-                  <div class="pull-right box-tools">
-                    <button type="button" class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range">
-                      <i class="fa fa-calendar"></i></button>
-                    <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
-                      <i class="fa fa-minus"></i></button>
-                  </div>
-                  <!-- /. tools -->
-    
-                  <i class="fa fa-map-marker"></i>
-    
-                  <h3 class="box-title">
-                    Visitors
-                  </h3>
-                </div>
-                <div class="box-body">
-                  <div id="world-map" style="height: 250px; width: 100%;"></div>
-                </div>
-                <!-- /.box-body-->
-                <div class="box-footer no-border">
-                  <div class="row">
-                    <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                      <div id="sparkline-1"></div>
-                      <div class="knob-label">Visitors</div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                      <div id="sparkline-2"></div>
-                      <div class="knob-label">Online</div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-xs-4 text-center">
-                      <div id="sparkline-3"></div>
-                      <div class="knob-label">Exists</div>
-                    </div>
-                    <!-- ./col -->
-                  </div>
-                  <!-- /.row -->
-                </div>
-              </div>
-              <!-- /.box -->
-    
-              <!-- solid sales graph -->
-              <div class="box box-solid bg-teal-gradient">
-                <div class="box-header">
-                  <i class="fa fa-th"></i>
-    
-                  <h3 class="box-title">Sales Graph</h3>
-    
-                  <div class="box-tools pull-right">
-                    <button type="button" class="btn bg-teal btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn bg-teal btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="box-body border-radius-none">
-                  <div class="chart" id="line-chart" style="height: 250px;"></div>
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer no-border">
-                  <div class="row">
-                    <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                      <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60" data-fgColor="#39CCCC">
-    
-                      <div class="knob-label">Mail-Orders</div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                      <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60" data-fgColor="#39CCCC">
-    
-                      <div class="knob-label">Online</div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-xs-4 text-center">
-                      <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60" data-fgColor="#39CCCC">
-    
-                      <div class="knob-label">In-Store</div>
-                    </div>
-                    <!-- ./col -->
-                  </div>
-                  <!-- /.row -->
-                </div>
-                <!-- /.box-footer -->
-              </div>
-              <!-- /.box -->
-    
-              <!-- Calendar -->
-              <div class="box box-solid bg-green-gradient">
-                <div class="box-header">
-                  <i class="fa fa-calendar"></i>
-    
-                  <h3 class="box-title">Calendar</h3>
-                  <!-- tools box -->
-                  <div class="pull-right box-tools">
-                    <!-- button with a dropdown -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bars"></i></button>
-                      <ul class="dropdown-menu pull-right" role="menu">
-                        <li><a href="#">Add new event</a></li>
-                        <li><a href="#">Clear events</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">View calendar</a></li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                    </button>
-                  </div>
-                  <!-- /. tools -->
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body no-padding">
-                  <!--The calendar -->
-                  <div id="calendar" style="width: 100%"></div>
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer text-black">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <!-- Progress bars -->
-                      <div class="clearfix">
-                        <span class="pull-left">Task #1</span>
-                        <small class="pull-right">90%</small>
-                      </div>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                      </div>
-    
-                      <div class="clearfix">
-                        <span class="pull-left">Task #2</span>
-                        <small class="pull-right">70%</small>
-                      </div>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                      </div>
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-sm-6">
-                      <div class="clearfix">
-                        <span class="pull-left">Task #3</span>
-                        <small class="pull-right">60%</small>
-                      </div>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                      </div>
-    
-                      <div class="clearfix">
-                        <span class="pull-left">Task #4</span>
-                        <small class="pull-right">40%</small>
-                      </div>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
-                      </div>
-                    </div>
-                    <!-- /.col -->
-                  </div>
-                  <!-- /.row -->
-                </div>
-              </div>
-              <!-- /.box -->
-    
-            </section>
-            <!-- right col -->
-          </div>
-          <!-- /.row (main row) -->
+<div class="page-container">
+	@include('admin._widgets._main-sidebar')
+	<div class="page-content">
+		<div id="portlet-config" class="modal hide">
+			<div class="modal-header">
+				<button data-dismiss="modal" class="close" type="button"></button>
+				<h3>Widget Settings</h3>
+			</div>
+			<div class="modal-body">
+				Widget settings form goes here
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="color-panel hidden-phone">
+						<div class="color-mode-icons icon-color"></div>
+						<div class="color-mode-icons icon-color-close"></div>
+						<div class="color-mode">
+							<p>THEME COLOR</p>
+							<ul class="inline">
+								<li class="color-black current color-default" data-style="default"></li>
+								<li class="color-blue" data-style="blue"></li>
+								<li class="color-brown" data-style="brown"></li>
+								<li class="color-purple" data-style="purple"></li>
+								<li class="color-grey" data-style="grey"></li>
+								<li class="color-white color-light" data-style="light"></li>
+							</ul>
+							<label>
+								<span>Layout</span>
+								<select class="layout-option m-wrap small">
+									<option value="fluid" selected>Fluid</option>
+									<option value="boxed">Boxed</option>
+								</select>
+							</label>
+							<label>
+								<span>Header</span>
+								<select class="header-option m-wrap small">
+									<option value="fixed" selected>Fixed</option>
+									<option value="default">Default</option>
+								</select>
+							</label>
+							<label>
+								<span>Sidebar</span>
+								<select class="sidebar-option m-wrap small">
+									<option value="fixed">Fixed</option>
+									<option value="default" selected>Default</option>
+								</select>
+							</label>
+							<label>
+								<span>Footer</span>
+								<select class="footer-option m-wrap small">
+									<option value="fixed">Fixed</option>
+									<option value="default" selected>Default</option>
+								</select>
+							</label>
+						</div>
+					</div>
+					<h3 class="page-title">
+						Dashboard <small>statistics and more</small>
+					</h3>
+					<ul class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							<a href="index.html">Home</a> 
+							<i class="icon-angle-right"></i>
+						</li>
+						<li><a href="#">Dashboard</a></li>
+						<li class="pull-right no-text-shadow">
+							<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
+								<i class="icon-calendar"></i>
+								<span></span>
+								<i class="icon-angle-down"></i>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="dashboard">
+				<div class="row-fluid">
+					<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+						<div class="dashboard-stat blue">
+							<div class="visual">
+								<i class="icon-comments"></i>
+							</div>
+							<div class="details">
+								<div class="number">
+									1349
+								</div>
+								<div class="desc">                           
+									New Feedbacks
+								</div>
+							</div>
+							<a class="more" href="#">
+							View more <i class="m-icon-swapright m-icon-white"></i>
+							</a>                 
+						</div>
+					</div>
+					<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+						<div class="dashboard-stat green">
+							<div class="visual">
+								<i class="icon-shopping-cart"></i>
+							</div>
+							<div class="details">
+								<div class="number">549</div>
+								<div class="desc">New Orders</div>
+							</div>
+							<a class="more" href="#">
+							View more <i class="m-icon-swapright m-icon-white"></i>
+							</a>                 
+						</div>
+					</div>
+					<div class="span3 responsive" data-tablet="span6  fix-offset" data-desktop="span3">
+						<div class="dashboard-stat purple">
+							<div class="visual">
+								<i class="icon-globe"></i>
+							</div>
+							<div class="details">
+								<div class="number">+89%</div>
+								<div class="desc">Brand Popularity</div>
+							</div>
+							<a class="more" href="#">
+							View more <i class="m-icon-swapright m-icon-white"></i>
+							</a>                 
+						</div>
+					</div>
+					<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+						<div class="dashboard-stat yellow">
+							<div class="visual">
+								<i class="icon-bar-chart"></i>
+							</div>
+							<div class="details">
+								<div class="number">12,5M$</div>
+								<div class="desc">Total Profit</div>
+							</div>
+							<a class="more" href="#">
+							View more <i class="m-icon-swapright m-icon-white"></i>
+							</a>                 
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row-fluid">
+					<div class="span6">
+						<div class="portlet solid bordered light-grey">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-bar-chart"></i>Site Visits</div>
+								<div class="tools">
+									<div class="btn-group pull-right" data-toggle="buttons-radio">
+										<a href="" class="btn mini">Users</a>
+										<a href="" class="btn mini active">Feedbacks</a>
+									</div>
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div id="site_statistics_loading">
+									<img src="{{ _asset('assets/metronic/image/loading.gif') }}" alt="loading" />
+								</div>
+								<div id="site_statistics_content" class="hide">
+									<div id="site_statistics" class="chart"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="span6">
+						<div class="portlet solid light-grey bordered">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-bullhorn"></i>Activities</div>
+								<div class="tools">
+									<div class="btn-group pull-right" data-toggle="buttons-radio">
+										<a href="" class="btn blue mini active">Users</a>
+										<a href="" class="btn blue mini">Orders</a>
+									</div>
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div id="site_activities_loading">
+									<img src="{{ _asset('assets/metronic/image/loading.gif') }}" alt="loading" />
+								</div>
+								<div id="site_activities_content" class="hide">
+									<div id="site_activities" style="height:100px;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="portlet solid bordered light-grey">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-signal"></i>Server Load</div>
+								<div class="tools">
+									<div class="btn-group pull-right" data-toggle="buttons-radio">
+										<a href="" class="btn red mini active">
+										<span class="hidden-phone">Database</span>
+										<span class="visible-phone">DB</span></a>
+										<a href="" class="btn red mini">Web</a>
+									</div>
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div id="load_statistics_loading">
+									<img src="{{ _asset('assets/metronic/image/loading.gif') }}" alt="loading" />
+								</div>
+								<div id="load_statistics_content" class="hide">
+									<div id="load_statistics" style="height:108px;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row-fluid">
+					<div class="span6">
+						<div class="portlet box purple">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-calendar"></i>General Stats</div>
+								<div class="actions">
+									<a href="javascript:;" class="btn yellow easy-pie-chart-reload"><i class="icon-repeat"></i> Reload</a>
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div class="row-fluid">
+									<div class="span4">
+										<div class="easy-pie-chart">
+											<div class="number transactions"  data-percent="55"><span>+55</span>%</div>
+											<a class="title" href="#">Transactions <i class="m-icon-swapright"></i></a>
+										</div>
+									</div>
+									<div class="margin-bottom-10 visible-phone"></div>
+									<div class="span4">
+										<div class="easy-pie-chart">
+											<div class="number visits"  data-percent="85"><span>+85</span>%</div>
+											<a class="title" href="#">New Visits <i class="m-icon-swapright"></i></a>
+										</div>
+									</div>
+									<div class="margin-bottom-10 visible-phone"></div>
+									<div class="span4">
+										<div class="easy-pie-chart">
+											<div class="number bounce"  data-percent="46"><span>-46</span>%</div>
+											<a class="title" href="#">Bounce <i class="m-icon-swapright"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="span6">
+						<div class="portlet box blue">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-calendar"></i>Server Stats</div>
+								<div class="tools">
+									<a href="" class="collapse"></a>
+									<a href="#portlet-config" data-toggle="modal" class="config"></a>
+									<a href="" class="reload"></a>
+									<a href="" class="remove"></a>
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div class="row-fluid">
+									<div class="span4">
+										<div class="sparkline-chart">
+											<div class="number" id="sparkline_bar"></div>
+											<a class="title" href="#">Network <i class="m-icon-swapright"></i></a>
+										</div>
+									</div>
+									<div class="margin-bottom-10 visible-phone"></div>
+									<div class="span4">
+										<div class="sparkline-chart">
+											<div class="number" id="sparkline_bar2"></div>
+											<a class="title" href="#">CPU Load <i class="m-icon-swapright"></i></a>
+										</div>
+									</div>
+									<div class="margin-bottom-10 visible-phone"></div>
+									<div class="span4">
+										<div class="sparkline-chart">
+											<div class="number" id="sparkline_line"></div>
+											<a class="title" href="#">Load Rate <i class="m-icon-swapright"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row-fluid">
+					<div class="span6">
+						<div class="portlet">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-globe"></i>Regional Stats</div>
+								<div class="tools">
+									<a href="" class="collapse"></a>
+									<a href="#portlet-config" data-toggle="modal" class="config"></a>
+									<a href="" class="reload"></a>
+									<a href="" class="remove"></a>
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div id="region_statistics_loading">
+									<img src="{{ _asset('assets/metronic/image/loading.gif') }}" alt="loading" />
+								</div>
+								<div id="region_statistics_content" class="hide">
+									<div class="btn-toolbar">
+										<div class="btn-group " data-toggle="buttons-radio">
+											<a href="" class="btn mini active">Users</a>
+											<a href="" class="btn mini">Orders</a> 
+										</div>
+										<div class="btn-group pull-right">
+											<a href="" class="btn mini dropdown-toggle" data-toggle="dropdown">
+											Select Region <span class="icon-angle-down"></span>
+											</a>
+											<ul class="dropdown-menu pull-right">
+												<li><a href="javascript:;" id="regional_stat_world">World</a></li>
+												<li><a href="javascript:;" id="regional_stat_usa">USA</a></li>
+												<li><a href="javascript:;" id="regional_stat_europe">Europe</a></li>
+												<li><a href="javascript:;" id="regional_stat_russia">Russia</a></li>
+												<li><a href="javascript:;" id="regional_stat_germany">Germany</a></li>
+											</ul>
+										</div>
+									</div>
+									<div id="vmap_world" class="vmaps chart hide"></div>
+									<div id="vmap_usa" class="vmaps chart hide"></div>
+									<div id="vmap_europe" class="vmaps chart hide"></div>
+									<div id="vmap_russia" class="vmaps chart hide"></div>
+									<div id="vmap_germany" class="vmaps chart hide"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="span6">
+						<div class="portlet paddingless">
+							<div class="portlet-title line">
+								<div class="caption"><i class="icon-bell"></i>Feeds</div>
+								<div class="tools">
+									<a href="" class="collapse"></a>
+									<a href="#portlet-config" data-toggle="modal" class="config"></a>
+									<a href="" class="reload"></a>
+									<a href="" class="remove"></a>
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div class="tabbable tabbable-custom">
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#tab_1_1" data-toggle="tab">System</a></li>
+										<li><a href="#tab_1_2" data-toggle="tab">Activities</a></li>
+										<li><a href="#tab_1_3" data-toggle="tab">Recent Users</a></li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="tab_1_1">
+											<div class="scroller" data-height="290px" data-always-visible="1" data-rail-visible="0">
+												<ul class="feeds">
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-success">                        
+																		<i class="icon-bell"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		You have 4 pending tasks.
+																		<span class="label label-important label-mini">
+																		Take action 
+																		<i class="icon-share-alt"></i>
+																		</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																Just now
+															</div>
+														</div>
+													</li>
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New version v1.4 just lunched!   
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	20 mins
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-important">                      
+																		<i class="icon-bolt"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		Database server #12 overloaded. Please fix the issue.                      
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																24 mins
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-info">                        
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																30 mins
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-success">                        
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																40 mins
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-warning">                        
+																		<i class="icon-plus"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New user registered.                
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																1.5 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-success">                        
+																		<i class="icon-bell-alt"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		Web server hardware needs to be upgraded. 
+																		<span class="label label-inverse label-mini">Overdue</span>             
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																2 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label">                       
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																3 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-warning">                        
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																5 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-info">                        
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																18 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label">                       
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																21 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-info">                        
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																22 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label">                       
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																21 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-info">                        
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																22 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label">                       
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																21 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-info">                        
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																22 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label">                       
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																21 hours
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-info">                        
+																		<i class="icon-bullhorn"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		New order received. Please take care of it.                 
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																22 hours
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<div class="tab-pane" id="tab_1_2">
+											<div class="scroller" data-height="290px" data-always-visible="1" data-rail-visible1="1">
+												<ul class="feeds">
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New user registered
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	Just now
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New order received 
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	10 mins
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<div class="col1">
+															<div class="cont">
+																<div class="cont-col1">
+																	<div class="label label-important">                      
+																		<i class="icon-bolt"></i>
+																	</div>
+																</div>
+																<div class="cont-col2">
+																	<div class="desc">
+																		Order #24DOP4 has been rejected.    
+																		<span class="label label-important label-mini">Take action <i class="icon-share-alt"></i></span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col2">
+															<div class="date">
+																24 mins
+															</div>
+														</div>
+													</li>
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New user registered
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	Just now
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New user registered
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	Just now
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New user registered
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	Just now
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New user registered
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	Just now
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New user registered
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	Just now
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New user registered
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	Just now
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<div class="col1">
+																<div class="cont">
+																	<div class="cont-col1">
+																		<div class="label label-success">                        
+																			<i class="icon-bell"></i>
+																		</div>
+																	</div>
+																	<div class="cont-col2">
+																		<div class="desc">
+																			New user registered
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col2">
+																<div class="date">
+																	Just now
+																</div>
+															</div>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<div class="tab-pane" id="tab_1_3">
+											<div class="scroller" data-height="290px" data-always-visible="1" data-rail-visible1="1">
+												<div class="row-fluid">
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Robert Nilson</a> 
+																<span class="label label-success">Approved</span>
+															</div>
+															<div>29 Jan 2013 10:45AM</div>
+														</div>
+													</div>
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Lisa Miller</a> 
+																<span class="label label-info">Pending</span>
+															</div>
+															<div>19 Jan 2013 10:45AM</div>
+														</div>
+													</div>
+												</div>
+												<div class="row-fluid">
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Eric Kim</a> 
+																<span class="label label-info">Pending</span>
+															</div>
+															<div>19 Jan 2013 12:45PM</div>
+														</div>
+													</div>
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Lisa Miller</a> 
+																<span class="label label-important">In progress</span>
+															</div>
+															<div>19 Jan 2013 11:55PM</div>
+														</div>
+													</div>
+												</div>
+												<div class="row-fluid">
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Eric Kim</a> 
+																<span class="label label-info">Pending</span>
+															</div>
+															<div>19 Jan 2013 12:45PM</div>
+														</div>
+													</div>
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Lisa Miller</a> 
+																<span class="label label-important">In progress</span>
+															</div>
+															<div>19 Jan 2013 11:55PM</div>
+														</div>
+													</div>
+												</div>
+												<div class="row-fluid">
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div><a href="#">Eric Kim</a> <span class="label label-info">Pending</span>
+															</div>
+															<div>19 Jan 2013 12:45PM</div>
+														</div>
+													</div>
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Lisa Miller</a> 
+																<span class="label label-important">In progress</span>
+															</div>
+															<div>19 Jan 2013 11:55PM</div>
+														</div>
+													</div>
+												</div>
+												<div class="row-fluid">
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div><a href="#">Eric Kim</a> <span class="label label-info">Pending</span>
+															</div>
+															<div>19 Jan 2013 12:45PM</div>
+														</div>
+													</div>
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Lisa Miller</a> 
+																<span class="label label-important">In progress</span>
+															</div>
+															<div>19 Jan 2013 11:55PM</div>
+														</div>
+													</div>
+												</div>
+												<div class="row-fluid">
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Eric Kim</a> 
+																<span class="label label-info">Pending</span>
+															</div>
+															<div>19 Jan 2013 12:45PM</div>
+														</div>
+													</div>
+													<div class="span6 user-info">
+														<img alt="" src="{{ _asset('assets/metronic/image/avatar.png') }}" />
+														<div class="details">
+															<div>
+																<a href="#">Lisa Miller</a> 
+																<span class="label label-important">In progress</span>
+															</div>
+															<div>19 Jan 2013 11:55PM</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row-fluid">
+					<div class="span6">
+						<div class="portlet box blue calendar">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-calendar"></i>Calendar</div>
+							</div>
+							<div class="portlet-body light-grey">
+								<div id="calendar">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="span6">
+						<div class="portlet">
+							<div class="portlet-title line">
+								<div class="caption"><i class="icon-comments"></i>Chats</div>
+								<div class="tools">
+									<a href="" class="collapse"></a>
+									<a href="#portlet-config" data-toggle="modal" class="config"></a>
+									<a href="" class="reload"></a>
+									<a href="" class="remove"></a>
+								</div>
+							</div>
+							<div class="portlet-body" id="chats">
+								<div class="scroller" data-height="435px" data-always-visible="1" data-rail-visible1="1">
+									<ul class="chats">
+										<li class="in">
+											<img class="avatar" alt="" src="{{ _asset('assets/metronic/image/avatar1.jpg') }}" />
+											<div class="message">
+												<span class="arrow"></span>
+												<a href="#" class="name">Bob Nilson</a>
+												<span class="datetime">at Jul 25, 2012 11:09</span>
+												<span class="body">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+												</span>
+											</div>
+										</li>
+										<li class="out">
+											<img class="avatar" alt="" src="{{ _asset('assets/metronic/image/avatar2.jpg') }}" />
+											<div class="message">
+												<span class="arrow"></span>
+												<a href="#" class="name">Lisa Wong</a>
+												<span class="datetime">at Jul 25, 2012 11:09</span>
+												<span class="body">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+												</span>
+											</div>
+										</li>
+										<li class="in">
+											<img class="avatar" alt="" src="{{ _asset('assets/metronic/image/avatar1.jpg') }}" />
+											<div class="message">
+												<span class="arrow"></span>
+												<a href="#" class="name">Bob Nilson</a>
+												<span class="datetime">at Jul 25, 2012 11:09</span>
+												<span class="body">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+												</span>
+											</div>
+										</li>
+										<li class="out">
+											<img class="avatar" alt="" src="{{ _asset('assets/metronic/image/avatar3.jpg') }}" />
+											<div class="message">
+												<span class="arrow"></span>
+												<a href="#" class="name">Richard Doe</a>
+												<span class="datetime">at Jul 25, 2012 11:09</span>
+												<span class="body">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+												</span>
+											</div>
+										</li>
+										<li class="in">
+											<img class="avatar" alt="" src="{{ _asset('assets/metronic/image/avatar3.jpg') }}" />
+											<div class="message">
+												<span class="arrow"></span>
+												<a href="#" class="name">Richard Doe</a>
+												<span class="datetime">at Jul 25, 2012 11:09</span>
+												<span class="body">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+												</span>
+											</div>
+										</li>
+										<li class="out">
+											<img class="avatar" alt="" src="{{ _asset('assets/metronic/image/avatar1.jpg') }}" />
+											<div class="message">
+												<span class="arrow"></span>
+												<a href="#" class="name">Bob Nilson</a>
+												<span class="datetime">at Jul 25, 2012 11:09</span>
+												<span class="body">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+												</span>
+											</div>
+										</li>
+										<li class="in">
+											<img class="avatar" alt="" src="{{ _asset('assets/metronic/image/avatar3.jpg') }}" />
+											<div class="message">
+												<span class="arrow"></span>
+												<a href="#" class="name">Richard Doe</a>
+												<span class="datetime">at Jul 25, 2012 11:09</span>
+												<span class="body">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+												sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+												</span>
+											</div>
+										</li>
+										<li class="out">
+											<img class="avatar" alt="" src="{{ _asset('assets/metronic/image/avatar1.jpg') }}" />
+											<div class="message">
+												<span class="arrow"></span>
+												<a href="#" class="name">Bob Nilson</a>
+												<span class="datetime">at Jul 25, 2012 11:09</span>
+												<span class="body">
+												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. sed diam nonummy nibh euismod tincidunt ut laoreet.
+												</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="chat-form">
+									<div class="input-cont">   
+										<input class="m-wrap" type="text" placeholder="Type a message here..." />
+									</div>
+									<div class="btn-cont"> 
+										<span class="arrow"></span>
+										<a href="" class="btn blue icn-only"><i class="icon-ok icon-white"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>  
+	</div>
+</div>
 @stop
 
 @section('extraPlugin')
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ _asset('back/dist/css/AdminLTE.min.css') }}">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="{{ _asset('lib/icheck-1.x/skins/flat/blue.css') }}">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="{{ _asset('lib/morris/morris.css') }}">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="{{ _asset('lib/jvectormap/jquery-jvectormap-1.2.2.css') }}">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="{{ _asset('lib/datepicker/datepicker3.css') }}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{ _asset('lib/daterangepicker/daterangepicker.css') }}">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{ _asset('lib/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  
-    <!--引入layer插件-->
-    <!-- ./wrapper -->
-    <!-- jQuery UI 1.11.4 -->
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <!-- Morris.js charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="{{ _asset('lib/morris/morris.min.js') }}"></script>
-    <!-- Sparkline -->
-    <script src="{{ _asset('lib/sparkline/jquery.sparkline.min.js') }}"></script>
-    <!-- jvectormap -->
-    <script src="{{ _asset('lib/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-    <script src="{{ _asset('lib/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="{{ _asset('lib/knob/jquery.knob.js') }}"></script>
-    <!-- daterangepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    <script src="{{ _asset('lib/daterangepicker/daterangepicker.js') }}"></script>
-    <!-- datepicker -->
-    <script src="{{ _asset('lib/datepicker/bootstrap-datepicker.js') }}"></script>
-    <!-- Bootstrap WYSIHTML5 -->
-    <script src="{{ _asset('lib/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-    <!-- FastClick -->
-  	<script src="{{ _asset(ref('fastclick.js')) }}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ _asset('back/dist/js/pages/dashboard.js') }}"></script>
+@parent
+<script src="{{ _asset('assets/metronic/js/jquery.vmap.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.vmap.russia.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.vmap.world.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.vmap.europe.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.vmap.germany.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.vmap.usa.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.vmap.sampledata.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.flot.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.flot.resize.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.pulsate.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/date.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/daterangepicker.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.gritter.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/fullcalendar.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.easy-pie-chart.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/js/index.js') }}" type="text/javascript"></script>
 @stop
 
 @section('filledScript')
-	
-	$.widget.bridge('uibutton', $.ui.button);
-
+<script>
+jQuery(document).ready(function() {    
+   App.init(); // initlayout and core plugins
+   Index.init();
+   Index.initJQVMAP(); // init index page's custom scripts
+   Index.initCalendar(); // init index page's custom scripts
+   Index.initCharts(); // init index page's custom scripts
+   Index.initChat();
+   Index.initMiniCharts();
+   Index.initDashboardDaterange();
+   Index.initIntro();
+});
+</script>
 @stop
