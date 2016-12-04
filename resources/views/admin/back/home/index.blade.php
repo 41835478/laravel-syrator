@@ -1,4 +1,4 @@
-@extends('admin.layout._back')
+@extends('_layout._common')
 
 @section('content-header')
 @parent
