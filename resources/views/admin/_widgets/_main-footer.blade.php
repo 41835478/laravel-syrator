@@ -1,4 +1,13 @@
 {{-- widget._main-footer --}}
-<div class="copyright">
-	2016 &copy; Syrator by recoding.
+<div class="footer">
+	<div class="container">
+		<div class="footer-inner">
+			2016 &copy; Syrator by recoding.
+		</div>
+		<div class="footer-tools">
+			<span class="go-top">
+				<i class="icon-angle-up"></i>
+			</span>
+		</div>
+	</div>
 </div>

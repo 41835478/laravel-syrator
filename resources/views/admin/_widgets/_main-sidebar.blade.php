@@ -16,7 +16,7 @@
 		<li class="start active ">
 			<a href="index.html">
 			<i class="icon-home"></i> 
-			<span class="title">ddd</span>
+			<span class="title">控制台</span>
 			<span class="selected"></span>
 			</a>
 		</li>

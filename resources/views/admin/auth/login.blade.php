@@ -9,7 +9,7 @@
 
 @section('content-footer')
 @parent
-@include('admin._widgets._main-footer')
+@include('admin._widgets._login-footer')
 @stop
 
 @section('content')
