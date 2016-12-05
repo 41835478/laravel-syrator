@@ -13,62 +13,61 @@
 @stop
 
 @section('content')
-@if (count($errors) > 0)
-<div class="alert alert-danger alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <h4><i class="icon fa fa-ban"></i> 警告!</h4>
-    <p>{!! $errors->first('attempt') !!}</p>
-</div>
-@endif
 <div class="logo">
 	<img src="{{ _asset('assets/metronic/image/logo-big.png') }}" alt="" /> 
 </div>
 <div class="content">
 	<form class="form-vertical login-form" method="post" action="{{ site_url('auth/login', 'admin') }}">
 		{{ csrf_field() }}
-		<h3 class="form-title">Login to your account</h3>
+		<h3 class="form-title" style="text-align: center">登录后台管理系统</h3>
+		@if (count($errors) > 0)
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+            <h4><i class="icon fa fa-ban"></i> 警告!</h4>
+            <p>{!! $errors->first('attempt') !!}</p>
+        </div>
+        @endif
 		<div class="alert alert-error hide">
 			<button class="close" data-dismiss="alert"></button>
-			<span>Enter any username and password.</span>
+			<span>请输入用户名和密码</span>
 		</div>
 		<div class="control-group">
-			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-			<label class="control-label visible-ie8 visible-ie9">Username</label>
+			<label class="control-label visible-ie8 visible-ie9">用户名</label>
 			<div class="controls">
 				<div class="input-icon left">
 					<i class="icon-user"></i>
-					<input class="m-wrap placeholder-no-fix" type="text" placeholder="username" name="username"/>
+					<input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="username"/>
 				</div>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label visible-ie8 visible-ie9">Password</label>
+			<label class="control-label visible-ie8 visible-ie9">密码</label>
 			<div class="controls">
 				<div class="input-icon left">
 					<i class="icon-lock"></i>
-					<input class="m-wrap placeholder-no-fix" type="password" placeholder="password" name="password"/>
+					<input class="m-wrap placeholder-no-fix" type="password" placeholder="密码" name="password"/>
 				</div>
 			</div>
 		</div>
 		<div class="form-actions">
 			<label class="checkbox">
-			<input type="checkbox" name="remember" value="1"/> Remember me
+			<input type="checkbox" name="remember" value="1"/> 记住我
 			</label>
 			<button type="submit" class="btn green pull-right">
-			Login <i class="m-icon-swapright m-icon-white"></i>
+			登录 <i class="m-icon-swapright m-icon-white"></i>
 			</button>            
 		</div>
 		<div class="forget-password">
-			<h4>Forgot your password ?</h4>
+			<h4>忘记密码 ?</h4>
 			<p>
-				no worries, click <a href="javascript:;" class="" id="forget-password">here</a>
-				to reset your password.
+				不必担心, 点击 <a href="javascript:;" class="" id="forget-password">这里</a>
+				重置您的密码.
 			</p>
 		</div>
 		<div class="create-account">
 			<p>
-				Don't have an account yet ?&nbsp; 
-				<a href="javascript:;" id="register-btn" class="">Create an account</a>
+				尚未账号 ?&nbsp; 
+				<a href="javascript:;" id="register-btn" class="">现在就去注册</a>
 			</p>
 		</div>
 	</form>
@@ -85,7 +84,6 @@
 <script>
 jQuery(document).ready(function() {     
   App.init();
-  Login.init();
 });
 </script>
 @stop
