@@ -2,7 +2,7 @@
 <div class="header navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container-fluid">
-			<a class="brand" href="index.html">
+			<a class="brand" href="{{ site_url('home', 'admin') }}">
 			<img src="{{ _asset('assets/metronic/image/logo.png') }}" alt="logo"/>
 			</a>
 			<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
