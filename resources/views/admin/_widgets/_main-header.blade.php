@@ -2,7 +2,6 @@
 <div class="header navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container-fluid">
-			<!-- BEGIN LOGO -->
 			<a class="brand" href="index.html">
 			<img src="{{ _asset('assets/metronic/image/logo.png') }}" alt="logo"/>
 			</a>

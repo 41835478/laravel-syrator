@@ -27,7 +27,6 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
     });
 
     Route::group(['prefix' => '', 'middleware' => ['multi-site.auth:admin']], function () {
-
         // 后台首页：控制台
         Route::get('home', 'HomeController@getIndex');
 
@@ -39,7 +38,6 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
         
         // 系统管理
         Route::group(['prefix' => 'system', 'namespace' => 'System'], function () {
-
             // 重建缓存
             Route::any('cache', 'AssistantController@getRebuildCache');
         
