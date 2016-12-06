@@ -2,11 +2,7 @@
 
 @section('head_css')
 @parent
-<link href="{{ _asset('assets/metronic/css/jquery.gritter.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('assets/metronic/css/daterangepicker.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('assets/metronic/css/fullcalendar.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('assets/metronic/css/jqvmap.css') }}" rel="stylesheet" type="text/css" media="screen" />
-<link href="{{ _asset('assets/metronic/css/jquery.easy-pie-chart.css') }}" rel="stylesheet" type="text/css" media="screen" />
+
 @stop
 
 @section('body_attr') class="page-header-fixed" @stop
@@ -57,42 +53,38 @@
 					</ul>
 				</div>
 			</div>
-			<div id="dashboard">
-				<div class="row-fluid">
-					@if(!empty($message))
-                    <div class="alert alert-success alert-dismissable">
-                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    	<h4>
-                    		<i class="icon fa fa-check"></i> 提示！
-                    	</h4>
-                    	{{ $message }}
-                    </div>
-                    @endif
-                    
-                    <form method="post" action="{{ site_url('system/cache', 'admin') }}" accept-charset="utf-8">
-                    	{!! csrf_field() !!}
-                    	<div class="nav-tabs-custom">
-                    		
-                    		<ul class="nav nav-tabs">
-                    			<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">重建缓存</a></li>
-                    		</ul>
-                    		
-                    		<div class="tab-content">    		
-                    			<div class="tab-pane active" id="tab_1">                    
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <input type="checkbox" name="isCache" checked="">  重新建立缓存(更新内容或者刚安装完本系统之后，如果数据显示异常，请执行本方法)
-                                        </div>
+			<div class="row-fluid">
+				<div class="tabbable tabbable-custom tabbable-full-width">
+					<ul class="nav nav-tabs">
+						<li class="active"><a data-toggle="tab" href="#tab_1">重建缓存</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="tab_1" class="tab-pane active">
+							<div class="row-fluid">	
+								<div class="span8 booking-search">						
+                					@if(!empty($message))
+                                    <div class="alert alert-success alert-dismissable">
+                                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                                    	<h4>
+                                    		<i class="icon fa fa-check"></i> 提示！
+                                    	</h4>
+                                    	{{ $message }}
                                     </div>
-                                </div><!-- /.tab-pane -->
-                                
-                                <button type="submit" class="btn btn-primary">立即更新缓存</button>
-                            </div><!-- /.tab-content -->
-                        </div>
-                    </form>
-				</div>
+                                    @endif
+									<form method="post" action="{{ site_url('system/cache', 'admin') }}" accept-charset="utf-8">
+										{!! csrf_field() !!}
+										<div class="clearfix margin-bottom-10">
+											<input type="checkbox" name="isCache" checked="">  重新建立缓存(更新内容或者刚安装完本系统之后，如果数据显示异常，请执行本方法)
+										</div>
+										<button type="submit" class="btn purple">立即更新缓存 </button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>        
 			</div>
-		</div>  
+		</div>
 	</div>
 </div>
 @stop
