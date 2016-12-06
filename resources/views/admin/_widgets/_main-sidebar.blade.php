@@ -13,7 +13,7 @@
 				</div>
 			</form>
 		</li>
-		<li class="start active ">
+		<li class="">
 			<a href="{{ site_url('home', 'admin') }}">
 				<i class="icon-home"></i><span class="title">控制台</span><span class="selected"></span>
 			</a>
@@ -68,3 +68,30 @@
 		</li>
 	</ul>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+    var url_path_array = window.location.pathname.split( '/' );
+    var current_url = '//' + window.location.host + window.location.pathname;
+
+    var current_li = $('ul.page-sidebar-menu>li').find('a[href="'+current_url+'"]').closest('li');
+    if (current_li!=null) {
+    	current_li.addClass('active');
+    }
+
+    var current_parent = current_li.parent().parent();
+    if (current_parent!=null) {
+        current_parent.addClass('active');
+
+    	var current_parent_a = current_parent.children('a');
+    	if (current_parent_a!=null) {
+        	// 添加状态
+        	var spanObj = document.createElement('span');
+        	spanObj.className = "selected";
+    		current_parent_a.append(spanObj);
+
+    		// 修改箭头指向
+    		current_parent_a.children('span.arrow').addClass("open");
+    	}
+    }
+});
+</script>
