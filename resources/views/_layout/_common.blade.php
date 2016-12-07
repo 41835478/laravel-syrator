@@ -9,6 +9,8 @@
 	<link href="{{ _asset(ref('style-responsive.css')) }}" rel="stylesheet" type="text/css"/>
 	<link href="{{ _asset(ref('default.css')) }}" rel="stylesheet" type="text/css" id="style_color"/>
 	<link href="{{ _asset(ref('uniform.default.css')) }}" rel="stylesheet" type="text/css"/>
+
+	<link href="{{ _asset(ref('syrator.css')) }}" rel="stylesheet" type="text/css"/>
 @stop
 
 @section('head_js')
@@ -26,6 +28,8 @@
 	<script src="{{ _asset(ref('jquery.cookie.js')) }}" type="text/javascript"></script>
 	<script src="{{ _asset(ref('jquery.uniform.js')) }}" type="text/javascript" ></script>
 	<!-- END CORE PLUGINS -->
+	
+	<script src="{{ _asset(ref('syrator.js')) }}" type="text/javascript" ></script>
 @stop
 
 @section('body')

@@ -102,6 +102,9 @@ return [
             'jquery.uniform.js'             => 'assets/metronic/js/jquery.uniform.min.js',
             
             'app.js'                        => 'assets/metronic/js/app.js',
+
+            'syrator.css'                   => 'assets/css/syrator.css',
+            'syrator.js'                    => 'assets/js/syrator.js',
             
             #相关插件样式和js            
             'icheck.js'                     => 'lib/icheck-1.x/icheck.min.js',

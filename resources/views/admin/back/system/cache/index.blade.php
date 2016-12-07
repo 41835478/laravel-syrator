@@ -2,7 +2,6 @@
 
 @section('head_css')
 @parent
-
 @stop
 
 @section('body_attr') class="page-header-fixed" @stop
@@ -33,9 +32,7 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span12">
-					<h3 class="page-title">
-						重建缓存  <small> 清理系统缓存</small>
-					</h3>
+					<h3 class="page-title">重建缓存  <small> 清理系统缓存</small></h3>
 					<ul class="breadcrumb">
 						<li>
 							<i class="icon-home"></i>
