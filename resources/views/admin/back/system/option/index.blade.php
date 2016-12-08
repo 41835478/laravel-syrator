@@ -67,8 +67,7 @@
                         <h4>  <i class="icon fa fa-check"></i> 提示！</h4>
                         {{ session('message') }}
                     </div>
-                    @endif
-					<p class="text-red">请在超级管理员协助下修改系统配置选项，错误或不合理的修改可能会造成系统运行错误。本表单不对数据做任何校验处理，请务必输入正确与合法的数据。</p>	  
+                    @endif  
 					<div class="portlet box blue tabbable">
 						<div class="portlet-title">
 							<div class="caption">
@@ -84,8 +83,8 @@
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active" id="portlet_tab1">
-										<form method="post" action="{{ _route('admin:system.option') }}" class="form-horizontal" accept-charset="utf-8" >
-											{!! method_field('put') !!}
+										<form method="post" action="{{ _route('admin:system.option') }}" class="form-horizontal" accept-charset="utf-8" id="formTab1">
+											{!! method_field('put') !!} 
                                             {!! csrf_field() !!}
 											<div class="control-group">
 												<label class="control-label">网站标题</label>
@@ -139,17 +138,17 @@
         										<div class="controls">
         											<div class="fileupload fileupload-new" data-provides="fileupload">
         												<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-        													<img src="" alt="" />
+        													<img src="{{ $data['picture_watermark'] }}" alt="" />
         												</div>
         												<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
         												<div>
         													<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
         													<span class="fileupload-exists">修改</span>
-        													<input type="file" class="default" /></span>
-        													<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
+        													<input type="file" class="default" name="picture" id="inputPictureFile"/></span>
+        													<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>        													
+        													<button type="submit" class="btn fileupload-exists" id="uploadSubmit">上传</button>
         												</div>
-        											</div>
-                                                	<input type="text" class="form-control" id="picture_watermark" name="data[picture_watermark]" value="{{ $data['picture_watermark'] }}" placeholder="水印图片地址：如{{ url('') }}/assets/img/syrator_logo.png" readonly="readonly">
+        											</div>                                                	
         										</div>
         									</div>
 											<div class="control-group">
@@ -160,7 +159,7 @@
 												</div>
 											</div>										
 											<div class="form-actions">
-												<button type="submit" class="btn blue"><i class="icon-ok"></i> 更新配置</button>
+												<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新配置</button>
 											</div>
 										</form>										
 									</div>
@@ -168,7 +167,6 @@
 										<form>
 										</form>
 									</div>
-									<div id="layerPreviewPic" class="fn-hide"></div>
 								</div>
 							</div>
 						</div>
@@ -182,17 +180,40 @@
 
 @section('extraPlugin')
 @parent
-<script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
+<script type="text/javascript" src="{{ _asset(ref('lib.form.js')) }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/bootstrap-fileupload.js') }}"></script>
+<script type="text/javascript" src="{{ _asset('assets/metronic/js/form-components.js') }}"></script>
 @stop
 
 @section('filledScript')
 <script>
 jQuery(document).ready(function() {    
-   App.init();
-   FormComponents.init();
-});
+    App.init();
+    FormComponents.init();
 
-@include('admin.scripts.endSinglePic')
+    //ajax form拦截提交事件
+    $('#uploadSubmit').click(function(){
+    	var filePicture = $("#inputPictureFile").val();
+  	  	var data = $('#formTab1').serialize();  
+        var options = {
+            type: 'post', 
+            url: "{{ _route('admin:upload.picture.store') }}", 
+            dataType: 'json',
+            data: data,
+            timeout: 3000,
+            success: function (data) {
+                alert('成功');
+            },
+            error: function(){
+                alert('失败');
+            }
+        };
+        $('#formTab1').ajaxForm(options);
+    });
+
+    $('#updateOptions1').click(function(){
+    	$('#formTab1').submit();
+    });
+});
 </script>
 @stop

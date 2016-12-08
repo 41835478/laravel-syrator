@@ -446,20 +446,20 @@ var FormComponents = function () {
     return {
         //main function to initiate the module
         init: function () {
-            handleWysihtml5();
-            handleToggleButtons();
-            handleTagsInput();
-            handlejQueryUIDatePickers();
-            handleDatePickers();
-            handleTimePickers();
-            handleDatetimePicker();
-            handleDateRangePickers();
-            handleClockfaceTimePickers();
-            handleColorPicker();
-            handleSelec2();
-            handleInputMasks();
-            handleIPAddressInput();
-            handleMultiSelect();
+//            handleWysihtml5();
+//            handleToggleButtons();
+//            handleTagsInput();
+//            handlejQueryUIDatePickers();
+//            handleDatePickers();
+//            handleTimePickers();
+//            handleDatetimePicker();
+//            handleDateRangePickers();
+//            handleClockfaceTimePickers();
+//            handleColorPicker();
+//            handleSelec2();
+//            handleInputMasks();
+//            handleIPAddressInput();
+//            handleMultiSelect();
 
             App.addResponsiveHandler(function(){
                 resetWysihtml5();

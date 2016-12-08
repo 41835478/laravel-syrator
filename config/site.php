@@ -106,7 +106,9 @@ return [
             'syrator.css'                   => 'assets/css/syrator.css',
             'syrator.js'                    => 'assets/js/syrator.js',
             
-            #相关插件样式和js            
+            #相关插件样式和js                  
+            'lib.form.js'                   => 'lib/form/jquery.form.js',
+            
             'icheck.js'                     => 'lib/icheck-1.x/icheck.min.js',
             'icheck_all.css'                => 'lib/icheck-1.x/skins/all.css',
             'icheck_blue.css'               => 'lib/icheck-1.x/skins/square/blue.css',
@@ -124,9 +126,7 @@ return [
             
             'ckeditor.js'                   => 'lib/ckeditor/ckeditor.js',
             
-            'my97datepicker.js'             => 'lib/My97DatePicker/WdatePicker.js',           
-            
-            'form.js'                       => 'lib/form/jquery.form.js',
+            'my97datepicker.js'             => 'lib/My97DatePicker/WdatePicker.js',     
             
             'jquery.dataTables.min.js'      => 'lib/datatables/jquery.dataTables.min.js',
             'dataTables.bootstrap.min.js'   => 'lib/datatables/dataTables.bootstrap.min.js',
