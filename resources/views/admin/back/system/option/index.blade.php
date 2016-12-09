@@ -144,10 +144,11 @@
         												<div>
         													<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
         													<span class="fileupload-exists">修改</span>
-        													<input type="file" class="default" name="picture" id="inputPictureFile"/></span>
-        													<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>        													
-        													<button type="submit" class="btn fileupload-exists" id="uploadSubmit">上传</button>
+        													<input type="file" class="default" name="picturefile" id="inputPictureFile" accept=".jpg,.png,.gif,.bmp" /></span>
+        													<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
+        													<a id="uploadSubmit" class="btn fileupload-exists">上传</a>
         												</div>
+        												<input type="hidden" id="picture_watermark" name="data[picture_watermark]" value="{{ $data['picture_watermark'] }}">
         											</div>                                                	
         										</div>
         									</div>
@@ -180,7 +181,6 @@
 
 @section('extraPlugin')
 @parent
-<script type="text/javascript" src="{{ _asset(ref('lib.form.js')) }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/bootstrap-fileupload.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/form-components.js') }}"></script>
 @stop
@@ -191,28 +191,29 @@ jQuery(document).ready(function() {
     App.init();
     FormComponents.init();
 
-    //ajax form拦截提交事件
+    //ajax
     $('#uploadSubmit').click(function(){
-    	var filePicture = $("#inputPictureFile").val();
-  	  	var data = $('#formTab1').serialize();  
-        var options = {
+        var resultFile = $("#inputPictureFile").get(0).files[0];    	  	
+    	var formData = new FormData();
+    	formData.append("_token",$('meta[name="_token"]').attr('content'));
+    	formData.append("picture",resultFile,resultFile.name);
+    	var options = {
             type: 'post', 
             url: "{{ _route('admin:upload.picture.store') }}", 
             dataType: 'json',
-            data: data,
+            processData: false,
+            contentType: false,
+            data: formData,
             timeout: 3000,
             success: function (data) {
-                alert('成功');
+                alert('上传成功');
+                $("#picture_watermark")[0].value = data.info;
             },
             error: function(){
-                alert('失败');
+                alert('上传失败');
             }
         };
-        $('#formTab1').ajaxForm(options);
-    });
-
-    $('#updateOptions1').click(function(){
-    	$('#formTab1').submit();
+        $.ajax(options);
     });
 });
 </script>
