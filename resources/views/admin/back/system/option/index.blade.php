@@ -71,7 +71,6 @@
 					<div class="portlet box blue tabbable">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="icon-reorder"></i>
 								<span class="hidden-480">参数配置</span>
 							</div>
 						</div>
