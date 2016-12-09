@@ -56,20 +56,17 @@
 				<div class="span6 responsive" data-tablet="span12 fix-offset" data-desktop="span6">
 					<div class="portlet box grey">
 						<div class="portlet-title">
-							<div class="caption"><i class="icon-user"></i>日志列表</div>
+							<div class="caption">日志列表</div>
 							<div class="actions">
-								<a href="#" class="btn blue"><i class="icon-pencil"></i> Add</a>
+								<a href="#" class="btn blue"><i class="icon-pencil"></i> 新增</a>
 								<div class="btn-group">
 									<a class="btn green" href="#" data-toggle="dropdown">
-									<i class="icon-cogs"></i> Tools
+									<i class="icon-cogs"></i> 操作
 									<i class="icon-angle-down"></i>
 									</a>
 									<ul class="dropdown-menu pull-right">
-										<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
-										<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
-										<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
-										<li class="divider"></li>
-										<li><a href="#"><i class="i"></i> Make admin</a></li>
+										<li><a href="#"><i class="icon-pencil"></i> 编辑</a></li>
+										<li><a href="#"><i class="icon-trash"></i> 删除</a></li>
 									</ul>
 								</div>
 							</div>
@@ -79,9 +76,9 @@
 								<thead>
 									<tr>
 										<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" /></th>
-										<th>Username</th>
-										<th class="hidden-480">Email</th>
-										<th class="hidden-480">Status</th>
+										<th>用户名</th>
+										<th class="hidden-480">邮箱</th>
+										<th class="hidden-480">状态</th>
 									</tr>
 								</thead>
 								<tbody>
