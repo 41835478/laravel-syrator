@@ -57,103 +57,34 @@
 					<div class="portlet box grey">
 						<div class="portlet-title">
 							<div class="caption">日志列表</div>
-							<div class="actions">
-								<a href="#" class="btn blue"><i class="icon-pencil"></i> 新增</a>
-								<div class="btn-group">
-									<a class="btn green" href="#" data-toggle="dropdown">
-									<i class="icon-cogs"></i> 操作
-									<i class="icon-angle-down"></i>
-									</a>
-									<ul class="dropdown-menu pull-right">
-										<li><a href="#"><i class="icon-pencil"></i> 编辑</a></li>
-										<li><a href="#"><i class="icon-trash"></i> 删除</a></li>
-									</ul>
-								</div>
-							</div>
 						</div>
 						<div class="portlet-body">
 							<table class="table table-striped table-bordered table-hover" id="sample_2">
 								<thead>
 									<tr>
-										<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" /></th>
-										<th>用户名</th>
-										<th class="hidden-480">邮箱</th>
-										<th class="hidden-480">状态</th>
+										<th style="width:8px;text-align: center;"><input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" /></th>			
+                                        <th style="width:45px;text-align: center;">类型</th>
+										<th>操作者</th>
+                                        <th class="hidden-480" style="width:80px;text-align: center;">操作者IP</th>
+                                        <th class="hidden-480" style="width:200px;text-align: center;">操作URL</th>
+                                        <th class="hidden-480" style="text-align: center;">操作内容</th>
+                                        <th style="width:80px;text-align: center;">操作时间</th>
+                                        <th class="hidden-480" style="width:45px;text-align: center;">查阅</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>shuxer</td>
-										<td class="hidden-480"><a href="mailto:shuxer@gmail.com">shuxer@gmail.com</a></td>
-										<td><span class="label label-success">Approved</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>looper</td>
-										<td class="hidden-480"><a href="mailto:looper90@gmail.com">looper90@gmail.com</a></td>
-										<td><span class="label label-warning">Suspended</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>userwow</td>
-										<td class="hidden-480"><a href="mailto:userwow@yahoo.com">userwow@yahoo.com</a></td>
-										<td><span class="label label-success">Approved</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>user1wow</td>
-										<td class="hidden-480"><a href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-										<td><span class="label label-inverse">Blocked</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>restest</td>
-										<td class="hidden-480"><a href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-										<td><span class="label label-success">Approved</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>foopl</td>
-										<td class="hidden-480"><a href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-										<td><span class="label label-success">Approved</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>weep</td>
-										<td class="hidden-480"><a href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-										<td><span class="label label-success">Approved</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>coop</td>
-										<td class="hidden-480"><a href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-										<td><span class="label label-success">Approved</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>pppol</td>
-										<td class="hidden-480"><a href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-										<td><span class="label label-success">Approved</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>test</td>
-										<td class="hidden-480"><a href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-										<td><span class="label label-success">Approved</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>userwow</td>
-										<td class="hidden-480"><a href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-										<td><span class="label label-inverse">Blocked</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="1" /></td>
-										<td>test</td>
-										<td class="hidden-480"><a href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-										<td><span class="label label-success">Approved</span></td>
-									</tr>
+                                    @foreach ($system_logs as $sys_log)
+                                    <tr class="odd gradeX">
+										<td><input type="checkbox" class="checkboxes" value="{{ $sys_log->id }}" /></td>
+                                        <td class="text-red">{{ dict('log_type.'.$sys_log->type) }}</td>
+                                        <td class="text-green">{{ $sys_log->username or '--' }} / {{ $sys_log->realname or '--' }}</td>
+                                        <td class="text-yellow">{{ $sys_log->operator_ip }}</td>
+                                        <td title="{{ $sys_log->url }}">{{ $sys_log->url }}</td>
+                                        <td title="{{ $sys_log->content }}">{{ str_limit($sys_log->content, 70, '...') }}</td>
+                                        <td>{{ $sys_log->created_at }}</td>
+                                        <td style="text-align: center;"><i class="icon-eye-open"></i></td>
+                                    </tr>
+                                    @endforeach
 								</tbody>
 							</table>
 						</div>
