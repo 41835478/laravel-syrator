@@ -144,9 +144,9 @@
         												<div>
         													<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
         													<span class="fileupload-exists">修改</span>
-        													<input type="file" class="default" name="picturefile" id="inputPictureFile" accept=".jpg,.png,.gif,.bmp" /></span>
+        													<input type="file" class="default" name="file_picture_watermark" id="file_picture_watermark" accept=".jpg,.png,.gif,.bmp" /></span>
         													<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
-        													<a id="uploadSubmit" class="btn fileupload-exists">上传</a>
+        													<a id="uploadSubmit_picture_watermark" class="btn fileupload-exists">上传</a>
         												</div>
         												<input type="hidden" id="picture_watermark" name="data[picture_watermark]" value="{{ $data['picture_watermark'] }}">
         											</div>                                                	
@@ -158,14 +158,56 @@
 													<label class="radio"><input type="radio" name="data[is_watermark]" value="0" {{($data['is_watermark'] === '0')?'checked':''}}/>否</label>
 													<label class="radio"><input type="radio" name="data[is_watermark]" value="1" {{($data['is_watermark'] === '1')?'checked':''}}/>是</label>   
 												</div>
-											</div>										
+											</div>
 											<div class="form-actions">
 												<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新配置</button>
 											</div>
 										</form>										
 									</div>
 									<div class="tab-pane " id="portlet_tab2">
-										<form>
+										<form method="post" action="{{ _route('admin:system.option') }}" class="form-horizontal" accept-charset="utf-8" id="formTab2">
+        									{!! method_field('put') !!} 
+                                            {!! csrf_field() !!}
+        									<div class="control-group">
+        										<label class="control-label">系统Logo</label>
+        										<div class="controls">
+        											<div class="fileupload fileupload-new" data-provides="fileupload">
+        												<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+        													<img src="{{ $data['system_logo'] }}" alt="" />
+        												</div>
+        												<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+        												<div>
+        													<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
+        													<span class="fileupload-exists">修改</span>
+        													<input type="file" class="default" name="file_system_logo" id="file_system_logo" accept=".jpg,.png,.gif,.bmp" /></span>
+        													<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
+        													<a id="uploadSubmit_system_logo" class="btn fileupload-exists">上传</a>
+        												</div>
+        												<input type="hidden" id="system_logo" name="data[system_logo]" value="{{ $data['system_logo'] }}">
+        											</div>
+        										</div>
+        									</div>
+											<div class="control-group">
+												<label class="control-label">系统版本号</label>
+												<div class="controls">
+													<input type="text" class="m-wrap large" name="data[system_version]" autocomplete="off" value="{{ $data['system_version'] }}" placeholder="系统版本号">
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">系统开发者</label>
+												<div class="controls">
+													<input type="text" class="m-wrap large" name="data[system_author]" autocomplete="off" value="{{ $data['system_author'] }}" placeholder="系统开发者">
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">系统开发者网站</label>
+												<div class="controls">
+													<input type="text" class="m-wrap large" name="data[system_author_website]" autocomplete="off" value="{{ $data['system_author_website'] }}" placeholder="系统开发者网站">
+												</div>
+											</div>
+											<div class="form-actions">
+												<button type="submit" class="btn blue" id="updateOptions2"><i class="icon-ok"></i> 更新配置</button>
+											</div>
 										</form>
 									</div>
 								</div>
@@ -192,8 +234,8 @@ jQuery(document).ready(function() {
     FormComponents.init();
 
     //ajax
-    $('#uploadSubmit').click(function(){
-        var resultFile = $("#inputPictureFile").get(0).files[0];    	  	
+    $('#uploadSubmit_picture_watermark').click(function(){
+        var resultFile = $("#file_picture_watermark").get(0).files[0];    	  	
     	var formData = new FormData();
     	formData.append("_token",$('meta[name="_token"]').attr('content'));
     	formData.append("picture",resultFile,resultFile.name);
@@ -208,6 +250,31 @@ jQuery(document).ready(function() {
             success: function (data) {
                 alert('上传成功');
                 $("#picture_watermark")[0].value = data.info;
+            },
+            error: function(){
+                alert('上传失败');
+            }
+        };
+        $.ajax(options);
+    });
+
+    //ajax
+    $('#uploadSubmit_system_logo').click(function(){
+        var resultFile = $("#file_system_logo").get(0).files[0];    	  	
+    	var formData = new FormData();
+    	formData.append("_token",$('meta[name="_token"]').attr('content'));
+    	formData.append("picture",resultFile,resultFile.name);
+    	var options = {
+            type: 'post', 
+            url: "{{ _route('admin:upload.picture.store') }}", 
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: formData,
+            timeout: 3000,
+            success: function (data) {
+                alert('上传成功');
+                $("#system_logo")[0].value = data.info;
             },
             error: function(){
                 alert('上传失败');
