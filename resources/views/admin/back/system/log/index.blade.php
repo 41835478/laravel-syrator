@@ -82,7 +82,11 @@
                                         <td title="{{ $sys_log->url }}">{{ $sys_log->url }}</td>
                                         <td title="{{ $sys_log->content }}">{{ str_limit($sys_log->content, 70, '...') }}</td>
                                         <td>{{ $sys_log->created_at }}</td>
-                                        <td style="text-align: center;"><i class="icon-eye-open"></i></td>
+                                        <td style="text-align: center;">                                        	
+                                        	<a href="{{ _route('admin:system.log.show', $sys_log->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;">
+                                        		<i class="icon-eye-open"></i>
+                                        	</a>
+                                        </td>
                                     </tr>
                                     @endforeach
 								</tbody>
@@ -102,6 +106,7 @@
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/table-managed.js') }}"></script>
+<script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
 @stop
 
 @section('filledScript')
@@ -109,6 +114,22 @@
 jQuery(document).ready(function() {    
     App.init();
     TableManaged.init();
+
+    $(document).on("click","a.layer_open",function(evt) {
+        evt.preventDefault();
+        var that = this;
+        var src = $(this).attr("href");
+        var title = $(this).data('title');
+        layer.tips('这是你当前查看的日志', that);
+        layer.open({
+            type: 2,
+            title: title,
+            shadeClose: false,
+            shade: 0,
+            area: ['450px', '300px'],
+            content: src //iframe的url
+        });
+    });
 });
 </script>
 @stop

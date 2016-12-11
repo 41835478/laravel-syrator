@@ -109,6 +109,8 @@ return [
             #相关插件样式和js                  
             'lib.form.js'                   => 'lib/form/jquery.form.js',
             
+            'layer.js'                      => 'lib/layer-2.x/layer.js',
+            
             'icheck.js'                     => 'lib/icheck-1.x/icheck.min.js',
             'icheck_all.css'                => 'lib/icheck-1.x/skins/all.css',
             'icheck_blue.css'               => 'lib/icheck-1.x/skins/square/blue.css',
@@ -118,8 +120,6 @@ return [
             'html5shiv.js'                  => 'lib/html5shiv/dist/html5shiv.min.js',
             
             'respond.js'                    => 'lib/respond/dest/respond.min.js',
-            
-            'layer.js'                      => 'lib/layer-2.x/layer.js',
             
             'chosen.js'                     => 'lib/chosen/chosen.jquery.min.js',
             'chosen.css'                    => 'lib/chosen/chosen.css',
