@@ -1,34 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>layer</title>
-    <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="{{ _asset(ref('bootstrap.css')) }}" />
-    <link href="{{ _asset('back/dist/css/syrator.css') }}" rel="stylesheet" type="text/css" />
+@extends('_layout._common')
 
-</head>
-<body>
-<div class="layerForm" style="margin: 10px;">
+@section('head_css')
+@parent
+<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/profile.css') }}" />
+@stop
 
-                <div class="box-header with-border">
-                  <p>系统日志详情</p>
-                  <div class="basic_info bg-info">
-                     <ul>
-                        <li>ID：<span class="text-muted">{{ $sys_log->id }}</span></li>
-                        <li>操作者：<span class="text-green">{{ $sys_log->user->username or '--' }} / {{ $sys_log->user->realname or '--' }}</span></li>
-                        <li>
-                            类型：
-                            <span class="text-yellow">
-                            {{ dict('log_type.'.$sys_log->type) }}
-                            </span>
-                        </li>
-                        <li>操作URL：<b>{{ $sys_log->url }}</b></li>
-                        <li>操作内容：<b class="text-red">{{ $sys_log->content }}</b></li>
-                        <li>操作时间：<span class="text-info">{{ $sys_log->created_at }}</span></li>
-                    </ul>
-                  </div>
-                </div><!-- /.box-header -->
+@section('body_attr') class="page-header-fixed" @stop
+
+@section('content')
+<div class="page-container row-fluid">
+	<div class="page-content" style="height:220px;min-height:220px;">
+		<div class="container-fluid">
+			<div class="row-fluid profile">
+				<div class="span12">
+					<div class="portlet-body form">
+						<table class="table table-hover table-striped table-bordered" style="margin-bottom: 0px;">
+							<tbody>
+    							<tr>
+    								<td style="width: 80px;">ID：</td>
+    								<td>{{ $sys_log->id }}</td>
+    							</tr>
+    							<tr>
+    								<td>操作者：</td>
+    								<td>{{ $sys_log->user->username or '--' }} / {{ $sys_log->user->realname or '--' }}</td>
+    							</tr>
+    							<tr>
+    								<td>类型：</td>
+    								<td>{{ dict('log_type.'.$sys_log->type) }}</td>
+    							</tr>
+    							<tr>
+    								<td>操作URL：</td>
+    								<td>{{ $sys_log->url }}</td>
+    							</tr>
+    							<tr>
+    								<td>操作内容：</td>
+    								<td>{{ $sys_log->content }}</td>
+    							</tr>
+    							<tr>
+    								<td>操作时间：</td>
+    								<td>{{ $sys_log->created_at }}</td>
+    							</tr>
+    						</tbody>
+						</table>					
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>  
 </div>
-</body>
-</html>
+@stop

@@ -83,7 +83,7 @@
                                         <td title="{{ $sys_log->content }}">{{ str_limit($sys_log->content, 70, '...') }}</td>
                                         <td>{{ $sys_log->created_at }}</td>
                                         <td style="text-align: center;">                                        	
-                                        	<a href="{{ _route('admin:system.log.show', $sys_log->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;">
+                                        	<a data-title="{{ dict('log_type.'.$sys_log->type) }}" href="{{ _route('admin:system.log.show', $sys_log->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;">
                                         		<i class="icon-eye-open"></i>
                                         	</a>
                                         </td>
@@ -126,8 +126,8 @@ jQuery(document).ready(function() {
             title: title,
             shadeClose: false,
             shade: 0,
-            area: ['450px', '300px'],
-            content: src //iframe的url
+            area: ['480px', '283px'],
+            content: src
         });
     });
 });
