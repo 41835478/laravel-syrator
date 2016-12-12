@@ -120,7 +120,6 @@ jQuery(document).ready(function() {
         var that = this;
         var src = $(this).attr("href");
         var title = $(this).data('title');
-        layer.tips('这是你当前查看的日志', that);
         layer.open({
             type: 2,
             title: title,

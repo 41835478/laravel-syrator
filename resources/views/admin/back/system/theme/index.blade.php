@@ -88,10 +88,16 @@
                     					@endif
                     					<td style="text-align:center;">{{ $per->created_at }}</td>
                     					<td style="text-align:center;">{{ $per->updated_at }}</td>
-                                        <td style="text-align:center;">
-                                        	<a class="edit" href="javascript:;"><i class="icon-eye-open"></i>Edit</a>
-                                        	<a class="edit" href="javascript:;"><i class="icon-eye-open"></i>Edit</a>
-                                        	<a class="edit" href="javascript:;"><i class="icon-eye-open"></i>Edit</a>
+                    					<td style="text-align: center;">                                        	
+                                        	<a data-title="{{ $per->name }}" href="{{ _route('admin:system.theme.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        		<i class="icon-eye-open"></i>
+                                        	</a>
+                                        	<a data-title="{{ $per->name }}" href="{{ _route('admin:system.theme.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        		<i class="icon-edit"></i>
+                                        	</a>
+                                        	<a data-title="{{ $per->name }}" href="{{ _route('admin:system.theme.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        		<i class="icon-remove"></i>
+                                        	</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -112,6 +118,7 @@
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/table-managed.js') }}"></script>
+<script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
 @stop
 
 @section('filledScript')
@@ -119,6 +126,21 @@
 jQuery(document).ready(function() {    
     App.init();
     TableManaged.init();
+
+    $(document).on("click","a.layer_open",function(evt) {
+        evt.preventDefault();
+        var that = this;
+        var src = $(this).attr("href");
+        var title = $(this).data('title');
+        layer.open({
+            type: 2,
+            title: title,
+            shadeClose: false,
+            shade: 0,
+            area: ['480px', '283px'],
+            content: src
+        });
+    });
 });
 </script>
 @stop
