@@ -74,363 +74,60 @@
                     		@endforeach
                     	</ul>
                     </div>
-                    @endif   
-                    
-
-									<div class="portlet box blue ">
-
-										<div class="portlet-title">
-
-											<div class="caption">模板编辑</div>
-
-										</div>
-
-										<div class="portlet-body form">
-
-											<!-- BEGIN FORM-->
-
-											<form action="#" class="form-horizontal form-bordered form-label-stripped">
-
-												<div class="control-group">
-
-													<label class="control-label">First Name</label>
-
-													<div class="controls">
-
-														<input placeholder="small" class="m-wrap span12" type="text">
-
-														<span class="help-inline">This is inline help</span>
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Last Name</label>
-
-													<div class="controls">
-
-														<input placeholder="medium" class="m-wrap span12" type="text">
-
-														<span class="help-inline">This is inline help</span>
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Gender</label>
-
-													<div class="controls">
-
-														<select class="m-wrap span12">
-
-															<option value="">Male</option>
-
-															<option value="">Female</option>
-
-														</select>
-
-														<span class="help-block">Select your gender.</span>
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Date of Birth</label>
-
-													<div class="controls">
-
-														<input class="m-wrap span12" placeholder="dd/mm/yyyy" type="text">
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Category</label>
-
-													<div class="controls">
-
-														<div class="select2-wrapper">
-
-															<div class="select2-container span12 select2_category" id="s2id_autogen11"><a href="javascript:void(0)" onclick="return false;" class="select2-choice select2-default" tabindex="-1">   <span>Select an option</span><abbr class="select2-search-choice-close" style="display: none;"></abbr>   <div><b></b></div></a><input class="select2-focusser select2-offscreen" id="s2id_autogen12" type="text"><div class="select2-drop select2-with-searchbox" style="display:none">   <div class="select2-search">       <input autocomplete="off" class="select2-input" type="text">   </div>   <ul class="select2-results">   </ul></div></div><select class="span12 select2_category select2-offscreen" tabindex="-1">
-
-																<option value=""></option>
-
-																<option value="Category 1">Category 1</option>
-
-																<option value="Category 2">Category 2</option>
-
-																<option value="Category 3">Category 5</option>
-
-																<option value="Category 4">Category 4</option>
-
-															</select>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Multi-Value Select</label>
-
-													<div class="controls">
-
-														<div class="select2-wrapper">
-
-															<div class="select2-container select2-container-multi span12 select2_sample1" id="s2id_autogen19">    <ul class="select2-choices">  <li class="select2-search-field">    <input autocomplete="off" class="select2-input select2-default" id="s2id_autogen20" style="width: 0px;" type="text">  </li></ul><div class="select2-drop select2-drop-multi" style="display:none;">   <ul class="select2-results">   </ul></div></div><select class="span12 select2_sample1 select2-offscreen" multiple="" tabindex="-1">
-
-																<option value=""></option>
-
-																<optgroup label="NFC EAST">
-
-																	<option>Dallas Cowboys</option>
-
-																	<option>New York Giants</option>
-
-																	<option>Philadelphia Eagles</option>
-
-																	<option>Washington Redskins</option>
-
-																</optgroup>
-
-																<optgroup label="NFC NORTH">
-
-																	<option>Chicago Bears</option>
-
-																	<option>Detroit Lions</option>
-
-																	<option>Green Bay Packers</option>
-
-																	<option>Minnesota Vikings</option>
-
-																</optgroup>
-
-																<optgroup label="NFC SOUTH">
-
-																	<option>Atlanta Falcons</option>
-
-																	<option>Carolina Panthers</option>
-
-																	<option>New Orleans Saints</option>
-
-																	<option>Tampa Bay Buccaneers</option>
-
-																</optgroup>
-
-																<optgroup label="NFC WEST">
-
-																	<option>Arizona Cardinals</option>
-
-																	<option>St. Louis Rams</option>
-
-																	<option>San Francisco 49ers</option>
-
-																	<option>Seattle Seahawks</option>
-
-																</optgroup>
-
-																<optgroup label="AFC EAST">
-
-																	<option>Buffalo Bills</option>
-
-																	<option>Miami Dolphins</option>
-
-																	<option>New England Patriots</option>
-
-																	<option>New York Jets</option>
-
-																</optgroup>
-
-																<optgroup label="AFC NORTH">
-
-																	<option>Baltimore Ravens</option>
-
-																	<option>Cincinnati Bengals</option>
-
-																	<option>Cleveland Browns</option>
-
-																	<option>Pittsburgh Steelers</option>
-
-																</optgroup>
-
-																<optgroup label="AFC SOUTH">
-
-																	<option>Houston Texans</option>
-
-																	<option>Indianapolis Colts</option>
-
-																	<option>Jacksonville Jaguars</option>
-
-																	<option>Tennessee Titans</option>
-
-																</optgroup>
-
-																<optgroup label="AFC WEST">
-
-																	<option>Denver Broncos</option>
-
-																	<option>Kansas City Chiefs</option>
-
-																	<option>Oakland Raiders</option>
-
-																	<option>San Diego Chargers</option>
-
-																</optgroup>
-
-															</select>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Loading Data</label>
-
-													<div class="controls">
-
-														<div class="select2-wrapper">
-
-															<div class="select2-container span12 select2_sample2" id="s2id_autogen27"><a href="javascript:void(0)" onclick="return false;" class="select2-choice select2-default" tabindex="-1">   <span>Type to select an option</span><abbr class="select2-search-choice-close" style="display:none;"></abbr>   <div><b></b></div></a><input class="select2-focusser select2-offscreen" id="s2id_autogen28" type="text"><div class="select2-drop select2-with-searchbox" style="display:none">   <div class="select2-search">       <input autocomplete="off" class="select2-input" type="text">   </div>   <ul class="select2-results">   </ul></div></div><input class="span12 select2_sample2 select2-offscreen" tabindex="-1" type="hidden">
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Tags Support List</label>
-
-													<div class="controls">
-
-														<div class="select2-wrapper">
-
-															<div class="select2-container select2-container-multi span12 select2_sample3" id="s2id_autogen35">    <ul class="select2-choices">  <li class="select2-search-choice">    <div>red</div>    <a href="#" onclick="return false;" class="select2-search-choice-close" tabindex="-1"></a></li><li class="select2-search-choice">    <div>blue</div>    <a href="#" onclick="return false;" class="select2-search-choice-close" tabindex="-1"></a></li><li class="select2-search-field">    <input autocomplete="off" class="select2-input" id="s2id_autogen36" style="width: 10px;" type="text">  </li></ul><div class="select2-drop select2-drop-multi" style="display:none;">   <ul class="select2-results">   </ul></div></div><input class="span12 select2_sample3 select2-offscreen" value="red,blue" tabindex="-1" type="hidden">
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Membership</label>
-
-													<div class="controls">                                                
-
-														<label class="radio">
-
-														<div class="radio"><span><input name="optionsRadios2" value="option1" type="radio"></span></div>
-
-														Free
-
-														</label>
-
-														<label class="radio">
-
-														<div class="radio"><span class="checked"><input name="optionsRadios2" value="option2" checked="" type="radio"></span></div>
-
-														Professional
-
-														</label>  
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Street</label>
-
-													<div class="controls">
-
-														<input class="m-wrap span12" type="text">
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">City</label>
-
-													<div class="controls">
-
-														<input class="m-wrap span12" type="text"> 
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">State</label>
-
-													<div class="controls">
-
-														<input class="m-wrap span12" type="text"> 
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">Post Code</label>
-
-													<div class="controls">
-
-														<input class="m-wrap span12" type="text"> 
-
-													</div>
-
-												</div>
-
-												<div class="control-group last">
-
-													<label class="control-label">Country</label>
-
-													<div class="controls">
-
-														<select class="m-wrap span12"></select>
-
-													</div>
-
-												</div>
-
-												<div class="form-actions">
-
-													<button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
-
-													<button type="button" class="btn">Cancel</button>
-
-												</div>
-
-											</form>
-
-											<!-- END FORM-->  
-
-										</div>
-
+                    @endif
+                    <div class="portlet box blue ">
+                    	<div class="portlet-title">
+                    		<div class="caption">模板编辑</div>
+                    	</div>
+						<div class="portlet-body form">
+							<form method="post" action="{{ _route('admin:system.theme.update', $theme->id) }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+								{!! method_field('put') !!} 
+                                {!! csrf_field() !!}
+								<div class="control-group">
+									<label class="control-label">模板编码</label>
+									<div class="controls">										
+										<input type="text" class="m-wrap large" name="code" autocomplete="off" value="{{ old('code', isset($theme) ? $theme->code : null) }}" placeholder="模板编码 " readOnly="true">
+										<span class="help-inline"><small class="text-red">*</small>（编码创建后无法修改）</span>
 									</div>
-
-								                 
-					
+								</div>
+								<div class="control-group">
+									<label class="control-label">模板名称</label>
+									<div class="controls">										
+										<input type="text" class="m-wrap large" name="name" autocomplete="off" value="{{ old('name', isset($theme) ? $theme->name : null) }}" placeholder="模板名称">
+										<span class="help-inline"><small class="text-red">*</small></span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">模板描述</label>
+									<div class="controls">										
+										<textarea type="text" class="m-wrap large" name="description" autocomplete="off" value="{{ old('description', isset($theme) ? $theme->description : null) }}" placeholder="模板描述"></textarea>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">作者</label>
+									<div class="controls">										
+										<input type="text" class="m-wrap large" name="author" autocomplete="off" value="{{ old('author', isset($theme) ? $theme->author : null) }}" placeholder="作者">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">版本</label>
+									<div class="controls">										
+										<input type="text" class="m-wrap large" name="version" autocomplete="off" value="{{ old('version', isset($theme) ? $theme->version : null) }}" placeholder="版本">
+									</div>
+								</div>								
+								<div class="control-group">
+									<label class="control-label">是否使用</label>
+									<div class="controls">
+										<label class="radio"><input type="radio" name="is_current" value="0" {{($theme->is_current === '0')?'checked':''}}/>否</label>
+										<label class="radio"><input type="radio" name="is_current" value="1" {{($theme->is_current === '1')?'checked':''}}/>是</label>   
+									</div>
+								</div>
+								<div class="form-actions">
+									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 保存更改</button>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
