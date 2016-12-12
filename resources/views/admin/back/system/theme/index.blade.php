@@ -95,7 +95,7 @@
                                         	<a data-title="{{ $per->name }}" href="{{ _route('admin:system.theme.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-edit"></i>
                                         	</a>
-                                        	<a data-title="{{ $per->name }}" href="{{ _route('admin:system.theme.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-remove"></i>
                                         	</a>
                                         </td>
@@ -140,6 +140,23 @@ jQuery(document).ready(function() {
             area: ['480px', '283px'],
             content: src
         });
+    });
+
+    $(document).on("click","a.remove",function(evt) {
+        var itemId = $(this).attr("item-id");
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
+            $.post("{{ URL('admin/system/theme/remove') }}", {
+            	 _token:$('meta[name="_token"]').attr('content'),
+                 delId:itemId,
+            }, function(data){
+                 if(data.code == 200){
+                     alert(data.message);
+                     location.reload();
+                 } else {
+                     alert(data.message);
+                 }
+            },"json");
+      	}
     });
 });
 </script>
