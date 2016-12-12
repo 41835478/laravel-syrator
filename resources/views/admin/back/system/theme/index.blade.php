@@ -55,6 +55,29 @@
 			<div class="row-fluid">
 				<div class="span6 responsive" data-tablet="span12 fix-offset" data-desktop="span6">
 					<div class="portlet box grey">
+                        @if(session()->has('fail'))
+                        <div class="alert alert-warning alert-dismissable">
+                        	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        	<h4>
+                        		<i class="icon icon fa fa-warning"></i> 提示！
+                        	</h4>
+                        	{{ session('fail') }}
+                        </div>
+                        @endif 
+                        
+                        @if($errors->any())
+                        <div class="alert alert-danger alert-dismissable">
+                        	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        	<h4>
+                        		<i class="icon fa fa-ban"></i> 警告！
+                        	</h4>
+                        	<ul>
+                        		@foreach ($errors->all() as $error)
+                        		<li>{{ $error }}</li> 
+                        		@endforeach
+                        	</ul>
+                        </div>
+                        @endif
 						<div class="portlet-title">
 							<div class="caption">模板列表</div>
 						</div>
@@ -68,9 +91,9 @@
                                         <th class="hidden-480" style="width:80px;text-align:center;">作者</th>
                                         <th class="hidden-480" style="width:80px;text-align:center;">版本</th>
                                         <th class="hidden-480" style="width:75px;text-align:center;">是否使用</th>
-                                        <th style="width:125px;text-align:center;">创建日期</th>
-                                        <th style="width:125px;text-align:center;">更新日期</th>
-                                        <th class="hidden-480" style="width:120px;text-align:center;">操作</th>
+                                        <th style="width:150px;text-align:center;">创建日期</th>
+                                        <th style="width:150px;text-align:center;">更新日期</th>
+                                        <th class="hidden-480" style="width:80px;text-align:center;">操作</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -92,7 +115,7 @@
                                         	<a data-title="{{ $per->name }}" href="{{ _route('admin:system.theme.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-eye-open"></i>
                                         	</a>
-                                        	<a data-title="{{ $per->name }}" href="{{ _route('admin:system.theme.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        	<a href="{{ _route('admin:system.theme.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-edit"></i>
                                         	</a>
                                         	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
