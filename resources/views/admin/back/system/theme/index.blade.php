@@ -80,6 +80,9 @@
                         @endif
 						<div class="portlet-title">
 							<div class="caption">模板列表</div>
+							<div class="actions">
+								<a href="{{ _route('admin:system.theme.create') }}" class="btn blue"><i class="icon-pencil"></i> 新增</a>
+							</div>
 						</div>
 						<div class="portlet-body">
 							<table class="table table-striped table-bordered table-hover" id="sample_2">
