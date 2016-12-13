@@ -263,9 +263,13 @@ class UserRepository extends BaseRepository
             $me->password = bcrypt(e($inputs['password']));
         }
         if ($me->save()) {
-            //触发更新个人资料事件，这里将触发事件放置在仓库里可能有些不妥
-            //event(new UserUpdate($me));
         }
     }
-
+    
+    public function updateMeAvatar($me, $inputs)
+    {
+        $me->avatar = e($inputs['avatar']);
+        if ($me->save()) {
+        }
+    }
 }

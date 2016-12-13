@@ -62,6 +62,15 @@ class MeController extends BackController
         return redirect()->back()->with('message', '成功更新个人资料！');
     }
     
+    public function putMeAvatar(Request $request)
+    {
+        if (Gate::denies('meinforation')) {
+            return deny();
+        }
+        $this->user->updateMeAvatar(auth()->user(), $request->all());
+        return redirect()->back()->with('message', '成功更新个人头像！');
+    }
+    
     
     /**
      * 修改密码页面
