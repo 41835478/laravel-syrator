@@ -58,7 +58,6 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
             Route::get('inforation', 'MeController@getMeInforation');
             Route::put('inforation', 'MeController@putMeInforation');
             Route::put('avatar', 'MeController@putMeAvatar');
-            Route::get('password', 'MeController@getMePassword');
             Route::put('password', 'MeController@putMePassword');
         });
 
