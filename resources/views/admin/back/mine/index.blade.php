@@ -143,16 +143,19 @@
 												</div>
 												<div id="tab_3-3" class="tab-pane">
 													<div style="height: auto;" id="accordion3-3" class="accordion collapse">
-														<form action="#">
+														<form method="post" action="{{ _route('admin:mine.password') }}" accept-charset="utf-8">
+															{!! method_field('put') !!}
+                											{!! csrf_field() !!}                											
+                    										<input type="hidden" class="m-wrap span8" name="nickname" value="{{ $me->nickname }}" placeholder="昵称">
+                    										<input type="hidden" class="m-wrap span8" name="realname" autocomplete="off" value="{{ $me->realname }}" placeholder="真实姓名">
 															<label class="control-label">当前密码</label>
-															<input type="password" class="m-wrap span8" />
-															<label class="control-label">New Password</label>
-															<input type="password" class="m-wrap span8" />
-															<label class="control-label">Re-type New Password</label>
-															<input type="password" class="m-wrap span8" />
-															<div class="submit-btn">
-																<a href="#" class="btn green">Change Password</a>
-																<a href="#" class="btn">Cancel</a>
+															<input type="password" class="m-wrap span8" name="oldpassword" value="" autocomplete="off" placeholder="当前密码"/>
+															<label class="control-label">新密码</label>
+															<input type="password" class="m-wrap span8" name="password" value="" autocomplete="off" placeholder="新密码"/>
+															<label class="control-label">确认新密码</label>
+															<input type="password" class="m-wrap span8" name="password_confirmation" value="" autocomplete="off" placeholder="确认新密码"/>
+															<div class="submit-btn">							
+																<button type="submit" class="btn blue">修改密码</button>
 															</div>
 														</form>
 													</div>

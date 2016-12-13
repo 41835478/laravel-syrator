@@ -57,7 +57,7 @@ class MeController extends BackController
         if (Gate::denies('meinforation')) {
             return deny();
         }
-        //使用Bootstrap后台框架，可以废弃ajax提交方式，使用表单自动验证
+        
         $this->user->updateMe(auth()->user(), $request->all());
         return redirect()->back()->with('message', '成功更新个人资料！');
     }
@@ -67,6 +67,7 @@ class MeController extends BackController
         if (Gate::denies('meinforation')) {
             return deny();
         }
+        
         $this->user->updateMeAvatar(auth()->user(), $request->all());
         return redirect()->back()->with('message', '成功更新个人头像！');
     }
@@ -94,7 +95,7 @@ class MeController extends BackController
         if (Gate::denies('mepassword')) {
             return deny();
         }
-        //使用Bootstrap后台框架，可以废弃ajax提交方式，使用表单自动验证
+        
         $this->user->updateMe(auth()->user(), $request->all());
         return redirect()->back()->with('message', '成功更新密码！');
     }
