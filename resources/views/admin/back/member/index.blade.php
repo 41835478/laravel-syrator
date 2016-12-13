@@ -156,8 +156,7 @@
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/select2.min.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/table-managed.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/table-advanced-member.js') }}"></script> 
+<script type="text/javascript" src="{{ _asset('assets/metronic/js/table-member.js') }}"></script> 
 <script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
 @stop
 
@@ -165,8 +164,7 @@
 <script>
 jQuery(document).ready(function() {    
     App.init();
-//     TableManaged.init();
-	TableAdvanced.init();
+    TableMember.init();
 
     $(document).on("click","a.layer_open",function(evt) {
         evt.preventDefault();
