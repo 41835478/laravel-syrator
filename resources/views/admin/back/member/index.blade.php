@@ -6,6 +6,15 @@
 <link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/DT_bootstrap.css') }}" />
 @stop
 
+@section('head_style')
+@parent
+<style>
+.row-fluid .span6 {
+    width: 40% !important;
+}
+</style>
+@stop
+
 @section('body_attr') class="page-header-fixed" @stop
 
 @section('content-header')
@@ -43,7 +52,8 @@
 						</li>
 						<li><a href="#">会员管理</a></li>
 						<li class="pull-right no-text-shadow">
-							<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
+							<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" 
+								data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
 								<i class="icon-calendar"></i>
 								<span></span>
 								<i class="icon-angle-down"></i>
@@ -81,47 +91,46 @@
 						<div class="portlet-title">
 							<div class="caption">会员列表</div>
 							<div class="actions">
-								<a href="{{ _route('admin:member.create') }}" class="btn blue"><i class="icon-pencil"></i> 新增</a>
-							</div>
-							<div class="actions">
 								<div class="btn-group">
-									<a class="btn" href="#" data-toggle="dropdown">
-									Columns
-									<i class="icon-angle-down"></i>
-									</a>
+									<a href="{{ _route('admin:member.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
+									<a class="btn" href="#" data-toggle="dropdown">选择显示列<i class="icon-angle-down"></i></a>
 									<div id="syrator_table_member_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-										<label><input type="checkbox" checked data-column="0">账号</label>
-										<label><input type="checkbox" checked data-column="1">手机号</label>
-										<label><input type="checkbox" checked data-column="2">角色</label>
-										<label><input type="checkbox" checked data-column="3">昵称</label>
-										<label><input type="checkbox" checked data-column="4">邮箱</label>
+										<label><input type="checkbox" checked data-column="1">账号</label>
+										<label><input type="checkbox" checked data-column="2">手机号</label>
+										<label><input type="checkbox" checked data-column="3">角色</label>
+										<label><input type="checkbox" checked data-column="4">昵称</label>
+										<label><input type="checkbox" checked data-column="5">邮箱</label>
 									</div>
 								</div>
-							</div>					
-        					<select data-placeholder="选择分组 ..." class="form-control input-sm chosen-select" name="m_group">
-                                <option value="">选择分组</option>
-                                @foreach ($groups as $k => $v)
-                                  <option value="{{ $v->id }}" {{ (request('m_group') == $v->id) ? 'selected' : '' }}>{{ $v->name }}</option>
-                                @endforeach
-                            </select>
+							</div>	
 						</div>
 						<div class="portlet-body">
-							<table class="table table-striped table-bordered table-hover" id="syrator_table_member">
+							<table class="table table-striped table-bordered table-hover" id="syrator_table_member">							
+								<select class="small m-wrap" name="m_group_role" style="float:right;margin-right:0px;">
+                                    <option value="">选择分组</option>
+                                    @foreach ($groups as $k => $v)
+                                    <option value="{{ $v->id }}" {{ (request('m_group') == $v->id) ? 'selected' : '' }}>{{ $v->name }}</option>
+                                    @endforeach
+                                </select>
 								<thead>
 									<tr>
-										<th style="width:8px;text-align:center;"><input type="checkbox" class="group-checkable" data-set="#syrator_table_member .checkboxes" /></th>			
-										<th style="width:80px;text-align:center;">账号</th>
-										<th style="width:80px;text-align:center;">手机号</th>
-										<th style="width:80px;text-align:center;">角色</th>
-										<th style="text-align:center;">昵称</th>
-										<th style="text-align:center;">邮箱</th>
+										<th style="width:8px;text-align:center;">
+											<input type="checkbox" class="group-checkable" data-set="#syrator_table_member .checkboxes" />
+										</th>			
+										<th style="width:80px;">账号</th>
+										<th style="width:80px;">手机号</th>
+										<th style="width:80px;">角色</th>
+										<th style="">昵称</th>
+										<th style="">邮箱</th>
                                         <th class="hidden-480" style="width:80px;text-align:center;">操作</th>
 									</tr>
 								</thead>
 								<tbody>
                                     @foreach ($members as $per)
                                     <tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="{{ $per->id }}" /></td>
+										<td style="width:8px;text-align:center;">
+											<input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+										</td>
                                         <td class="text-green">{{ $per->accouont }}</td>
                                         <td class="text-green">{{ $per->phone }}</td>
                                         <td class="text-green">{{ $per->role_name }}</td>
@@ -135,7 +144,7 @@
                                         		<i class="icon-edit"></i>
                                         	</a>
                                         	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
-                                        		<i class="icon-remove"></i>
+                                        		<i class="icon-trash"></i>
                                         	</a>
                                         </td>
                                     </tr>

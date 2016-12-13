@@ -5,7 +5,7 @@ var TableMember = function () {
                 return;
             }
 
-            $('#syrator_table_member').dataTable({
+            var oTable = $('#syrator_table_member').dataTable({
                 "aLengthMenu": [
                     [5, 15, 20, -1],
                     [5, 15, 20, "全部"]
@@ -50,6 +50,13 @@ var TableMember = function () {
             jQuery('#syrator_table_member_wrapper .dataTables_filter input').addClass("m-wrap small");
             jQuery('#syrator_table_member_wrapper .dataTables_length select').addClass("m-wrap small");
             jQuery('#syrator_table_member_wrapper .dataTables_length select').select2();
+            
+            $('#syrator_table_member_column_toggler input[type="checkbox"]').change(function(){
+                /* Get the DataTables object again - this is not a recreation, just a get of the object */
+                var iCol = parseInt($(this).attr("data-column"));
+                var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
+                oTable.fnSetColumnVis(iCol, (bVis ? false : true));
+            });
         }
     };
 }();
