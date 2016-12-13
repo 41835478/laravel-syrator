@@ -19,6 +19,11 @@
 			</a>
 		</li>
 		<li class="">
+			<a href="{{ site_url('mine/inforation', 'admin') }}">
+				<i class="icon-bookmark-empty"></i><span class="title">个人中心</span>
+			</a>
+		</li>
+		<li class="">
 			<a href="javascript:;">
 				<i class="icon-cogs"></i><span class="title">系统管理</span><span class="arrow "></span>
 			</a>
@@ -27,15 +32,6 @@
 				<li ><a href="{{ site_url('system/option', 'admin') }}"><i class="icon-cogs"></i> 参数配置</a></li>
 				<li ><a href="{{ site_url('system/log', 'admin') }}"><i class="icon-cogs"></i> 系统日志</a></li>
 				<li ><a href="{{ site_url('system/theme', 'admin') }}"><i class="icon-cogs"></i> 模板管理</a></li>
-			</ul>
-		</li>
-		<li class="">
-			<a href="javascript:;">
-				<i class="icon-bookmark-empty"></i><span class="title">个人中心</span><span class="arrow "></span>
-			</a>
-			<ul class="sub-menu">
-				<li ><a href="{{ site_url('mine/inforation', 'admin') }}"><i class="icon-cogs"></i> 个人资料</a></li>
-				<li ><a href="{{ site_url('mine/password', 'admin') }}"><i class="icon-cogs"></i> 修改密码</a></li>
 			</ul>
 		</li>
 		<li class="">
