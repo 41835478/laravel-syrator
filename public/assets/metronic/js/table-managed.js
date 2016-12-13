@@ -5,7 +5,7 @@ var TableManaged = function () {
                 return;
             }
 
-            $('#sample_2').dataTable({
+            $('#syrator_table').dataTable({
                 "aLengthMenu": [
                     [5, 15, 20, -1],
                     [5, 15, 20, "全部"]
@@ -34,7 +34,7 @@ var TableManaged = function () {
                 ]
             });
 
-            jQuery('#sample_2 .group-checkable').change(function () {
+            jQuery('#syrator_table .group-checkable').change(function () {
                 var set = jQuery(this).attr("data-set");
                 var checked = jQuery(this).is(":checked");
                 jQuery(set).each(function () {
@@ -47,9 +47,9 @@ var TableManaged = function () {
                 jQuery.uniform.update(set);
             });
 
-            jQuery('#sample_2_wrapper .dataTables_filter input').addClass("m-wrap small");
-            jQuery('#sample_2_wrapper .dataTables_length select').addClass("m-wrap small");
-            jQuery('#sample_2_wrapper .dataTables_length select').select2();
+            jQuery('#syrator_table_wrapper .dataTables_filter input').addClass("m-wrap small");
+            jQuery('#syrator_table_wrapper .dataTables_length select').addClass("m-wrap small");
+            jQuery('#syrator_table_wrapper .dataTables_length select').select2();
         }
     };
 }();

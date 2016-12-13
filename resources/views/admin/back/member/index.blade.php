@@ -82,7 +82,22 @@
 							<div class="caption">会员列表</div>
 							<div class="actions">
 								<a href="{{ _route('admin:member.create') }}" class="btn blue"><i class="icon-pencil"></i> 新增</a>
-							</div>							
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+									<a class="btn" href="#" data-toggle="dropdown">
+									Columns
+									<i class="icon-angle-down"></i>
+									</a>
+									<div id="syrator_table_member_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+										<label><input type="checkbox" checked data-column="0">账号</label>
+										<label><input type="checkbox" checked data-column="1">手机号</label>
+										<label><input type="checkbox" checked data-column="2">角色</label>
+										<label><input type="checkbox" checked data-column="3">昵称</label>
+										<label><input type="checkbox" checked data-column="4">邮箱</label>
+									</div>
+								</div>
+							</div>					
         					<select data-placeholder="选择分组 ..." class="form-control input-sm chosen-select" name="m_group">
                                 <option value="">选择分组</option>
                                 @foreach ($groups as $k => $v)
@@ -91,10 +106,10 @@
                             </select>
 						</div>
 						<div class="portlet-body">
-							<table class="table table-striped table-bordered table-hover" id="sample_2">
+							<table class="table table-striped table-bordered table-hover" id="syrator_table_member">
 								<thead>
 									<tr>
-										<th style="width:8px;text-align:center;"><input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" /></th>			
+										<th style="width:8px;text-align:center;"><input type="checkbox" class="group-checkable" data-set="#syrator_table_member .checkboxes" /></th>			
 										<th style="width:80px;text-align:center;">账号</th>
 										<th style="width:80px;text-align:center;">手机号</th>
 										<th style="width:80px;text-align:center;">角色</th>
@@ -142,6 +157,7 @@
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/table-managed.js') }}"></script>
+<script type="text/javascript" src="{{ _asset('assets/metronic/js/table-advanced-member.js') }}"></script> 
 <script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
 @stop
 
@@ -149,7 +165,8 @@
 <script>
 jQuery(document).ready(function() {    
     App.init();
-    TableManaged.init();
+//     TableManaged.init();
+	TableAdvanced.init();
 
     $(document).on("click","a.layer_open",function(evt) {
         evt.preventDefault();

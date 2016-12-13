@@ -85,10 +85,10 @@
 							</div>
 						</div>
 						<div class="portlet-body">
-							<table class="table table-striped table-bordered table-hover" id="sample_2">
+							<table class="table table-striped table-bordered table-hover" id="syrator_table">
 								<thead>
 									<tr>
-										<th style="width:8px;text-align:center;"><input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" /></th>			
+										<th style="width:8px;text-align:center;"><input type="checkbox" class="group-checkable" data-set="#syrator_table .checkboxes" /></th>			
                                         <th style="width:80px;text-align:center;">编码</th>
 										<th style="width:80px;text-align:center;">名称</th>
                                         <th class="hidden-480" style="width:80px;text-align:center;">作者</th>
