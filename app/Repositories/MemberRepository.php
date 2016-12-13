@@ -46,7 +46,7 @@ class MemberRepository extends BaseRepository
     // 接口函数
     public function index($data = [], $extra = '', $size = null)
     {
-        return $this->all();
+        return MemberModel::mergeData($this->all());
     }
    
     public function indexRank($data = [], $extra = '', $size = null)
