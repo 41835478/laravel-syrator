@@ -33,10 +33,8 @@
 			</div>
 		</div>
 		<div class="container-fluid">
-				<!-- BEGIN PAGE HEADER-->
 				<div class="row-fluid">
 					<div class="span12">
-						<!-- BEGIN STYLE CUSTOMIZER -->
 						<div class="color-panel hidden-phone">
 							<div class="color-mode-icons icon-color"></div>
 							<div class="color-mode-icons icon-color-close"></div>
