@@ -105,7 +105,7 @@
 								<div class="control-group">
 									<label class="control-label">Email</label>
 									<div class="controls">										
-										<textarea type="text" class="m-wrap large" name="email" autocomplete="off" value="{{ old('email', isset($member) ? $member->email : null) }}" placeholder="Email"></textarea>
+										<input type="text" class="m-wrap large" name="email" autocomplete="off" value="{{ old('email', isset($member) ? $member->email : null) }}" placeholder="Email">
 									</div>
 								</div>
 								<div class="control-group">

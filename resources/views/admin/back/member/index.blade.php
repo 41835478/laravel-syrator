@@ -102,12 +102,12 @@
 										<th style="width:8px;text-align:center;">
 											<input type="checkbox" class="group-checkable" data-set="#syrator_table_member .checkboxes" />
 										</th>			
-										<th style="width:80px;">账号</th>
-										<th style="width:80px;">手机号</th>
-										<th style="width:80px;">角色</th>
+										<th style="">账号</th>
+										<th style="">手机号</th>
+										<th style="">角色</th>
 										<th style="">昵称</th>
 										<th style="">邮箱</th>
-                                        <th class="hidden-480" style="width:80px;text-align:center;">操作</th>
+                                        <th class="hidden-480" style="text-align:center;">操作</th>
 									</tr>
 								</thead>								
             					<tfoot>
@@ -127,7 +127,7 @@
 										<td style="width:8px;text-align:center;">
 											<input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
 										</td>
-                                        <td class="text-green">{{ $per->accouont }}</td>
+                                        <td class="text-green">{{ $per->account }}</td>
                                         <td class="text-green">{{ $per->phone }}</td>
                                         <td class="text-green">{{ $per->role_name }}</td>
                                         <td>{{ $per->nickname }}</td>

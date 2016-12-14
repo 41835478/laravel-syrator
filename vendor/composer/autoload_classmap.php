@@ -51,6 +51,7 @@ return array(
     'App\\Http\\Requests\\Request' => $baseDir . '/app/Http/Requests/Request.php',
     'App\\Http\\Requests\\RoleRequest' => $baseDir . '/app/Http/Requests/RoleRequest.php',
     'App\\Http\\Requests\\UserRequest' => $baseDir . '/app/Http/Requests/UserRequest.php',
+    'App\\Http\\Requests\\MemberRequest' => $baseDir . '/app/Http/Requests/MemberRequest.php',
     'App\\Interfaces\\IData' => $baseDir . '/app/Interfaces/IData.php',
     'App\\Interfaces\\IRepository' => $baseDir . '/app/Interfaces/IRepository.php',
     'App\\Jobs\\ChangeLocale' => $baseDir . '/app/Jobs/ChangeLocale.php',

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Member;
 use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\MemberRequest;
 use App\Loggers\SystemLogger;
 use App\Repositories\MemberRepository;
 
@@ -40,21 +40,21 @@ class MemberController extends BackController
         return $this->view('member.create', compact('members', 'roles'));
     }
 
-    public function store(UserRequest $request)
+    public function store(MemberRequest $request)
     {
         $data = $request->all();
-        $manager = $this->user->store($data);
+        $manager = $this->member->store($data);
         if ($manager->id) {  
             // 添加成功
             // 记录系统日志，这里并未使用事件监听来记录日志
             $log = [
                 'user_id' => auth()->user()->id,
                 'type'    => 'management',
-                'content' => '管理员：成功新增一名管理用户'.$manager->username.'<'.$manager->email.'>。',
+                'content' => '管理员：成功新增一名会员'.$manager->phone.'<'.$manager->email.'>。',
             ];
             SystemLogger::write($log);
 
-            return redirect()->to(site_path('user', 'admin'))->with('message', '成功新增管理员！');
+            return redirect()->to(site_path('member', 'admin'))->with('message', '成功新增会员！');
 
         } else {
             return redirect()->back()->withInput($request->input())->with('fail', '数据库操作返回异常！');
