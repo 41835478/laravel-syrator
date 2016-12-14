@@ -48,6 +48,16 @@ class MemberRepository extends BaseRepository
     
         return $member;
     }
+    
+    private function saveMemberRank($memberRank, $inputs)
+    {
+        $memberRank->name = e($inputs['name']);
+    
+        if ($memberRank->save()) {
+        }
+    
+        return $memberRank;
+    }
 
     // 接口函数
     public function index($data = [], $extra = '', $size = null)
@@ -65,6 +75,13 @@ class MemberRepository extends BaseRepository
         $member = new $this->model;
         $member = $this->saveMember($member, $inputs);
         return $member;
+    }
+    
+    public function storeRank($inputs, $extra = '')
+    {
+        $memberRank = new $this->memberRank;
+        $memberRank = $this->saveMemberRank($memberRank, $inputs);
+        return $memberRank;
     }
 
     public function edit($id, $extra = '')

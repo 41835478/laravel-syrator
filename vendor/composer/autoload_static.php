@@ -362,6 +362,7 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
         'App\\Http\\Requests\\RoleRequest' => __DIR__ . '/../..' . '/app/Http/Requests/RoleRequest.php',
         'App\\Http\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserRequest.php',
         'App\\Http\\Requests\\MemberRequest' => __DIR__ . '/../..' . '/app/Http/Requests/MemberRequest.php',
+        'App\\Http\\Requests\\MemberGroupRequest' => __DIR__ . '/../..' . '/app/Http/Requests/MemberGroupRequest.php',
         'App\\Interfaces\\IData' => __DIR__ . '/../..' . '/app/Interfaces/IData.php',
         'App\\Interfaces\\IRepository' => __DIR__ . '/../..' . '/app/Interfaces/IRepository.php',
         'App\\Jobs\\ChangeLocale' => __DIR__ . '/../..' . '/app/Jobs/ChangeLocale.php',
