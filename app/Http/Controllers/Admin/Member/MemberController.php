@@ -87,14 +87,8 @@ class MemberController extends BackController
         $delId = $request->input('delId');
     
         $member = $this->member->edit($delId);
-        if (!empty($user)) {
-            if (strcasecmp($user->username,'admin') == 0) {
-                $rth['code'] = "401";
-                $rth['message'] = "Admin是系统用户，您无权删除！";
-                return $rth;
-            }
-            
-            if ($user->delete()) {
+        if (!empty($member)) {            
+            if ($member->delete()) {
                 $rth['code'] = "200";
                 $rth['message'] = "删除成功";
             } else {
@@ -103,7 +97,7 @@ class MemberController extends BackController
             }
         } else {
             $rth['code'] = "201";
-            $rth['message'] = "该用户不存在，或已经被删除了！";
+            $rth['message'] = "该会员不存在，或已经被删除了！";
         }
     
         return $rth;

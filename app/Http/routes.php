@@ -63,6 +63,7 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
         
         // 会员管理
         Route::resource('member', 'Member\MemberController');
+	    Route::post('member/remove', 'Member\MemberController@remove');
         Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
             Route::resource('group', 'MemberGroupController');
         });

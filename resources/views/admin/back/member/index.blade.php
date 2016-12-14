@@ -204,7 +204,7 @@ jQuery(document).ready(function() {
     $(document).on("click","a.remove",function(evt) {
         var itemId = $(this).attr("item-id");
     	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-            $.post("{{ URL('admin/system/theme/remove') }}", {
+            $.post("{{ URL('admin/member/remove') }}", {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:itemId,
             }, function(data){
