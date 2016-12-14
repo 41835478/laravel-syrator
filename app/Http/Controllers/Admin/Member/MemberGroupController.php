@@ -76,17 +76,10 @@ class MemberGroupController extends BackController
     
     public function remove(Request $request)
     {
-        $delId = $request->input('delId');
-    
-        $user = $this->user->edit($delId);
-        if (!empty($user)) {
-            if (strcasecmp($user->username,'admin') == 0) {
-                $rth['code'] = "401";
-                $rth['message'] = "Admin是系统用户，您无权删除！";
-                return $rth;
-            }
-            
-            if ($user->delete()) {
+        $delId = $request->input('delId');    
+        $group = $this->member->editRank($delId);
+        if (!empty($group)) {            
+            if ($group->delete()) {
                 $rth['code'] = "200";
                 $rth['message'] = "删除成功";
             } else {
@@ -95,7 +88,7 @@ class MemberGroupController extends BackController
             }
         } else {
             $rth['code'] = "201";
-            $rth['message'] = "该用户不存在，或已经被删除了！";
+            $rth['message'] = "该会员分组不存在，或已经被删除了！";
         }
     
         return $rth;
