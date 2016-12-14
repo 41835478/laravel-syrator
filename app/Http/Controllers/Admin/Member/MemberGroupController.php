@@ -26,7 +26,6 @@ class MemberGroupController extends BackController
     public function index(Request $request)
     {
         $groups = $this->member->indexRank();
-
         return $this->view('member.group.index', compact('groups'));
     }
 
