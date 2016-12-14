@@ -90,7 +90,7 @@ class ThemeController extends BackController
             }
         } else {
             $rth['code'] = "201";
-            $rth['message'] = "该用户不存在，或已经被删除了！";
+            $rth['message'] = "该模板不存在，或已经被删除了！";
         }
     
         return $rth;
