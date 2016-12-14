@@ -22,9 +22,6 @@ class ThemeController extends BackController
     {
         parent::__construct();
         $this->theme = $theme;
-        if (Gate::denies('@option')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function index(Request $request)

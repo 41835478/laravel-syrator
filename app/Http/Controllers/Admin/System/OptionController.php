@@ -26,9 +26,6 @@ class OptionController extends BackController
     {
         parent::__construct();
         $this->system = $system;
-        if (Gate::denies('@option')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function getOption()
@@ -45,9 +42,6 @@ class OptionController extends BackController
 
     public function putOption(Request $request)
     {
-        if (Gate::denies('option-write')) {
-            return deny();
-        }
         $data = $request->input('data');
         if ($data && is_array($data)) {
             $this->system->updateOptions($data);

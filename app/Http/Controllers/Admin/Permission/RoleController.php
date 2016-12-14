@@ -29,10 +29,6 @@ class RoleController extends BackController
     {
         parent::__construct();
         $this->role = $role;
-
-        if (Gate::denies('@role')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function index()
@@ -43,19 +39,12 @@ class RoleController extends BackController
 
     public function create()
     {
-        if (Gate::denies('role-write')) {
-            return deny();
-        }
         $permissions = $this->role->permissions();  //获取所有权限许可
         return view('admin.back.permission.role.create', compact('permissions'));
     }
 
     public function store(RoleRequest $request)
     {
-        //
-        if (Gate::denies('role-write')) {
-            return deny();
-        }
         $data = $request->all();
         $role = $this->role->store($data);
         if ($role->id) {  
@@ -69,10 +58,6 @@ class RoleController extends BackController
 
     public function edit($id)
     {
-        //
-        if (Gate::denies('role-write')) {
-            return deny();
-        }
         $role = $this->role->edit($id);
         $permissions = $this->role->permissions();
         $cans = $this->role->getRoleCans($role);
@@ -82,9 +67,6 @@ class RoleController extends BackController
 
     public function update(RoleRequest $request, $id)
     {
-        if (Gate::denies('role-write')) {
-            return deny();
-        }
         $data = $request->all();
         $this->role->update($id, $data);
         return redirect()->to(site_path('permission/role', 'admin'))->with('message', '修改角色成功！');

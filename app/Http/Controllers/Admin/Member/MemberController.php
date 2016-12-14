@@ -22,9 +22,6 @@ class MemberController extends BackController
     {
         parent::__construct();
         $this->member = $member;
-        if (Gate::denies('@user')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function index(Request $request)
@@ -45,9 +42,6 @@ class MemberController extends BackController
      */
     public function create()
     {
-        if (Gate::denies('user-write')) {
-            return deny();
-        }
         $roles = $this->user->role();
         return view('admin.back.user.create', ['roles' => $roles]);
     }
@@ -59,9 +53,6 @@ class MemberController extends BackController
      */
     public function store(UserRequest $request)
     {
-        if (Gate::denies('user-write')) {
-            return deny();
-        }
         $data = $request->all();
         $manager = $this->user->store($data);
         if ($manager->id) {  
@@ -89,10 +80,6 @@ class MemberController extends BackController
      */
     public function edit($id)
     {
-        //
-        if (Gate::denies('user-write')) {
-            return deny();
-        }
         $user = $this->user->edit($id);
 
         $roles = $this->user->role();
@@ -115,10 +102,6 @@ class MemberController extends BackController
      */
     public function update(UserRequest $request, $id)
     {
-        //
-        if (Gate::denies('user-write')) {
-            return deny();
-        }
         $data = $request->all();
         $this->user->update($id, $data);
         

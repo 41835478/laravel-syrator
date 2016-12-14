@@ -20,10 +20,6 @@ class ArticleCatController extends AppCmsController
     {
         parent::__construct();
         $this->article = $article;
-
-        if (Gate::denies('@article')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function index()
@@ -34,19 +30,12 @@ class ArticleCatController extends AppCmsController
 
     public function create()
     {
-        if (Gate::denies('article-cat')) {
-            return deny();
-        }
         $catalogs = $this->article->indexCat();
         return $this->view('article.cat.create', compact('catalogs'));
     }
 
     public function store(RoleRequest $request)
     {
-        //
-        if (Gate::denies('role-write')) {
-            return deny();
-        }
         $data = $request->all();
         $role = $this->role->store($data);
         if ($role->id) {  
@@ -60,10 +49,6 @@ class ArticleCatController extends AppCmsController
 
     public function edit($id)
     {
-        //
-        if (Gate::denies('role-write')) {
-            return deny();
-        }
         $role = $this->role->edit($id);
         $permissions = $this->role->permissions();
         $cans = $this->role->getRoleCans($role);
@@ -73,9 +58,6 @@ class ArticleCatController extends AppCmsController
 
     public function update(RoleRequest $request, $id)
     {
-        if (Gate::denies('role-write')) {
-            return deny();
-        }
         $data = $request->all();
         $this->role->update($id, $data);
         return redirect()->to(site_path('role', 'admin'))->with('message', '修改角色成功！');

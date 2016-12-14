@@ -25,9 +25,6 @@ class LogController extends BackController
     {
         parent::__construct();
         $this->system = $system;
-        if (Gate::denies('@log')) {
-            $this->middleware('deny403');
-        }
     }
 
     /**
@@ -50,10 +47,6 @@ class LogController extends BackController
      */
     public function show($id)
     {
-        //
-        if (Gate::denies('log-show')) {
-            return deny();
-        }
         $sys_log = $this->system->getById($id);
         is_null($sys_log) && abort(404);
         return view('admin.back.system.log.show', compact('sys_log'));

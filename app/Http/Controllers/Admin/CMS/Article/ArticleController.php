@@ -21,10 +21,6 @@ class ArticleController  extends AppCmsController
     {
         parent::__construct();
         $this->article = $article;
-
-        if (Gate::denies('@article')) {
-            $this->middleware('deny403');
-        }
     }
 
     public function index()

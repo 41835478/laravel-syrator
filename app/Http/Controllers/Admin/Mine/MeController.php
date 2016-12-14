@@ -28,9 +28,6 @@ class MeController extends BackController
     public function __construct(UserRepository $user)
     {
         parent::__construct();
-        if (Gate::denies('@me')) {
-            $this->middleware('deny403');
-        }
         $this->user = $user;
     }
 
@@ -53,21 +50,13 @@ class MeController extends BackController
      * @return Response
      */
     public function putMeInforation(MeRequest $request)
-    {
-        if (Gate::denies('meinforation')) {
-            return deny();
-        }
-        
+    {        
         $this->user->updateMe(auth()->user(), $request->all());
         return redirect()->back()->with('message', '成功更新个人资料！');
     }
     
     public function putMeAvatar(Request $request)
-    {
-        if (Gate::denies('meinforation')) {
-            return deny();
-        }
-        
+    {        
         $this->user->updateMeAvatar(auth()->user(), $request->all());
         return redirect()->back()->with('message', '成功更新个人头像！');
     }
@@ -91,11 +80,7 @@ class MeController extends BackController
      * @return Response
      */
     public function putMePassword(MeRequest $request)
-    {
-        if (Gate::denies('mepassword')) {
-            return deny();
-        }
-        
+    {        
         $this->user->updateMe(auth()->user(), $request->all());
         return redirect()->back()->with('message', '成功更新密码！');
     }
