@@ -15,7 +15,7 @@ class MemberRequest extends Request
         if($this->segment(4)){
             $rules = [
                 'phone'                     => 'required|size:11|mobile_phone|unique:member,phone',
-                'account'                   => 'required|min:4|max:10|eng_alpha_num|unique:member,account',
+                'account'                   => 'required|min:4|max:20|eng_alpha_num|unique:member,account',
                 'password'                  => 'min:6|max:16|regex:/^[a-zA-Z0-9~@#%_]{6,16}$/i',
                 'email'                     => 'required|email|unique:member,email',
                 'role'                      => 'required|exists:member_rank,id',
@@ -24,10 +24,9 @@ class MemberRequest extends Request
         //store
         else{
             $rules = [
-                'phone'                     => 'size:11|mobile_phone|unique:member,phone',
-                'account'                   => 'required|min:4|max:10|eng_alpha_num|unique:member,account',
-                'password'                  => 'required|min:6|max:16|regex:/^[a-zA-Z0-9~@#%_]{6,16}$/i',
-                'email'                     => 'required|email|unique:member,email',
+                'account'                   => 'required|min:4|max:20|eng_alpha_num',
+                'password'                  => 'min:6|max:16|regex:/^[a-zA-Z0-9~@#%_]{6,16}$/i',
+                'email'                     => 'required|email',
                 'role'                      => 'required|exists:member_rank,id',
             ];
         }
@@ -44,7 +43,7 @@ class MemberRequest extends Request
 
             'account.unique'                => '此登录名已存在，请尝试其它名字组合',
             'account.required'              => '请填写登录名',
-            'account.max'                   => '登录名过长，长度不得超出10',
+            'account.max'                   => '登录名过长，长度不得超出20',
             'account.min'                   => '登录名过短，长度不得少于4',
             'account.eng_alpha_num'         => '登录名只能阿拉伯数字与英文字母组合',
             'account.unique'                => '此登录名已存在，请尝试其它名字组合',

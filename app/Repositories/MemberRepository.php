@@ -36,7 +36,9 @@ class MemberRepository extends BaseRepository
     {
         $member->phone = e($inputs['phone']);
         $member->account = e($inputs['account']);
-        $member->password = bcrypt(e($inputs['password']));
+        if (isset($inputs['password']) && !empty(e($inputs['password']))) {
+            $member->password = bcrypt(e($inputs['password'])); 
+        }
         $member->email = e($inputs['email']);
         $member->role = e($inputs['role']);
         $member->nickname = e($inputs['nickname']);
