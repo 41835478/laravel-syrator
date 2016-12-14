@@ -133,10 +133,10 @@
                                         <td>{{ $per->nickname }}</td>
                                         <td>{{ $per->email }}</td>
                     					<td style="text-align: center;">                                        	
-                                        	<a data-title="{{ $per->name }}" href="{{ _route('admin:system.theme.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        	<a data-title="{{ $per->name }}" href="{{ _route('admin:member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-eye-open"></i>
                                         	</a>
-                                        	<a href="{{ _route('admin:system.theme.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                                        	<a href="{{ _route('admin:member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-edit"></i>
                                         	</a>
                                         	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">

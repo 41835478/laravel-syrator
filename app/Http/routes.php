@@ -60,6 +60,12 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
             Route::put('avatar', 'MeController@putMeAvatar');
             Route::put('password', 'MeController@putMePassword');
         });
+        
+        // 会员管理
+        Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
+            Route::resource('/', 'MemberController');
+            Route::resource('group', 'MemberGroupController');
+        });
 
         // 权限管理
         Route::group(['prefix' => 'permission', 'namespace' => 'Permission'], function () { 
@@ -74,12 +80,6 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
     	    // 权限(项)管理
     	    Route::resource('permission', 'PermissionController');
     	    Route::post('permission/remove', 'PermissionController@remove');
-        });
-        
-        // 会员管理
-        Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
-            Route::resource('/', 'MemberController');
-            Route::resource('group', 'MemberGroupController');
         });
     });
 });

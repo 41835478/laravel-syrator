@@ -8,8 +8,8 @@
 @section('body_attr') class="page-header-fixed" @stop
 
 @section('content')
-<div class="page-container row-fluid">
-	<div class="page-content" style="height:220px;min-height:220px;">
+<div class="page-container row-fluid" style="margin-top:0px;">
+	<div class="page-content" style="height:220px;min-height:220px;margin-left:0px;">
 		<div class="container-fluid">
 			<div class="row-fluid profile">
 				<div class="span12">
