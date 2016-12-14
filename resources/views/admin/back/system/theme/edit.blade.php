@@ -39,6 +39,10 @@
 							<a href="{{ site_url('home', 'admin') }}">首页</a> 
 							<i class="icon-angle-right"></i>
 						</li>
+						<li>
+							<a href="{{ site_url('system/theme', 'admin') }}">模板管理</a> 
+							<i class="icon-angle-right"></i>
+						</li>
 						<li><a href="#">模板编辑</a></li>
 						<li class="pull-right no-text-shadow">
 							<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
