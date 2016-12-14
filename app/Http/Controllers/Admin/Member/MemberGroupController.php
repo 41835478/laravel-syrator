@@ -78,6 +78,12 @@ class MemberGroupController extends BackController
     {
         $delId = $request->input('delId');    
         $group = $this->member->editRank($delId);
+        if ($group->hasMembers()) {
+            $rth['code'] = "202";
+            $rth['message'] = "该会员分组下尚有会员，无法删除！";
+            return $rth;
+        }
+        
         if (!empty($group)) {            
             if ($group->delete()) {
                 $rth['code'] = "200";
