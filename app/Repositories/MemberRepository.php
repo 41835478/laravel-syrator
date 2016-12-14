@@ -32,6 +32,11 @@ class MemberRepository extends BaseRepository
         return $memberRanks;
     }
     
+    public function getRankById($id)
+    {
+        return $this->memberRank->findOrFail($id);
+    }
+    
     private function saveMember($member, $inputs)
     {
         $member->phone = e($inputs['phone']);
@@ -89,11 +94,23 @@ class MemberRepository extends BaseRepository
         $member = $this->getById($id);
         return $member;
     }
+    
+    public function editRank($id, $extra = '')
+    {
+        $memberRank = $this->getRankById($id);
+        return $memberRank;
+    }
 
     public function update($id, $inputs, $extra = '')
     {
         $member = $this->getById($id);
         $member = $this->saveMember($member, $inputs);
+    }
+    
+    public function updateRank($id, $inputs, $extra = '')
+    {
+        $memberRank = $this->getRankById($id);
+        $memberRank = $this->saveMemberRank($memberRank, $inputs);
     }
     
     /**

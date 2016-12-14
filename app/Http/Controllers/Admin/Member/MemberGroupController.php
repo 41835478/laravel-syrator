@@ -55,40 +55,17 @@ class MemberGroupController extends BackController
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function edit($id)
     {
-        $user = $this->user->edit($id);
-
-        $roles = $this->user->role();
-
-        // 一个用户可以拥有多个角色，但在本内容管理框架系统中，限定只能一个用户对应一个角色
-        $own_role = $this->user->getRole($user);
-
-        if (is_null($own_role)) {
-            // 新建的管理员用户可能不存在关联role模型
-            $own_role = $this->user->fakeRole();  // 伪造一个Role对象，以免报错
-        }
-        return view('admin.back.user.edit', compact('user', 'roles', 'own_role'));
+        $group = $this->member->editRank($id);
+        return $this->view('member.group.edit', compact('group'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(UserRequest $request, $id)
+    public function update(MemberGroupRequest $request, $id)
     {
         $data = $request->all();
-        $this->user->update($id, $data);
-        
-        return redirect()->to(site_path('user', 'admin'))->with('message', '修改管理员成功！');
+        $this->member->updateRank($id, $data);        
+        return redirect()->to(site_path('member/group', 'admin'))->with('message', '修改会员分组成功！');
     }
     
     public function show($id)

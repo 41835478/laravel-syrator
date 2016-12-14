@@ -32,7 +32,7 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span12">
-					<h3 class="page-title">新增会员  <small> 新增系统会员</small></h3>
+					<h3 class="page-title">会员分组编辑  <small> 编辑系统会员分组</small></h3>
 					<ul class="breadcrumb">
 						<li>
 							<i class="icon-home"></i>
@@ -40,10 +40,10 @@
 							<i class="icon-angle-right"></i>
 						</li>
 						<li>
-							<a href="{{ site_url('member/member', 'admin') }}">会员管理</a> 
+							<a href="{{ site_url('member/group', 'admin') }}">会员分组管理</a> 
 							<i class="icon-angle-right"></i>
 						</li>
-						<li><a href="#">新增会员</a></li>
+						<li><a href="#">会员分组编辑</a></li>
 						<li class="pull-right no-text-shadow">
 							<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
 								<i class="icon-calendar"></i>
@@ -81,56 +81,21 @@
                     @endif
                     <div class="portlet box blue ">
                     	<div class="portlet-title">
-                    		<div class="caption">新增会员</div>
+                    		<div class="caption">会员分组编辑</div>
                     	</div>
 						<div class="portlet-body form">
-							<form method="post" action="{{ _route('admin:member.member.update', $member->id) }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+							<form method="post" action="{{ _route('admin:member.group.update', $group->id) }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
                                 {!! method_field('put') !!} 
                                 {!! csrf_field() !!}
 								<div class="control-group">
-									<label class="control-label">手机号</label>
+									<label class="control-label">分组名</label>
 									<div class="controls">										
-										<input type="text" class="m-wrap large" name="phone" autocomplete="off" value="{{ old('phone', isset($member) ? $member->phone : null) }}" placeholder="手机号" readOnly="true">
-										<span class="help-inline"><small class="text-red">*</small>（创建后手机号无法修改）</span>
+										<input type="text" class="m-wrap large" name="name" autocomplete="off" value="{{ old('name', isset($group) ? $group->name : null) }}" placeholder="分组名">
+										<span class="help-inline"><small class="text-red">*</small></span>
 									</div>
 								</div>
-								<div class="control-group">
-									<label class="control-label">用户名</label>
-									<div class="controls">										
-										<input type="text" class="m-wrap large" name="account" autocomplete="off" value="{{ old('account', isset($member) ? $member->account : null) }}" placeholder="用户名">
-										<span class="help-inline"><small class="text-red">*</small>（必须以英文字母开头并且是英文字母或数字的组合）</span>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">昵称</label>
-									<div class="controls">										
-										<input type="text" class="m-wrap large" name="nickname" autocomplete="off" value="{{ old('nickname', isset($member) ? $member->nickname : null) }}" placeholder="昵称">
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">Email</label>
-									<div class="controls">										
-										<input type="text" class="m-wrap large" name="email" autocomplete="off" value="{{ old('email', isset($member) ? $member->email : null) }}" placeholder="Email">
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">初始密码</label>
-									<div class="controls">										
-										<input type="password" class="m-wrap large" name="password" autocomplete="off" value="">
-									</div>
-								</div>
-								<div class="control-group">
-    								<label class="control-label">用户角色</label>
-    								<div class="controls">
-    									<select id="select_role" class="small m-wrap" tabindex="1" name="role">
-    									@foreach ($roles as $role)
-                                        	<option value="{{ $role->id }}">{{ $role->name }}</option>
-                                      	@endforeach
-    									</select>
-    								</div>
-    							</div>
 								<div class="form-actions">
-									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新会员</button>
+									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新会员分组</button>
 								</div>
 							</form>
 						</div>
