@@ -96,6 +96,8 @@
 										</th>			
 										<th style="">编号</th>
 										<th style="">名称</th>
+										<th style="">创建时间</th>
+										<th style="">更新时间</th>
                                         <th class="hidden-480" style="text-align:center;">操作</th>
 									</tr>
 								</thead>
@@ -107,6 +109,8 @@
 										</td>
                                         <td class="text-green">{{ $per->id }}</td>
                                         <td class="text-green">{{ $per->name }}</td>
+                                        <td>{{ $per->created_at }}</td>
+                                        <td>{{ $per->updated_at }}</td>
                     					<td style="text-align: center;">                                        	
                                         	<a data-title="{{ $per->name }}" href="{{ _route('admin:member.group.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-eye-open"></i>

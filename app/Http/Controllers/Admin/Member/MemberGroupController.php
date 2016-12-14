@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Member;
 use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\MemberGroupRequest;
 use App\Loggers\SystemLogger;
 use App\Repositories\MemberRepository;
 
@@ -29,37 +29,26 @@ class MemberGroupController extends BackController
         return $this->view('member.group.index', compact('groups'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
     public function create()
     {
-        $roles = $this->user->role();
-        return view('admin.back.user.create', ['roles' => $roles]);
+        return $this->view('member.group.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store(UserRequest $request)
+    public function store(MemberGroupRequest $request)
     {
         $data = $request->all();
-        $manager = $this->user->store($data);
+        $manager = $this->member->storeRank($data);
         if ($manager->id) {  
             // 添加成功
             // 记录系统日志，这里并未使用事件监听来记录日志
             $log = [
                 'user_id' => auth()->user()->id,
                 'type'    => 'management',
-                'content' => '管理员：成功新增一名管理用户'.$manager->username.'<'.$manager->email.'>。',
+                'content' => '管理员：成功新增会员分组'.$manager->name.'<'.$manager->email.'>。',
             ];
             SystemLogger::write($log);
 
-            return redirect()->to(site_path('user', 'admin'))->with('message', '成功新增管理员！');
+            return redirect()->to(site_path('member/group', 'admin'))->with('message', '成功新增会员分组！');
 
         } else {
             return redirect()->back()->withInput($request->input())->with('fail', '数据库操作返回异常！');
