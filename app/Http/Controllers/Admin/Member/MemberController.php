@@ -36,8 +36,8 @@ class MemberController extends BackController
     
     public function create()
     {
-        $groups = $this->member->indexRank();
-        return $this->view('member.create', compact('members', 'groups'));
+        $roles = $this->member->indexRank();
+        return $this->view('member.create', compact('members', 'roles'));
     }
 
     public function store(UserRequest $request)
