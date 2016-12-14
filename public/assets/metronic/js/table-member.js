@@ -1,6 +1,6 @@
 var TableMember = function () {
     return {
-        init: function () {
+        init: function (columnFilterSetting) {
             if (!jQuery().dataTable) {
                 return;
             }
@@ -32,7 +32,7 @@ var TableMember = function () {
                         'aTargets': [0]
                     }
                 ]
-            });
+            }).columnFilter(columnFilterSetting);
 
             jQuery('#syrator_table_member .group-checkable').change(function () {
                 var set = jQuery(this).attr("data-set");
@@ -56,6 +56,19 @@ var TableMember = function () {
                 var iCol = parseInt($(this).attr("data-column"));
                 var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
                 oTable.fnSetColumnVis(iCol, (bVis ? false : true));
+            });
+            
+            $('#syrator_table_member_select_role').change(function(){
+                alert(this.options[this.options.selectedIndex].value + this.options[this.options.selectedIndex].text);
+                oTable.columnFilter({
+           			aoColumns: [ { type: "select", values: [ 'Gecko', 'Trident', 'KHTML', 'Misc', 'Presto', 'Webkit', 'Tasman']  },
+               				     { type: "text" },
+               				     null,
+               				     { type: "number" },
+               				     { type: "select", values: [ 'A', 'C', 'U', 'X']  }
+               				]
+
+               		});
             });
         }
     };

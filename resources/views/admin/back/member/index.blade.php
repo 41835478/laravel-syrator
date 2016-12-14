@@ -6,15 +6,6 @@
 <link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/DT_bootstrap.css') }}" />
 @stop
 
-@section('head_style')
-@parent
-<style>
-.row-fluid .span6 {
-    width: 40% !important;
-}
-</style>
-@stop
-
 @section('body_attr') class="page-header-fixed" @stop
 
 @section('content-header')
@@ -106,12 +97,6 @@
 						</div>
 						<div class="portlet-body">
 							<table class="table table-striped table-bordered table-hover" id="syrator_table_member">							
-								<select class="small m-wrap" name="m_group_role" style="float:right;margin-right:0px;">
-                                    <option value="">选择分组</option>
-                                    @foreach ($groups as $k => $v)
-                                    <option value="{{ $v->id }}" {{ (request('m_group') == $v->id) ? 'selected' : '' }}>{{ $v->name }}</option>
-                                    @endforeach
-                                </select>
 								<thead>
 									<tr>
 										<th style="width:8px;text-align:center;">
@@ -124,7 +109,18 @@
 										<th style="">邮箱</th>
                                         <th class="hidden-480" style="width:80px;text-align:center;">操作</th>
 									</tr>
-								</thead>
+								</thead>								
+            					<tfoot>
+            						<tr>
+            							<th></th>
+            							<th></th>				
+            							<th></th>
+            							<th>选择角色</th>
+            							<th></th>
+            							<th></th>
+            							<th></th>
+            						</tr>
+            					</tfoot>
 								<tbody>
                                     @foreach ($members as $per)
                                     <tr class="odd gradeX">
@@ -164,6 +160,7 @@
 @parent
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/select2.min.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.js') }}"></script>
+<script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.columnFilter.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/table-member.js') }}"></script> 
 <script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
@@ -173,7 +170,21 @@
 <script>
 jQuery(document).ready(function() {    
     App.init();
-    TableMember.init();
+
+    var selectValues = new Array();
+    @foreach ($groups as $k => $v)
+    selectValues[{{$k}}] = "{{$v->name}}";
+    @endforeach
+    TableMember.init({
+		aoColumns: 
+		[ 
+			null,
+            null,
+            null,
+            {type: "select", values: selectValues},
+            null,
+        ]
+	});
 
     $(document).on("click","a.layer_open",function(evt) {
         evt.preventDefault();
