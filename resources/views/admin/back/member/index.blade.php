@@ -133,7 +133,7 @@
                                         <td>{{ $per->nickname }}</td>
                                         <td>{{ $per->email }}</td>
                     					<td style="text-align: center;">                                        	
-                                        	<a data-title="{{ $per->name }}" href="{{ _route('admin:member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-eye-open"></i>
                                         	</a>
                                         	<a href="{{ _route('admin:member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">

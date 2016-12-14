@@ -1,31 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>layer</title>
-    <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="{{ _asset(ref('bootstrap.css')) }}" />
-    <link href="{{ _asset('back/dist/css/syrator.css') }}" rel="stylesheet" type="text/css" />
+@extends('_layout._common')
 
-</head>
-<body>
-<div class="layerForm" style="margin: 10px;">
+@section('head_css')
+@parent
+<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/profile.css') }}" />
+@stop
 
-                <div class="box-header with-border">
-                  <p>用户详情</p>
-                  <div class="basic_info bg-info">
-                     <ul>
-                        <li>登录名：<span class="text-primary">{{ $user->username }}</span></li>
-                        <li>昵称：<span class="text-primary">{{ $user->nickname }}</span></li>
-                        <li>真实姓名：<span class="text-primary">{{ $user->realname }}</span></li>
-                        <li>电子邮件：<span class="text-primary">{{ $user->email }}</span></li>
-                        <li>手机号码：<b>{{ $user->phone }}</b></li>
-                        <li>状态：<b>{{ ($user->is_locked === 0) ? '正常' : '锁定' }}</b></li>
-                        <li>角色(用户组)：<b>{{ $own_role->display_name }}</b>
-                        </li>
-                    </ul>
-                  </div>
-                </div><!-- /.box-header -->
+@section('body_attr') class="page-header-fixed" @stop
+
+@section('content')
+<div class="page-container row-fluid" style="margin-top:0px;">
+	<div class="page-content" style="height:220px;min-height:220px;margin-left:0px;">
+		<div class="container-fluid">
+			<div class="row-fluid profile">
+				<div class="span12">
+					<div class="portlet-body form">
+						<table class="table table-hover table-striped table-bordered" style="margin-bottom: 0px;">
+							<tbody>
+    							<tr>
+    								<td style="width: 80px;">账号：</td>
+    								<td>{{ $member->account }}</td>
+    							</tr>
+    							<tr>
+    								<td>手机号：</td>
+    								<td>{{ $member->phone }}</td>
+    							</tr>
+    							<tr>
+    								<td>角色：</td>
+    								<td>{{ $member->role }}</td>
+    							</tr>
+    							<tr>
+    								<td>昵称：</td>
+    								<td>{{ $member->nickname }}</td>
+    							</tr>
+    							<tr>
+    								<td>邮箱：</td>
+    								<td>{{ $member->email }}</td>
+    							</tr>
+    						</tbody>
+						</table>					
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>  
 </div>
-</body>
-</html>
+@stop

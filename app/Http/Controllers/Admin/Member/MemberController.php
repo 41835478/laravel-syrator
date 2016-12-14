@@ -33,23 +33,13 @@ class MemberController extends BackController
 
         return $this->view('member.index', compact('members', 'groups'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
+    
     public function create()
     {
-        $roles = $this->user->role();
-        return view('admin.back.user.create', ['roles' => $roles]);
+        $groups = $this->member->indexRank();
+        return $this->view('member.create', compact('members', 'groups'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
     public function store(UserRequest $request)
     {
         $data = $request->all();
@@ -80,12 +70,10 @@ class MemberController extends BackController
     public function edit($id)
     {
         $user = $this->user->edit($id);
-
         $roles = $this->user->role();
 
         // 一个用户可以拥有多个角色，但在本内容管理框架系统中，限定只能一个用户对应一个角色
         $own_role = $this->user->getRole($user);
-
         if (is_null($own_role)) {
             // 新建的管理员用户可能不存在关联role模型
             $own_role = $this->user->fakeRole();  // 伪造一个Role对象，以免报错
@@ -109,20 +97,15 @@ class MemberController extends BackController
     
     public function show($id)
     {
-        $user = $this->user->edit($id);
-        $own_role = $this->user->getRole($user);
-        if (is_null($own_role)) {
-            // 新建的管理员用户可能不存在关联role模型
-            $own_role = $this->user->fakeRole();  // 伪造一个Role对象，以免报错
-        }
-        return view('admin.back.user.show', compact('user', 'own_role'));
+        $member = $this->member->edit($id);
+        return $this->view('member.show', compact('member'));
     }
     
     public function remove(Request $request)
     {
         $delId = $request->input('delId');
     
-        $user = $this->user->edit($delId);
+        $member = $this->member->edit($delId);
         if (!empty($user)) {
             if (strcasecmp($user->username,'admin') == 0) {
                 $rth['code'] = "401";
