@@ -26,7 +26,7 @@
     							</tr>
     							<tr>
     								<td>角色：</td>
-    								<td>{{ $member->role }}</td>
+    								<td>{{ $member->getRoleName() }}</td>
     							</tr>
     							<tr>
     								<td>昵称：</td>
