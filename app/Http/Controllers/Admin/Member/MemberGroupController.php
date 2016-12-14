@@ -70,13 +70,8 @@ class MemberGroupController extends BackController
     
     public function show($id)
     {
-        $user = $this->user->edit($id);
-        $own_role = $this->user->getRole($user);
-        if (is_null($own_role)) {
-            // 新建的管理员用户可能不存在关联role模型
-            $own_role = $this->user->fakeRole();  // 伪造一个Role对象，以免报错
-        }
-        return view('admin.back.user.show', compact('user', 'own_role'));
+        $group = $this->member->editRank($id);
+        return $this->view('member.group.show', compact('group'));
     }
     
     public function remove(Request $request)
