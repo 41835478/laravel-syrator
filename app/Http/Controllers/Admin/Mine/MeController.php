@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\BackController;
 use App\Http\Requests\MeRequest;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
-use Gate;
 
 /**
  * 我的账户控制器

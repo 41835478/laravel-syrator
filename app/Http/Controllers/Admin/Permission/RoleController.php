@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Repositories\RoleRepository;
 use App\Http\Requests\RoleRequest;
 use App\Model\RoleModel;
-use Gate;
 
 /**
  * 角色控制器

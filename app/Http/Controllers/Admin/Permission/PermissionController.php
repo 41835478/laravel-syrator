@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Repositories\RoleRepository;
 use App\Http\Requests\PermissionRequest;
 use App\Model\PermissionModel;
-use Gate;
 
 /**
  * 权限控制器

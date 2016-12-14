@@ -6,7 +6,6 @@ use App\Http\Controllers\Admin\CMS\AppCmsController;
 
 use Illuminate\Http\Request;
 use App\Repositories\ArticleRepository;
-use Gate;
 
 /**
  * 文章分类控制器

@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\BackController;
 use Illuminate\Http\Request;
 use App\Repositories\SystemRepository;
 use Syrator\Cache\DataCache;
-use Gate;
 
 /**
  * 系统配置控制器

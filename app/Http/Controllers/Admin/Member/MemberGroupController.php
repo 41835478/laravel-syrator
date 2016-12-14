@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Loggers\SystemLogger;
 use App\Repositories\MemberRepository;
-use Gate;
 
 /**
  * 会员控制器

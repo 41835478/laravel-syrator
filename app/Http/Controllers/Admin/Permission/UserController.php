@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Loggers\SystemLogger;
 use App\Repositories\UserRepository;
-use Gate;
 
 /**
  * 管理员(用户)资源控制器

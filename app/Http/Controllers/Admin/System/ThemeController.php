@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Repositories\ThemeRepository;
 use App\Http\Requests\ThemeRequest;
 use App\Loggers\SystemLogger;
-use Gate;
 
 /**
  * 前台模板控制器

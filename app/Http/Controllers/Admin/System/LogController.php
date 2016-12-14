@@ -6,7 +6,6 @@ use App\Http\Controllers\Admin\BackController;
 
 use Illuminate\Http\Request;
 use App\Repositories\SystemRepository;
-use Gate;
 
 /**
  * 系统日志控制器
