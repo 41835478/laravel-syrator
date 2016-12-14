@@ -32,7 +32,7 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span12">
-					<h3 class="page-title">新增会员  <small> 新增系统会员</small></h3>
+					<h3 class="page-title">会员编辑  <small> 编辑系统会员</small></h3>
 					<ul class="breadcrumb">
 						<li>
 							<i class="icon-home"></i>
@@ -43,7 +43,7 @@
 							<a href="{{ site_url('member/member', 'admin') }}">会员管理</a> 
 							<i class="icon-angle-right"></i>
 						</li>
-						<li><a href="#">新增会员</a></li>
+						<li><a href="#">会员编辑</a></li>
 						<li class="pull-right no-text-shadow">
 							<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
 								<i class="icon-calendar"></i>
@@ -81,7 +81,7 @@
                     @endif
                     <div class="portlet box blue ">
                     	<div class="portlet-title">
-                    		<div class="caption">新增会员</div>
+                    		<div class="caption">会员编辑</div>
                     	</div>
 						<div class="portlet-body form">
 							<form method="post" action="{{ _route('admin:member.member.update', $member->id) }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
