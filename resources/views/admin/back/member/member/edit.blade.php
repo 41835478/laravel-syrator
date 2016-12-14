@@ -40,7 +40,7 @@
 							<i class="icon-angle-right"></i>
 						</li>
 						<li>
-							<a href="{{ site_url('member', 'admin') }}">会员管理</a> 
+							<a href="{{ site_url('member/member', 'admin') }}">会员管理</a> 
 							<i class="icon-angle-right"></i>
 						</li>
 						<li><a href="#">新增会员</a></li>
@@ -84,12 +84,13 @@
                     		<div class="caption">新增会员</div>
                     	</div>
 						<div class="portlet-body form">
-							<form method="post" action="{{ _route('admin:member.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+							<form method="post" action="{{ _route('admin:member.member.update', $member->id) }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+                                {!! method_field('put') !!} 
                                 {!! csrf_field() !!}
 								<div class="control-group">
 									<label class="control-label">手机号</label>
 									<div class="controls">										
-										<input type="text" class="m-wrap large" name="phone" autocomplete="off" value="{{ old('phone', isset($member) ? $member->phone : null) }}" placeholder="手机号">
+										<input type="text" class="m-wrap large" name="phone" autocomplete="off" value="{{ old('phone', isset($member) ? $member->phone : null) }}" placeholder="手机号" readOnly="true">
 										<span class="help-inline"><small class="text-red">*</small>（创建后手机号无法修改）</span>
 									</div>
 								</div>
@@ -115,13 +116,13 @@
 								<div class="control-group">
 									<label class="control-label">初始密码</label>
 									<div class="controls">										
-										<input type="password" class="m-wrap large" name="password" autocomplete="off" value="{{ old('password', isset($member) ? $member->password : null) }}">
+										<input type="password" class="m-wrap large" name="password" autocomplete="off" value="">
 									</div>
 								</div>
 								<div class="control-group">
     								<label class="control-label">用户角色</label>
     								<div class="controls">
-    									<select class="small m-wrap" tabindex="1" name="role">
+    									<select id="select_role" class="small m-wrap" tabindex="1" name="role">
     									@foreach ($roles as $role)
                                         	<option value="{{ $role->id }}">{{ $role->name }}</option>
                                       	@endforeach
@@ -129,7 +130,7 @@
     								</div>
     							</div>
 								<div class="form-actions">
-									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增会员</button>
+									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新会员</button>
 								</div>
 							</form>
 						</div>
@@ -149,6 +150,8 @@
 <script>
 jQuery(document).ready(function() {    
     App.init();
+
+    $("#select_role option[value={{$member->role}}]").attr('selected',true);
 });
 </script>
 @stop

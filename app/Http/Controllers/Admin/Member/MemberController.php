@@ -31,13 +31,13 @@ class MemberController extends BackController
         $members = $this->member->index($data);
         $groups = $this->member->indexRank();
 
-        return $this->view('member.index', compact('members', 'groups'));
+        return $this->view('member.member.index', compact('members', 'groups'));
     }
     
     public function create()
     {
         $roles = $this->member->indexRank();
-        return $this->view('member.create', compact('members', 'roles'));
+        return $this->view('member.member.create', compact('members', 'roles'));
     }
 
     public function store(MemberRequest $request)
@@ -54,7 +54,7 @@ class MemberController extends BackController
             ];
             SystemLogger::write($log);
 
-            return redirect()->to(site_path('member', 'admin'))->with('message', '成功新增会员！');
+            return redirect()->to(site_path('member/member', 'admin'))->with('message', '成功新增会员！');
 
         } else {
             return redirect()->back()->withInput($request->input())->with('fail', '数据库操作返回异常！');
@@ -65,7 +65,7 @@ class MemberController extends BackController
     {
         $member = $this->member->edit($id);
         $roles = $this->member->indexRank();
-        return $this->view('member.edit', compact('member', 'roles'));
+        return $this->view('member.member.edit', compact('member', 'roles'));
     }
 
     public function update(MemberRequest $request, $id)
@@ -73,13 +73,13 @@ class MemberController extends BackController
         $data = $request->all();
         $this->member->update($id, $data);
         
-        return redirect()->to(site_path('member', 'admin'))->with('message', '修改会员成功！');
+        return redirect()->to(site_path('member/member', 'admin'))->with('message', '修改会员成功！');
     }
     
     public function show($id)
     {
         $member = $this->member->edit($id);
-        return $this->view('member.show', compact('member'));
+        return $this->view('member.member.show', compact('member'));
     }
     
     public function remove(Request $request)

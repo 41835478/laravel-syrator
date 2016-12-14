@@ -62,10 +62,12 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
         });
         
         // 会员管理
-        Route::resource('member', 'Member\MemberController');
-	    Route::post('member/remove', 'Member\MemberController@remove');
         Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
+            Route::resource('member', 'MemberController');
+    	    Route::post('member/remove', 'MemberController@remove');
+    	    
             Route::resource('group', 'MemberGroupController');
+    	    Route::post('group/remove', 'MemberGroupController@remove');
         });
 
         // 权限管理

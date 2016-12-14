@@ -14,19 +14,19 @@ class MemberRequest extends Request
         //update
         if($this->segment(4)){
             $rules = [
-                'phone'                     => 'required|size:11|mobile_phone|unique:member,phone',
-                'account'                   => 'required|min:4|max:20|eng_alpha_num|unique:member,account',
+                'account'                   => 'required|min:4|max:20|eng_alpha_num',
                 'password'                  => 'min:6|max:16|regex:/^[a-zA-Z0-9~@#%_]{6,16}$/i',
-                'email'                     => 'required|email|unique:member,email',
+                'email'                     => 'required|email',
                 'role'                      => 'required|exists:member_rank,id',
             ];
         }
         //store
         else{
             $rules = [
-                'account'                   => 'required|min:4|max:20|eng_alpha_num',
+                'phone'                     => 'required|size:11|mobile_phone|unique:member,phone',
+                'account'                   => 'required|min:4|max:20|eng_alpha_num|unique:member,account',
                 'password'                  => 'min:6|max:16|regex:/^[a-zA-Z0-9~@#%_]{6,16}$/i',
-                'email'                     => 'required|email',
+                'email'                     => 'required|email|unique:member,email',
                 'role'                      => 'required|exists:member_rank,id',
             ];
         }

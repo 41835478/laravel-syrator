@@ -83,7 +83,7 @@
 							<div class="caption">会员列表</div>
 							<div class="actions">
 								<div class="btn-group">
-									<a href="{{ _route('admin:member.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
+									<a href="{{ _route('admin:member.member.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
 									<a class="btn" href="#" data-toggle="dropdown">选择显示列<i class="icon-angle-down"></i></a>
 									<div id="syrator_table_member_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
 										<label><input type="checkbox" checked data-column="1">账号</label>
@@ -133,10 +133,10 @@
                                         <td>{{ $per->nickname }}</td>
                                         <td>{{ $per->email }}</td>
                     					<td style="text-align: center;">                                        	
-                                        	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-eye-open"></i>
                                         	</a>
-                                        	<a href="{{ _route('admin:member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                                        	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-edit"></i>
                                         	</a>
                                         	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
@@ -204,7 +204,7 @@ jQuery(document).ready(function() {
     $(document).on("click","a.remove",function(evt) {
         var itemId = $(this).attr("item-id");
     	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-            $.post("{{ URL('admin/member/remove') }}", {
+            $.post("{{ URL('admin/member/member/remove') }}", {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:itemId,
             }, function(data){

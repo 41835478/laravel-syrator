@@ -49,7 +49,7 @@
 				<i class="icon-gift"></i><span class="title">会员管理</span><span class="arrow "></span>
 			</a>
 			<ul class="sub-menu">
-				<li ><a href="{{ site_url('member', 'admin') }}"><i class="icon-cogs"></i> 所有会员</a></li>
+				<li ><a href="{{ site_url('member/member', 'admin') }}"><i class="icon-cogs"></i> 所有会员</a></li>
 				<li ><a href="{{ site_url('member/group', 'admin') }}"><i class="icon-cogs"></i> 会员分组</a></li>
 			</ul>
 		</li>
