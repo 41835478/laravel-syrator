@@ -1,53 +1,39 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>角色查看</title>
-    <meta name="description" content="{{ isset($description) ? $description : 'SYRATOR AdminLTE' }}" />
-    <meta name="keywords" content="SYRATOR,AdminLTE,{{ cache('website_keywords') }}" />
-    <meta name="author" content="{{ cache('system_author_website') }}" />
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+@extends('_layout._common')
 
-    <link rel="shortcut icon" href="{{ _asset('favicon.ico') }}" type="image/x-icon">
-    
-    <link href="{{ _asset(ref('bootstrap.css')) }}" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
-    <link href="{{ _asset(ref('font-awesome.css')) }}" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="{{ _asset(ref('ionicons.css')) }}" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="{{ _asset('back/dist/css/syrator.css') }}" rel="stylesheet" type="text/css" />
+@section('head_css')
+@parent
+<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/profile.css') }}" />
+@stop
 
- 
-</head>
-<body>
-<div class="wrapper">
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Main content -->
-        	<div class="nav-tabs-custom" style="margin-bottom: 0px;">
-        		<ul class="nav nav-tabs">
-        			<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">主要内容</a></li>
-                </ul>
-                <div class="tab-content">                    
-                    <div class="tab-pane active" id="tab_1">
-                    	<div class="form-group">
-                        	<label>权限名</label>
-                        	<input readonly="true" type="text" class="form-control" name="name" autocomplete="off" value="{{ old('name', isset($permission) ? $permission->name : null) }}" placeholder="权限名">
-                      	</div>
-                      	<div class="form-group">
-                        	<label>权限展示名</label>
-                        	<input readonly="true" type="text" class="form-control" name="display_name" autocomplete="off" value="{{ old('display_name', isset($permission) ? $permission->display_name : null) }}" placeholder="权限展示名">
-                      	</div>
-                      	<div class="form-group">
-                        	<label>权限描述</label>
-                        	<textarea readonly="true" class="form-control" name="description" cols="45" rows="2" maxlength="200" placeholder="权限描述" autocomplete="off">{{ old('description', isset($permission) ? $permission->description : null) }}</textarea>
-                      	</div>                      
-                	</div>
-				</div>                  
+@section('body_attr') class="page-header-fixed" @stop
+
+@section('content')
+<div class="page-container row-fluid" style="margin-top:0px;">
+	<div class="page-content" style="height:280px;min-height:220px;margin-left:0px;">
+		<div class="container-fluid">
+			<div class="row-fluid profile">
+				<div class="span12">
+					<div class="portlet-body form">
+						<table class="table table-hover table-striped table-bordered" style="margin-bottom: 0px;">
+							<tbody>
+    							<tr>
+    								<td style="width: 120px;">权限名：</td>
+    								<td>{{ $permission->name }}</td>
+    							</tr>
+    							<tr>
+    								<td>权限展示名：</td>
+    								<td>{{ $permission->display_name }}</td>
+    							</tr>
+    							<tr>
+    								<td>权限描述：</td>
+    								<td>{{ $permission->description }}</td>
+    							</tr>
+    						</tbody>
+						</table>					
+					</div>					
+				</div>
 			</div>
-	</div>   
+		</div>
+	</div>  
 </div>
-</body>
-</html>
+@stop
