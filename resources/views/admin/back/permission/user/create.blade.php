@@ -120,21 +120,21 @@
 								<div class="control-group">
 									<label class="control-label">Email</label>
 									<div class="controls">										
-										<input type="text" class="m-wrap large" name="email" autocomplete="off" value="{{ old('email', isset($role) ? $role->email : null) }}" placeholder="Email">
+										<input type="text" class="m-wrap large" name="email" autocomplete="off" value="{{ old('email', isset($user) ? $user->email : null) }}" placeholder="Email">
 										<span class="help-inline text-green"><small>*</small> 用于找回或重置登录密码等操作</span>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">真实姓名</label>
 									<div class="controls">										
-										<input type="text" class="m-wrap large" name="realname" autocomplete="off" value="{{ old('realname', isset($role) ? $role->realname : null) }}" placeholder="真实姓名">
+										<input type="text" class="m-wrap large" name="realname" autocomplete="off" value="{{ old('realname', isset($user) ? $user->realname : null) }}" placeholder="真实姓名">
 										<span class="help-inline text-green"><small>*</small> 用于身份确认，必须为2字以上的中文</span>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">手机号</label>
 									<div class="controls">										
-										<input type="text" class="m-wrap large" name="phone" autocomplete="off" value="{{ old('phone', isset($role) ? $role->phone : null) }}" placeholder="手机号">
+										<input type="text" class="m-wrap large" name="phone" autocomplete="off" value="{{ old('phone', isset($user) ? $user->phone : null) }}" placeholder="手机号">
 										<span class="help-inline text-green"><small>*</small> 用于通讯联络，请填写国内真实的手机号码</span>
 									</div>
 								</div>

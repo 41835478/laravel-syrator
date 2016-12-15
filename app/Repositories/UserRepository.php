@@ -46,6 +46,7 @@ class UserRepository extends BaseRepository
         $manager->password = bcrypt(e($inputs['password']));
         $manager->email = e($inputs['email']);
         $manager->realname = e($inputs['realname']);
+        $manager->phone = e($inputs['phone']);
 
         if ($manager->save()) {
             $manager->roles()->attach($inputs['role']);  //附加上用户组（角色）
