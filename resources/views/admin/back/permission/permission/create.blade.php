@@ -103,7 +103,7 @@
 								<div class="control-group">
 									<label class="control-label">权限描述</label>
 									<div class="controls">										
-										<textarea type="text" class="m-wrap large" name="description" autocomplete="off" value="{{ old('description', isset($permission) ? $permission->description : null) }}" placeholder="权限描述"></textarea>
+										<textarea type="text" class="m-wrap large" name="description" autocomplete="off" placeholder="权限描述">{{ old('description', isset($permission) ? $permission->description : null) }}</textarea>
 									</div>
 								</div>
 								<div class="form-actions">

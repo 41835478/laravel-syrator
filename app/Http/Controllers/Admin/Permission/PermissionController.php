@@ -66,10 +66,7 @@ class PermissionController extends BackController
     }
     
     public function update(PermissionRequest $request, $id)
-    {
-        echo "HH";
-        exit();
-        
+    {        
         $data = $request->all();
         
         $permission = PermissionModel::findOrfail($id);
