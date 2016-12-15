@@ -1,122 +1,160 @@
-@extends('admin.layout._back')
+@extends('_layout._common')
+
+@section('head_css')
+@parent
+@stop
+
+@section('body_attr') class="page-header-fixed" @stop
 
 @section('content-header')
 @parent
-          <h1>
-            权限管理
-            <small>管理员</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="{{ site_url('home', 'admin') }}"><i class="fa fa-home"></i> 主页</a></li>
-            <li><a href="{{ _route('admin:permission.user.index') }}">权限管理 - 管理员</a></li>
-            <li class="active">修改管理员</li>
-          </ol>
+@include('admin._widgets._main-header')
+@stop
+
+@section('content-footer')
+@parent
+@include('admin._widgets._main-footer')
 @stop
 
 @section('content')
-
-            @if(session()->has('fail'))
-              <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4>  <i class="icon fa fa-check"></i> 提示！</h4>
-                {{ session('fail') }}
-              </div>
-            @endif
-
-            @if($errors->any())
-              <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h4><i class="icon fa fa-ban"></i> 警告！</h4>
-                    <ul>
-                      @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                      @endforeach
-                    </ul>
-              </div>
-            @endif
-
-              <div class="box box-primary">
-
-                <div class="box-header with-border">
-                  <h3 class="box-title">修改管理员资料</h3>
-                  <p>以下展示ID为1 的管理员个人资料，您可修改昵称、真实姓名与登录密码等信息。登录密码项留空，则不修改登录密码。</p>
-                  <div class="basic_info bg-info">
-                     <ul>
-                        <li>登录名：<span class="text-primary">{{ $user->username }}</span></li>
-                        <li>昵称：<span class="text-primary">{{ $user->nickname }}</span></li>
-                        <li>真实姓名：<span class="text-primary">{{ $user->realname }}</span></li>
-                        <li>电子邮件：<span class="text-primary">{{ $user->email }}</span></li>
-                        <li>手机号码：<b>{{ $user->phone }}</b></li>
-                    </ul>
-                  </div>
-                </div><!-- /.box-header -->
-
-                <form method="post" action="{{ _route('admin:permission.user.update', $user->id) }}" accept-charset="utf-8">
-                {!! method_field('put') !!}
-                {!! csrf_field() !!}
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label>昵称 <small class="text-red">*</small></label>
-                      <input type="text" class="form-control" name="nickname" value="{{ old('nickname', isset($user) ? $user->nickname : null) }}" placeholder="昵称">
+<div class="page-container row-fluid">
+	@include('admin._widgets._main-sidebar')
+	<div class="page-content">
+		<div id="portlet-config" class="modal hide">
+			<div class="modal-header">
+				<button data-dismiss="modal" class="close" type="button"></button>
+				<h3>Widget Settings</h3>
+			</div>
+			<div class="modal-body">
+				Widget settings form goes here
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<h3 class="page-title">管理员编辑  <small> 编辑系统管理员</small></h3>
+					<ul class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							<a href="{{ site_url('home', 'admin') }}">首页</a> 
+							<i class="icon-angle-right"></i>
+						</li>
+						<li>
+							<a href="{{ site_url('permission/user', 'admin') }}">管理员管理</a> 
+							<i class="icon-angle-right"></i>
+						</li>
+						<li><a href="#">编辑管理员</a></li>
+						<li class="pull-right no-text-shadow">
+							<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
+								<i class="icon-calendar"></i>
+								<span></span>
+								<i class="icon-angle-down"></i>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+        			@if(session()->has('fail'))
+                    <div class="alert alert-warning alert-dismissable">
+                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                    	<h4>
+                    		<i class="icon icon fa fa-warning"></i> 提示！
+                    	</h4>
+                    	{{ session('fail') }}
                     </div>
-                    <div class="form-group">
-                      <label>真实姓名 <small class="text-red">*</small></label>
-                      <input type="text" class="form-control" name="realname" autocomplete="off" value="{{ old('realname', isset($user) ? $user->realname : null) }}" placeholder="真实姓名">
+                    @endif 
+                    
+                    @if($errors->any())
+                    <div class="alert alert-danger alert-dismissable">
+                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                    	<h4>
+                    		<i class="icon fa fa-ban"></i> 警告！
+                    	</h4>
+                    	<ul>
+                    		@foreach ($errors->all() as $error)
+                    		<li>{{ $error }}</li> 
+                    		@endforeach
+                    	</ul>
                     </div>
-
-                    <div class="form-group">
-                      <label>用户状态：是否锁定 <small class="text-red">*</small></label>
-                      <div class="input-group">
-                        <input type="radio" name="is_locked" value="0" {{ ($user->is_locked === 0) ? 'checked' : '' }}>
-                        <label class="choice" for="radiogroup">否</label>
-                        <input type="radio" name="is_locked" value="1" {{ ($user->is_locked === 1) ? 'checked' : '' }}>
-                        <label class="choice" for="radiogroup">是</label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label>角色(用户组) <small class="text-red">*</small></label>
-                      <div class="input-group">
-                          <select data-placeholder="选择角色..." class="chosen-select" style="min-width:200px;" name="role">
-                          @foreach ($roles as $role)
-                            <option value="{{ $role->id }}" {{ ($own_role->id === $role->id) ? 'selected':'' }}>{{ $role->name }}({{ $role->display_name }})</option>
-                          @endforeach
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label>登录密码</label>
-                      <input type="password" class="form-control" name="password" value="" autocomplete="off" placeholder="登录密码">
-                    </div>
-                    <div class="form-group">
-                      <label>确认登录密码</label>
-                      <input type="password" class="form-control" name="password_confirmation" value="" autocomplete="off" placeholder="登录密码">
-                    </div>
-                  </div><!-- /.box-body -->
-
-                  <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">修改个人资料</button>
-                  </div>
-                </form>
-
-              </div>
-
+                    @endif
+                    <div class="portlet box blue ">
+                    	<div class="portlet-title">
+                    		<div class="caption">编辑管理员</div>
+                    	</div>
+						<div class="portlet-body form">
+							<form method="post" action="{{ _route('admin:permission.user.update', $user->id) }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+                                {!! method_field('put') !!}
+                                {!! csrf_field() !!}
+								<div class="control-group">
+									<label class="control-label">昵称</label>
+									<div class="controls">										
+										<input type="text" class="m-wrap large" name="nickname" autocomplete="off" value="{{ old('nickname', isset($user) ? $user->nickname : null) }}" placeholder="昵称">
+										<span class="help-inline text-green"><small>*</small></span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">真实姓名</label>
+									<div class="controls">										
+										<input type="text" class="m-wrap large" name="realname" autocomplete="off" value="{{ old('realname', isset($user) ? $user->realname : null) }}" placeholder="真实姓名">
+										<span class="help-inline text-green"><small>*</small> 用于身份确认，必须为2字以上的中文</span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">用户状态（是否锁定）</label>
+									<div class="controls">									
+										<label class="radio"><input type="radio" name="is_locked" value="0" {{($user->is_locked === 0)?'checked':''}}/>否</label>
+										<label class="radio"><input type="radio" name="is_locked" value="1" {{($user->is_locked === 1)?'checked':''}}/>是</label> 
+									</div>
+								</div>
+								<div class="control-group">
+    								<label class="control-label">角色(用户组)</label>
+    								<div class="controls">
+    									<select id="select_role" class="large m-wrap" tabindex="1" name="role">
+    									@foreach ($roles as $role)
+                                        	<option value="{{ $role->id }}">{{ $role->name }}({{ $role->display_name }})</option>
+                                      	@endforeach
+    									</select>
+    								</div>
+    							</div>
+								<div class="control-group">
+									<label class="control-label">初始化登录密码</label>
+									<div class="controls">										
+										<input type="password" class="m-wrap large" name="password" autocomplete="off" value="" placeholder="登录密码">
+										<span class="help-inline text-green"><small>*</small> 只能6-16位数字、字母和部分特殊符号（0-9a-zA-Z~@#%）组合</span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">确认登录密码</label>
+									<div class="controls">										
+										<input type="password" class="m-wrap large" name="password_confirmation" autocomplete="off" value="" placeholder="重复上面登录密码">
+										<span class="help-inline text-green"><small>*</small></span>
+									</div>
+								</div>
+								<div class="form-actions">
+									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新管理员</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 @stop
-
 
 @section('extraPlugin')
-
-  <!--引入iCheck组件-->
-  <script src="{{ _asset(ref('icheck.js')) }}" type="text/javascript"></script>
-  <!--引入Chosen组件-->
-  @include('admin.scripts.endChosen')
-
+@parent
 @stop
 
-
 @section('filledScript')
-        <!--启用iCheck响应checkbox与radio表单控件-->
-        $('input[name="is_locked"]').iCheck({
-          radioClass: 'iradio_flat-blue',
-          increaseArea: '20%' // optional
-        });
+<script>
+jQuery(document).ready(function() {    
+    App.init();
+
+    $("#select_role option[value={{$own_role->id}}]").attr('selected',true);
+});
+</script>
 @stop
