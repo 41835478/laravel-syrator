@@ -200,7 +200,7 @@ jQuery(document).ready(function() {
     @foreach ($roles as $k => $v)
     selectValues[{{$k}}] = "{{ $v->name }}({{ $v->display_name }})";
     @endforeach
-    TableMember.init({
+    TablePermissionUser.init({
 		aoColumns: 
 		[ 
 			null,

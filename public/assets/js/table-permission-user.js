@@ -1,4 +1,4 @@
-var TableMember = function () {
+var TablePermissionUser = function () {
     return {
         init: function (columnFilterSetting) {
             if (!jQuery().dataTable) {
