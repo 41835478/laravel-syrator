@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-11-28 23:22:52
+Date: 2016-12-15 17:09:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -882,9 +882,6 @@ INSERT INTO `syrator_material_cat` VALUES ('12', '站内快讯', '', '', '5', '0
 INSERT INTO `syrator_material_cat` VALUES ('13', '生活百科', '', '', '4', '0', '0', '2016-08-31 11:04:14', '2016-08-31 11:04:14');
 INSERT INTO `syrator_material_cat` VALUES ('14', '今日聚焦', '', '', '2', '0', '0', '2016-08-31 11:04:14', '2016-08-31 11:04:14');
 INSERT INTO `syrator_material_cat` VALUES ('16', '公司动态', '', '', '1', '0', '0', '2016-08-31 11:04:14', '2016-08-31 11:04:14');
-INSERT INTO `syrator_material_cat` VALUES ('17', '广告1210*100', '', '', '50', '0', '0', '2016-08-31 11:04:14', '2016-08-31 11:04:14');
-INSERT INTO `syrator_material_cat` VALUES ('18', '行业聚焦', '', '', '3', '0', '0', '2016-08-31 11:04:14', '2016-08-31 11:04:14');
-INSERT INTO `syrator_material_cat` VALUES ('19', '供货商通知文章', '', '', '50', '0', '0', '2016-08-31 11:04:14', '2016-08-31 11:04:14');
 INSERT INTO `syrator_material_cat` VALUES ('23', '地坪', '得到1', '冻豆腐2', '30', '1', '10', '2016-11-27 22:01:39', '2016-11-27 22:41:16');
 INSERT INTO `syrator_material_cat` VALUES ('25', '系统分类2', '', '', '2', '1', '0', '2016-11-27 23:06:49', '2016-11-27 23:08:15');
 
@@ -900,7 +897,7 @@ CREATE TABLE `syrator_member` (
   `password` varchar(255) NOT NULL DEFAULT '' COMMENT '密码',
   `remember_token` varchar(255) DEFAULT '',
   `nickname` varchar(255) NOT NULL DEFAULT '' COMMENT '用户昵称',
-  `role` varchar(255) DEFAULT NULL,
+  `role` int(10) DEFAULT NULL,
   `aite_id` text NOT NULL,
   `is_surplus_open` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否开启余额支付密码功能',
   `surplus_password` varchar(32) NOT NULL COMMENT '余额支付密码',
@@ -953,12 +950,13 @@ CREATE TABLE `syrator_member` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COMMENT='会员表';
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='会员表';
 
 -- ----------------------------
 -- Records of syrator_member
 -- ----------------------------
-INSERT INTO `syrator_member` VALUES ('36', '18672764673', '', '', '$2y$10$RyIG.gqXlFDgEJ2JBd5Jku7z2uIAzXEkrMvjeOb1gQ0c.smjCZmPi', '', '小胖', '2', '', '0', '', '', '', '0', '0000-00-00', '0.00', '0.00', '0', '0', '0', '0', '0', '0000-00-00 00:00:00', '', '0', '0', '0', null, '0', '0', '0', '', '', '', '', '', '', '0', '0', '0.00', null, null, '0', '', '', '', '', '0', '0', '0', '0', '', '0', '', '0', 'pc', '', '2016-11-01 21:37:44', '2016-11-01 21:37:44');
+INSERT INTO `syrator_member` VALUES ('36', '18672764673', 'shul300@163.com', '18672764673', '$2y$10$RyIG.gqXlFDgEJ2JBd5Jku7z2uIAzXEkrMvjeOb1gQ0c.smjCZmPi', '', '小胖', '2', '', '0', '', '', '', '0', '0000-00-00', '0.00', '0.00', '0', '0', '0', '0', '0', '0000-00-00 00:00:00', '', '0', '0', '0', null, '0', '0', '0', '', '', '', '', '', '', '0', '0', '0.00', null, null, '0', '', '', '', '', '0', '0', '0', '0', '', '0', '', '0', 'pc', '', '2016-11-01 21:37:44', '2016-12-14 22:03:08');
+INSERT INTO `syrator_member` VALUES ('42', '18672764675', 'shuwhu@qq.com', 'asdsdsdsd', '$2y$10$taMY6Ab9mLlg6XGP/lYB2us73pwAIUSp1ZnSEKvmvJkU7NQv7Faxu', '', 'asdasdsdsas', '8', '', '0', '', '', '', '0', '0000-00-00', '0.00', '0.00', '0', '0', '0', '0', '0', '0000-00-00 00:00:00', '', '0', '0', '0', null, '0', '0', '0', '', '', '', '', '', '', '0', '0', '0.00', null, null, '0', '', '', '', '', '0', '0', '0', '0', '', '0', '', '0', 'pc', '', '2016-12-14 23:28:08', '2016-12-15 01:29:46');
 
 -- ----------------------------
 -- Table structure for syrator_member_rank
@@ -973,17 +971,20 @@ CREATE TABLE `syrator_member_rank` (
   `show_price` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `special_rank` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `is_recomm` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='会员分组';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='会员分组';
 
 -- ----------------------------
 -- Records of syrator_member_rank
 -- ----------------------------
-INSERT INTO `syrator_member_rank` VALUES ('1', '普通会员', '0', '999', '100', '0', '0', '0');
-INSERT INTO `syrator_member_rank` VALUES ('2', '铜牌会员', '1000', '5999', '95', '1', '0', '0');
-INSERT INTO `syrator_member_rank` VALUES ('3', '金牌会员', '6000', '9999', '90', '1', '0', '0');
-INSERT INTO `syrator_member_rank` VALUES ('4', '钻石会员', '10000', '2147483647', '85', '1', '0', '0');
-INSERT INTO `syrator_member_rank` VALUES ('5', 'QQ', '0', '0', '100', '0', '1', '0');
+INSERT INTO `syrator_member_rank` VALUES ('1', '普通会员1', '0', '999', '100', '0', '0', '0', '2016-12-15 01:16:57', '2016-12-15 01:41:19');
+INSERT INTO `syrator_member_rank` VALUES ('2', '铜牌会员', '1000', '5999', '95', '1', '0', '0', '2016-12-15 01:16:57', '2016-12-15 01:16:57');
+INSERT INTO `syrator_member_rank` VALUES ('3', '金牌会员', '6000', '9999', '90', '1', '0', '0', '2016-12-15 01:16:57', '2016-12-15 01:16:57');
+INSERT INTO `syrator_member_rank` VALUES ('6', '设计师', '0', '0', '0', '1', '0', '0', '2016-12-15 01:16:57', '2016-12-15 01:16:57');
+INSERT INTO `syrator_member_rank` VALUES ('7', '工长', '0', '0', '0', '1', '0', '0', '2016-12-15 01:20:56', '2016-12-15 01:20:56');
+INSERT INTO `syrator_member_rank` VALUES ('8', '监理', '0', '0', '0', '1', '0', '0', '2016-12-15 01:29:25', '2016-12-15 01:29:25');
 
 -- ----------------------------
 -- Table structure for syrator_password_resets
@@ -1014,12 +1015,12 @@ CREATE TABLE `syrator_permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `permissions_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='权限表';
 
 -- ----------------------------
 -- Records of syrator_permissions
 -- ----------------------------
-INSERT INTO `syrator_permissions` VALUES ('1', '@member', '会员', '会员管理主权限', '2016-04-08 12:28:17', '2016-08-29 11:58:19');
+INSERT INTO `syrator_permissions` VALUES ('1', '@member', '会员', '颠三倒四', '2016-04-08 12:28:17', '2016-12-15 15:09:08');
 INSERT INTO `syrator_permissions` VALUES ('2', 'member-show', '会员查看', null, '2016-04-08 12:28:18', '2016-04-08 12:28:18');
 INSERT INTO `syrator_permissions` VALUES ('3', 'member-block', '会员冻结', null, '2016-04-08 12:28:18', '2016-04-08 12:28:18');
 INSERT INTO `syrator_permissions` VALUES ('4', 'member-search', '会员搜索', null, '2016-04-08 12:28:18', '2016-04-08 12:28:18');
@@ -1062,9 +1063,6 @@ CREATE TABLE `syrator_permission_role` (
 -- ----------------------------
 -- Records of syrator_permission_role
 -- ----------------------------
-INSERT INTO `syrator_permission_role` VALUES ('1', '1');
-INSERT INTO `syrator_permission_role` VALUES ('2', '1');
-INSERT INTO `syrator_permission_role` VALUES ('3', '1');
 INSERT INTO `syrator_permission_role` VALUES ('4', '1');
 INSERT INTO `syrator_permission_role` VALUES ('5', '1');
 INSERT INTO `syrator_permission_role` VALUES ('6', '1');
@@ -1090,8 +1088,6 @@ INSERT INTO `syrator_permission_role` VALUES ('25', '1');
 INSERT INTO `syrator_permission_role` VALUES ('26', '1');
 INSERT INTO `syrator_permission_role` VALUES ('27', '1');
 INSERT INTO `syrator_permission_role` VALUES ('28', '1');
-INSERT INTO `syrator_permission_role` VALUES ('1', '2');
-INSERT INTO `syrator_permission_role` VALUES ('2', '2');
 INSERT INTO `syrator_permission_role` VALUES ('12', '2');
 INSERT INTO `syrator_permission_role` VALUES ('13', '2');
 INSERT INTO `syrator_permission_role` VALUES ('14', '2');
@@ -1105,9 +1101,6 @@ INSERT INTO `syrator_permission_role` VALUES ('21', '2');
 INSERT INTO `syrator_permission_role` VALUES ('22', '2');
 INSERT INTO `syrator_permission_role` VALUES ('23', '2');
 INSERT INTO `syrator_permission_role` VALUES ('24', '2');
-INSERT INTO `syrator_permission_role` VALUES ('2', '3');
-INSERT INTO `syrator_permission_role` VALUES ('1', '5');
-INSERT INTO `syrator_permission_role` VALUES ('3', '5');
 INSERT INTO `syrator_permission_role` VALUES ('5', '5');
 INSERT INTO `syrator_permission_role` VALUES ('9', '5');
 INSERT INTO `syrator_permission_role` VALUES ('12', '5');
@@ -1116,21 +1109,6 @@ INSERT INTO `syrator_permission_role` VALUES ('17', '5');
 INSERT INTO `syrator_permission_role` VALUES ('19', '5');
 INSERT INTO `syrator_permission_role` VALUES ('20', '5');
 INSERT INTO `syrator_permission_role` VALUES ('22', '5');
-INSERT INTO `syrator_permission_role` VALUES ('1', '6');
-INSERT INTO `syrator_permission_role` VALUES ('3', '9');
-INSERT INTO `syrator_permission_role` VALUES ('3', '12');
-INSERT INTO `syrator_permission_role` VALUES ('3', '14');
-INSERT INTO `syrator_permission_role` VALUES ('3', '17');
-INSERT INTO `syrator_permission_role` VALUES ('3', '19');
-INSERT INTO `syrator_permission_role` VALUES ('3', '20');
-INSERT INTO `syrator_permission_role` VALUES ('2', '22');
-INSERT INTO `syrator_permission_role` VALUES ('3', '22');
-INSERT INTO `syrator_permission_role` VALUES ('2', '23');
-INSERT INTO `syrator_permission_role` VALUES ('2', '24');
-INSERT INTO `syrator_permission_role` VALUES ('2', '25');
-INSERT INTO `syrator_permission_role` VALUES ('2', '26');
-INSERT INTO `syrator_permission_role` VALUES ('2', '27');
-INSERT INTO `syrator_permission_role` VALUES ('2', '28');
 
 -- ----------------------------
 -- Table structure for syrator_project
@@ -1249,13 +1227,13 @@ CREATE TABLE `syrator_roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台角色表';
 
 -- ----------------------------
 -- Records of syrator_roles
 -- ----------------------------
-INSERT INTO `syrator_roles` VALUES ('1', 'Admin', '管理员', '系统管理员，负责系统的管理工作', '2016-03-03 17:05:04', '2016-08-26 09:48:22');
-INSERT INTO `syrator_roles` VALUES ('2', 'Founder', '创始人', '', '2016-03-08 17:05:52', '2016-03-10 11:26:44');
+INSERT INTO `syrator_roles` VALUES ('1', 'Admin', '管理员', '系统管理员，负责系统的管理工作', '2016-03-03 17:05:04', '2016-12-15 15:52:37');
+INSERT INTO `syrator_roles` VALUES ('2', 'Founder', '创始人', '', '2016-03-08 17:05:52', '2016-12-15 15:52:30');
 
 -- ----------------------------
 -- Table structure for syrator_role_user
@@ -1267,14 +1245,16 @@ CREATE TABLE `syrator_role_user` (
   `role_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`,`user_id`,`role_id`),
   KEY `role_user_role_id_foreign` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台角色与用户对应表';
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台角色与用户对应表';
 
 -- ----------------------------
 -- Records of syrator_role_user
 -- ----------------------------
 INSERT INTO `syrator_role_user` VALUES ('1', '1', '1');
 INSERT INTO `syrator_role_user` VALUES ('17', '2', '1');
-INSERT INTO `syrator_role_user` VALUES ('19', '3', '1');
+INSERT INTO `syrator_role_user` VALUES ('21', '4', '1');
+INSERT INTO `syrator_role_user` VALUES ('23', '5', '1');
+INSERT INTO `syrator_role_user` VALUES ('24', '3', '1');
 
 -- ----------------------------
 -- Table structure for syrator_shigong
@@ -1418,7 +1398,7 @@ CREATE TABLE `syrator_system_logs` (
   `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '修改更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统日志表';
 
 -- ----------------------------
 -- Records of syrator_system_logs
@@ -1453,6 +1433,95 @@ INSERT INTO `syrator_system_logs` VALUES ('27', '1', 'session', '//localhost:880
 INSERT INTO `syrator_system_logs` VALUES ('28', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-11-17 16:24:27', '2016-11-17 16:24:27');
 INSERT INTO `syrator_system_logs` VALUES ('29', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-11-23 09:59:30', '2016-11-23 09:59:30');
 INSERT INTO `syrator_system_logs` VALUES ('30', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-11-25 14:31:51', '2016-11-25 14:31:51');
+INSERT INTO `syrator_system_logs` VALUES ('31', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-11-29 10:55:54', '2016-11-29 10:55:54');
+INSERT INTO `syrator_system_logs` VALUES ('32', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-11-29 11:15:45', '2016-11-29 11:15:45');
+INSERT INTO `syrator_system_logs` VALUES ('33', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-11-29 11:16:12', '2016-11-29 11:16:12');
+INSERT INTO `syrator_system_logs` VALUES ('34', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-11-29 11:21:41', '2016-11-29 11:21:41');
+INSERT INTO `syrator_system_logs` VALUES ('35', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-01 01:08:35', '2016-12-01 01:08:35');
+INSERT INTO `syrator_system_logs` VALUES ('36', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：aaa.jpg，上传之后保存在服务器路径为/uploads/content/20161201/583ffb2a36341_54o.jpg。', '::1', '2016-12-01 18:27:54', '2016-12-01 18:27:54');
+INSERT INTO `syrator_system_logs` VALUES ('37', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-02 17:53:44', '2016-12-02 17:53:44');
+INSERT INTO `syrator_system_logs` VALUES ('38', '1', 'session', '//localhost:8801/admin/auth/logout', '管理员：admin[admin@example.com] 登出系统。', '::1', '2016-12-05 09:23:39', '2016-12-05 09:23:39');
+INSERT INTO `syrator_system_logs` VALUES ('39', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-05 09:24:56', '2016-12-05 09:24:56');
+INSERT INTO `syrator_system_logs` VALUES ('40', '1', 'session', '//localhost:8801/admin/auth/logout', '管理员：admin[admin@example.com] 登出系统。', '::1', '2016-12-05 09:25:06', '2016-12-05 09:25:06');
+INSERT INTO `syrator_system_logs` VALUES ('41', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-05 11:36:58', '2016-12-05 11:36:58');
+INSERT INTO `syrator_system_logs` VALUES ('42', '1', 'session', '//localhost:8801/admin/auth/logout', '管理员：admin[admin@example.com] 登出系统。', '::1', '2016-12-05 11:37:13', '2016-12-05 11:37:13');
+INSERT INTO `syrator_system_logs` VALUES ('43', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-05 11:46:33', '2016-12-05 11:46:33');
+INSERT INTO `syrator_system_logs` VALUES ('44', '1', 'session', '//localhost:8801/admin/auth/logout', '管理员：admin[admin@example.com] 登出系统。', '::1', '2016-12-05 11:46:45', '2016-12-05 11:46:45');
+INSERT INTO `syrator_system_logs` VALUES ('45', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-05 15:13:14', '2016-12-05 15:13:14');
+INSERT INTO `syrator_system_logs` VALUES ('46', '1', 'session', '//localhost:8801/admin/auth/logout', '管理员：admin[admin@example.com] 登出系统。', '::1', '2016-12-05 15:13:32', '2016-12-05 15:13:32');
+INSERT INTO `syrator_system_logs` VALUES ('47', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-05 17:08:02', '2016-12-05 17:08:02');
+INSERT INTO `syrator_system_logs` VALUES ('48', '1', 'session', '//localhost:8801/admin/auth/logout', '管理员：admin[admin@example.com] 登出系统。', '::1', '2016-12-05 17:12:49', '2016-12-05 17:12:49');
+INSERT INTO `syrator_system_logs` VALUES ('49', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-05 17:35:50', '2016-12-05 17:35:50');
+INSERT INTO `syrator_system_logs` VALUES ('50', '1', 'session', '//localhost:8801/admin/auth/logout', '管理员：admin[admin@example.com] 登出系统。', '::1', '2016-12-05 17:47:09', '2016-12-05 17:47:09');
+INSERT INTO `syrator_system_logs` VALUES ('51', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-05 17:47:25', '2016-12-05 17:47:25');
+INSERT INTO `syrator_system_logs` VALUES ('52', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-05 22:41:30', '2016-12-05 22:41:30');
+INSERT INTO `syrator_system_logs` VALUES ('53', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-07 00:09:11', '2016-12-07 00:09:11');
+INSERT INTO `syrator_system_logs` VALUES ('54', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-07 09:25:59', '2016-12-07 09:25:59');
+INSERT INTO `syrator_system_logs` VALUES ('55', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-08 09:42:31', '2016-12-08 09:42:31');
+INSERT INTO `syrator_system_logs` VALUES ('56', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-08 13:53:59', '2016-12-08 13:53:59');
+INSERT INTO `syrator_system_logs` VALUES ('57', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/58491e9bc57f4_31o.jpg。', '::1', '2016-12-08 16:49:31', '2016-12-08 16:49:31');
+INSERT INTO `syrator_system_logs` VALUES ('58', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/584922dac639d_38o.jpg。', '::1', '2016-12-08 17:07:38', '2016-12-08 17:07:38');
+INSERT INTO `syrator_system_logs` VALUES ('59', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/5849238667a9c_30o.jpg。', '::1', '2016-12-08 17:10:30', '2016-12-08 17:10:30');
+INSERT INTO `syrator_system_logs` VALUES ('60', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/584923c7cde3d_35o.jpg。', '::1', '2016-12-08 17:11:35', '2016-12-08 17:11:35');
+INSERT INTO `syrator_system_logs` VALUES ('61', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/58492aacd02f3_00o.jpg。', '::1', '2016-12-08 17:41:00', '2016-12-08 17:41:00');
+INSERT INTO `syrator_system_logs` VALUES ('62', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/58492add11b1f_49o.jpg。', '::1', '2016-12-08 17:41:49', '2016-12-08 17:41:49');
+INSERT INTO `syrator_system_logs` VALUES ('63', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/58492ae252473_54o.jpg。', '::1', '2016-12-08 17:41:54', '2016-12-08 17:41:54');
+INSERT INTO `syrator_system_logs` VALUES ('64', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/58492b0cb6f87_36o.jpg。', '::1', '2016-12-08 17:42:36', '2016-12-08 17:42:36');
+INSERT INTO `syrator_system_logs` VALUES ('65', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/58492b284f79d_04o.jpg。', '::1', '2016-12-08 17:43:04', '2016-12-08 17:43:04');
+INSERT INTO `syrator_system_logs` VALUES ('66', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/58492b2f01dcb_11o.jpg。', '::1', '2016-12-08 17:43:11', '2016-12-08 17:43:11');
+INSERT INTO `syrator_system_logs` VALUES ('67', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-08 23:00:27', '2016-12-08 23:00:27');
+INSERT INTO `syrator_system_logs` VALUES ('68', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161208/58498084b51d7_16o.jpg。', '::1', '2016-12-08 23:47:16', '2016-12-08 23:47:16');
+INSERT INTO `syrator_system_logs` VALUES ('69', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161209/584a0d0b386e4_51o.jpg。', '::1', '2016-12-09 09:46:51', '2016-12-09 09:46:51');
+INSERT INTO `syrator_system_logs` VALUES ('70', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161209/584a11d99c3b0_21o.jpg。', '::1', '2016-12-09 10:07:21', '2016-12-09 10:07:21');
+INSERT INTO `syrator_system_logs` VALUES ('71', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161209/584a13bebedf9_26o.jpg。', '::1', '2016-12-09 10:15:26', '2016-12-09 10:15:26');
+INSERT INTO `syrator_system_logs` VALUES ('72', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161209/584a15476abe2_59o.jpg。', '::1', '2016-12-09 10:21:59', '2016-12-09 10:21:59');
+INSERT INTO `syrator_system_logs` VALUES ('73', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片2.jpg，上传之后保存在服务器路径为/uploads/content/20161209/584a169bae09b_39o.jpg。', '::1', '2016-12-09 10:27:39', '2016-12-09 10:27:39');
+INSERT INTO `syrator_system_logs` VALUES ('74', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片2.jpg，上传之后保存在服务器路径为/uploads/content/20161209/584a1f891f00b_45o.jpg。', '::1', '2016-12-09 11:05:45', '2016-12-09 11:05:45');
+INSERT INTO `syrator_system_logs` VALUES ('75', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片.jpg，上传之后保存在服务器路径为/uploads/content/20161209/584a20ba6edf7_50o.jpg。', '::1', '2016-12-09 11:10:50', '2016-12-09 11:10:50');
+INSERT INTO `syrator_system_logs` VALUES ('76', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：上传图片2.jpg，上传之后保存在服务器路径为/uploads/content/20161209/584a20cc0504c_08o.jpg。', '::1', '2016-12-09 11:11:08', '2016-12-09 11:11:08');
+INSERT INTO `syrator_system_logs` VALUES ('77', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-09 23:57:15', '2016-12-09 23:57:15');
+INSERT INTO `syrator_system_logs` VALUES ('78', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-11 16:35:56', '2016-12-11 16:35:56');
+INSERT INTO `syrator_system_logs` VALUES ('79', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-13 02:20:22', '2016-12-13 02:20:22');
+INSERT INTO `syrator_system_logs` VALUES ('80', '1', 'management', '-', '管理员：成功新增模板jingdong<京东模板>。', '::1', '2016-12-13 02:34:54', '2016-12-13 02:34:54');
+INSERT INTO `syrator_system_logs` VALUES ('81', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：avatar2.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fa9ff91236_51o.jpg。', '::1', '2016-12-13 15:57:51', '2016-12-13 15:57:51');
+INSERT INTO `syrator_system_logs` VALUES ('82', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：avatar2.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fab1b87cae_35o.jpg。', '::1', '2016-12-13 16:02:35', '2016-12-13 16:02:35');
+INSERT INTO `syrator_system_logs` VALUES ('83', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：avatar2.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fac398c2c7_21o.jpg。', '::1', '2016-12-13 16:07:21', '2016-12-13 16:07:21');
+INSERT INTO `syrator_system_logs` VALUES ('84', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：avatar2.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fac7daf9db_29o.jpg。', '::1', '2016-12-13 16:08:29', '2016-12-13 16:08:29');
+INSERT INTO `syrator_system_logs` VALUES ('85', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：avatar2.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fad7d7c8ff_45o.jpg。', '::1', '2016-12-13 16:12:45', '2016-12-13 16:12:45');
+INSERT INTO `syrator_system_logs` VALUES ('86', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：shuwhu.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fadb9ce45a_45o.jpg。', '::1', '2016-12-13 16:13:45', '2016-12-13 16:13:45');
+INSERT INTO `syrator_system_logs` VALUES ('87', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：shuwhu.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584faf3498577_04o.jpg。', '::1', '2016-12-13 16:20:04', '2016-12-13 16:20:04');
+INSERT INTO `syrator_system_logs` VALUES ('88', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：shuwhu.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fb034a444a_20o.jpg。', '::1', '2016-12-13 16:24:20', '2016-12-13 16:24:20');
+INSERT INTO `syrator_system_logs` VALUES ('89', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：shuwhu.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fb0b3d6ca6_27o.jpg。', '::1', '2016-12-13 16:26:27', '2016-12-13 16:26:27');
+INSERT INTO `syrator_system_logs` VALUES ('90', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：shuwhu.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fb41e03e85_02o.jpg。', '::1', '2016-12-13 16:41:02', '2016-12-13 16:41:02');
+INSERT INTO `syrator_system_logs` VALUES ('91', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：shuwhu.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fb4b543779_33o.jpg。', '::1', '2016-12-13 16:43:33', '2016-12-13 16:43:33');
+INSERT INTO `syrator_system_logs` VALUES ('92', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：shuwhu.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fb52237f76_22o.jpg。', '::1', '2016-12-13 16:45:22', '2016-12-13 16:45:22');
+INSERT INTO `syrator_system_logs` VALUES ('93', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：shuwhu.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fb5671b4d0_31o.jpg。', '::1', '2016-12-13 16:46:31', '2016-12-13 16:46:31');
+INSERT INTO `syrator_system_logs` VALUES ('94', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：shuwhu.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fb5e367b5e_35o.jpg。', '::1', '2016-12-13 16:48:35', '2016-12-13 16:48:35');
+INSERT INTO `syrator_system_logs` VALUES ('95', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：avatar1_1.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fb64a05b58_18o.jpg。', '::1', '2016-12-13 16:50:18', '2016-12-13 16:50:18');
+INSERT INTO `syrator_system_logs` VALUES ('96', '1', 'session', '//localhost:8801/admin/auth/logout', '管理员：admin[admin@example.com] 登出系统。', '::1', '2016-12-13 16:59:31', '2016-12-13 16:59:31');
+INSERT INTO `syrator_system_logs` VALUES ('97', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-13 17:08:29', '2016-12-13 17:08:29');
+INSERT INTO `syrator_system_logs` VALUES ('98', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：avatar1_1.jpg，上传之后保存在服务器路径为/uploads/content/20161213/584fbaa64770f_54o.jpg。', '::1', '2016-12-13 17:08:54', '2016-12-13 17:08:54');
+INSERT INTO `syrator_system_logs` VALUES ('99', '1', 'session', '//localhost:8801/admin/auth/logout', '管理员：admin[admin@example.com] 登出系统。', '::1', '2016-12-13 17:19:07', '2016-12-13 17:19:07');
+INSERT INTO `syrator_system_logs` VALUES ('100', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-13 17:19:28', '2016-12-13 17:19:28');
+INSERT INTO `syrator_system_logs` VALUES ('101', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-13 23:21:10', '2016-12-13 23:21:10');
+INSERT INTO `syrator_system_logs` VALUES ('102', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-14 09:44:31', '2016-12-14 09:44:31');
+INSERT INTO `syrator_system_logs` VALUES ('103', '1', 'management', '-', '管理员：成功新增一名会员18672764674<>。', '::1', '2016-12-14 21:13:04', '2016-12-14 21:13:04');
+INSERT INTO `syrator_system_logs` VALUES ('104', '1', 'management', '-', '管理员：成功新增一名会员18672764674<shul300@126.com>。', '::1', '2016-12-14 21:18:12', '2016-12-14 21:18:12');
+INSERT INTO `syrator_system_logs` VALUES ('105', '1', 'management', '-', '管理员：成功新增一名会员18672764674<shul300@126.com>。', '::1', '2016-12-14 21:20:54', '2016-12-14 21:20:54');
+INSERT INTO `syrator_system_logs` VALUES ('106', '1', 'management', '-', '管理员：成功新增一名会员18672764675<dskfdskfjkjf@qq.com>。', '::1', '2016-12-14 21:46:08', '2016-12-14 21:46:08');
+INSERT INTO `syrator_system_logs` VALUES ('107', '1', 'management', '-', '管理员：成功新增一名会员18672764674<shul300@126.com>。', '::1', '2016-12-14 22:49:45', '2016-12-14 22:49:45');
+INSERT INTO `syrator_system_logs` VALUES ('108', '1', 'management', '-', '管理员：成功新增一名会员18672764675<shuwhu@qq.com>。', '::1', '2016-12-14 23:28:08', '2016-12-14 23:28:08');
+INSERT INTO `syrator_system_logs` VALUES ('109', '1', 'management', '-', '管理员：成功新增一名会员18672764673<shul300@163.com>。', '::1', '2016-12-14 23:47:03', '2016-12-14 23:47:03');
+INSERT INTO `syrator_system_logs` VALUES ('110', '1', 'management', '-', '管理员：成功新增一名会员18672764673<shul300@163.com>。', '::1', '2016-12-14 23:47:55', '2016-12-14 23:47:55');
+INSERT INTO `syrator_system_logs` VALUES ('111', '1', 'management', '-', '管理员：成功新增一名会员18672764673<shul300@163.com>。', '::1', '2016-12-14 23:48:13', '2016-12-14 23:48:13');
+INSERT INTO `syrator_system_logs` VALUES ('112', '1', 'management', '-', '管理员：成功新增会员分组设计师<>。', '::1', '2016-12-15 01:16:57', '2016-12-15 01:16:57');
+INSERT INTO `syrator_system_logs` VALUES ('113', '1', 'management', '-', '管理员：成功新增会员分组工长<>。', '::1', '2016-12-15 01:20:56', '2016-12-15 01:20:56');
+INSERT INTO `syrator_system_logs` VALUES ('114', '1', 'management', '-', '管理员：成功新增会员分组监理<>。', '::1', '2016-12-15 01:29:25', '2016-12-15 01:29:25');
+INSERT INTO `syrator_system_logs` VALUES ('115', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-15 09:18:08', '2016-12-15 09:18:08');
+INSERT INTO `syrator_system_logs` VALUES ('116', '1', 'management', '-', '管理员：成功新增一名管理用户demo<demo@126.com>。', '::1', '2016-12-15 11:03:33', '2016-12-15 11:03:33');
+INSERT INTO `syrator_system_logs` VALUES ('117', '1', 'management', '-', '管理员：成功新增一名管理用户demo2<shul300@163.com>。', '::1', '2016-12-15 11:17:38', '2016-12-15 11:17:38');
+INSERT INTO `syrator_system_logs` VALUES ('118', '1', 'management', '-', '管理员：成功新增一名管理用户demo3<demo2@qq.com>。', '::1', '2016-12-15 11:22:52', '2016-12-15 11:22:52');
+INSERT INTO `syrator_system_logs` VALUES ('119', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-15 14:14:54', '2016-12-15 14:14:54');
 
 -- ----------------------------
 -- Table structure for syrator_system_options
@@ -1464,25 +1533,26 @@ CREATE TABLE `syrator_system_options` (
   `value` text COLLATE utf8_unicode_ci COMMENT '配置选项值',
   PRIMARY KEY (`id`),
   UNIQUE KEY `system_option_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统配置选项表';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统配置选项表';
 
 -- ----------------------------
 -- Records of syrator_system_options
 -- ----------------------------
-INSERT INTO `syrator_system_options` VALUES ('1', 'website_keywords', 'Syrator框架,基础开发版');
-INSERT INTO `syrator_system_options` VALUES ('2', 'company_address', '');
-INSERT INTO `syrator_system_options` VALUES ('3', 'website_title', 'Syrator框架');
+INSERT INTO `syrator_system_options` VALUES ('1', 'website_keywords', 'Syrator,CMS,B2C,B2B2C,电子商城');
+INSERT INTO `syrator_system_options` VALUES ('2', 'company_address', '北京朝阳区');
+INSERT INTO `syrator_system_options` VALUES ('3', 'website_title', 'Syrator');
 INSERT INTO `syrator_system_options` VALUES ('4', 'company_telephone', '800-168-8888');
 INSERT INTO `syrator_system_options` VALUES ('5', 'company_full_name', '史瑞特网络科技有限公司');
 INSERT INTO `syrator_system_options` VALUES ('6', 'website_icp', '鄂ICP备15014911号');
-INSERT INTO `syrator_system_options` VALUES ('7', 'system_version', '5.2');
-INSERT INTO `syrator_system_options` VALUES ('8', 'page_size', '10');
-INSERT INTO `syrator_system_options` VALUES ('9', 'system_logo', '/assets/img/syrator_logo.png');
-INSERT INTO `syrator_system_options` VALUES ('10', 'picture_watermark', '/assets/img/syrator_logo.png');
+INSERT INTO `syrator_system_options` VALUES ('7', 'system_version', '1.0');
+INSERT INTO `syrator_system_options` VALUES ('8', 'page_size', '25');
+INSERT INTO `syrator_system_options` VALUES ('9', 'system_logo', '/uploads/content/20161209/584a20cc0504c_08o.jpg');
+INSERT INTO `syrator_system_options` VALUES ('10', 'picture_watermark', '/uploads/content/20161209/584a20ba6edf7_50o.jpg');
 INSERT INTO `syrator_system_options` VALUES ('11', 'company_short_name', '史瑞特');
-INSERT INTO `syrator_system_options` VALUES ('12', 'system_author', 'SHL');
+INSERT INTO `syrator_system_options` VALUES ('12', 'system_author', 'Recoding');
 INSERT INTO `syrator_system_options` VALUES ('13', 'system_author_website', 'http://syrator.com');
-INSERT INTO `syrator_system_options` VALUES ('14', 'is_watermark', '0');
+INSERT INTO `syrator_system_options` VALUES ('14', 'is_watermark', '1');
+INSERT INTO `syrator_system_options` VALUES ('15', 'website_description', '史瑞特网络科技有限公司描述');
 
 -- ----------------------------
 -- Table structure for syrator_task
@@ -1604,13 +1674,13 @@ CREATE TABLE `syrator_theme` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`,`name`,`code`),
   UNIQUE KEY `system_option_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统模板表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统模板表';
 
 -- ----------------------------
 -- Records of syrator_theme
 -- ----------------------------
-INSERT INTO `syrator_theme` VALUES ('3', '默认模板', 'desktop', '小胖', '系统的默认模板', '1.0', '1', '2016-09-25 00:19:42', '2016-09-25 00:19:42');
-INSERT INTO `syrator_theme` VALUES ('4', '京东模板', 'jidong', '', '仿京东的前端模板', '', '0', '2016-09-25 00:41:54', '2016-09-25 00:41:54');
+INSERT INTO `syrator_theme` VALUES ('3', '默认模板', 'desktop', '小胖', '前台默认模板', '1.1', '0', '2016-09-25 00:19:42', '2016-12-12 22:08:45');
+INSERT INTO `syrator_theme` VALUES ('5', '京东模板', 'jingdong', 'Recoding', '', '1.0', '1', '2016-12-13 02:34:54', '2016-12-13 02:35:18');
 
 -- ----------------------------
 -- Table structure for syrator_users
@@ -1626,15 +1696,18 @@ CREATE TABLE `syrator_users` (
   `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `realname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `is_locked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1锁定,0正常',
+  `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='管理员用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='管理员用户表';
 
 -- ----------------------------
 -- Records of syrator_users
 -- ----------------------------
-INSERT INTO `syrator_users` VALUES ('1', 'admin', 'admin@example.com', '$2y$10$J7LHukU1OvdKS0HjHyP67OckaKXwci9vV6iqOCpN65x8X7MDgMNlu', '9eGNaKM3Ayx9dehazAWXN1SgA7XhFIaXfPE061xSh8stTidt1jbHGcF4AmKs', 'admin', '18672764673', '史瑞特', '0', '2016-03-03 17:05:45', '2016-10-27 21:41:33');
-INSERT INTO `syrator_users` VALUES ('2', 'shuwhu', 'demo@example.com', '$2y$10$lZLHABzllmB8.X8bflFHl./amaH1n2nqaYDlC52BIQCuTMLXowdyC', 'pOSVzUBYf4KDB0YtXPBKimEHUe8JcPnv2C55xnCtbJKh9L6bkcR2MbSnhW7T', 'demo1', null, '管理员', '0', '2016-03-10 16:37:01', '2016-09-23 11:25:59');
+INSERT INTO `syrator_users` VALUES ('1', 'admin', 'admin@example.com', '$2y$10$rxVcc2STb3Fy.f1SqdRB5.UolDrvcyFT28qOwMz..tDGHA150F8fW', 'skpn7VD9bQkVK2KgAJf8B9V3T5IpYL8trQafcvf6qhWufhg6D0qryetGYWfM', 'admin', '18672764673', '小胖', '0', '/uploads/content/20161213/584fbaa64770f_54o.jpg', '2016-11-30 14:26:11', '2016-12-13 17:19:07');
+INSERT INTO `syrator_users` VALUES ('3', 'demo', 'demo@126.com', '$2y$10$X1ChpKGNfUdmtMNicaRQh.Yam0ZWT6R6PcecudNoxlMMQVYOuC6cu', null, 'demoma', null, '马云', '0', null, '2016-12-15 11:03:33', '2016-12-15 11:51:24');
+INSERT INTO `syrator_users` VALUES ('4', 'demo2', 'shul300@163.com', '$2y$10$nyBDv0o8f8q3b4kHk7b.Cen9VTT6MWzu29X93d8ouHVNrmeWCYvCi', null, 'demo2', null, '李彦宏', '0', null, '2016-12-15 11:17:38', '2016-12-15 11:17:38');
+INSERT INTO `syrator_users` VALUES ('5', 'demo3', 'demo2@qq.com', '$2y$10$VKKlHEELb14Brr5XSIiXN.QWYIIQpPbHZ5Tu05F/SY3IE3lR9cNVG', null, 'demo3', '18672764798', '马化腾', '1', null, '2016-12-15 11:22:52', '2016-12-15 11:50:45');
 SET FOREIGN_KEY_CHECKS=1;
