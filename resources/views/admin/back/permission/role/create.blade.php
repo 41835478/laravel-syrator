@@ -4,6 +4,18 @@
 @parent
 @stop
 
+@section('head_style')
+@parent
+<style>
+.checkbox.row-first.table-first {
+	background: #dddddd;
+}
+.checkbox.row-first {
+	background: #dddddd;
+}
+</style>
+@stop
+
 @section('body_attr') class="page-header-fixed" @stop
 
 @section('content-header')
@@ -100,8 +112,37 @@
 										<span class="help-inline text-green"><small>*</small> 展示名可以为中文</span>
 									</div>
 								</div>
+                                <div class="control-group">
+                                    <label class="control-label" style="margin-top: 0px;">关联权限 </label>
+                                    <div class="controls" style="padding:0px;">                      			
+                                   	@foreach($permissions as $index => $per)                                          
+                                    	@if(starts_with($per->name, '@'))
+                                    	<div class="row-fluid" style="border: 1px solid #eee;padding:0px;">
+                                    		<div class="span3" style="padding:5px 0px 0px 10px;">                             
+        										<label class="checkbox" data-value="{{ $per->id }}">
+        											<input type="checkbox" name="permissions[]" value="{{ $per->id }}" />
+        											{{ $per->display_name }}
+        										</label>
+        									</div>
+        									<div class="span9" style="border-left: 1px solid #eee; padding:5px 0px 0px 10px;">                             
+    										@foreach($permissions as $index2 => $per2)                                          
+                                            	@if(stripos('@'.$per2->name, $per->name.'-') !== false)                                                	                    
+        										<label class="checkbox" data-value="{{ $per->id }}" style="width:33%;float:left;">
+        											<input type="checkbox" name="permissions[]" value="{{ $per->id }}" />
+        											{{ $per2->display_name }}
+        										</label>
+                                                @endif   
+                                          	@endforeach
+        									</div>
+                                    	</div>
+                                        @endif   
+                                  	@endforeach
+                                    </div>
+                                </div>
 								<div class="form-actions">
 									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增角色</button>
+									<button type="button" class="btn"> 重置</button>
+									<input name="checkall" onclick="checkAll(this.form, this);" class="checkbox" type="checkbox"> 全选
 								</div>
 							</form>
 						</div>
@@ -121,6 +162,38 @@
 <script>
 jQuery(document).ready(function() {    
     App.init();
+
+	function checkAll(frm, checkbox) {
+		for (i = 0; i < frm.elements.length; i++) {
+			if (frm.elements[i].name == 'action_code[]' || frm.elements[i].name == 'chkGroup') {
+				frm.elements[i].checked = checkbox.checked;
+			}
+		}
+	}
+
+	function check(list, obj) {
+		var frm = obj.form;
+		for (i = 0; i < frm.elements.length; i++) {
+			if (frm.elements[i].name == "action_code[]") {
+				var regx = new RegExp(frm.elements[i].value + "(?!_)", "i");
+				if (list.search(regx) > -1) {frm.elements[i].checked = obj.checked;}
+			}
+		}
+	}
+
+	function checkrelevance(relevance, priv_list) {
+		if(document.getElementById(priv_list).checked && relevance != '') {
+			document.getElementById(relevance).checked=true;
+		} else {
+			var ts=document.getElementsByTagName("input");
+			for (var i=0; i<ts.length;i++) {
+				var text=ts[i].getAttribute("title");			
+				if( text == priv_list) {
+					document.getElementById(ts[i].value).checked = false;
+				}
+			}
+		}
+	}
 });
 </script>
 @stop
