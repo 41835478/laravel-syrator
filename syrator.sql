@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-12-15 17:09:28
+Date: 2016-12-19 01:19:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -950,7 +950,7 @@ CREATE TABLE `syrator_member` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='会员表';
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COMMENT='会员表';
 
 -- ----------------------------
 -- Records of syrator_member
@@ -1015,7 +1015,7 @@ CREATE TABLE `syrator_permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `permissions_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='权限表';
 
 -- ----------------------------
 -- Records of syrator_permissions
@@ -1044,10 +1044,10 @@ INSERT INTO `syrator_permissions` VALUES ('21', 'option-write', '系统配置写
 INSERT INTO `syrator_permissions` VALUES ('22', '@log', '系统日志', null, '2016-04-08 12:28:19', '2016-04-08 12:28:19');
 INSERT INTO `syrator_permissions` VALUES ('23', 'log-show', '系统日志查看', null, '2016-04-08 12:28:19', '2016-04-08 12:28:19');
 INSERT INTO `syrator_permissions` VALUES ('24', 'log-search', '系统日志搜索', null, '2016-04-08 12:28:19', '2016-04-08 12:28:19');
-INSERT INTO `syrator_permissions` VALUES ('25', 'meinforation', '个人资料', '个人资料管理，昵称等', '2016-08-26 16:44:32', '2016-08-31 10:02:22');
-INSERT INTO `syrator_permissions` VALUES ('26', 'mepassword', '修改密码', '修改个人的密码', '2016-08-26 18:13:10', '2016-08-31 10:13:54');
+INSERT INTO `syrator_permissions` VALUES ('25', 'me-inforation', '个人资料', '个人资料管理，昵称等', '2016-08-26 16:44:32', '2016-12-16 16:15:46');
+INSERT INTO `syrator_permissions` VALUES ('26', 'me-password', '修改密码', '修改个人的密码', '2016-08-26 18:13:10', '2016-12-16 16:16:04');
 INSERT INTO `syrator_permissions` VALUES ('27', 'article-cat', '文章分类', '文章分类管理', '2016-09-01 19:16:00', '2016-09-01 22:37:43');
-INSERT INTO `syrator_permissions` VALUES ('28', 'article', '文章管理', '文章管理，文章增删改查', '2016-09-01 19:16:46', '2016-09-01 22:55:10');
+INSERT INTO `syrator_permissions` VALUES ('28', 'article-manage', '文章管理', '文章管理，文章增删改查', '2016-09-01 19:16:46', '2016-12-16 16:16:20');
 
 -- ----------------------------
 -- Table structure for syrator_permission_role
@@ -1063,7 +1063,6 @@ CREATE TABLE `syrator_permission_role` (
 -- ----------------------------
 -- Records of syrator_permission_role
 -- ----------------------------
-INSERT INTO `syrator_permission_role` VALUES ('4', '1');
 INSERT INTO `syrator_permission_role` VALUES ('5', '1');
 INSERT INTO `syrator_permission_role` VALUES ('6', '1');
 INSERT INTO `syrator_permission_role` VALUES ('7', '1');
@@ -1088,6 +1087,17 @@ INSERT INTO `syrator_permission_role` VALUES ('25', '1');
 INSERT INTO `syrator_permission_role` VALUES ('26', '1');
 INSERT INTO `syrator_permission_role` VALUES ('27', '1');
 INSERT INTO `syrator_permission_role` VALUES ('28', '1');
+INSERT INTO `syrator_permission_role` VALUES ('1', '2');
+INSERT INTO `syrator_permission_role` VALUES ('2', '2');
+INSERT INTO `syrator_permission_role` VALUES ('3', '2');
+INSERT INTO `syrator_permission_role` VALUES ('4', '2');
+INSERT INTO `syrator_permission_role` VALUES ('5', '2');
+INSERT INTO `syrator_permission_role` VALUES ('6', '2');
+INSERT INTO `syrator_permission_role` VALUES ('7', '2');
+INSERT INTO `syrator_permission_role` VALUES ('8', '2');
+INSERT INTO `syrator_permission_role` VALUES ('9', '2');
+INSERT INTO `syrator_permission_role` VALUES ('10', '2');
+INSERT INTO `syrator_permission_role` VALUES ('11', '2');
 INSERT INTO `syrator_permission_role` VALUES ('12', '2');
 INSERT INTO `syrator_permission_role` VALUES ('13', '2');
 INSERT INTO `syrator_permission_role` VALUES ('14', '2');
@@ -1101,14 +1111,38 @@ INSERT INTO `syrator_permission_role` VALUES ('21', '2');
 INSERT INTO `syrator_permission_role` VALUES ('22', '2');
 INSERT INTO `syrator_permission_role` VALUES ('23', '2');
 INSERT INTO `syrator_permission_role` VALUES ('24', '2');
-INSERT INTO `syrator_permission_role` VALUES ('5', '5');
-INSERT INTO `syrator_permission_role` VALUES ('9', '5');
-INSERT INTO `syrator_permission_role` VALUES ('12', '5');
-INSERT INTO `syrator_permission_role` VALUES ('14', '5');
-INSERT INTO `syrator_permission_role` VALUES ('17', '5');
-INSERT INTO `syrator_permission_role` VALUES ('19', '5');
-INSERT INTO `syrator_permission_role` VALUES ('20', '5');
-INSERT INTO `syrator_permission_role` VALUES ('22', '5');
+INSERT INTO `syrator_permission_role` VALUES ('25', '2');
+INSERT INTO `syrator_permission_role` VALUES ('26', '2');
+INSERT INTO `syrator_permission_role` VALUES ('27', '2');
+INSERT INTO `syrator_permission_role` VALUES ('28', '2');
+INSERT INTO `syrator_permission_role` VALUES ('1', '10');
+INSERT INTO `syrator_permission_role` VALUES ('2', '10');
+INSERT INTO `syrator_permission_role` VALUES ('3', '10');
+INSERT INTO `syrator_permission_role` VALUES ('4', '10');
+INSERT INTO `syrator_permission_role` VALUES ('5', '10');
+INSERT INTO `syrator_permission_role` VALUES ('6', '10');
+INSERT INTO `syrator_permission_role` VALUES ('7', '10');
+INSERT INTO `syrator_permission_role` VALUES ('8', '10');
+INSERT INTO `syrator_permission_role` VALUES ('9', '10');
+INSERT INTO `syrator_permission_role` VALUES ('10', '10');
+INSERT INTO `syrator_permission_role` VALUES ('11', '10');
+INSERT INTO `syrator_permission_role` VALUES ('12', '10');
+INSERT INTO `syrator_permission_role` VALUES ('13', '10');
+INSERT INTO `syrator_permission_role` VALUES ('14', '10');
+INSERT INTO `syrator_permission_role` VALUES ('15', '10');
+INSERT INTO `syrator_permission_role` VALUES ('16', '10');
+INSERT INTO `syrator_permission_role` VALUES ('17', '10');
+INSERT INTO `syrator_permission_role` VALUES ('18', '10');
+INSERT INTO `syrator_permission_role` VALUES ('19', '10');
+INSERT INTO `syrator_permission_role` VALUES ('20', '10');
+INSERT INTO `syrator_permission_role` VALUES ('21', '10');
+INSERT INTO `syrator_permission_role` VALUES ('22', '10');
+INSERT INTO `syrator_permission_role` VALUES ('23', '10');
+INSERT INTO `syrator_permission_role` VALUES ('24', '10');
+INSERT INTO `syrator_permission_role` VALUES ('25', '10');
+INSERT INTO `syrator_permission_role` VALUES ('26', '10');
+INSERT INTO `syrator_permission_role` VALUES ('27', '10');
+INSERT INTO `syrator_permission_role` VALUES ('28', '10');
 
 -- ----------------------------
 -- Table structure for syrator_project
@@ -1227,13 +1261,14 @@ CREATE TABLE `syrator_roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台角色表';
 
 -- ----------------------------
 -- Records of syrator_roles
 -- ----------------------------
 INSERT INTO `syrator_roles` VALUES ('1', 'Admin', '管理员', '系统管理员，负责系统的管理工作', '2016-03-03 17:05:04', '2016-12-15 15:52:37');
 INSERT INTO `syrator_roles` VALUES ('2', 'Founder', '创始人', '', '2016-03-08 17:05:52', '2016-12-15 15:52:30');
+INSERT INTO `syrator_roles` VALUES ('10', 'demo', '演示账号', null, '2016-12-18 20:31:02', '2016-12-18 20:31:02');
 
 -- ----------------------------
 -- Table structure for syrator_role_user
@@ -1398,7 +1433,7 @@ CREATE TABLE `syrator_system_logs` (
   `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '修改更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统日志表';
 
 -- ----------------------------
 -- Records of syrator_system_logs
@@ -1522,6 +1557,9 @@ INSERT INTO `syrator_system_logs` VALUES ('116', '1', 'management', '-', '管理
 INSERT INTO `syrator_system_logs` VALUES ('117', '1', 'management', '-', '管理员：成功新增一名管理用户demo2<shul300@163.com>。', '::1', '2016-12-15 11:17:38', '2016-12-15 11:17:38');
 INSERT INTO `syrator_system_logs` VALUES ('118', '1', 'management', '-', '管理员：成功新增一名管理用户demo3<demo2@qq.com>。', '::1', '2016-12-15 11:22:52', '2016-12-15 11:22:52');
 INSERT INTO `syrator_system_logs` VALUES ('119', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-15 14:14:54', '2016-12-15 14:14:54');
+INSERT INTO `syrator_system_logs` VALUES ('120', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-15 23:05:34', '2016-12-15 23:05:34');
+INSERT INTO `syrator_system_logs` VALUES ('121', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-18 12:57:16', '2016-12-18 12:57:16');
+INSERT INTO `syrator_system_logs` VALUES ('122', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-18 20:28:51', '2016-12-18 20:28:51');
 
 -- ----------------------------
 -- Table structure for syrator_system_options
