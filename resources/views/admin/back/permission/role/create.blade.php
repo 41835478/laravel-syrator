@@ -7,12 +7,6 @@
 @section('head_style')
 @parent
 <style>
-.checkbox.row-first.table-first {
-	background: #dddddd;
-}
-.checkbox.row-first {
-	background: #dddddd;
-}
 </style>
 @stop
 
@@ -142,7 +136,7 @@
 								<div class="form-actions">
 									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增角色</button>
 									<button type="button" class="btn"> 重置</button>
-									<input name="checkall" onclick="checkAll(this.form, this);" class="checkbox" type="checkbox"> 全选
+									<input id="input_checkall" name="checkall" type="checkbox">全选</input>
 								</div>
 							</form>
 						</div>
@@ -162,6 +156,25 @@
 <script>
 jQuery(document).ready(function() {    
     App.init();
+
+    jQuery('#input_checkall').click(function() {
+   	 	if(this.checked){
+	        $('input[name="permissions[]"]').attr('checked', true)
+	    }else{
+	        $('input[name="permissions[]"]').attr('checked', false)
+	    } 
+
+        var set = $(this).attr("data-set");
+        var checked = $(this).is(":checked");
+        $(set).each(function () {
+            if (checked) {
+            	$(this).attr("checked", true);
+            } else {
+            	$(this).attr("checked", false);
+            }
+        });
+        $.uniform.update(set);
+    });
 
 	function checkAll(frm, checkbox) {
 		for (i = 0; i < frm.elements.length; i++) {
