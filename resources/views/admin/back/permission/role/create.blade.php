@@ -114,16 +114,16 @@
                                     	<div class="row-fluid" style="border: 1px solid #eee;padding:0px;">
                                     		<div class="span3" style="padding:5px 0px 0px 10px;">                             
         										<label class="checkbox" data-value="{{ $per->id }}">
-        											<input type="checkbox" name="permissions[]" value="{{ $per->id }}" />
+        											<input data-name="{{ $per->name }}" type="checkbox" name="permissions[]" value="{{ $per->id }}" />
         											{{ $per->display_name }}
         										</label>
         									</div>
         									<div class="span9" style="border-left: 1px solid #eee; padding:5px 0px 0px 10px;">                             
-    										@foreach($permissions as $index2 => $per2)                                          
-                                            	@if(stripos('@'.$per2->name, $per->name.'-') !== false)                                                	                    
-        										<label class="checkbox" data-value="{{ $per->id }}" style="width:33%;float:left;">
-        											<input type="checkbox" name="permissions[]" value="{{ $per->id }}" />
-        											{{ $per2->display_name }}
+    										@foreach($permissions as $index2 => $per_sub)                                          
+                                            	@if(stripos('@'.$per_sub->name, $per->name.'-') !== false)                                                	                    
+        										<label class="checkbox" data-value="{{ $per_sub->id }}" style="width:33%;float:left;">
+        											<input data-name="{{ $per_sub->name }}" data-parent-name="{{ $per->name }}" type="checkbox" name="permissions[]" value="{{ $per_sub->id }}" />
+        											{{ $per_sub->display_name }}
         										</label>
                                                 @endif   
                                           	@endforeach
@@ -159,9 +159,9 @@ jQuery(document).ready(function() {
 
     jQuery('#input_checkall').click(function() {
    	 	if(this.checked){
-	        $('input[name="permissions[]"]').attr('checked', true)
+	        $('input[name="permissions[]"]').attr('checked', true);
 	    }else{
-	        $('input[name="permissions[]"]').attr('checked', false)
+	        $('input[name="permissions[]"]').attr('checked', false);
 	    } 
 
         var set = $(this).attr("data-set");
@@ -176,37 +176,27 @@ jQuery(document).ready(function() {
         $.uniform.update(set);
     });
 
-	function checkAll(frm, checkbox) {
-		for (i = 0; i < frm.elements.length; i++) {
-			if (frm.elements[i].name == 'action_code[]' || frm.elements[i].name == 'chkGroup') {
-				frm.elements[i].checked = checkbox.checked;
-			}
-		}
-	}
+    jQuery('input[name="permissions[]"]').click(function() {
+    	var name = $(this).data('name');
+    	if (name.substr(0, 1)=='@') {
+        	if(this.checked){
+    	        $('input[data-parent-name="'+name+'"]').attr('checked', true);
+    	    }else{
+    	        $('input[data-parent-name="'+name+'"]').attr('checked', false);
+    	    }
 
-	function check(list, obj) {
-		var frm = obj.form;
-		for (i = 0; i < frm.elements.length; i++) {
-			if (frm.elements[i].name == "action_code[]") {
-				var regx = new RegExp(frm.elements[i].value + "(?!_)", "i");
-				if (list.search(regx) > -1) {frm.elements[i].checked = obj.checked;}
-			}
-		}
-	}
-
-	function checkrelevance(relevance, priv_list) {
-		if(document.getElementById(priv_list).checked && relevance != '') {
-			document.getElementById(relevance).checked=true;
-		} else {
-			var ts=document.getElementsByTagName("input");
-			for (var i=0; i<ts.length;i++) {
-				var text=ts[i].getAttribute("title");			
-				if( text == priv_list) {
-					document.getElementById(ts[i].value).checked = false;
-				}
-			}
-		}
-	}
+        	var set = $(this).attr("data-set");
+            var checked = $(this).is(":checked");
+            $(set).each(function () {
+                if (checked) {
+                	$(this).attr("checked", true);
+                } else {
+                	$(this).attr("checked", false);
+                }
+            });
+            $.uniform.update(set);
+    	} 
+    });
 });
 </script>
 @stop
