@@ -101,8 +101,37 @@
 										<span class="help-inline text-green"><small>*</small> 展示名可以为中文</span>
 									</div>
 								</div>
+                                <div class="control-group">
+                                    <label class="control-label" style="margin-top: 0px;">关联权限 </label>
+                                    <div class="controls" style="padding:0px;">                      			
+                                   	@foreach($permissions as $index => $per)                                          
+                                    	@if(starts_with($per->name, '@'))
+                                    	<div class="row-fluid" style="border: 1px solid #eee;padding:0px;">
+                                    		<div class="span3" style="padding:5px 0px 0px 10px;">                             
+        										<label class="checkbox" data-value="{{ $per->id }}">
+        											<input data-name="{{ $per->name }}" type="checkbox" name="permissions[]" value="{{ $per->id }}" {{ (check_array($cans,'id', $per->id) === true) ? 'checked' : '' }}/>
+        											{{ $per->display_name }}
+        										</label>
+        									</div>
+        									<div class="span9" style="border-left: 1px solid #eee; padding:5px 0px 0px 10px;">                             
+    										@foreach($permissions as $index_sub => $per_sub)                                          
+                                            	@if(stripos('@'.$per_sub->name, $per->name.'-') !== false)                                                	                    
+        										<label class="checkbox" data-value="{{ $per_sub->id }}" style="width:33%;float:left;">
+        											<input data-name="{{ $per_sub->name }}" data-parent-name="{{ $per->name }}" type="checkbox" name="permissions[]" value="{{ $per_sub->id }}" {{ (check_array($cans,'id', $per_sub->id) === true) ? 'checked' : '' }}/>
+        											{{ $per_sub->display_name }}
+        										</label>
+                                                @endif   
+                                          	@endforeach
+        									</div>
+                                    	</div>
+                                        @endif   
+                                  	@endforeach
+                                    </div>
+                                </div>
 								<div class="form-actions">
 									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新角色</button>
+									<button type="button" class="btn"> 重置</button>
+									<input id="input_checkall" name="checkall" type="checkbox">全选</input>
 								</div>
 							</form>
 						</div>
@@ -122,6 +151,47 @@
 <script>
 jQuery(document).ready(function() {    
     App.init();
+
+    jQuery('#input_checkall').click(function() {
+   	 	if(this.checked){
+	        $('input[name="permissions[]"]').attr('checked', true);
+	    }else{
+	        $('input[name="permissions[]"]').attr('checked', false);
+	    } 
+
+        var set = $(this).attr("data-set");
+        var checked = $(this).is(":checked");
+        $(set).each(function () {
+            if (checked) {
+            	$(this).attr("checked", true);
+            } else {
+            	$(this).attr("checked", false);
+            }
+        });
+        $.uniform.update(set);
+    });
+
+    jQuery('input[name="permissions[]"]').click(function() {
+    	var name = $(this).data('name');
+    	if (name.substr(0, 1)=='@') {
+        	if(this.checked){
+    	        $('input[data-parent-name="'+name+'"]').attr('checked', true);
+    	    }else{
+    	        $('input[data-parent-name="'+name+'"]').attr('checked', false);
+    	    }
+
+        	var set = $(this).attr("data-set");
+            var checked = $(this).is(":checked");
+            $(set).each(function () {
+                if (checked) {
+                	$(this).attr("checked", true);
+                } else {
+                	$(this).attr("checked", false);
+                }
+            });
+            $.uniform.update(set);
+    	} 
+    });
 });
 </script>
 @stop
