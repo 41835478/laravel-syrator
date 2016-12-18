@@ -66,8 +66,17 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
-    var url_path_array = window.location.pathname.split( '/' );
     var current_url = '//' + window.location.host + window.location.pathname;
+    
+    var url_path_array = window.location.pathname.split( '/' );
+    if (url_path_array[url_path_array.length-1]==='create') {
+    	current_url = current_url.substring(0,current_url.length-7);
+    } else if (url_path_array[url_path_array.length-1]==='edit') {
+    	current_url = '//' + window.location.host;
+    	for(var i=1; i<url_path_array.length-2;i++){
+    		current_url += '/' + url_path_array[i];
+   		}
+    }
 
     var current_li = $('ul.page-sidebar-menu>li').find('a[href="'+current_url+'"]').closest('li');
     if (current_li!=null) {
