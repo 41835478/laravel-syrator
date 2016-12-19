@@ -14,13 +14,6 @@ use App\Repositories\UserRepository;
  */
 class MeController extends BackController
 {
-
-
-    /**
-     * The UserRepository instance.
-     *
-     * @var App\Repositories\UserRepository
-     */
     protected $user;
 
 
@@ -29,7 +22,6 @@ class MeController extends BackController
         parent::__construct();
         $this->user = $user;
     }
-
 
     /**
      * 个人资料页面
@@ -42,7 +34,6 @@ class MeController extends BackController
         return view('admin.back.mine.index', compact('me'));
     }
 
-
     /**
      * 提交修改个人资料
      *
@@ -54,24 +45,16 @@ class MeController extends BackController
         return redirect()->back()->with('message', '成功更新个人资料！');
     }
     
+    /**
+     * 提交修改头像
+     *
+     * @return Response
+     */
     public function putMeAvatar(Request $request)
     {        
         $this->user->updateMeAvatar(auth()->user(), $request->all());
         return redirect()->back()->with('message', '成功更新个人头像！');
-    }
-    
-    
-    /**
-     * 修改密码页面
-     *
-     * @return Response
-     */
-    public function getMePassword()
-    {
-        $me = auth()->user();
-        return view('admin.back.mine.password', compact('me'));
-    }
-    
+    }    
     
     /**
      * 提交新密码
