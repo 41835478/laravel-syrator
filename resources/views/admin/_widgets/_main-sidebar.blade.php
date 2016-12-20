@@ -57,10 +57,6 @@
 			<a href="javascript:;">
 				<i class="icon-briefcase"></i><span class="title">应用管理</span><span class="arrow "></span>
 			</a>
-			<ul class="sub-menu">
-				<li ><a href="{{ site_url('cms', 'admin') }}"><i class="icon-cogs"></i> CMS应用</a></li>
-				<li ><a href="{{ site_url('mygz', 'admin') }}"><i class="icon-cogs"></i> 蚂蚁公装</a></li>
-			</ul>
 		</li>
 	</ul>
 </div>

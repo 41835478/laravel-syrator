@@ -2,13 +2,8 @@
 
 require __DIR__.'/Routes/routes-desktop.php';       // PC前台
 require __DIR__.'/Routes/routes-mobile.php';        // 手机端wap
-
 require __DIR__.'/Routes/routes-api.php';           // api
-
 require __DIR__.'/Routes/routes-documents.php';     // 文档
-
-// 应用路由
-require __DIR__.'/Routes/CMS/routes-cms.php';       // cms应用
 
 // 管理后台站点路由群组
 Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace' => 'Admin', 'middleware' => ['block:admin', 'web']], function () {
