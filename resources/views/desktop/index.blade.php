@@ -1,4 +1,4 @@
-@extends('_layout._common_stat')
+@extends('_layout._common')
 
 @section('head_css')
 @parent

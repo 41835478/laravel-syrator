@@ -46,8 +46,6 @@
 
     @section('afterBody')
     @show
-
-	@section('pluginStat')
-    @show
+    
 </body>
 </html>
