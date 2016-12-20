@@ -35,8 +35,6 @@
     @section('afterStyle')
     @show
     
-    @section('pluginStat')
-    @show
 </head>
 <body @section('body_attr') class="" @show>
 
@@ -49,5 +47,7 @@
     @section('afterBody')
     @show
 
+	@section('pluginStat')
+    @show
 </body>
 </html>
