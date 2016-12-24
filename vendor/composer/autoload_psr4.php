@@ -36,7 +36,7 @@ return array(
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
     'Syrator\\IdentityCard\\' => array($vendorDir . '/syrator/identity-card'),
-    'Syrator\\' => array($baseDir . '/Syrator'),
+    'Syrator\\' => array($baseDir . '/syrator'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'ClassPreloader\\' => array($vendorDir . '/classpreloader/classpreloader/src'),

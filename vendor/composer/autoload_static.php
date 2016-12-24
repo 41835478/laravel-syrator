@@ -19,7 +19,7 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'd219718cc7b55f71014d4b58f90947c4' => __DIR__ . '/../..' . '/app/helper.php',
-        '1670c896c7ec90406a5360325df0980f' => __DIR__ . '/../..' . '/Syrator/helper.php',
+        '1670c896c7ec90406a5360325df0980f' => __DIR__ . '/../..' . '/syrator/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -225,7 +225,7 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
         ),
         'Syrator\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Syrator',
+            0 => __DIR__ . '/../..' . '/syrator',
         ),
         'Dotenv\\' => 
         array (
@@ -477,16 +477,16 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
         'Dotenv\\Exception\\ValidationException' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/ValidationException.php',
         'Dotenv\\Loader' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Loader.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
-        'Syrator\\AppException' => __DIR__ . '/../..' . '/Syrator/AppException.php',
-        'Syrator\\Cache\\DataCache' => __DIR__ . '/../..' . '/Syrator/Cache/DataCache.php',
-        'Syrator\\Data\\BaseData' => __DIR__ . '/../..' . '/Syrator/Data/BaseData.php',
-        'Syrator\\Dict' => __DIR__ . '/../..' . '/Syrator/Dict.php',
-        'Syrator\\Documentation\\MarkdownDocumentation' => __DIR__ . '/../..' . '/Syrator/Documentation/MarkdownDocumentation.php',
-        'Syrator\\Extensions\\SyratorBlade' => __DIR__ . '/../..' . '/Syrator/Extensions/SyratorBlade.php',
-        'Syrator\\Extensions\\SyratorPresenter' => __DIR__ . '/../..' . '/Syrator/Extensions/SyratorPresenter.php',
-        'Syrator\\Extensions\\SyratorValidator' => __DIR__ . '/../..' . '/Syrator/Extensions/SyratorValidator.php',
+        'Syrator\\AppException' => __DIR__ . '/../..' . '/syrator/AppException.php',
+        'Syrator\\Cache\\DataCache' => __DIR__ . '/../..' . '/syrator/Cache/DataCache.php',
+        'Syrator\\Data\\BaseData' => __DIR__ . '/../..' . '/syrator/Data/BaseData.php',
+        'Syrator\\Dict' => __DIR__ . '/../..' . '/syrator/Dict.php',
+        'Syrator\\Documentation\\MarkdownDocumentation' => __DIR__ . '/../..' . '/syrator/Documentation/MarkdownDocumentation.php',
+        'Syrator\\Extensions\\SyratorBlade' => __DIR__ . '/../..' . '/syrator/Extensions/SyratorBlade.php',
+        'Syrator\\Extensions\\SyratorPresenter' => __DIR__ . '/../..' . '/syrator/Extensions/SyratorPresenter.php',
+        'Syrator\\Extensions\\SyratorValidator' => __DIR__ . '/../..' . '/syrator/Extensions/SyratorValidator.php',
         'Syrator\\IdentityCard\\ID' => __DIR__ . '/..' . '/syrator/identity-card/ID.php',
-        'Syrator\\Providers\\SyratorServiceProvider' => __DIR__ . '/../..' . '/Syrator/Providers/SyratorServiceProvider.php',
+        'Syrator\\Providers\\SyratorServiceProvider' => __DIR__ . '/../..' . '/syrator/Providers/SyratorServiceProvider.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Luhn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Luhn.php',
         'Faker\\DefaultGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/DefaultGenerator.php',
