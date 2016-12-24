@@ -29,5 +29,4 @@ class ChangeLocale extends Job implements SelfHandling
             session()->set($sid, $lng);
         }
     }
-
 }
