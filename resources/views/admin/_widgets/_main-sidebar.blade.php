@@ -57,6 +57,10 @@
 			<a href="javascript:;">
 				<i class="icon-briefcase"></i><span class="title">应用管理</span><span class="arrow "></span>
 			</a>
+			<ul class="sub-menu">
+				<li ><a href="{{ site_url('cms/admin', '') }}" target="_blank"><i class="icon-cogs"></i> 内容管理</a></li>
+				<li ><a href="{{ site_url('shop/admin', '') }}" target="_blank"><i class="icon-cogs"></i> 商城管理</a></li>
+			</ul>
 		</li>
 	</ul>
 </div>
