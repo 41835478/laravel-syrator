@@ -29,6 +29,8 @@
     25 => 'Syrator\\Providers\\SyratorServiceProvider',
     26 => 'Jlapp\\Swaggervel\\SwaggervelServiceProvider',
     27 => 'Stevenyangecho\\UEditor\\UEditorServiceProvider',
+    28 => 'Pingpong\\Modules\\ModulesServiceProvider',
+    29 => 'Modules\\Cms\\Providers\\CmsServiceProvider',
   ),
   'eager' => 
   array (
@@ -48,6 +50,8 @@
     13 => 'Syrator\\Providers\\SyratorServiceProvider',
     14 => 'Jlapp\\Swaggervel\\SwaggervelServiceProvider',
     15 => 'Stevenyangecho\\UEditor\\UEditorServiceProvider',
+    16 => 'Pingpong\\Modules\\ModulesServiceProvider',
+    17 => 'Modules\\Cms\\Providers\\CmsServiceProvider',
   ),
   'deferred' => 
   array (

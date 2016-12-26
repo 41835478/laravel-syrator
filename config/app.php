@@ -164,6 +164,10 @@ return [
         Jlapp\Swaggervel\SwaggervelServiceProvider::class,
         
         Stevenyangecho\UEditor\UEditorServiceProvider::class,
+        
+        Pingpong\Modules\ModulesServiceProvider::class,
+        
+        Modules\Cms\Providers\CmsServiceProvider::class,
     ],
 
     /*
@@ -213,7 +217,7 @@ return [
         /**
          * Third Party Alias...
          */
-        
+        'Module'    => Pingpong\Modules\Facades\Module::class,
     ],
 
 ];
