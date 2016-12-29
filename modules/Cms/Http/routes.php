@@ -4,7 +4,7 @@ Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\
 {
 	Route::get('/', 'CmsController@index');
 	
-	// 管理后台站点路由群组
+	// 管理后台
 	Route::group(['middleware' => 'web', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
 	
 	    Route::get('/', 'CmsAdminController@index');
