@@ -14,6 +14,7 @@
     <meta name="_token" content="{{ csrf_token() }}"/>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta property="wb:webmaster" content="6a9cf8c6a5ca67c3" />
     
     <link rel="shortcut icon" href="{{ _asset('favicon.ico') }}" type="image/x-icon">
 
