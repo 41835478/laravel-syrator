@@ -12,8 +12,8 @@ class HomeController extends FrontController
     {
         $options = [
             'debug'     => true,
-            'app_id'    => 'wx3cf0f39249eb0e60',
-            'secret'    => 'f1c242f4f28f735d4687abb469072a29',
+            'app_id'    => 'wx13b647618165d0c6',
+            'secret'    => '7385e8edde0b99bb5684b70790e0e688',
             'token'     => 'laravel-syrator-easywechat',
             'log' => [
                 'level' => 'debug',
