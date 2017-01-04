@@ -20,8 +20,9 @@ class DataCache
         $system_options = SystemOptionModel::all();
         foreach ($system_options as $so) {
             if (config('cache.default') === 'memcached') {
+                //系统静态配置很少会发生改变，因此建议永久储存该缓存
                 //建议上memcached缓存
-                Cache::tags('system', 'static')->forever($so['name'], $so['value']);  //系统静态配置很少会发生改变，因此建议永久储存该缓存
+                Cache::tags('system', 'static')->forever($so['name'], $so['value']);  
             } else {
                 //file与database驱动的缓存不支持缓存标签
                 Cache::forever($so['name'], $so['value']);  

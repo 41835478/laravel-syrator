@@ -6,8 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use Syrator\Extensions\SyratorValidator;
 use Syrator\Extensions\SyratorBlade;
 
-//use Validator;
-
 /**
  * SyratorValidator 扩展自定义验证类 服务提供者
  *
