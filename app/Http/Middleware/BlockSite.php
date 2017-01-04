@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Exception;
 
 /**
  * Class BlockSite
@@ -15,7 +14,6 @@ use Exception;
  */
 class BlockSite
 {
-
     /**
      * Handle an incoming request.
      *
@@ -26,21 +24,6 @@ class BlockSite
      */
     public function handle($request, Closure $next, $site)
     {
-
-        $host = ltrim(url('/'), 'http:');
-        $host = ltrim($host, 'https:');
-        $site_host = ltrim(config('site.route.domain.'.$site), 'http:');
-        $site_host = ltrim($site_host, 'https:');
-        $site_host = rtrim($site_host, '/');
-        try {
-            if($host !== $site_host) {
-                throw new Exception('403 site blocked !');
-            }
-        } catch (Exception $e) {
-            return abort(403, $e->getMessage());
-        }
         return $next($request);
-
     }
-
 }

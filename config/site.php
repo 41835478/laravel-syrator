@@ -19,15 +19,6 @@ return [
             'document',
         ],
 
-        #路由域名绑定
-        'domain' => [
-            'desktop' => env('DESKTOP_SITE', 'http://syrator.dev/'),
-            'mobile'  => env('MOBILE_SITE', 'http://syrator.dev/'),
-            'api'     => env('API_SITE', 'http://syrator.dev/'),
-            'admin'   => env('ADMIN_SITE', 'http://syrator.dev/'),
-            'document'=> env('DOC_SITE', 'http://syrator.dev/'),
-        ],
-
         #路由前缀绑定
         'prefix' => [
             'desktop' => '',
@@ -36,7 +27,6 @@ return [
             'admin'   => 'admin',
             'document'=> 'documents',
         ],
-
     ],
     
     // 站点样式
