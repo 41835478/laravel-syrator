@@ -332,6 +332,15 @@ jQuery(document).ready(function() {
       interval: 10000,
       pause: 'hover'
    });
+
+   wx.config({
+	    debug: true,
+	    appId: 'wx13b647618165d0c6', // 必填，公众号的唯一标识
+	    timestamp: new Date().getTime(), // 必填，生成签名的时间戳
+	    nonceStr: '', // 必填，生成签名的随机串
+	    signature: '',// 必填，签名，见附录1
+	    jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+	});
 });
 </script>
 @stop
