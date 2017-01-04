@@ -22,16 +22,8 @@ class SyratorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
         /*注册自定义Blade标签*/
         SyratorBlade::register();
-        /*注册自定义验证类*/
-        /*
-        Validator::resolver(function($translator, $data, $rules, $messages)
-        {
-            return new SyratorValidator($translator, $data, $rules, $messages);
-        });
-        */
         $this->app['validator']->resolver(function ($translator, $data, $rules, $messages) {
             return new SyratorValidator($translator, $data, $rules, $messages);
         });

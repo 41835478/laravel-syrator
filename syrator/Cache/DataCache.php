@@ -21,10 +21,10 @@ class DataCache
         foreach ($system_options as $so) {
             if (config('cache.default') === 'memcached') {
                 //建议上memcached缓存
-
                 Cache::tags('system', 'static')->forever($so['name'], $so['value']);  //系统静态配置很少会发生改变，因此建议永久储存该缓存
             } else {
-                Cache::forever($so['name'], $so['value']);  //file与database驱动的缓存不支持缓存标签
+                //file与database驱动的缓存不支持缓存标签
+                Cache::forever($so['name'], $so['value']);  
             }
         }
     }
@@ -55,16 +55,11 @@ class DataCache
         $permissions = PermissionModel::all();
 
         if (config('cache.default') === 'memcached') {
-            Cache::tags('system', 'permissions')->forever('syrator_permissions', $permissions);  //系统静态配置很少会发生改变，因此建议永久储存该缓存
+            //系统静态配置很少会发生改变，因此建议永久储存该缓存
+            Cache::tags('system', 'permissions')->forever('syrator_permissions', $permissions);
         } else {
             Cache::forever('syrator_permissions', $permissions);
-            /*
-            Cache::remember('syrator_permissions', 120, function () use ($permissions) {
-                return $permissions;
-            }
-            */
         }
-
     }
 
     public static function uncachePermission()
@@ -74,5 +69,4 @@ class DataCache
         }
         Cache::forget('syrator_permissions');
     }
-
 }

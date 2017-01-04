@@ -9,7 +9,6 @@ use ParsedownExtra;
  */
 class MarkdownDocumentation
 {
-
     public function parseMarkdownFile($md, $docs_dir = 'documents')
     {
         if($md === 'index') {

@@ -7,7 +7,6 @@ namespace Syrator;
  */
 class Dict
 {
-
     public function getDict($dot_key = null, $default = null)
     {
         $dict = [
