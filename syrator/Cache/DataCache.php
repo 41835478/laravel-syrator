@@ -8,7 +8,6 @@ use App\Model\PermissionModel;
 
 class DataCache
 {
-
     /**
      * 缓存系统静态配置
      * 操作SystemOptionModel模型
