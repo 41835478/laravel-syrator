@@ -22,7 +22,7 @@ class MemberController extends FrontController
     public function login(Request $request)
     {
         $o = new SaeTOAuthV2('2036997088', 'aa9cab2ea753b0c193d9a448d0d5bce7');
-        $code_url = $o->getAuthorizeURL(site_path('member/login', 'desktop'));
+        $code_url = $o->getAuthorizeURL(URL(site_path('member/login', 'desktop')));
         
         return $this->view('member.login', compact('code_url'));
     }
