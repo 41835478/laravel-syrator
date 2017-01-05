@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "97af7119509cce9c88b3bc6238b85b55",
+    "content-hash": "9cecabb87615b3c6677b0996647ff4b2",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -3076,6 +3076,49 @@
             "time": "2016-06-14T14:14:52+00:00"
         },
         {
+            "name": "xiaosier/libweibo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xiaosier/libweibo.git",
+                "reference": "2c9524190c4334e208613ad8f65365471c526954"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xiaosier/libweibo/zipball/2c9524190c4334e208613ad8f65365471c526954",
+                "reference": "2c9524190c4334e208613ad8f65365471c526954",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "saetv2.ex.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lazypeople",
+                    "email": "hfutming@gmail.com",
+                    "homepage": "http://lazy.changes.com.cn",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP sdk for Weibo open platform",
+            "homepage": "http://github.com/xiaosier/libweibo",
+            "keywords": [
+                "sdk",
+                "weibo"
+            ],
+            "time": "2016-06-20 04:43:55"
+        },
+        {
             "name": "zircote/swagger-php",
             "version": "2.0.7",
             "source": {
@@ -4512,7 +4555,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "jlapp/swaggervel": 20
+        "jlapp/swaggervel": 20,
+        "xiaosier/libweibo": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

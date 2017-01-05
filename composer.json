@@ -12,7 +12,8 @@
         "jlapp/swaggervel": "dev-master",
         "stevenyangecho/laravel-u-editor": " ~1.1",
         "pingpong/modules": "~2.1",
-        "overtrue/wechat": "~3.1"
+        "overtrue/wechat": "~3.1",
+        "xiaosier/libweibo": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

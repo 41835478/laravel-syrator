@@ -3469,7 +3469,6 @@ return array(
     'Syrator\\Extensions\\SyratorPresenter' => $baseDir . '/syrator/Extensions/SyratorPresenter.php',
     'Syrator\\Extensions\\SyratorValidator' => $baseDir . '/syrator/Extensions/SyratorValidator.php',
     'Syrator\\IdentityCard\\ID' => $vendorDir . '/syrator/identity-card/ID.php',
-    'Syrator\\Plugin\\WeChat\\WeChatJSSDK' => $baseDir . '/syrator/Plugin/WeChat/WeChatJSSDK.php',
     'Syrator\\Providers\\SyratorServiceProvider' => $baseDir . '/syrator/Providers/SyratorServiceProvider.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',

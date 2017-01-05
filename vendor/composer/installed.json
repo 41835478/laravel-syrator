@@ -4660,5 +4660,50 @@
             "weixin",
             "weixin-sdk"
         ]
+    },
+    {
+        "name": "xiaosier/libweibo",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/xiaosier/libweibo.git",
+            "reference": "2c9524190c4334e208613ad8f65365471c526954"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/xiaosier/libweibo/zipball/2c9524190c4334e208613ad8f65365471c526954",
+            "reference": "2c9524190c4334e208613ad8f65365471c526954",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.0.0"
+        },
+        "time": "2016-06-20T04:43:55+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "saetv2.ex.class.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "lazypeople",
+                "email": "hfutming@gmail.com",
+                "homepage": "http://lazy.changes.com.cn",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP sdk for Weibo open platform",
+        "homepage": "http://github.com/xiaosier/libweibo",
+        "keywords": [
+            "sdk",
+            "weibo"
+        ]
     }
 ]
