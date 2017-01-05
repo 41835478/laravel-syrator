@@ -12,4 +12,13 @@ Route::group(['prefix' => config('site.route.prefix.desktop', ''), 'namespace' =
     // 文章查看
     Route::get('article', 'Article\ArticleController@index');
     Route::get('article/{id}', 'Article\ArticleController@show');
+    
+    // 会员管理
+    Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
+        Route::get('/', 'MemberController@getIndex');
+        
+        Route::get('login', 'MemberController@login');
+        Route::get('loginfast', 'MemberController@loginFast');
+        Route::get('logout', 'MemberController@logout');
+    });
 });
