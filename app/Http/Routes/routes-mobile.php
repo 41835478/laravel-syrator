@@ -11,6 +11,7 @@ Route::group(['prefix' => config('site.route.prefix.mobile', 'mobile'), 'namespa
     Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
         Route::resource('login', 'MemberController@login');
         Route::resource('loginfast', 'MemberController@loginFast');
+        Route::resource('logout', 'MemberController@logout');
         Route::resource('register', 'MemberController@register');
         Route::resource('resetpassword', 'MemberController@resetPassword');
     });
