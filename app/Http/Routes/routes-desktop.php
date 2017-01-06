@@ -18,7 +18,9 @@ Route::group(['prefix' => config('site.route.prefix.desktop', ''), 'namespace' =
         Route::get('/', 'MemberController@getIndex');
         
         Route::get('login', 'MemberController@login');
-        Route::get('loginfast', 'MemberController@loginFast');
         Route::get('logout', 'MemberController@logout');
+        
+        Route::get('loginqq', 'MemberController@loginqq');
+        Route::get('loginqqfast', 'MemberController@loginqqfast');
     });
 });
