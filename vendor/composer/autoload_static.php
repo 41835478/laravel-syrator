@@ -25,6 +25,8 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '9e090711773bfc38738f5dbaee5a7f14' => __DIR__ . '/..' . '/overtrue/wechat/src/Payment/helpers.php',
         'f9ee9b3b37b76a895bac7ba3464e2de5' => __DIR__ . '/..' . '/xiaosier/libweibo/saetv2.ex.class.php',
+        'f9ee9b3b37b76a895bac7ba3464e1de5' => __DIR__ . '/..' . '/qqconnect/API/qqConnectAPI.php',
+        'f9ee9b3b37b76a895bac7ba3464e2de6' => __DIR__ . '/..' . '/qqsdk/OpenApiV3.php',
         '368f6f5da676a38ba1d3f3da7dd0f3c6' => __DIR__ . '/../..' . '/app/helper.php',
         '824a6f0a2cd63863de5a6fddfe97e73e' => __DIR__ . '/../..' . '/syrator/helper.php',
     );
