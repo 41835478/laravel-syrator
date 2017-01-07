@@ -43,6 +43,7 @@ class MemberController extends FrontController
     {
         $qc = new QC();
         $login_url = $qc->qq_login();
+        
         return redirect()->to($login_url);
     }
 }
