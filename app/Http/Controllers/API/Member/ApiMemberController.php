@@ -16,15 +16,6 @@ use App\Loggers\SMSLogger;
  *     version="1.0.0"
  *   ),
  *   @SWG\Tag(name="Member", description="会员模块"),
- *   @SWG\Tag(name="Material", description="材料模块"),
- *   @SWG\Tag(name="Servicer", description="服务商模块"),
- *   @SWG\Tag(name="Device", description="设备租赁模块"),
- *   @SWG\Tag(name="Finance", description="保险金融模块"),
- *   @SWG\Tag(name="Project", description="工程信息模块"),
- *   @SWG\Tag(name="Freight", description="货运模块"),
- *   @SWG\Tag(name="Task", description="需求模块"),
- *   @SWG\Tag(name="Forum", description="论坛模块"),
- *   schemes={"http","https"},
  *   basePath="/api"
  * )
  */
