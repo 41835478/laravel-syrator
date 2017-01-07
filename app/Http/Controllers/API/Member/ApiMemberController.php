@@ -25,7 +25,6 @@ use App\Loggers\SMSLogger;
  *   @SWG\Tag(name="Task", description="需求模块"),
  *   @SWG\Tag(name="Forum", description="论坛模块"),
  *   schemes={"http"},
- *   host="localhost:8801",
  *   basePath="/api"
  * )
  */
