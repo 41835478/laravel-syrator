@@ -1,49 +1,58 @@
 <!DOCTYPE html>
-<html ng-app="demo">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="format-detection" content="address=no">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title></title>
+</head>
+<body>
+<!--[if lt IE 9]>
+<script src="https://g.alicdn.com/aliww/ww/json/json.js" charset="utf-8"></script>
+<![endif]-->
+<!-- 自动适配移动端与pc端 -->
+<script src="https://g.alicdn.com/aliww/??h5.imsdk/4.0.1/scripts/yw/wsdk.js,h5.openim.kit/0.5.0/scripts/kit.js" charset="utf-8"></script>
 
+<script>
 
-    <link rel="stylesheet" type="text/css" href="{{ _asset('wapstyle/rongcloud/widget/css/conversation.css') }}"/>
+    // ?uid=test0&to=test1&appkey=23018936&pwd=123456&fullscreen
 
-    <script>
-      // window.WEB_XHR_POLLING = true;
-    </script>
-    <style>
-      .kefubtn{
-        position: fixed;
-        left: 0px;
-        bottom: 0px;
-        right: 0px;
-        text-align: center;
-        height: 50px;
-        line-height: 50px;
-        background-color: #0099ff;
-        color: white;
-        font-size: 20px;
-      }
-    </style>
-  </head>
-  <body ng-controller="main">
-    <div class="kefubtn" ng-click="kefu()">打开客服>></div>
-    <div>
-      <rong-widget></rong-widget>
-    </div>
-  </body>
-  <!-- <script src="http://www.sobot.com/chat/h5/h5.min.js?sysNum=e5c6265f4a2c4ea4bc82ededa46f4c05" id="zhichiload" ></script> -->
-  <script src="{{ _asset('wapstyle/rongcloud/lib/angular.js') }}"></script>
-  <script src="{{ _asset('wapstyle/rongcloud/widget/main.js') }}"></script>
-  <!-- <script src="../lib/main.js"></script> -->
+    var search = location.search.substring(1);
 
-  <script src="{{ _asset('wapstyle/rongcloud/index.js') }}"></script>
-  
-  <script>
-  </script>
+    var s = search.split('&'),
+            kv;
 
+    var result = {};
+
+    for(var i = 0, len = s.length; i < len; i++){
+        kv = s[i].split('=');
+
+        result[kv[0]] = decodeURIComponent(kv[1]);
+    }
+
+    WKIT.init({
+        uid: result.uid || 'test0',
+        appkey: result.appkey || '23018936',
+        credential: result.pwd || '123456',
+        touid: result.to || 'test1',
+        onMsgReceived: function(data){
+            console.log(data);
+        },
+        onMsgSent: function(data){
+            console.log(data);
+        },
+
+        autoMsg: '这是默认用户打开页面给客服发的第一条消息',
+        titleBar: false,
+        title: 'sss',
+        customUrl: ' ',
+        onBack: function(){
+          console.log('back');
+        },
+        onUploaderError: function(error){
+            console.log(error);
+        }
+    });
+
+</script>
+</body>
 </html>
