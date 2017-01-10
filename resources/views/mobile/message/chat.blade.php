@@ -14,8 +14,6 @@
 
 <script>
 
-    // ?uid=test0&to=test1&appkey=23018936&pwd=123456&fullscreen
-
     var search = location.search.substring(1);
 
     var s = search.split('&'),
@@ -29,7 +27,7 @@
         result[kv[0]] = decodeURIComponent(kv[1]);
     }
 
-    WKIT.init({
+    WKIT.init({        	
         uid: result.uid || 'test0',
         appkey: result.appkey || '23018936',
         credential: result.pwd || '123456',
@@ -50,7 +48,12 @@
         },
         onUploaderError: function(error){
             console.log(error);
-        }
+        },
+
+        hosts:{
+        	msgHost:'im.syrator.com',
+        	imageHost:'mobileim.im.syrator.com'
+    	}
     });
 
 </script>
