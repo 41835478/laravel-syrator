@@ -16,6 +16,7 @@ use App\Loggers\SMSLogger;
  *     version="1.0.0"
  *   ),
  *   @SWG\Tag(name="Member", description="会员模块"),
+ *   @SWG\Tag(name="System", description="系统模块"),
  *   basePath="/api"
  * )
  */

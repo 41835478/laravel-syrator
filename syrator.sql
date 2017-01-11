@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-12-24 22:30:01
+Date: 2017-01-11 11:59:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -459,7 +459,7 @@ CREATE TABLE `syrator_system_logs` (
   `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '修改更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统日志表';
 
 -- ----------------------------
 -- Records of syrator_system_logs
@@ -594,6 +594,9 @@ INSERT INTO `syrator_system_logs` VALUES ('127', '1', 'session', '//localhost:88
 INSERT INTO `syrator_system_logs` VALUES ('128', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-21 09:45:24', '2016-12-21 09:45:24');
 INSERT INTO `syrator_system_logs` VALUES ('129', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-21 23:41:20', '2016-12-21 23:41:20');
 INSERT INTO `syrator_system_logs` VALUES ('130', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-24 13:45:43', '2016-12-24 13:45:43');
+INSERT INTO `syrator_system_logs` VALUES ('131', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-27 14:17:14', '2016-12-27 14:17:14');
+INSERT INTO `syrator_system_logs` VALUES ('132', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-27 17:15:20', '2016-12-27 17:15:20');
+INSERT INTO `syrator_system_logs` VALUES ('133', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-29 16:30:59', '2016-12-29 16:30:59');
 
 -- ----------------------------
 -- Table structure for syrator_system_options
