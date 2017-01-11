@@ -20,7 +20,7 @@ laravel版本 : 5.2.41
 详见项目：https://github.com/syrator/client-android-syrator
 
 #### 3）IOS端
-https://github.com/syrator/client-ios-syrator
+详见项目：https://github.com/syrator/client-ios-syrator
 
 ## 3.二次开发  
 二次开发详见系统文档：https://www.syrator.com/documents
