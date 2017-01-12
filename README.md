@@ -16,7 +16,7 @@ Email：2625874928@qq.com 或者 recoding@163.com
 laravel版本 : 5.2.41  
 数据库mysql : 5.6.17  
 
-PS: 服务器端另有Java版本，详见项目：
+PS: 服务器端另有Java版本，详见项目：  
 https://github.com/syrator/java-syrator
 
 #### 2）安卓端  
