@@ -18,17 +18,6 @@ class VerifyCsrfToken extends BaseVerifier
         '/api/member/validateverifycode',
         '/api/member/resetpassword',
         
-        '/api/material/list',        
-        '/api/material/getcatalogs',
-        
-        '/api/servicer/shigong/list',
-        '/api/servicer/jianli/list',
-        '/api/servicer/fenbao/list',
-        '/api/device/list',
-        '/api/finance/list',
-        '/api/project/list',
-        '/api/freight/list',
-        '/api/task/list',
-        '/api/forum/list',
+        '/api/system/app/get_guide_pages',        
     ];
 }
