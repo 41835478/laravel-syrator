@@ -10,10 +10,33 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2017-01-11 11:59:49
+Date: 2017-01-13 17:42:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for syrator_app_guide
+-- ----------------------------
+DROP TABLE IF EXISTS `syrator_app_guide`;
+CREATE TABLE `syrator_app_guide` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '配置选项名',
+  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '配置选项值',
+  `sort_num` tinyint(3) unsigned NOT NULL DEFAULT '50',
+  `description` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `is_show` tinyint(3) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`,`name`,`url`),
+  UNIQUE KEY `system_option_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统模板表';
+
+-- ----------------------------
+-- Records of syrator_app_guide
+-- ----------------------------
+INSERT INTO `syrator_app_guide` VALUES ('2', '2', '/uploads/content/20170113/587883dddbc21_05o.jpg', '2', '2', '1', '2017-01-13 15:38:08', '2017-01-13 15:38:08');
+INSERT INTO `syrator_app_guide` VALUES ('3', '3', '/uploads/content/20170113/58788db98038f_09o.jpg', '3', '3', '1', '2017-01-13 16:20:11', '2017-01-13 16:20:11');
 
 -- ----------------------------
 -- Table structure for syrator_article
@@ -459,7 +482,7 @@ CREATE TABLE `syrator_system_logs` (
   `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '修改更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统日志表';
 
 -- ----------------------------
 -- Records of syrator_system_logs
@@ -597,6 +620,14 @@ INSERT INTO `syrator_system_logs` VALUES ('130', '1', 'session', '//localhost:88
 INSERT INTO `syrator_system_logs` VALUES ('131', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-27 14:17:14', '2016-12-27 14:17:14');
 INSERT INTO `syrator_system_logs` VALUES ('132', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-27 17:15:20', '2016-12-27 17:15:20');
 INSERT INTO `syrator_system_logs` VALUES ('133', '1', 'session', '//localhost:8801/admin/auth/login', '管理员：admin[admin@example.com] 登录系统。', '::1', '2016-12-29 16:30:59', '2016-12-29 16:30:59');
+INSERT INTO `syrator_system_logs` VALUES ('134', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：avatar1.jpg，上传之后保存在服务器路径为/uploads/content/20170113/58787d2870776_28o.jpg。', '::1', '2017-01-13 15:09:28', '2017-01-13 15:09:28');
+INSERT INTO `syrator_system_logs` VALUES ('135', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：20140905150429_u5WAr.thumb.700_0.jpg，上传之后保存在服务器路径为/uploads/content/20170113/58787d8331a73_59o.jpg。', '::1', '2017-01-13 15:10:59', '2017-01-13 15:10:59');
+INSERT INTO `syrator_system_logs` VALUES ('136', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：20140905150429_u5WAr.thumb.700_0.jpg，上传之后保存在服务器路径为/uploads/content/20170113/58788229dae3c_49o.jpg。', '::1', '2017-01-13 15:30:49', '2017-01-13 15:30:49');
+INSERT INTO `syrator_system_logs` VALUES ('137', '1', 'management', '-', '管理员：成功新增一张APP欢迎页<>。', '::1', '2017-01-13 15:33:00', '2017-01-13 15:33:00');
+INSERT INTO `syrator_system_logs` VALUES ('138', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：20140905150455_Q3UVM.thumb.700_0.jpg，上传之后保存在服务器路径为/uploads/content/20170113/587883dddbc21_05o.jpg。', '::1', '2017-01-13 15:38:05', '2017-01-13 15:38:05');
+INSERT INTO `syrator_system_logs` VALUES ('139', '1', 'management', '-', '管理员：成功新增一张APP欢迎页<>。', '::1', '2017-01-13 15:38:08', '2017-01-13 15:38:08');
+INSERT INTO `syrator_system_logs` VALUES ('140', '1', 'upload', '//localhost:8801/admin/upload/picture', '管理员：上传了文件，文件原始文件名：20140913141520_Ydidj.thumb.700_0.jpg，上传之后保存在服务器路径为/uploads/content/20170113/58788db98038f_09o.jpg。', '::1', '2017-01-13 16:20:09', '2017-01-13 16:20:09');
+INSERT INTO `syrator_system_logs` VALUES ('141', '1', 'management', '-', '管理员：成功新增一张APP欢迎页<>。', '::1', '2017-01-13 16:20:11', '2017-01-13 16:20:11');
 
 -- ----------------------------
 -- Table structure for syrator_system_options
