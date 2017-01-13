@@ -16,7 +16,7 @@ class ApiAppInfoController extends ApiBaseController
     }
     
     /**
-     * @SWG\Get(
+     * @SWG\Post(
      *   tags={"System"},
      *   path="/system/app/get_guide_pages",
      *   summary="获取APP引导页信息",

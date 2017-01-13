@@ -82,7 +82,7 @@ class ApiMemberController extends ApiBaseController
     }
     
     /**
-     * @SWG\Get(
+     * @SWG\Post(
      *   tags={"Member"},
      *   path="/member/login",
      *   summary="会员登录",
@@ -139,7 +139,7 @@ class ApiMemberController extends ApiBaseController
     }
     
     /**
-     * @SWG\Get(
+     * @SWG\Post(
      *   tags={"Member"},
      *   path="/member/register",
      *   summary="会员注册",
@@ -211,7 +211,7 @@ class ApiMemberController extends ApiBaseController
     }
     
     /**
-     * @SWG\Get(
+     * @SWG\Post(
      *   tags={"Member"},
      *   path="/member/sendverifycode",
      *   summary="发送手机验证码",
@@ -305,7 +305,7 @@ class ApiMemberController extends ApiBaseController
     }
     
     /**
-     * @SWG\Get(
+     * @SWG\Post(
      *   tags={"Member"},
      *   path="/member/validateverifycode",
      *   summary="验证手机验证码",
@@ -362,7 +362,7 @@ class ApiMemberController extends ApiBaseController
     }
     
     /**
-     * @SWG\Get(
+     * @SWG\Post(
      *   tags={"Member"},
      *   path="/member/resetpassword",
      *   summary="重置密码",
