@@ -41,6 +41,20 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
             // 模板管理
             Route::resource('theme', 'ThemeController');
     	    Route::post('theme/remove', 'ThemeController@remove');
+    	    
+    	    // app管理
+    	    Route::group(['prefix' => 'appinfo', 'namespace' => 'AppInfo'], function () {    	        
+    	        // 首页
+    	        Route::get('/', 'AppInfoController@index');
+    	        
+    	        // 引导页管理
+    	        Route::resource('guide', 'AppGuideController');
+                Route::post('guide/remove', 'AppGuideController@remove');
+    	    });
+    	    
+	        // 接口管理
+	        Route::group(['prefix' => 'interface', 'namespace' => 'Interface'], function () {
+	        });
         });
         
         // 用户中心   
