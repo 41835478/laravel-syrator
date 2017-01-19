@@ -109,7 +109,7 @@ return [
     |
     */
 
-    'cookie' => 'git_laravel_syrator_session',
+    'cookie' => 'laravel_syrator_session',
 
     /*
     |--------------------------------------------------------------------------
