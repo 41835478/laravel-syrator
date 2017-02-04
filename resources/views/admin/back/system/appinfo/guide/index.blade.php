@@ -54,7 +54,7 @@
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span6">
+				<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
 					<div class="portlet box grey">
                         @if(session()->has('fail'))
                         <div class="alert alert-warning alert-dismissable">
