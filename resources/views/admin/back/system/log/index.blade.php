@@ -53,7 +53,7 @@
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span6 responsive" data-tablet="span12 fix-offset" data-desktop="span6">
+				<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
 					<div class="portlet box grey">
 						<div class="portlet-title">
 							<div class="caption">日志列表</div>
