@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>@section('title') YJMBPS - YJMBPS @show{{-- 页面标题 --}}</title>
-    <meta name="description" content="{{ isset($description) ? $description : 'SYRATOR AdminLTE' }}" />
-    <meta name="keywords" content="SYRATOR,AdminLTE,{{ cache('website_keywords') }}" />
+    <title>@section('title') {{cache('website_title')}} @show</title>
+    <meta name="description" content="{{ isset($description) ? $description : {{cache('website_description')}} }}" />
+    <meta name="keywords" content="{{ cache('website_keywords') }}" />
     <meta name="author" content="{{ cache('system_author_website') }}" />
     <meta name="_token" content="{{ csrf_token() }}"/>
     <meta name="renderer" content="webkit">{{-- 360浏览器使用webkit内核渲染页面 --}}

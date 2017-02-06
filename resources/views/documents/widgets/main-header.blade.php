@@ -8,7 +8,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>SYR</b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>SYRATOR</b></span>
+          <span class="logo-lg"><b>{{cache('website_title')}}</b></span>
         </a>
 
         <!-- Header Navbar -->
