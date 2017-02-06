@@ -31,13 +31,6 @@
 							<i class="icon-angle-right"></i>
 						</li>
 						<li><a href="#">重建缓存</a></li>
-						<li class="pull-right no-text-shadow">
-							<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
-								<i class="icon-calendar"></i>
-								<span></span>
-								<i class="icon-angle-down"></i>
-							</div>
-						</li>
 					</ul>
 				</div>
 			</div>
