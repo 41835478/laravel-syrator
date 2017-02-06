@@ -29,7 +29,7 @@ class OptionController extends BackController
 
     public function getOption()
     {
-        //
+        // 获取系统参数
         $system_options = $this->system->getAllOptions();
         foreach ($system_options as $so) {
             $data[$so['name']] = $so['value'];
@@ -37,7 +37,6 @@ class OptionController extends BackController
 
         return view('admin.back.system.option.index', compact('data'));
     }
-
 
     public function putOption(Request $request)
     {

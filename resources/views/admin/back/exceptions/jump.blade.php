@@ -7,7 +7,7 @@
   @else
   <meta http-equiv="refresh" content="2;url={{ url('') }}">
   @endif
-  <title>SYRATOR - 异常</title>
+  <title>{{cache('website_title')}} - 异常</title>
   <style type="text/css">
 body {
   font-size: 14px;
