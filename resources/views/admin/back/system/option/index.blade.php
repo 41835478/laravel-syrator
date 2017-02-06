@@ -21,15 +21,6 @@
 <div class="page-container row-fluid">
 	@include('admin._widgets._main-sidebar')
 	<div class="page-content">
-		<div id="portlet-config" class="modal hide">
-			<div class="modal-header">
-				<button data-dismiss="modal" class="close" type="button"></button>
-				<h3>Widget Settings</h3>
-			</div>
-			<div class="modal-body">
-				Widget settings form goes here
-			</div>
-		</div>
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span12">
