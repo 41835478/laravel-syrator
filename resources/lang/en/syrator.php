@@ -61,7 +61,4 @@ return [
         'source'   => 'Source',
         'qq_group' => 'QQ Group：260655062',
     ],
-    'yas'      => 'Sysator Network',
-    'yas_url'  => '',
-    'copyright_text' => 'Copyright © <a href=":yas_url"> :yas </a> 2014 - 2016 . All Rights Reserved , Template from <a href="http://startbootstrap.com/template-overviews/landing-page/">Start Bootstrap</a> , Modified by <a href="">SHL</a> .',
 ];
