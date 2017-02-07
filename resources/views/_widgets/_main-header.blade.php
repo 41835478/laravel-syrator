@@ -57,125 +57,70 @@
 				<li class="dropdown" id="header_notification_bar">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="icon-warning-sign"></i>
-					<span class="badge">6</span>
+					<span class="badge">2</span>
 					</a>
 					<ul class="dropdown-menu extended notification">
 						<li>
-							<p>You have 14 new notifications</p>
+							<p>您有2条未读通知</p>
 						</li>
 						<li>
 							<a href="#">
 							<span class="label label-success"><i class="icon-plus"></i></span>
-							New user registered.
-							<span class="time">Just now</span>
+							王思聪投标了您的项目.
+							<span class="time">刚刚</span>
 							</a>
 						</li>
 						<li>
 							<a href="#">
 							<span class="label label-important"><i class="icon-bolt"></i></span>
-							Server #12 overloaded. 
-							<span class="time">15 mins</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<span class="label label-warning"><i class="icon-bell"></i></span>
-							Server #2 not respoding.
-							<span class="time">22 mins</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<span class="label label-info"><i class="icon-bullhorn"></i></span>
-							Application error.
-							<span class="time">40 mins</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<span class="label label-important"><i class="icon-bolt"></i></span>
-							Database overloaded 68%. 
-							<span class="time">2 hrs</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<span class="label label-important"><i class="icon-bolt"></i></span>
-							2 user IP blocked.
-							<span class="time">5 hrs</span>
+							马云发布了新的项目需求，赶快去看看吧. 
+							<span class="time">15分钟前</span>
 							</a>
 						</li>
 						<li class="external">
-							<a href="#">See all notifications <i class="m-icon-swapright"></i></a>
+							<a href="#">查看所有通知 <i class="m-icon-swapright"></i></a>
 						</li>
 					</ul>
 				</li>
 				<li class="dropdown" id="header_inbox_bar">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
     					<i class="icon-envelope"></i>
-    					<span class="badge">5</span>
+    					<span class="badge">1</span>
 					</a>
 					<ul class="dropdown-menu extended inbox">
 						<li>
-							<p>You have 12 new messages</p>
+							<p>您有1条新信息</p>
 						</li>
 						<li>
 							<a href="inbox.html?a=view">
 							<span class="photo"><img src="assets/metronic/image/avatar2.jpg" alt="" /></span>
 							<span class="subject">
-							<span class="from">Lisa Wong</span>
-							<span class="time">Just Now</span>
+							<span class="from">王思聪</span>
+							<span class="time">刚刚</span>
 							</span>
 							<span class="message">
-							Vivamus sed auctor nibh congue nibh. auctor nibh
-							auctor nibh...
+							您好，我是王思聪...
 							</span>  
 							</a>
 						</li>
-						<li>
-							<a href="inbox.html?a=view">
-							<span class="photo"><img src="assets/metronic/image/avatar3.jpg" alt="" /></span>
-							<span class="subject">
-							<span class="from">Richard Doe</span>
-							<span class="time">16 mins</span>
-							</span>
-							<span class="message">
-							Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh
-							auctor nibh...
-							</span>
-							</a>
-						</li>
-						<li>
-							<a href="inbox.html?a=view">
-							<span class="photo"><img src="assets/metronic/image/avatar1.jpg" alt="" /></span>
-							<span class="subject">
-							<span class="from">Bob Nilson</span>
-							<span class="time">2 hrs</span>
-							</span>
-							<span class="message">
-							Vivamus sed nibh auctor nibh congue nibh. auctor nibh
-							auctor nibh...
-							</span>
-							</a>
-						</li>
 						<li class="external">
-							<a href="inbox.html">See all messages <i class="m-icon-swapright"></i></a>
+							<a href="">查看所有消息 <i class="m-icon-swapright"></i></a>
 						</li>
 					</ul>
 				</li>
 				<li class="dropdown" id="header_task_bar">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="icon-tasks"></i>
-					<span class="badge">5</span>
+					<span class="badge">2</span>
 					</a>
 					<ul class="dropdown-menu extended tasks">
 						<li>
-							<p>You have 12 pending tasks</p>
+							<p>您有2个待处理任务</p>
 						</li>
 						<li>
 							<a href="#">
 							<span class="task">
-							<span class="desc">New release v1.2</span>
+							<span class="desc">新版本发布 v1.2</span>
 							<span class="percent">30%</span>
 							</span>
 							<span class="progress progress-success ">
@@ -186,7 +131,7 @@
 						<li>
 							<a href="#">
 							<span class="task">
-							<span class="desc">Application deployment</span>
+							<span class="desc">应用开发</span>
 							<span class="percent">65%</span>
 							</span>
 							<span class="progress progress-danger progress-striped active">
@@ -194,69 +139,28 @@
 							</span>
 							</a>
 						</li>
-						<li>
-							<a href="#">
-							<span class="task">
-							<span class="desc">Mobile app release</span>
-							<span class="percent">98%</span>
-							</span>
-							<span class="progress progress-success">
-							<span style="width: 98%;" class="bar"></span>
-							</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<span class="task">
-							<span class="desc">Database migration</span>
-							<span class="percent">10%</span>
-							</span>
-							<span class="progress progress-warning progress-striped">
-							<span style="width: 10%;" class="bar"></span>
-							</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<span class="task">
-							<span class="desc">Web server upgrade</span>
-							<span class="percent">58%</span>
-							</span>
-							<span class="progress progress-info">
-							<span style="width: 58%;" class="bar"></span>
-							</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<span class="task">
-							<span class="desc">Mobile development</span>
-							<span class="percent">85%</span>
-							</span>
-							<span class="progress progress-success">
-							<span style="width: 85%;" class="bar"></span>
-							</span>
-							</a>
-						</li>
 						<li class="external">
-							<a href="#">See all tasks <i class="m-icon-swapright"></i></a>
+							<a href="#">查看所有任务 <i class="m-icon-swapright"></i></a>
 						</li>
 					</ul>
 				</li>
 				<li class="dropdown user">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    					<img alt="" src="assets/metronic/image/avatar1_small.jpg" />
-    					<span class="username">Bob Nilson</span>
+    					<img style="width: 29px; height: 29px;" alt="{{ auth()->user()->username }}" src="{{ auth()->user()->avatar }}" />
+    					<span class="username">{{auth()->user()->username }}</span>
     					<i class="icon-angle-down"></i>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
-						<li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
-						<li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li>
-						<li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
+						<li>
+							<a href="{{ site_url('mine/inforation', 'admin') }}"><i class="icon-user"></i> 个人资料</a>
+						</li>
+						<li>
+							<a href="#"><i class="icon-tasks"></i> 我的任务</a>
+						</li>
 						<li class="divider"></li>
-						<li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
-						<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+						<li>
+							<a href="{{ site_url('auth/logout', 'admin') }}"><i class="icon-key"></i> 退出</a>
+						</li>
 					</ul>
 				</li>
 			</ul>
