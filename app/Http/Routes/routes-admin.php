@@ -53,7 +53,7 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
     	    });
     	    
 	        // 接口管理
-	        Route::group(['prefix' => 'interface', 'namespace' => 'Interface'], function () {
+	        Route::group(['prefix' => 'interfacesetting', 'namespace' => 'InterfaceSetting'], function () {
 	        });
         });
         
