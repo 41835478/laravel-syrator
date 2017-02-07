@@ -15,8 +15,7 @@ function app_version() {
  * @return string
  */
 function syrator_version() {
-    $app = app();
-    return "SYRATOR/BASE v5.2";
+    return trans('syrator.version_name');
 }
 
 if (!function_exists('cdn')) {

@@ -135,10 +135,9 @@ a {
 		<footer class="main-footer">
 			<div class="container">
 				<div class="pull-right hidden-xs">
-					<b>版本:</b> v5.2.1
+					<b>版本:</b> {{ syrator_version() }}
 				</div>
 				<strong>Copyright &copy; 2011-{{ date('Y') }} <a href="http://www.syrator.com/">{{ trans('syrator.full_name') }}</a></strong>
-				(<code>{{ syrator_version() }}</code>)
 			</div>
 		</footer>
 	</div>

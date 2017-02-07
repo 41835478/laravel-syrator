@@ -7,14 +7,12 @@ return [
         'zh-CN' => '简体中文',
         'en'    => 'English',
     ],
-    'framework_name' => 'Syrator 框架',
-    'version_name'   => '基础开发版',
+    'framework_name' => 'Syrator框架',
+    'version_name'   => 'v1.0.0',
     'alias'          => 'Syrator',
-    'full_name'      => 'Syrator 框架 - 基础开发版',
-    'author'         => 'recoding',
+    'author'         => 'Recoding',
     'author_url'     => 'http://www.syrator.com',
-    'description'    => 'Syrator 框架，基于 `Laravel 5` 构建，可快速二次开发的框架！',
-    'github_url'     => 'https://github.com/syrator',
+    'description'    => 'Syrator框架，基于 `Laravel 5` 构建，可快速二次开发的框架！',
     'social_contact' => [
         'text' => '与Syrator开发者联系：',
         'github' => [
@@ -29,10 +27,5 @@ return [
             'text' => '博客',
             'url'  => 'http://blog.csdn.net/recoding127',
         ],
-    ],
-    'bottom_nav' => [
-        'home'     => '官网',
-        'doc'      => '文档',
-        'blog'     => '博客',
     ],
 ];
