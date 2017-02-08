@@ -130,8 +130,9 @@ if (!function_exists('site_url')) {
     {
 
         if (!in_array($site, config('site.route.group'))) {
-            $site = 'desktop';
+            return internal_link($path, $site, $scheme_less);
         }
+        
         $sub_dir = config('site.route.prefix.'.$site, '');
         return internal_link($path, $sub_dir, $scheme_less);
     }
