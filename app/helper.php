@@ -60,10 +60,11 @@ if (!function_exists('internal_link')) {
         } else {
             $root = $host;
         }
-        return rtrim($root, '/').'/'.$sub_dir.trim($path, '/');
+        
+        $link = rtrim($root, '/').'/'.$sub_dir.trim($path, '/');
+        return rtrim($link, '/');
     }
 }
-
 
 if (!function_exists('external_link')) {
 
