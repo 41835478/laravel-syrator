@@ -33,7 +33,7 @@
 				<li ><a href="{{ site_url('system/log', 'admin') }}"><i class="icon-cogs"></i> 系统日志</a></li>
 				<li ><a href="{{ site_url('system/theme', 'admin') }}"><i class="icon-cogs"></i> 模板管理</a></li>
 				<li ><a href="{{ site_url('system/appinfo', 'admin') }}"><i class="icon-cogs"></i> APP管理</a></li>
-				<li ><a href="{{ site_url('system/interfacesetting', 'admin') }}"><i class="icon-cogs"></i> 接口管理</a></li>
+				<li ><a href="{{ site_url('wechat') }}"><i class="icon-cogs"></i> 微信管理</a></li>
 			</ul>
 		</li>
 		<li class="">

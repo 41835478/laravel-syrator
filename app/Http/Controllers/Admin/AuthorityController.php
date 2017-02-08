@@ -32,12 +32,14 @@ class AuthorityController extends BackController
     {
         //控制面板路径
         $redirectTo = site_path('home', 'admin');
+        
         //认证凭证
         $credentials = [
             'username'  => $request->input('username'),
             'password'  => $request->input('password'),
             'is_locked' => 0,
         ];
+        
         if (Auth::attempt($credentials, $request->has('remember'))) {
             event(new UserLogin(auth()->user()));  //触发登录事件
             return redirect()->intended($redirectTo);
