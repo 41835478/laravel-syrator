@@ -13,4 +13,8 @@ class WechatController extends Controller {
 		return view('wechat::index');
 	}
 	
+	public function params()
+	{
+	    return view('wechat::params');
+	}
 }

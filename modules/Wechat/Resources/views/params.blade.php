@@ -30,7 +30,7 @@
 							<a href="{{ site_url('', 'wechat') }}">首页</a> 
 							<i class="icon-angle-right"></i>
 						</li>
-						<li><a href="#">控制台</a></li>
+						<li><a href="#">基本配置</a></li>
 					</ul>
 				</div>
 			</div>
