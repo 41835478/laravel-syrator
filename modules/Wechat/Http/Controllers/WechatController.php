@@ -3,6 +3,10 @@
 use Pingpong\Modules\Routing\Controller;
 
 class WechatController extends Controller {
+    
+    public function __construct()
+    {
+    }
 	
 	public function index()
 	{

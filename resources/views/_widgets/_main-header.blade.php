@@ -50,6 +50,7 @@
 					</ul>
 				</div>
 			</div>
+			@if(null !== auth()->user() && !empty(auth()->user()))
 			<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
 				<img src="assets/metronic/image/menu-toggler.png" alt="" />
 			</a>
@@ -164,6 +165,8 @@
 					</ul>
 				</li>
 			</ul>
+            @else
+            @endif
 		</div>
 	</div>
 </div>
