@@ -51,10 +51,6 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
     	        Route::resource('guide', 'AppGuideController');
                 Route::post('guide/remove', 'AppGuideController@remove');
     	    });
-    	    
-	        // 接口管理
-	        Route::group(['prefix' => 'interfacesetting', 'namespace' => 'InterfaceSetting'], function () {
-	        });
         });
         
         // 用户中心   
