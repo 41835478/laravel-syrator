@@ -6,6 +6,7 @@ Route::group(['middleware' => 'web', 'prefix' => 'wechat', 'namespace' => 'Modul
 	    // 后台首页：控制台
 	    Route::get('/', 'WechatController@index');
 	    Route::get('index', 'WechatController@index');
-	    Route::get('params', 'WechatController@params');
+	    Route::get('params', 'WechatController@getParams');
+	    Route::put('params', 'WechatController@putParams');
     });
 });

@@ -2,7 +2,8 @@
 
 use Pingpong\Modules\Routing\Controller;
 
-use App\Http\Requests\MemberRequest;
+use Illuminate\Http\Request;
+
 use Modules\Wechat\Model\WechatParamModel;
 
 class WechatController extends Controller {
@@ -16,7 +17,7 @@ class WechatController extends Controller {
 		return view('wechat::index');
 	}
 	
-	public function params()
+	public function getParams()
 	{
 	    // 获取微信接口参数
 	    $options = WechatParamModel::all();;
@@ -25,5 +26,16 @@ class WechatController extends Controller {
 	    }
 	    
 	    return view('wechat::params',compact('data'));
+	}
+	
+	public function putParams(Request $request)
+	{
+	    $data = $request->input('data');
+	    if ($data && is_array($data)) {
+	        WechatParamModel::updateParams($data);
+	        return redirect()->back()->with('message', '成功更新微信配置！');
+	    } else {
+	        return redirect()->back()->with('fail', '提交数据异常！');
+	    }
 	}
 }
