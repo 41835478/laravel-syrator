@@ -166,8 +166,6 @@ return [
         Stevenyangecho\UEditor\UEditorServiceProvider::class,
         
         Pingpong\Modules\ModulesServiceProvider::class,
-        
-        Modules\Cms\Providers\CmsServiceProvider::class,
     ],
 
     /*
