@@ -2,7 +2,7 @@
 <div class="page-sidebar nav-collapse collapse">    
 	<ul class="page-sidebar-menu">
 		<li class="">
-			<a href="{{ site_url('', 'wechat') }}">
+			<a href="{{ site_url('admin', 'wechat') }}">
 				<i class="icon-home"></i><span class="title">控制台</span><span class="selected"></span>
 			</a>
 		</li>
@@ -11,7 +11,7 @@
 				<i class="icon-cogs"></i><span class="title">接口设置</span><span class="arrow "></span>
 			</a>
 			<ul class="sub-menu">
-				<li ><a href="{{ site_url('params', 'wechat') }}"><i class="icon-cogs"></i> 基本配置</a></li>
+				<li ><a href="{{ site_url('admin/params', 'wechat') }}"><i class="icon-cogs"></i> 基本配置</a></li>
 			</ul>
 		</li>
 	</ul>
