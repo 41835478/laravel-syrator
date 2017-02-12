@@ -15,15 +15,15 @@ class ChangeLocale extends Job implements SelfHandling
      */
     public function handle()
     {
-        $lng = Request::input('lng', 'zh-CN');
+        $lng = Request::input('lng', 'zh-cn');
         $site = Request::input('site', 'desktop');
         $site_langs = config('site.lang.'.$site);
         $sid = 'syrator.lang.'.$site;
 
         //default Chinese (Simplified)
-        $lang = session($sid, 'zh-CN');
+        $lang = session($sid, 'zh-cn');
         if (!in_array($lng, $site_langs)) {
-            $lng = 'zh-CN';
+            $lng = 'zh-cn';
         }
         if ($lang !== $lng) {
             session()->set($sid, $lng);

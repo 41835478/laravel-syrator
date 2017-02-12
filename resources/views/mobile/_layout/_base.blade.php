@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" @section('html_attr') class="" @show>
+<html lang="zh-cn" @section('html_attr') class="" @show>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>

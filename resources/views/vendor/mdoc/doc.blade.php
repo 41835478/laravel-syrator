@@ -60,7 +60,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i>  {{ trans('syrator.lang.text') }}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="{{ _route('desktop:lang?lng=zh-CN') }}">{{ trans('syrator.lang.zh-CN') }}</a></li>
+                          <li><a href="{{ _route('desktop:lang?lng=zh-cn') }}">{{ trans('syrator.lang.zh-cn') }}</a></li>
                           <li><a href="{{ _route('desktop:lang?lng=en') }}">{{ trans('syrator.lang.en') }}</a></li>
                         </ul>
                     </li>

@@ -4,7 +4,7 @@ return [
     'lang_code' => 'en',
     'lang' => [
         'text'  => 'Language',
-        'zh-CN' => '简体中文',
+        'zh-cn' => '简体中文',
         'en'    => 'English',
     ],
     'framework_name' => 'Syrator Framework',

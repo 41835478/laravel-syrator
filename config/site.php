@@ -35,7 +35,7 @@ return [
     // 站点多语言设置
     'lang' => [
         'desktop' => [
-            'zh-CN',
+            'zh-cn',
             'en',
         ],
     ],

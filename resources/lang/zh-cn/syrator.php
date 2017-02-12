@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'lang_code' => 'zh-CN',
+    'lang_code' => 'zh-cn',
     'lang' => [
         'text'  => '语言',
-        'zh-CN' => '简体中文',
+        'zh-cn' => '简体中文',
         'en'    => 'English',
     ],
     'framework_name' => 'Syrator框架',
