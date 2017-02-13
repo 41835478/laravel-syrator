@@ -33,7 +33,6 @@
 				<li ><a href="{{ site_url('system/log', 'admin') }}"><i class="icon-cogs"></i> 系统日志</a></li>
 				<li ><a href="{{ site_url('system/theme', 'admin') }}"><i class="icon-cogs"></i> 模板管理</a></li>
 				<li ><a href="{{ site_url('system/appinfo', 'admin') }}"><i class="icon-cogs"></i> APP管理</a></li>
-				<li ><a href="{{ site_url('wechat/admin') }}"><i class="icon-cogs"></i> 微信公众号</a></li>
 			</ul>
 		</li>
 		<li class="">
@@ -54,6 +53,11 @@
 				<li ><a href="{{ site_url('member/member', 'admin') }}"><i class="icon-cogs"></i> 所有会员</a></li>
 				<li ><a href="{{ site_url('member/group', 'admin') }}"><i class="icon-cogs"></i> 会员分组</a></li>
 			</ul>
+		</li>
+		<li class="">
+			<a href="{{ site_url('wechat/admin') }}">
+				<i class="icon-comments"></i><span class="title">微信公众号</span>
+			</a>
 		</li>
 		<li class="">
 			<a href="javascript:;">
