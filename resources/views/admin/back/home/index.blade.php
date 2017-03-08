@@ -19,7 +19,7 @@
 @section('content')
 <div class="page-container">
 	@include('admin._widgets._main-sidebar')
-	<div class="page-content">
+	<div class="page-content" style="min-height:993px !important">
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span12">
