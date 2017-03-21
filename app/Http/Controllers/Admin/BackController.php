@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class BackController extends Controller
 {    
     // UI主题
-    protected $theme = "admin.back.";
+    protected $theme = "admin.";
 
     public function __construct()
     {

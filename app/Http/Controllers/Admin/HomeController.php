@@ -10,6 +10,6 @@ class HomeController extends BackController
 {
     public function getIndex()
     {
-        return view('admin.back.home.index');
+        return $this->view('home.index');
     }
 }
