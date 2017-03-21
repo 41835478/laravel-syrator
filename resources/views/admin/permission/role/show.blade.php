@@ -23,7 +23,11 @@
     							<tr>
     								<td>角色展示名：</td>
     								<td>{{ $role->display_name }}</td>
-    							</tr>    							
+    							</tr>
+    							<tr>
+    								<td>角色描述：</td>
+    								<td>{{ $role->description }}</td>
+    							</tr>
     							<tr>
     								<td>关联权限 ：</td>
     								<td>     
