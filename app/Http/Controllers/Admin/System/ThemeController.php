@@ -15,17 +15,17 @@ use App\Loggers\SystemLogger;
  */
 class ThemeController extends BackController
 {
-    protected $theme;
+    protected $repository;
     
-    public function __construct(ThemeRepository $theme)
+    public function __construct(ThemeRepository $repository)
     {
         parent::__construct();
-        $this->theme = $theme;
+        $this->repository = $repository;
     }
 
     public function index(Request $request)
     {
-        $themes = $this->theme->index();
+        $themes = $this->repository->index();
 
         return $this->view('system.theme.index', compact('themes'));
     }
@@ -38,7 +38,7 @@ class ThemeController extends BackController
     public function store(ThemeRequest $request)
     {
         $data = $request->all();
-        $theme = $this->theme->store($data);        
+        $theme = $this->repository->store($data);        
         if ($theme->id) {
             // 添加成功
             // 记录系统日志，这里并未使用事件监听来记录日志
@@ -57,21 +57,21 @@ class ThemeController extends BackController
     
     public function edit($id)
     {
-        $theme = $this->theme->edit($id);
+        $theme = $this->repository->edit($id);
         return $this->view('system.theme.edit', compact('theme'));
     }
     
     public function update(ThemeRequest $request, $id)
     {
         $data = $request->all();
-        $this->theme->update($id, $data);
+        $this->repository->update($id, $data);
     
         return redirect()->to(site_path('system/theme', 'admin'))->with('message', '修改模板成功！');
     }
     
     public function show($id)
     {
-        $theme = $this->theme->edit($id);
+        $theme = $this->repository->edit($id);
         return $this->view('system.theme.show', compact('theme'));
     }
     
@@ -79,7 +79,7 @@ class ThemeController extends BackController
     {
         $delId = $request->input('delId');
     
-        $theme = $this->theme->edit($delId);
+        $theme = $this->repository->edit($delId);
         if (!empty($theme)) {    
             if ($theme->delete()) {
                 $rth['code'] = "200";
