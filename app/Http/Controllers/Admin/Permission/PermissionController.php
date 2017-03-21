@@ -32,12 +32,12 @@ class PermissionController extends BackController
     public function index(Request $request)
     { 
         $permissions = $this->role->permissions();
-        return view('admin.back.permission.permission.index', compact('permissions'));
+        return $this->view('permission.permission.index', compact('permissions'));
     }
     
     public function create()
     {
-        return view('admin.back.permission.permission.create');
+        return $this->view('permission.permission.create');
     }
     
     public function store(PermissionRequest $request)
@@ -62,7 +62,7 @@ class PermissionController extends BackController
     {
         $permission = PermissionModel::findOrfail($id);
     
-        return view('admin.back.permission.permission.edit', compact('permission'));
+        return $this->view('permission.permission.edit', compact('permission'));
     }
     
     public function update(PermissionRequest $request, $id)
@@ -88,7 +88,7 @@ class PermissionController extends BackController
     {
         $permission = PermissionModel::findOrfail($id);
     
-        return view('admin.back.permission.permission.show', compact('permission'));
+        return $this->view('permission.permission.show', compact('permission'));
     }
     
     public function remove(Request $request)

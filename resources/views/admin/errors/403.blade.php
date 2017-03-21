@@ -1,1 +1,1 @@
-@extends('admin.back.exceptions.deny')
+@extends('admin.exceptions.deny')

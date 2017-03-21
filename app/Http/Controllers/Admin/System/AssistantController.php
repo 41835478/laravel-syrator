@@ -31,7 +31,7 @@ class AssistantController extends BackController
      */
     public function getUploadPicture()
     {
-        return view('admin.back.upload.picture_create');
+        return $this->view('upload.picture_create');
     }
 
     /**
@@ -41,7 +41,7 @@ class AssistantController extends BackController
      */
     public function getUploadDocument()
     {
-        return view('admin.back.upload.document_create');
+        return $this->view('upload.document_create');
     }
 
     /**
@@ -119,7 +119,7 @@ class AssistantController extends BackController
             return response()->json($json);
         } else {
             //非ajax请求抛出异常
-            return view('admin.back.exceptions.jump', ['exception' => '非法请求，不予处理！']);
+            return $this->view('exceptions.jump', ['exception' => '非法请求，不予处理！']);
         }
     }
 
@@ -193,7 +193,7 @@ class AssistantController extends BackController
             return response()->json($json);
         } else {
             //非ajax请求抛出异常
-            return view('admin.back.exceptions.jump', ['exception' => '非法请求，不予处理！']);
+            return $this->view('exceptions.jump', ['exception' => '非法请求，不予处理！']);
         }
     }
 
@@ -210,9 +210,9 @@ class AssistantController extends BackController
         if ($isCache=='on') {
             DataCache::cacheStatic();
             DataCache::cachePermission();
-            return view('admin.back.system.cache.index')->with('message', '重建缓存成功！');            
+            return $this->view('system.cache.index')->with('message', '重建缓存成功！');            
         }
         
-        return view('admin.back.system.cache.index');
+        return $this->view('system.cache.index');
     }
 }

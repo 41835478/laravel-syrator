@@ -31,7 +31,7 @@ class MeController extends BackController
     public function getMeInforation()
     {
         $me = auth()->user();
-        return view('admin.back.mine.index', compact('me'));
+        return $this->view('mine.index', compact('me'));
     }
 
     /**

@@ -25,7 +25,7 @@ class AuthorityController extends BackController
 
     public function getLogin()
     {
-        return view('admin.auth.login');
+        return $this->view('auth.login');
     }
 
     public function postLogin(Request $request)
@@ -45,9 +45,9 @@ class AuthorityController extends BackController
             return redirect()->intended($redirectTo);
         } else {
             // 登录失败，跳回
-            return redirect()->back()
-                             ->withInput()
-                             ->withErrors(['attempt' => '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系超级管理员！']);  //回传错误信息
+            return redirect()->back()->withInput()->withErrors(
+                ['attempt' => '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系超级管理员！']
+                );  //回传错误信息
         }
     }
 

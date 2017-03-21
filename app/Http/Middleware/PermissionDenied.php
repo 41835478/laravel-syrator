@@ -20,7 +20,7 @@ class PermissionDenied
      */
     public function handle($request, Closure $next)
     {
-        return response()->view('admin.back.exceptions.deny', array(), 403);
+        return response()->view('admin.exceptions.deny', array(), 403);
         return $next($request);
     }
 }

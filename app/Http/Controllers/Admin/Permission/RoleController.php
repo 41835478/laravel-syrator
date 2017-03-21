@@ -33,13 +33,13 @@ class RoleController extends BackController
     public function index()
     {
         $roles = $this->role->index();
-        return view('admin.back.permission.role.index', compact('roles'));
+        return $this->view('permission.role.index', compact('roles'));
     }
 
     public function create()
     {
         $permissions = $this->role->permissions();  //获取所有权限许可
-        return view('admin.back.permission.role.create', compact('permissions'));
+        return $this->view('permission.role.create', compact('permissions'));
     }
 
     public function store(RoleRequest $request)
@@ -61,7 +61,7 @@ class RoleController extends BackController
         $permissions = $this->role->permissions();
         $cans = $this->role->getRoleCans($role);
 
-        return view('admin.back.permission.role.edit', compact('role', 'permissions', 'cans'));
+        return $this->view('permission.role.edit', compact('role', 'permissions', 'cans'));
     }
 
     public function update(RoleRequest $request, $id)
@@ -77,7 +77,7 @@ class RoleController extends BackController
         $permissions = $this->role->permissions();
         $cans = $this->role->getRoleCans($role);
     
-        return view('admin.back.permission.role.show', compact('role', 'permissions', 'cans'));
+        return $this->view('permission.role.show', compact('role', 'permissions', 'cans'));
     }
     
     public function remove(Request $request)

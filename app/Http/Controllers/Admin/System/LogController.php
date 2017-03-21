@@ -35,7 +35,7 @@ class LogController extends BackController
     {
         $system_logs = $this->system->indexAll();
 
-        return view('admin.back.system.log.index', compact('system_logs'));
+        return $this->view('system.log.index', compact('system_logs'));
     }
 
     /**
@@ -48,6 +48,6 @@ class LogController extends BackController
     {
         $sys_log = $this->system->getById($id);
         is_null($sys_log) && abort(404);
-        return view('admin.back.system.log.show', compact('sys_log'));
+        return $this->view('system.log.show', compact('sys_log'));
     }
 }

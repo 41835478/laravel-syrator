@@ -44,7 +44,7 @@ class UserController extends BackController
         
         $roles = $this->user->role();
 
-        return view('admin.back.permission.user.index', compact('users','roles'));
+        return $this->view('permission.user.index', compact('users','roles'));
     }
 
     /**
@@ -55,7 +55,7 @@ class UserController extends BackController
     public function create()
     {
         $roles = $this->user->role();
-        return view('admin.back.permission.user.create', ['roles' => $roles]);
+        return $this->view('permission.user.create', ['roles' => $roles]);
     }
 
     /**
@@ -103,7 +103,7 @@ class UserController extends BackController
             // 新建的管理员用户可能不存在关联role模型
             $own_role = $this->user->fakeRole();  // 伪造一个Role对象，以免报错
         }
-        return view('admin.back.permission.user.edit', compact('user', 'roles', 'own_role'));
+        return $this->view('permission.user.edit', compact('user', 'roles', 'own_role'));
     }
 
     /**
@@ -138,7 +138,7 @@ class UserController extends BackController
             // 新建的管理员用户可能不存在关联role模型
             $own_role = $this->user->fakeRole();  // 伪造一个Role对象，以免报错
         }
-        return view('admin.back.permission.user.show', compact('user', 'own_role'));
+        return $this->view('permission.user.show', compact('user', 'own_role'));
     }
     
     public function remove(Request $request)

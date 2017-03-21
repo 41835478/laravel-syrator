@@ -27,12 +27,12 @@ class ThemeController extends BackController
     {
         $themes = $this->theme->index();
 
-        return view('admin.back.system.theme.index', compact('themes'));
+        return $this->view('system.theme.index', compact('themes'));
     }
     
     public function create()
     {
-        return view('admin.back.system.theme.create');
+        return $this->view('system.theme.create');
     }
     
     public function store(ThemeRequest $request)
@@ -58,7 +58,7 @@ class ThemeController extends BackController
     public function edit($id)
     {
         $theme = $this->theme->edit($id);
-        return view('admin.back.system.theme.edit', compact('theme'));
+        return $this->view('system.theme.edit', compact('theme'));
     }
     
     public function update(ThemeRequest $request, $id)
@@ -72,7 +72,7 @@ class ThemeController extends BackController
     public function show($id)
     {
         $theme = $this->theme->edit($id);
-        return view('admin.back.system.theme.show', compact('theme'));
+        return $this->view('system.theme.show', compact('theme'));
     }
     
     public function remove(Request $request)

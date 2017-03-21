@@ -35,7 +35,7 @@ class OptionController extends BackController
             $data[$so['name']] = $so['value'];
         }
 
-        return view('admin.back.system.option.index', compact('data'));
+        return $this->view('system.option.index', compact('data'));
     }
 
     public function putOption(Request $request)
