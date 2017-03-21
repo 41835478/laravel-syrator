@@ -97,6 +97,3 @@ body {
 	</div>
 </body>
 </html>
-
-
-
