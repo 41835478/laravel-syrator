@@ -6,6 +6,9 @@ use App\Http\Controllers\API\ApiBaseController;
 
 use Illuminate\Http\Request;
 
+use TopClient;
+use AlibabaAliqinFcSmsNumSendRequest;
+
 use App\Repositories\MemberRepository;
 use App\Loggers\SMSLogger;
 
@@ -249,22 +252,39 @@ class ApiMemberController extends ApiBaseController
             return self::responseFailed('302','类型不能为空');
         }
         
-        // 验证码
+        // 验证码(六位随机数)
         $simpleCode = rand(100000,999999);
-
-        // 发送验证码
-        $params = array();
-		$params['Uid'] = "hdst001";
-		$params['Key'] = "a6e468e5c8dbc56cb739";
-		$params['smsMob'] = $param['phone'];
-		if (e($param['type'])=="register") {
-		    $params['smsText'] = "您正在注册账户，验证码：".$simpleCode."。请尽快使用，勿要告知他人。";		    
-		} else if (e($param['type'])=="resetpassword") {
-		    $params['smsText'] = "您正在重设账户密码，验证码：".$simpleCode."。请尽快使用，勿要告知他人。";		    
-		} else {
-		    $params['smsText'] = "您的验证码：".$simpleCode."。请尽快使用，勿要告知他人。";
-		}
-        $res = $this->post('',$params);  
+        
+//         $params = array();
+//         $params['Uid'] = "hdst001";
+// 		$params['Key'] = "a6e468e5c8dbc56cb739";
+// 		$params['smsMob'] = $param['phone'];
+// 		if (e($param['type'])=="register") {
+// 		    $params['smsText'] = "您正在注册账户，验证码：".$simpleCode."。请尽快使用，勿要告知他人。";		    
+// 		} else if (e($param['type'])=="resetpassword") {
+// 		    $params['smsText'] = "您正在重设账户密码，验证码：".$simpleCode."。请尽快使用，勿要告知他人。";		    
+// 		} else {
+// 		    $params['smsText'] = "您的验证码：".$simpleCode."。请尽快使用，勿要告知他人。";
+// 		}
+// 		$res = $this->post('',$params);
+		
+		$c = new TopClient;
+		$c->appkey = "23524159";
+		$c->secretKey = "cea4a3e427380fb8d543defa5a4b92b5";
+		$c->format = "json";
+		$req = new AlibabaAliqinFcSmsNumSendRequest;
+        $req->setExtend("123456");
+        $req->setSmsType("normal");
+        $req->setSmsFreeSignName("Sy应用框架");
+        $req->setSmsParam("{\"code\":\"1234\",\"name\":\"Syrator\"}");
+        $req->setRecNum("18672764673");
+        $req->setSmsTemplateCode("SMS_57060017");
+        $resp = $c->execute($req);
+		
+// 		echo json_encode($send_ver_code_request);
+// 		exit();
+		echo json_encode($resp);
+		exit();
         
         // 记录日志
         $log = [
