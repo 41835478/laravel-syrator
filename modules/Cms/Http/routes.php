@@ -5,9 +5,13 @@ Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\
 	Route::get('/', 'CmsController@index');
 	
 	// 管理后台
-	Route::group(['middleware' => 'web', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
+	Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['multi-site.auth:admin']], function () {
 	
 	    Route::get('/', 'CmsAdminController@index');
-	    
+	   
+	    // 文章
+	    Route::group(['prefix' => 'article', 'namespace' => 'Article'], function () {
+	        Route::resource('/', 'ArticleController');
+	    });
 	});
 });
