@@ -1,61 +1,74 @@
-var TableMaterial = function () {
-    return {
-        init: function (columnFilterSetting, elemId) {
-            if (!jQuery().dataTable) {
-                return;
-            }
-
-            var oTable = $('#'+elemId).dataTable({
-                "aLengthMenu": [
-                    [5, 15, 20, -1],
-                    [5, 15, 20, "全部"]
-                ],
-                "iDisplayLength": 5,
-                "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-                "sPaginationType": "bootstrap",
-                "oLanguage": {
-                    "sLengthMenu": "_MENU_ 每页",
-                    "oPaginate": {
-                        "sPrevious": "上一页",
-                        "sNext": "下一页",
-                        "sFirst": "首页",
-        				"sLast": "尾页",
-                    },
-                    "sSearch": "查找：",
-        			"sInfo": "显示第 _START_ 到 _END_ 条记录，共  _TOTAL_ 条记录",
-        			"sInfoEmpty": "显示第0到0条记录，共0条记录",
-        			"sInfoFiltered": "(由_MAX_项记录过滤)",
-                    "sZeroRecords": "没有符合条件的记录"
-                },
-                "aoColumnDefs": [{
-                        'bSortable': false,
-                        'aTargets': [0]
-                    }
-                ]
-            }).columnFilter(columnFilterSetting);
-
-            jQuery('#'+elemId + ' .group-checkable').change(function () {
-                var set = jQuery(this).attr("data-set");
-                var checked = jQuery(this).is(":checked");
-                jQuery(set).each(function () {
-                    if (checked) {
-                        $(this).attr("checked", true);
-                    } else {
-                        $(this).attr("checked", false);
-                    }
-                });
-                jQuery.uniform.update(set);
-            });
-
-            jQuery('#'+elemId + '_wrapper .dataTables_filter input').addClass("m-wrap small");
-            jQuery('#'+elemId + '_wrapper .dataTables_length select').addClass("m-wrap small");
-            jQuery('#'+elemId + '_wrapper .dataTables_length select').select2();
-            
-            $('#'+elemId + '_column_toggler input[type="checkbox"]').change(function(){
-                var iCol = parseInt($(this).attr("data-column"));
-                var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
-                oTable.fnSetColumnVis(iCol, (bVis ? false : true));
-            });
-        }
+function ZTreeExpand(elemId, dData) {
+	this.elemId = elemId;  
+    this.dData = dData;
+    
+    var onClick = function(e, treeId, treeNode) {
+    	var zTree = $.fn.zTree.getZTreeObj("select_tree_items_" + elemId),
+		nodes = zTree.getSelectedNodes(),
+		v = "";
+		nodes.sort(function compare(a,b){return a.id-b.id;});
+		for (var i=0, l=nodes.length; i<l; i++) {
+			v += nodes[i].name + ",";
+		}
+		if (v.length > 0 ) v = v.substring(0, v.length-1);
+		var parentObj = $("#" + elemId);
+		parentObj.attr("value", v);
+		
+		hideSelectTree();
+	};
+	
+	var showSelectTree = function() {
+		var parentObj = $("#" + elemId);
+		var cityOffset = $("#" + elemId).offset();
+		$("#select_tree_" + elemId).css({
+			left:cityOffset.left + "px", 
+			top:cityOffset.top + parentObj.outerHeight() + "px"}
+		).slideDown("fast");
+		$("#select_tree_" + elemId).addClass("active");
+		
+		$("body").bind("mousedown", onBodyDown);
+	};
+	
+	var hideSelectTree = function() {
+		$("#select_tree_" + elemId).fadeOut("fast");
+		$("#select_tree_" + elemId).removeClass("active");
+		
+		$("body").unbind("mousedown", onBodyDown);
+	};
+	
+	var onBodyDown = function(event) {
+		if (!(event.target.id == "btn_" + elemId 
+			|| event.target.id == "select_tree_" + elemId 
+			|| $(event.target).parents("#select_tree_" + elemId).length>0)) {
+			hideSelectTree();
+		}
+	};
+   
+    this.init = function() {
+		var setting = {
+	    	view: {
+	    		dblClickExpand: false
+	    	},
+	    	data: {
+	    		simpleData: {
+	    			enable: true,
+	    			idKey: "id",
+	    			pIdKey: "pid",
+	    			rootPId: null
+	    		}
+	    	},
+	    	callback: {
+	    		onClick: onClick
+	    	}
+	    };
+		$.fn.zTree.init($("#select_tree_items_" + this.elemId), setting, this.dData);
+		
+		$("#btn_" + this.elemId).click(function() {
+			if ($("#select_tree_" + elemId).hasClass("active")) {
+				hideSelectTree();
+			} else {
+				showSelectTree();
+			}
+	    });
     };
-}();
+};

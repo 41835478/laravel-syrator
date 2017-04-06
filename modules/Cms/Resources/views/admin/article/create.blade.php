@@ -69,12 +69,14 @@
 @section('extraPlugin')
 @parent
 <script src="{{ _asset('lib/ztree/js/jquery.ztree.core.js') }}"></script>
+<script src="{{ _asset('assets/js/ztree-expand.js') }}"></script>
 @stop
 
 @section('filledScript')
 <script>
+jQuery(document).ready(function() {    
+    App.init();
 
-function initCatSelectTree() {
 	var dData = new Array();
     @foreach ($catalogs as $k => $v)
 	dData[{{$k}}] = $.parseJSON('{!!$v!!}');
@@ -84,82 +86,13 @@ function initCatSelectTree() {
 	for(var i=0; i<dData.length; i++) {
 		dCatalogs[i+1] = dData[i];
 	}
-	
-    var setting = {
-    	view: {
-    		dblClickExpand: false
-    	},
-    	data: {
-    		simpleData: {
-    			enable: true,
-    			idKey: "id",
-    			pIdKey: "pid",
-    			rootPId: null
-    		}
-    	},
-    	callback: {
-    		onClick: onClick
-    	}
-    };
-
-	$.fn.zTree.init($("#select_tree_items_cat_id"), setting, dCatalogs);
-}
-
-function onClick(e, treeId, treeNode) {
-	var zTree = $.fn.zTree.getZTreeObj("select_tree_items_cat_id"),
-	nodes = zTree.getSelectedNodes(),
-	v = "";
-	nodes.sort(function compare(a,b){return a.id-b.id;});
-	for (var i=0, l=nodes.length; i<l; i++) {
-		v += nodes[i].name + ",";
-	}
-	if (v.length > 0 ) v = v.substring(0, v.length-1);
-	var parentObj = $("#cat_id");
-	parentObj.attr("value", v);
-	hideCatalogSelectTree();
-}
-
-function showCatalogSelectTree() {
-	var parentObj = $("#cat_id");
-	var cityOffset = $("#cat_id").offset();
-	$("#select_tree_cat_id").css({
-		left:cityOffset.left + "px", 
-		top:cityOffset.top + parentObj.outerHeight() + "px"}
-	).slideDown("fast");
-
-	$("#select_tree_cat_id").addClass("active");
-	$("body").bind("mousedown", onBodyDown);
-}
-function hideCatalogSelectTree() {
-	$("#select_tree_cat_id").fadeOut("fast");
-	$("body").unbind("mousedown", onBodyDown);
-	$("#select_tree_cat_id").removeClass("active");
-}
-function onBodyDown(event) {
-	if (!(event.target.id == "btn_cat_id" 
-		|| event.target.id == "select_tree_cat_id" 
-		|| $(event.target).parents("#select_tree_cat_id").length>0)) {
-		hideCatalogSelectTree();
-	}
-}
-
-jQuery(document).ready(function() {    
-    App.init();
-
-	initCatSelectTree();
+    var catSelectTree = new ZTreeExpand("cat_id", dCatalogs);
+    catSelectTree.init();
 
     var ue = UE.getEditor('content');   
     ue.ready(function() {
         ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
     });
-
-	$('#btn_cat_id').click(function(){
-		if ($("#select_tree_cat_id").hasClass("active")) {
-			hideCatalogSelectTree();
-		} else {
-			showCatalogSelectTree();
-		}
-	});
 });
 </script>
 @stop
