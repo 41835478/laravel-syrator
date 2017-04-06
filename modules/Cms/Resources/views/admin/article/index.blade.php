@@ -154,7 +154,7 @@ jQuery(document).ready(function() {
     @foreach ($catalogs as $k => $v)
     selectValues[{{$k}}] = "{{$v->name}}";
     @endforeach
-    TableMaterial.init({
+    TableExpand.init({
 		aoColumns: 
 		[ 
 			null,

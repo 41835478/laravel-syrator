@@ -1,4 +1,4 @@
-var TableExpand = function () {
+var TableMaterial = function () {
     return {
         init: function (columnFilterSetting, elemId) {
             if (!jQuery().dataTable) {
