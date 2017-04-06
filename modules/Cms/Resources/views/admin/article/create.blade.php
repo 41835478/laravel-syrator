@@ -34,10 +34,10 @@
 							<i class="icon-angle-right"></i>
 						</li>
 						<li>
-							<a href="{{ site_url('mygz/material/material', 'admin') }}">装修材料管理</a> 
+							<a href="{{ site_url('admin/article', 'cms') }}">文章管理</a> 
 							<i class="icon-angle-right"></i>
 						</li>
-						<li><a href="#">新增装修材料</a></li>
+						<li><a href="#">新增文章</a></li>
 					</ul>
 				</div>
 			</div>
