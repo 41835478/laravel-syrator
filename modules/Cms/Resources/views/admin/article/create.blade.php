@@ -42,44 +42,17 @@
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span12">
-        			@if(session()->has('fail'))
-                    <div class="alert alert-warning alert-dismissable">
-                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                    	<h4>
-                    		<i class="icon icon fa fa-warning"></i> 提示！
-                    	</h4>
-                    	{{ session('fail') }}
-                    </div>
-                    @endif 
-                    
-                    @if($errors->any())
-                    <div class="alert alert-danger alert-dismissable">
-                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                    	<h4>
-                    		<i class="icon fa fa-ban"></i> 警告！
-                    	</h4>
-                    	<ul>
-                    		@foreach ($errors->all() as $error)
-                    		<li>{{ $error }}</li> 
-                    		@endforeach
-                    	</ul>
-                    </div>
-                    @endif
+				<div class="span12">                    
+					@include('cms::_widgets._fail-message')
+					@include('cms::_widgets._errors-message')                    
                     <div class="portlet box blue ">
                     	<div class="portlet-title">
-                    		<div class="caption">新增装修材料</div>
+                    		<div class="caption">新增文章</div>
                     	</div>
 						<div class="portlet-body form">
 							<form method="post" action="{{ _route('admin:mygz.material.material.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
                                 {!! csrf_field() !!}
-								<div class="control-group">
-									<label class="control-label">标题</label>
-									<div class="controls">										
-										<input style="box-sizing: content-box;" type="text" class="m-wrap large" name="name" autocomplete="off" value="{{ old('name', isset($material) ? $material->name : null) }}" placeholder="标题">
-										<span class="help-inline text-green"><small>*</small></span>
-									</div>
-								</div> 							
+								@include('cms::_widgets._edit-control-group')							
                 				<div class="control-group">
     								<label class="control-label">所属分类</label>
                     				<div class="controls">
@@ -92,12 +65,6 @@
                                         </div>
                                     </div>  
                                 </div>
-								<div class="control-group">
-									<label class="control-label">详情</label>
-									<div class="controls">	
-										<textarea style="width:100%" type="text" name="content" id="content" autocomplete="off" placeholder="详情" >{{ old('content', isset($material) ? $material->content : null) }}</textarea>
-									</div>
-								</div>
 								<div class="form-actions">
 									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增材料信息</button>
 								</div>

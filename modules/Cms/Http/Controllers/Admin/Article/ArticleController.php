@@ -17,7 +17,39 @@ class ArticleController extends AdminController {
 	public function create()
 	{
 	    $catalogs = ArticleCatModel::all();
-	    return view('cms::admin.article.create', compact('catalogs'));
+	    $editStruct = array(
+	        'title' => [
+	            'name' => 'title',
+	            'type' => 'text',
+	            'alias' => '标题',
+	            'placeholder' => '请输入标题',
+	            'autocomplete' => 'on',
+	            'value' => '',
+	            'help' => '',
+	            'is_request' => true,
+	        ],
+	        'cat_id' => [
+	            'name' => 'cat_id',
+	            'type' => 'text',
+	            'alias' => '所属分类',
+	            'placeholder' => '请选择分类',
+	            'autocomplete' => 'on',
+	            'value' => '',
+	            'help' => '',
+	            'is_request' => false,
+	        ],
+	        'content' => [
+	            'name' => 'content',
+	            'type' => 'textarea',
+	            'alias' => '内容',
+	            'placeholder' => '',
+	            'autocomplete' => 'on',
+	            'value' => '',
+	            'help' => '',
+	            'is_request' => false,
+	        ],
+	    );
+	    return view('cms::admin.article.create', compact('catalogs', 'editStruct'));
 	}
 	
 	public function store(Request $request)
