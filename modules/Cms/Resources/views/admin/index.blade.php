@@ -23,7 +23,7 @@
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span12">
-					<h3 class="page-title">{{cache('website_title')}}微信后台管理控制台</h3>
+					<h3 class="page-title">{{cache('website_title')}} - CMS后台管理控制台</h3>
 					<ul class="breadcrumb">
 						<li>
 							<i class="icon-home"></i>

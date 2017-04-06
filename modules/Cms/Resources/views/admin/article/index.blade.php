@@ -32,7 +32,7 @@
 							<a href="{{ site_url('admin', 'cms') }}">首页</a> 
 							<i class="icon-angle-right"></i>
 						</li>
-						<li><a href="#">基本配置</a></li>
+						<li><a href="#">文章列表</a></li>
 					</ul>
 				</div>
 			</div>
@@ -109,7 +109,7 @@
 											<input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
 										</td>
                                         <td class="text-green">{{ $per->title }}</td>
-                                        <td class="text-green"></td>
+                                        <td class="text-green">{{ $per->getCatName() }}</td>
                                         <td>{{ $per->created_at }}</td>
                                         <td>{{ $per->updated_at }}</td>
                     					<td style="text-align: center;">                                        	
