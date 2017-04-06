@@ -29,7 +29,7 @@
 					<ul class="breadcrumb" style="margin-bottom: 0px;">
 						<li>
 							<i class="icon-home"></i>
-							<a href="{{ site_url('', 'wechat') }}">首页</a> 
+							<a href="{{ site_url('admin', 'cms') }}">首页</a> 
 							<i class="icon-angle-right"></i>
 						</li>
 						<li><a href="#">基本配置</a></li>
@@ -66,7 +66,7 @@
 							<div class="caption">材料列表</div>
 							<div class="actions">
 								<div class="btn-group">
-									<a href="{{ _route('admin:mygz.material.material.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
+									<a href="{{ _route('cms:admin.article.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
 									<a href="javascript:void(0);" class="btn" id="removebatch"><i class="icon-remove"></i> 删除</a>
 									<a class="btn" href="#" data-toggle="dropdown">选择显示列<i class="icon-angle-down"></i></a>
 									<div id="syrator_table_article_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
@@ -108,7 +108,7 @@
 										<td style="width:8px;text-align:center;">
 											<input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
 										</td>
-                                        <td class="text-green">{{ $per->name }}</td>
+                                        <td class="text-green">{{ $per->title }}</td>
                                         <td class="text-green"></td>
                                         <td>{{ $per->created_at }}</td>
                                         <td>{{ $per->updated_at }}</td>

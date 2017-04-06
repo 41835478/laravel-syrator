@@ -27,7 +27,7 @@
 					<ul class="breadcrumb" style="margin-bottom: 0px;">
 						<li>
 							<i class="icon-home"></i>
-							<a href="{{ site_url('', 'wechat') }}">首页</a> 
+							<a href="{{ site_url('admin', 'wechat') }}">首页</a> 
 							<i class="icon-angle-right"></i>
 						</li>
 						<li><a href="#">基本配置</a></li>
