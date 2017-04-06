@@ -52,21 +52,9 @@
 						<div class="portlet-body form">
 							<form method="post" action="{{ _route('admin:mygz.material.material.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
                                 {!! csrf_field() !!}
-								@include('cms::_widgets._edit-control-group')							
-                				<div class="control-group">
-    								<label class="control-label">所属分类</label>
-                    				<div class="controls">
-                                        <input style="box-sizing: content-box;" type="text" class="m-wrap large" name="cat_id" id="cat_id" value="{{ old('cat_id', isset($material) ? $material->getCatName() : null) }}">
-                                        <span class="input-group-btn">
-                                        	<button type="button" class="btn btn-info btn-flat" id="cat_id_btn">选择</button>
-                                        </span>         
-                                        <div id="catalog_select_tree" class="menuContent" style="display:none;margin-right:55px;">
-                                        	<ul id="catalog_select_tree_items" class="ztree" style="margin-top:0; width:160px;"></ul>
-                                        </div>
-                                    </div>  
-                                </div>
+								@include('cms::_widgets._edit-control-group')
 								<div class="form-actions">
-									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增材料信息</button>
+									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增</button>
 								</div>
 							</form>
 						</div>
@@ -86,52 +74,39 @@
 @section('filledScript')
 <script>
 
-function loadData() {
-	$.ajax({
-		type:'post',
-		url:'/api/material/getcatalogs',
-		data: {
-			format_type:'list'
+function initCatSelectTree() {
+	var dData = new Array();
+    @foreach ($catalogs as $k => $v)
+	dData[{{$k}}] = $.parseJSON('{!!$v!!}');
+    @endforeach
+	var dCatalogs = new Array();
+	dCatalogs[0] = {id: -1, pId: -1, name:"顶级分类"};
+	for(var i=0; i<dData.length; i++) {
+		dCatalogs[i+1] = dData[i];
+	}
+	
+    var setting = {
+    	view: {
+    		dblClickExpand: false
     	},
-		dataType:'json',
-		async:true,
-		success:function(data) {
-			var code = data['code'];
-			if(code == "200") {
-				var dData = data['data'];
-				var dCatalogs = new Array();
-				dCatalogs[0] = {id: -1, pId: -1, name:"顶级分类"};
-				for(var i=0; i<dData.length; i++) {
-					dCatalogs[i+1] = dData[i];
-				}
-				
-                var setting = {
-                	view: {
-                		dblClickExpand: false
-                	},
-                	data: {
-                		simpleData: {
-                			enable: true,
-                			idKey: "id",
-                			pIdKey: "pid",
-                			rootPId: null
-                		}
-                	},
-                	callback: {
-                		onClick: onClick
-                	}
-                };
+    	data: {
+    		simpleData: {
+    			enable: true,
+    			idKey: "id",
+    			pIdKey: "pid",
+    			rootPId: null
+    		}
+    	},
+    	callback: {
+    		onClick: onClick
+    	}
+    };
 
-				$.fn.zTree.init($("#catalog_select_tree_items"), setting, dCatalogs);
-			} else {
-				alert("读取内容失败");
-			}
-		}
-	});
+	$.fn.zTree.init($("#select_tree_items_cat_id"), setting, dCatalogs);
 }
 
 function onClick(e, treeId, treeNode) {
-	var zTree = $.fn.zTree.getZTreeObj("catalog_select_tree_items"),
+	var zTree = $.fn.zTree.getZTreeObj("select_tree_items_cat_id"),
 	nodes = zTree.getSelectedNodes(),
 	v = "";
 	nodes.sort(function compare(a,b){return a.id-b.id;});
@@ -147,16 +122,23 @@ function onClick(e, treeId, treeNode) {
 function showCatalogSelectTree() {
 	var parentObj = $("#cat_id");
 	var cityOffset = $("#cat_id").offset();
-	$("#catalog_select_tree").css({left:cityOffset.left + "px", top:cityOffset.top + parentObj.outerHeight() + "px"}).slideDown("fast");
+	$("#select_tree_cat_id").css({
+		left:cityOffset.left + "px", 
+		top:cityOffset.top + parentObj.outerHeight() + "px"}
+	).slideDown("fast");
 
+	$("#select_tree_cat_id").addClass("active");
 	$("body").bind("mousedown", onBodyDown);
 }
 function hideCatalogSelectTree() {
-	$("#catalog_select_tree").fadeOut("fast");
+	$("#select_tree_cat_id").fadeOut("fast");
 	$("body").unbind("mousedown", onBodyDown);
+	$("#select_tree_cat_id").removeClass("active");
 }
 function onBodyDown(event) {
-	if (!(event.target.id == "cat_id_btn" || event.target.id == "catalog_select_tree" || $(event.target).parents("#catalog_select_tree").length>0)) {
+	if (!(event.target.id == "btn_cat_id" 
+		|| event.target.id == "select_tree_cat_id" 
+		|| $(event.target).parents("#select_tree_cat_id").length>0)) {
 		hideCatalogSelectTree();
 	}
 }
@@ -164,22 +146,19 @@ function onBodyDown(event) {
 jQuery(document).ready(function() {    
     App.init();
 
-	loadData();
+	initCatSelectTree();
 
     var ue = UE.getEditor('content');   
     ue.ready(function() {
         ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
     });
 
-	var openFlag = false;
-	$('#cat_id_btn').click(function(){
-		if (!openFlag) {
-			showCatalogSelectTree();
-		} else {
+	$('#btn_cat_id').click(function(){
+		if ($("#select_tree_cat_id").hasClass("active")) {
 			hideCatalogSelectTree();
+		} else {
+			showCatalogSelectTree();
 		}
-
-		openFlag = !openFlag;
 	});
 });
 </script>

@@ -30,7 +30,7 @@ class ArticleController extends AdminController {
 	        ],
 	        'cat_id' => [
 	            'name' => 'cat_id',
-	            'type' => 'text',
+	            'type' => 'select_tree',
 	            'alias' => '所属分类',
 	            'placeholder' => '请选择分类',
 	            'autocomplete' => 'on',
