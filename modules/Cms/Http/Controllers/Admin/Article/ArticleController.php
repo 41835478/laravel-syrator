@@ -2,6 +2,8 @@
 
 use Modules\Cms\Http\Controllers\Admin\AdminController;
 
+use Modules\Cms\Libraries\EditProperty;
+
 use Modules\Cms\Model\ArticleModel;
 use Modules\Cms\Model\ArticleCatModel;
 
@@ -17,38 +19,30 @@ class ArticleController extends AdminController {
 	public function create()
 	{
 	    $catalogs = ArticleCatModel::all();
-	    $editStruct = array(
-	        'title' => [
-	            'name' => 'title',
-	            'type' => 'text',
-	            'alias' => '标题',
-	            'placeholder' => '请输入标题',
-	            'autocomplete' => 'on',
-	            'value' => '',
-	            'help' => '',
-	            'is_request' => true,
-	        ],
-	        'cat_id' => [
-	            'name' => 'cat_id',
-	            'type' => 'select_tree',
-	            'alias' => '所属分类',
-	            'placeholder' => '请选择分类',
-	            'autocomplete' => 'on',
-	            'value' => '',
-	            'help' => '',
-	            'is_request' => false,
-	        ],
-	        'content' => [
-	            'name' => 'content',
-	            'type' => 'textarea',
-	            'alias' => '内容',
-	            'placeholder' => '',
-	            'autocomplete' => 'on',
-	            'value' => '',
-	            'help' => '',
-	            'is_request' => false,
-	        ],
-	    );
+
+	    $editStruct = array();
+	    
+	    $editProperty = new EditProperty();
+	    $editProperty->name = 'title';
+	    $editProperty->type = 'text';
+	    $editProperty->alias = '标题';
+	    $editProperty->placeholder = '请输入标题';
+	    $editProperty->is_request = true;
+	    $editStruct[$editProperty->name] = $editProperty;
+	    
+	    $editProperty = new EditProperty();
+	    $editProperty->name = 'cat_id';
+	    $editProperty->type = 'select_tree';
+	    $editProperty->alias = '所属分类';
+	    $editProperty->placeholder = '请选择分类';
+	    $editStruct[$editProperty->name] = $editProperty;
+	    
+	    $editProperty = new EditProperty();
+	    $editProperty->name = 'content';
+	    $editProperty->type = 'textarea';
+	    $editProperty->alias = '内容';
+	    $editStruct[$editProperty->name] = $editProperty;
+	    
 	    return view('cms::admin.article.create', compact('catalogs', 'editStruct'));
 	}
 	
