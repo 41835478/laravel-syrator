@@ -79,14 +79,10 @@ jQuery(document).ready(function() {
 
 	var dData = new Array();
     @foreach ($catalogs as $k => $v)
-	dData[{{$k}}] = $.parseJSON('{!!$v!!}');
+	dData[{{$k+1}}] = $.parseJSON('{!!$v!!}');
     @endforeach
-	var dCatalogs = new Array();
-	dCatalogs[0] = {id: -1, pId: -1, name:"顶级分类"};
-	for(var i=0; i<dData.length; i++) {
-		dCatalogs[i+1] = dData[i];
-	}
-    var catSelectTree = new ZTreeExpand("cat_id", dCatalogs);
+    dData[0] = {id: -1, pId: -1, name:"顶级分类"};
+    var catSelectTree = new ZTreeExpand("cat_id", dData);
     catSelectTree.init();
 
     var ue = UE.getEditor('content');   
