@@ -4,7 +4,7 @@ namespace Modules\Cms\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ArticleCatModel extends Model
+class ArticleCatModel extends BaseModel
 {
     protected $table = 'article_cat';
     

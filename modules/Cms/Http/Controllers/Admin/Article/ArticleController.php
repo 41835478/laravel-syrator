@@ -19,6 +19,10 @@ class ArticleController extends AdminController {
 	public function create()
 	{
 	    $catalogs = ArticleCatModel::all();
+	    
+	    $catalog = new ArticleCatModel();
+	    echo json_encode($catalog->getEditStructs());
+	    exit();
 
 	    $editStruct = array();
 	    
