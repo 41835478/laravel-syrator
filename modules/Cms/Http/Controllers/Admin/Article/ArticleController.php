@@ -2,8 +2,6 @@
 
 use Modules\Cms\Http\Controllers\Admin\AdminController;
 
-use Modules\Cms\Libraries\EditProperty;
-
 use Modules\Cms\Model\ArticleModel;
 use Modules\Cms\Model\ArticleCatModel;
 

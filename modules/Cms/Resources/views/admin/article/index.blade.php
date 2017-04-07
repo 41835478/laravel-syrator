@@ -113,10 +113,10 @@
                                         <td>{{ $per->created_at }}</td>
                                         <td>{{ $per->updated_at }}</td>
                     					<td style="text-align: center;">                                        	
-                                        	<a target="_blank" href="{{ _route('desktop:material.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        	<a target="_blank" href="{{ _route('cms:admin.article.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-eye-open"></i>
                                         	</a>
-                                        	<a href="{{ _route('admin:mygz.material.material.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                                        	<a href="{{ _route('cms:admin.article.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-edit"></i>
                                         	</a>
                                         	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
@@ -168,7 +168,7 @@ jQuery(document).ready(function() {
     $(document).on("click","a.remove",function(evt) {
         var itemId = $(this).attr("item-id");
     	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-            $.post("{{ URL('admin/mygz/material/material/remove') }}", {
+            $.post("{{ URL('cms/admin/article/remove') }}", {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:itemId,
             }, function(data){
@@ -193,7 +193,7 @@ jQuery(document).ready(function() {
         }
         
     	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-            $.post("{{ URL('admin/mygz/material/material/removebatch') }}", {
+            $.post("{{ URL('cms/admin/article/removebatch') }}", {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:strIds,
             }, function(data){
