@@ -91,10 +91,12 @@ class ArticleController extends AdminController {
         // 分组
         $editStructGroup = array();
         $editStructGroup[] = array(
+            'id' => 'base_info',
             'name' => '基本信息',
             'fields' => array('title','keywords','summary'),
         );
         $editStructGroup[] = array(
+            'id' => 'expand_info',
             'name' => '扩展信息',
             'fields' => array('cat_id','type','content','is_show'),
         );

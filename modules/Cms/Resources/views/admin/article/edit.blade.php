@@ -52,7 +52,7 @@
 						<div class="portlet-body form">
 							<form method="post" action="{{ _route('admin:mygz.material.material.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
                                 {!! csrf_field() !!}
-								@include('cms::_widgets._edit-control-group')
+								@include('cms::_widgets._edit_group-control-group')
 								<div class="form-actions">
 									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增</button>
 								</div>
