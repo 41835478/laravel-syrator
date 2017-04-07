@@ -18,29 +18,53 @@ class BaseModel extends Model
     
     public function getEditStructs() {
         $editStruct = array();
-         
-        $editProperty = new EditProperty();
-        $editProperty->name = 'title';
-        $editProperty->type = 'text';
-        $editProperty->alias = '标题';
-        $editProperty->placeholder = '请输入标题';
-        $editProperty->is_request = true;
-        $editStruct[$editProperty->name] = $editProperty;
-         
-        $editProperty = new EditProperty();
-        $editProperty->name = 'cat_id';
-        $editProperty->type = 'select_tree';
-        $editProperty->alias = '所属分类';
-        $editProperty->placeholder = '请选择分类';
-        $editStruct[$editProperty->name] = $editProperty;
-         
-        $editProperty = new EditProperty();
-        $editProperty->name = 'content';
-        $editProperty->type = 'textarea';
-        $editProperty->alias = '内容';
-        $editStruct[$editProperty->name] = $editProperty;
+        
+        // 先获取表结构
+        $columns = $this->getConnection()->select('SHOW FULL COLUMNS FROM '.$this->getFullTableName());
+
+        foreach ($columns as $key => $column) {
+            if ($column->Field=="id" || $column->Field=="created_at" || $column->Field=="updated_at") {
+                continue;
+            }
+            
+            $editProperty = new EditProperty();
+            
+            // 字段名称与别名
+            $editProperty->name = $column->Field;
+            if (empty($column->Comment)) {
+                $editProperty->alias = $column->Field;
+            } else {
+                $editProperty->alias = $column->Comment;
+            }
+            $editProperty->placeholder = '请输入'.$editProperty->alias;
+            
+            // 字段类型
+            $fieldType = strstr($column->Type, '(', true);
+            if (empty($fieldType)) {
+                $fieldType = $column->Type;
+            }
+            if ($fieldType=="varchar") {
+                $editProperty->type = "text";
+            } else if ($fieldType=="text" 
+                || $fieldType=="mediumtext" 
+                || $fieldType=="longtext") {
+                $editProperty->type = "textarea";
+            } else if ($fieldType=="tinyint" 
+                || $fieldType=="smallint" 
+                || $fieldType=="int" 
+                || $fieldType=="mediumint" 
+                || $fieldType=="integer" 
+                || $fieldType=="bigint") {
+                $editProperty->type = "int";                
+            } else if ($fieldType=="double" 
+                || $fieldType=="float") {
+                $editProperty->type = "double";                
+            }
+            
+            // 添加到类表
+            $editStruct[$editProperty->name] = $editProperty;
+        }
         
         return $editStruct;
-        return $this->getConnection()->select('SHOW FULL COLUMNS FROM '.$this->getFullTableName());
     }
 }

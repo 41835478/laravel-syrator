@@ -1,5 +1,6 @@
 {{-- widget._edit-control-group --}}
-@foreach ($editStruct as $per)                                
+@foreach ($editStruct as $per)  
+@if($per->is_editable)                              
 <div class="control-group">
 	<label class="control-label">{{$per->alias}}</label>
 	<div class="controls">
@@ -22,9 +23,7 @@
 				id="{{$per->name}}" 
 				name="{{$per->name}}" 
 				autocomplete="{{$per->autocomplete}}" 
-				placeholder="{{$per->placeholder}}" >
-				{{$per->value}}
-			</textarea>
+				placeholder="{{$per->placeholder}}" >{{$per->value}}</textarea>
 		@elseif($per->type=='select_tree')
 			<input style="box-sizing: content-box;" 
 				type="text" class="m-wrap large" 
@@ -39,7 +38,20 @@
             <div id="select_tree_{{$per->name}}" class="menuContent" style="display:none;margin-right:55px;">
             	<ul id="select_tree_items_{{$per->name}}" class="ztree" style="margin-top:0; width:160px;"></ul>
             </div>
+        @elseif($per->type=='radio')
+        	@foreach ($per->dictionary as $key => $value) 
+        		<label class="radio">
+        			<input type="radio" name="{{$per->name}}" value="{{$key}}" {{($per->value === $key)?'checked':''}}/>{{$value}}
+        		</label>
+        	@endforeach
+        @elseif($per->type=='select')
+        	<select class="large m-wrap" tabindex="1" name="{{$per->name}}">
+        	@foreach ($per->dictionary as $key => $value) 
+            	<option value="{{$key}}" {{($per->value === $key)?'selected':''}}>{{$value}}</option>
+          	@endforeach
+          	</select>
         @endif
 	</div>
-</div> 	
+</div> 
+@endif	
 @endforeach

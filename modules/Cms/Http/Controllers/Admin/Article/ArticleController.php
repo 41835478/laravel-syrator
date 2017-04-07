@@ -20,32 +20,34 @@ class ArticleController extends AdminController {
 	{
 	    $catalogs = ArticleCatModel::all();
 	    
-	    $catalog = new ArticleCatModel();
-	    echo json_encode($catalog->getEditStructs());
-	    exit();
-
-	    $editStruct = array();
+	    $article = new ArticleModel();
+	    $editStruct = $article->getEditStructs();
 	    
-	    $editProperty = new EditProperty();
-	    $editProperty->name = 'title';
-	    $editProperty->type = 'text';
-	    $editProperty->alias = '标题';
-	    $editProperty->placeholder = '请输入标题';
-	    $editProperty->is_request = true;
-	    $editStruct[$editProperty->name] = $editProperty;
-	    
-	    $editProperty = new EditProperty();
-	    $editProperty->name = 'cat_id';
-	    $editProperty->type = 'select_tree';
-	    $editProperty->alias = '所属分类';
-	    $editProperty->placeholder = '请选择分类';
-	    $editStruct[$editProperty->name] = $editProperty;
-	    
-	    $editProperty = new EditProperty();
-	    $editProperty->name = 'content';
-	    $editProperty->type = 'textarea';
-	    $editProperty->alias = '内容';
-	    $editStruct[$editProperty->name] = $editProperty;
+	    // 再修正
+	    // 按照业务需求，该字段由系统赋值，前台无法编辑
+        if (isset($editStruct['author_id'])) {
+            $editStruct['author_id']->is_editable = false;
+        }
+        // 扩展插件，自定义类型
+        if (isset($editStruct['cat_id'])) {
+            $editStruct['cat_id']->type = "select_tree";
+        }
+        // 单选radio
+        if (isset($editStruct['is_show'])) {
+            $editStruct['is_show']->type = "radio";
+            $editStruct['is_show']->value = 1; 
+            $editStruct['is_show']->dictionary['0'] = '否'; 
+            $editStruct['is_show']->dictionary['1'] = '是'; 
+        }
+        // 单选select
+        if (isset($editStruct['type'])) {
+            $editStruct['type']->type = "select";
+            $editStruct['type']->value = 2; 
+            $editStruct['type']->dictionary['1'] = '原创';
+            $editStruct['type']->dictionary['2'] = '来自微博';
+            $editStruct['type']->dictionary['3'] = '来自朋友圈';
+            $editStruct['type']->dictionary['4'] = '来自门户';
+        }
 	    
 	    return view('cms::admin.article.create', compact('catalogs', 'editStruct'));
 	}
