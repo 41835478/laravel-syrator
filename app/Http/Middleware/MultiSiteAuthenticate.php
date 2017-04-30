@@ -23,7 +23,7 @@ class MultiSiteAuthenticate
     public function handle($request, Closure $next, $site = null)
     {
         $backend_login_url = config('site.route.prefix.admin', 'admin').'/auth/login';
-        $desktop_login_url = config('site.route.prefix.desktop', '').'/i/login.html';
+        $desktop_login_url = config('site.route.prefix.desktop', '').'/member/auth/login';
         switch ($site) {
             case 'admin':
                 $guard = 'web';

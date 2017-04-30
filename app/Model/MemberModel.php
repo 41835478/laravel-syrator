@@ -2,13 +2,13 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * 会员模型
  *
  */
-class MemberModel extends Model
+class MemberModel extends Authenticatable
 {
     protected $table = 'member';
     

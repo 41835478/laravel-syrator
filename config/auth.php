@@ -74,14 +74,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Model\UserModel::class,
         ],
-//         'members' => [
-//             'driver' => 'eloquent',
-//             'model' => App\Member::class,
-//         ],
-//         'users' => [
-//             'driver' => 'database',
-//             'table' => 'users',
-//         ],
+        'members' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\MemberModel::class,
+        ],
     ],
 
     /*
