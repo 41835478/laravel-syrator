@@ -417,8 +417,6 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
     );
 
     public static $classMap = array (
-        'CreateAuthorsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_08_140432_create_authors_table.php',
-        'CreateGoodsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_08_141058_create_goods_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
