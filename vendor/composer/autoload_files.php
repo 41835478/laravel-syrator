@@ -24,9 +24,6 @@ return array(
     'f18cc91337d49233e5754e93f3ed9ec3' => $vendorDir . '/laravelcollective/html/src/helpers.php',
     '9e090711773bfc38738f5dbaee5a7f14' => $vendorDir . '/overtrue/wechat/src/Payment/helpers.php',
     'f9ee9b3b37b76a895bac7ba3464e2de5' => $vendorDir . '/xiaosier/libweibo/saetv2.ex.class.php',
-    'f9ee9b3b37b76a895bac7ba3464e1de5' => $vendorDir . '/qqconnect/API/qqConnectAPI.php',
-    'f9ee9b3b37b76a895bac7ba3464e2de6' => $vendorDir . '/qqsdk/OpenApiV3.php',
-    'f9ee9b3b37b76a895bac7ba3464e2de7' => $vendorDir . '/taobao/TopSdk.php',
     '368f6f5da676a38ba1d3f3da7dd0f3c6' => $baseDir . '/app/helper.php',
     '824a6f0a2cd63863de5a6fddfe97e73e' => $baseDir . '/syrator/helper.php',
 );
