@@ -33,7 +33,10 @@
         },
         "files": [
             "app/helper.php",
-            "syrator/helper.php"
+            "syrator/helper.php",
+            "vendor/qqconnect/API/qqConnectAPI.php",
+            "vendor/qqsdk/OpenApiV3.php",
+            "vendor/taobao/TopSdk.php"
         ]
     },
     "autoload-dev": {
