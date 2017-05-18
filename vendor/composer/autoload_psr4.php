@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/type-resolver/src', $vendorDir . '/phpdocumentor/reflection-docblock/src'),
+    'Zizaco\\Entrust\\' => array($vendorDir . '/zizaco/entrust/src/Entrust'),
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Syrator\\IdentityCard\\' => array($vendorDir . '/syrator/identity-card'),
@@ -33,7 +34,9 @@ return array(
     'Stevenyangecho\\UEditor\\' => array($vendorDir . '/stevenyangecho/laravel-u-editor/src'),
     'Qiniu\\' => array($vendorDir . '/qiniu/php-sdk/src/Qiniu'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'Pingpong\\Support\\' => array($vendorDir . '/pingpong/support'),
     'Pingpong\\Modules\\' => array($vendorDir . '/pingpong/modules'),
     'Pingpong\\Generators\\' => array($vendorDir . '/pingpong/generators'),
@@ -52,6 +55,7 @@ return array(
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib/Doctrine/Common'),
+    'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),
     'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
     'ClassPreloader\\' => array($vendorDir . '/classpreloader/classpreloader/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),

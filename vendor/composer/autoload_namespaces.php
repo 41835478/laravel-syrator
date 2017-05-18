@@ -6,11 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'ParsedownExtra' => array($vendorDir . '/erusev/parsedown-extra'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'Orangehill\\Iseed' => array($vendorDir . '/orangehill/iseed/src'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
     'Jlapp\\Swaggervel' => array($vendorDir . '/jlapp/swaggervel/src'),
     'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
@@ -20,5 +20,4 @@ return array(
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
-    'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
 );

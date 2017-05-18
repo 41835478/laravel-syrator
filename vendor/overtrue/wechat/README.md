@@ -3,7 +3,7 @@
 <img src="https://easywechat.org/logo.svg" alt="EasyWeChat" width="160">
 </a>
 
-<p align="center">📦 Maybe it is the best SDK for develop WeChat App.</p>
+<p align="center">📦 It is probably the best SDK in the world for developing Wechat App.</p>
 
 <p align="center">
 <a href="https://travis-ci.org/overtrue/wechat"><img src="https://travis-ci.org/overtrue/wechat.svg?branch=master" alt="Build Status"></a>
@@ -18,15 +18,19 @@
 
 </div>
 
-## Supporting EasyWeChat
+<p align="center">
+    <b>Special thanks to the generous sponsorship by:</b>
+    <br><br>
+    <a href="https://www.yousails.com">
+      <img src="https://yousails.com/banners/brand.png" width=350>
+    </a>
+    <br><br>
+    <a href="https://laravist.com">
+      <img width="160" src="https://o0dpls1ru.qnssl.com/laravist.com-logo.png">
+    </a>
+</p>
 
-EasyWeChat 是一个 MIT 协议的开源项目. 它的发展离不开背后的支持者。
 
-特别感谢他们的慷慨赞助:
-
-<a href="https://laravist.com">
-  <img width="160" src="https://o0dpls1ru.qnssl.com/laravist.com-logo.png">
-</a>
 
 ## Feature
 
@@ -90,10 +94,12 @@ $server->serve()->send();
 
 更多请参考[http://easywechat.org/](http://easywechat.org/)。
 
-## Documention
+## Documentation
 
-- Homepage: http://easywechat.org/
+- Homepage: http://easywechat.org
 - Forum: https://forum.easywechat.org
+- 微信公众平台文档: https://mp.weixin.qq.com/wiki
+- WeChat Official Documentation: http://admin.wechat.com/wiki
 
 > 强烈建议看懂微信文档后再来使用本 SDK。
 
@@ -103,7 +109,7 @@ $server->serve()->send();
 
 ## Contribution
 
-[Contribution Guide](CONTRIBUTING.md)
+[Contribution Guide](.github/CONTRIBUTING.md)
 
 ## License
 

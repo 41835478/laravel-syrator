@@ -347,16 +347,6 @@ class Guard
     }
 
     /**
-     * Get the collected request message.
-     *
-     * @return Collection
-     */
-    public function getCollectedMessage()
-    {
-        return new Collection($this->getMessage());
-    }
-
-    /**
      * Handle request.
      *
      * @return array
@@ -383,14 +373,14 @@ class Guard
      *
      * @return mixed
      */
-    protected function handleMessage($message)
+    protected function handleMessage(array $message)
     {
         $handler = $this->messageHandler;
 
         if (!is_callable($handler)) {
             Log::debug('No handler enabled.');
 
-            return;
+            return null;
         }
 
         Log::debug('Message detail:', $message);
@@ -458,6 +448,11 @@ class Guard
     protected function parseMessageFromRequest($content)
     {
         $content = strval($content);
+
+        $arrayable = json_decode($content, true);
+        if (json_last_error() === JSON_ERROR_NONE) {
+            return $arrayable;
+        }
 
         if ($this->isSafeMode()) {
             if (!$this->encryptor) {

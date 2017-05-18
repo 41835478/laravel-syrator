@@ -13,7 +13,10 @@
         "stevenyangecho/laravel-u-editor": " ~1.1",
         "pingpong/modules": "~2.1",
         "overtrue/wechat": "~3.1",
-        "xiaosier/libweibo": "dev-master"
+        "xiaosier/libweibo": "dev-master",
+        "orangehill/iseed": "2.2",
+        "zizaco/entrust": "5.2.x-dev",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
