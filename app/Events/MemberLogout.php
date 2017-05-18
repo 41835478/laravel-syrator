@@ -5,7 +5,7 @@ namespace App\Events;
 use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 
-class UserLogout extends Event
+class MemberLogout extends Event
 {
 
     use SerializesModels;
@@ -15,9 +15,9 @@ class UserLogout extends Event
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($member)
     {
         //
-        $this->user = $user;
+        $this->member = $member;
     }
 }

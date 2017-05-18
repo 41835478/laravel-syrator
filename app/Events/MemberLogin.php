@@ -15,9 +15,9 @@ class MemberLogin extends Event
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($member)
     {
         //
-        $this->user = $user;
+        $this->member = $member;
     }
 }
