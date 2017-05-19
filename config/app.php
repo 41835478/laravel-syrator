@@ -158,14 +158,14 @@ return [
 
         /**
          * Third Party Service Providers...
-         */
-        Syrator\Providers\SyratorServiceProvider::class,
-        
-        Jlapp\Swaggervel\SwaggervelServiceProvider::class,
-        
-        Stevenyangecho\UEditor\UEditorServiceProvider::class,
-        
+         */        
+        Orangehill\Iseed\IseedServiceProvider::class,
+        Stevenyangecho\UEditor\UEditorServiceProvider::class,   
+        Jlapp\Swaggervel\SwaggervelServiceProvider::class,        
         Pingpong\Modules\ModulesServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        
+        Syrator\Providers\SyratorServiceProvider::class,
     ],
 
     /*
@@ -216,6 +216,7 @@ return [
          * Third Party Alias...
          */
         'Module'    => Pingpong\Modules\Facades\Module::class,
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];
