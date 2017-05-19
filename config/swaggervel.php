@@ -33,7 +33,7 @@ return array(
       | Absolute path to directory containing the swagger annotations are stored.
       |--------------------------------------------------------------------------
     */
-    "app-dir" => "app",
+    "app-dir" => "",
 
     /*
       |--------------------------------------------------------------------------

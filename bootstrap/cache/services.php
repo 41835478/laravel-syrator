@@ -26,10 +26,12 @@
     22 => 'App\\Providers\\AuthServiceProvider',
     23 => 'App\\Providers\\EventServiceProvider',
     24 => 'App\\Providers\\RouteServiceProvider',
-    25 => 'Syrator\\Providers\\SyratorServiceProvider',
-    26 => 'Jlapp\\Swaggervel\\SwaggervelServiceProvider',
-    27 => 'Stevenyangecho\\UEditor\\UEditorServiceProvider',
+    25 => 'Orangehill\\Iseed\\IseedServiceProvider',
+    26 => 'Stevenyangecho\\UEditor\\UEditorServiceProvider',
+    27 => 'Jlapp\\Swaggervel\\SwaggervelServiceProvider',
     28 => 'Pingpong\\Modules\\ModulesServiceProvider',
+    29 => 'Zizaco\\Entrust\\EntrustServiceProvider',
+    30 => 'Syrator\\Providers\\SyratorServiceProvider',
   ),
   'eager' => 
   array (
@@ -46,10 +48,12 @@
     10 => 'App\\Providers\\AuthServiceProvider',
     11 => 'App\\Providers\\EventServiceProvider',
     12 => 'App\\Providers\\RouteServiceProvider',
-    13 => 'Syrator\\Providers\\SyratorServiceProvider',
-    14 => 'Jlapp\\Swaggervel\\SwaggervelServiceProvider',
-    15 => 'Stevenyangecho\\UEditor\\UEditorServiceProvider',
+    13 => 'Orangehill\\Iseed\\IseedServiceProvider',
+    14 => 'Stevenyangecho\\UEditor\\UEditorServiceProvider',
+    15 => 'Jlapp\\Swaggervel\\SwaggervelServiceProvider',
     16 => 'Pingpong\\Modules\\ModulesServiceProvider',
+    17 => 'Zizaco\\Entrust\\EntrustServiceProvider',
+    18 => 'Syrator\\Providers\\SyratorServiceProvider',
   ),
   'deferred' => 
   array (
