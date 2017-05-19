@@ -5,7 +5,7 @@ namespace Syrator\Data;
 use App\Interfaces\IData;
 use Syrator\AppException;
 
-abstract class BaseData implements IData
+abstract class SyratorBaseData implements IData
 {
 
     /**
