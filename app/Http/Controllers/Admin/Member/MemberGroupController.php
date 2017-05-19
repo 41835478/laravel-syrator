@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Member;
 
 use App\Http\Controllers\Admin\BackController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\MemberGroupRequest;
@@ -21,10 +22,17 @@ class MemberGroupController extends BackController
     {
         parent::__construct();
         $this->member = $member;
+        
+        if(!Entrust::can('admin.member.group')) {
+            $this->middleware('deny');
+        }
     }
 
     public function index(Request $request)
-    {
+    {        
+        if(!Entrust::can('admin.member.group')) {
+            return deny();
+        }
         $groups = $this->member->indexRank();
         return $this->view('member.group.index', compact('groups'));
     }
