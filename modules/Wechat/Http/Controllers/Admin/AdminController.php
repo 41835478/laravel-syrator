@@ -3,6 +3,7 @@
 namespace Modules\Wechat\Http\Controllers\Admin;
 
 use Pingpong\Modules\Routing\Controller;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 class AdminController extends Controller {
     
@@ -11,6 +12,14 @@ class AdminController extends Controller {
 
     public function __construct()
     {
+        if(!Entrust::can('wechat.admin')) {
+            $this->middleware('deny');
+        }
+    }
+    
+    public function deny()
+    {
+        return response()->view('wechat::admin.errors.403');
     }
     
     public function view($view = null, $data = [], $mergeData = [])

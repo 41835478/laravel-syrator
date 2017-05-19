@@ -3,6 +3,7 @@
 namespace Modules\Wechat\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Modules\Wechat\Model\WechatParamModel;
 
@@ -10,15 +11,28 @@ class WechatController extends AdminController {
     
     public function __construct()
     {
+        parent::__construct();
+        
+        if(!Entrust::can('wechat.admin')) {
+            $this->middleware('deny');
+        }
     }
 	
 	public function index()
 	{
+	    if(!Entrust::can('wechat.admin')) {
+	        return $this->deny();
+	    }
+	    
 	    return $this->view('index');
 	}
 	
 	public function getParams()
 	{
+	    if(!Entrust::can('wechat.admin.params')) {
+	        return $this->deny();
+	    }
+	    
 	    // 获取微信接口参数
 	    $options = WechatParamModel::all();;
 	    foreach ($options as $so) {
@@ -30,6 +44,10 @@ class WechatController extends AdminController {
 	
 	public function putParams(Request $request)
 	{
+	    if(!Entrust::can('wechat.admin.params')) {
+	        return $this->deny();
+	    }
+	    
 	    $data = $request->input('data');
 	    if ($data && is_array($data)) {
 	        WechatParamModel::updateParams($data);
