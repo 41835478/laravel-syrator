@@ -9,11 +9,6 @@ namespace App\Interfaces;
  */
 interface IRepository
 {
-
-    #********
-    #* 与资源 REST 相关的接口函数 START
-    #********
-
     /**
      * 资源列表
      *
@@ -60,8 +55,4 @@ interface IRepository
      * @return void
      */
     public function destroy($id, $extra);
-
-    #********
-    #* 与资源 REST 相关的接口函数 END
-    #********
 }
