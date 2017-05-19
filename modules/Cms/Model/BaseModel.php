@@ -4,7 +4,7 @@ namespace Modules\Cms\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Modules\Cms\Libraries\EditProperty;
+use Syrator\Data\SyratorEditProperty;
 
 class BaseModel extends Model
 {    
@@ -27,7 +27,7 @@ class BaseModel extends Model
                 continue;
             }
             
-            $editProperty = new EditProperty();
+            $editProperty = new SyratorEditProperty();
             
             // 字段名称与别名
             $editProperty->name = $column->Field;
