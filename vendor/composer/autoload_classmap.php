@@ -1854,7 +1854,6 @@ return array(
     'Modules\\Cms\\Http\\Controllers\\Admin\\Article\\ArticleController' => $baseDir . '/modules/Cms/Http/Controllers/Admin/Article/ArticleController.php',
     'Modules\\Cms\\Http\\Controllers\\Admin\\CmsAdminController' => $baseDir . '/modules/Cms/Http/Controllers/Admin/CmsAdminController.php',
     'Modules\\Cms\\Http\\Controllers\\CmsController' => $baseDir . '/modules/Cms/Http/Controllers/CmsController.php',
-    'Modules\\Cms\\Libraries\\EditProperty' => $baseDir . '/modules/Cms/Libraries/EditProperty.php',
     'Modules\\Cms\\Model\\ArticleCatModel' => $baseDir . '/modules/Cms/Model/ArticleCatModel.php',
     'Modules\\Cms\\Model\\ArticleModel' => $baseDir . '/modules/Cms/Model/ArticleModel.php',
     'Modules\\Cms\\Model\\BaseModel' => $baseDir . '/modules/Cms/Model/BaseModel.php',

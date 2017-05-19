@@ -2284,7 +2284,6 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
         'Modules\\Cms\\Http\\Controllers\\Admin\\Article\\ArticleController' => __DIR__ . '/../..' . '/modules/Cms/Http/Controllers/Admin/Article/ArticleController.php',
         'Modules\\Cms\\Http\\Controllers\\Admin\\CmsAdminController' => __DIR__ . '/../..' . '/modules/Cms/Http/Controllers/Admin/CmsAdminController.php',
         'Modules\\Cms\\Http\\Controllers\\CmsController' => __DIR__ . '/../..' . '/modules/Cms/Http/Controllers/CmsController.php',
-        'Modules\\Cms\\Libraries\\EditProperty' => __DIR__ . '/../..' . '/modules/Cms/Libraries/EditProperty.php',
         'Modules\\Cms\\Model\\ArticleCatModel' => __DIR__ . '/../..' . '/modules/Cms/Model/ArticleCatModel.php',
         'Modules\\Cms\\Model\\ArticleModel' => __DIR__ . '/../..' . '/modules/Cms/Model/ArticleModel.php',
         'Modules\\Cms\\Model\\BaseModel' => __DIR__ . '/../..' . '/modules/Cms/Model/BaseModel.php',
