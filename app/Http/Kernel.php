@@ -53,6 +53,10 @@ class Kernel extends HttpKernel
         'block' => \App\Http\Middleware\BlockSite::class,
         'multi-site.auth' => \App\Http\Middleware\MultiSiteAuthenticate::class,
         'multi-site.guest' => \App\Http\Middleware\MultiSiteRedirectIfAuthenticated::class,
-        'deny403' => \App\Http\Middleware\PermissionDenied::class,
+        'deny' => \App\Http\Middleware\PermissionDenied::class,
+        
+        'role' => 'Zizaco\Entrust\Middleware\EntrustRole',
+        'permission' => 'Zizaco\Entrust\Middleware\EntrustPermission',
+        'ability' => 'Zizaco\Entrust\Middleware\EntrustAbility',
     ];
 }
