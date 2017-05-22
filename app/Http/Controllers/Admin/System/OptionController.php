@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\System;
 
 use App\Http\Controllers\Admin\BackController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Illuminate\Http\Request;
 use App\Repositories\SystemRepository;
@@ -25,11 +26,18 @@ class OptionController extends BackController
     {
         parent::__construct();
         $this->system = $system;
+        
+        if(!Entrust::can('admin.system.option')) {
+            $this->middleware('deny');
+        }
     }
 
     public function getOption()
     {
-        // 获取系统参数
+        if(!Entrust::can('admin.system.option')) {
+            return deny();
+        }
+        
         $system_options = $this->system->getAllOptions();
         foreach ($system_options as $so) {
             $data[$so['name']] = $so['value'];
@@ -40,6 +48,10 @@ class OptionController extends BackController
 
     public function putOption(Request $request)
     {
+        if(!Entrust::can('admin.system.option')) {
+            return deny();
+        }
+        
         $data = $request->input('data');
         if ($data && is_array($data)) {
             $this->system->updateOptions($data);
