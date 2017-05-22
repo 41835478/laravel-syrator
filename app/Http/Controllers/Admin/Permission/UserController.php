@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Permission;
 
 use App\Http\Controllers\Admin\BackController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
@@ -26,6 +27,10 @@ class UserController extends BackController
     {
         parent::__construct();
         $this->user = $user;
+        
+        if(!Entrust::can('admin.permission.user')) {
+            $this->middleware('deny');
+        }
     }
 
     /**
@@ -35,6 +40,10 @@ class UserController extends BackController
      */
     public function index(Request $request)
     {
+        if(!Entrust::can('admin.permission.user')) {
+            return deny();
+        }
+        
         $data = [
             's_name' => $request->input('s_name'),
             's_phone' => $request->input('s_phone'),
@@ -54,6 +63,10 @@ class UserController extends BackController
      */
     public function create()
     {
+        if(!Entrust::can('admin.permission.user.create')) {
+            return deny();
+        }
+        
         $roles = $this->user->role();
         return $this->view('permission.user.create', ['roles' => $roles]);
     }
@@ -65,6 +78,10 @@ class UserController extends BackController
      */
     public function store(UserRequest $request)
     {
+        if(!Entrust::can('admin.permission.user.create')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $manager = $this->user->store($data);
         if ($manager->id) {  
@@ -92,6 +109,10 @@ class UserController extends BackController
      */
     public function edit($id)
     {
+        if(!Entrust::can('admin.permission.user.edit')) {
+            return deny();
+        }
+        
         $user = $this->user->edit($id);
 
         $roles = $this->user->role();
@@ -114,6 +135,10 @@ class UserController extends BackController
      */
     public function update(UserRequest $request, $id)
     {
+        if(!Entrust::can('admin.permission.user.edit')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $this->user->update($id, $data);
 
@@ -132,6 +157,10 @@ class UserController extends BackController
     
     public function show($id)
     {
+        if(!Entrust::can('admin.permission.user.show')) {
+            return deny();
+        }
+        
         $user = $this->user->edit($id);
         $own_role = $this->user->getRole($user);
         if (is_null($own_role)) {
@@ -143,6 +172,10 @@ class UserController extends BackController
     
     public function remove(Request $request)
     {
+        if(!Entrust::can('admin.permission.user.remove')) {
+            return deny();
+        }
+        
         $delId = $request->input('delId');
     
         $user = $this->user->edit($delId);
