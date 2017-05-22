@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\System;
 
 use App\Http\Controllers\Admin\BackController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Illuminate\Http\Request;
 use Validator;
@@ -205,6 +206,10 @@ class AssistantController extends BackController
      */
     public function getRebuildCache(Request $request)
     {
+        if(!Entrust::can('admin.system.cache')) {
+            return deny();
+        }
+        
         $isCache = $request->input('isCache');
         
         if ($isCache=='on') {
