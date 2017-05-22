@@ -3,45 +3,52 @@
 namespace App\Http\Controllers\Admin\Permission;
 
 use App\Http\Controllers\Admin\BackController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Illuminate\Http\Request;
 use App\Repositories\RoleRepository;
 use App\Http\Requests\PermissionRequest;
 use App\Model\PermissionModel;
 
-/**
- * 权限控制器
- *
- */
 class PermissionController extends BackController
 {
-
-    /**
-     * The RoleRepository instance.
-     *
-     * @var App\Repositories\RoleRepository
-     */
     protected $role;
 
     public function __construct(RoleRepository $role)
     {
         parent::__construct();
         $this->role = $role;
+        
+        if(!Entrust::can('admin.permission.permission')) {
+            $this->middleware('deny');
+        }
     }
 
     public function index(Request $request)
     { 
+        if(!Entrust::can('admin.permission.permission')) {
+            return deny();
+        }
+        
         $permissions = $this->role->permissions();
         return $this->view('permission.permission.index', compact('permissions'));
     }
     
     public function create()
     {
+        if(!Entrust::can('admin.permission.permission.create')) {
+            return deny();
+        }
+        
         return $this->view('permission.permission.create');
     }
     
     public function store(PermissionRequest $request)
     {
+        if(!Entrust::can('admin.permission.permission.create')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $permission = new PermissionModel();
         
@@ -60,13 +67,21 @@ class PermissionController extends BackController
     
     public function edit($id)
     {
+        if(!Entrust::can('admin.permission.permission.edit')) {
+            return deny();
+        }
+        
         $permission = PermissionModel::findOrfail($id);
     
         return $this->view('permission.permission.edit', compact('permission'));
     }
     
     public function update(PermissionRequest $request, $id)
-    {        
+    {
+        if(!Entrust::can('admin.permission.permission.edit')) {
+            return deny();
+        }
+        
         $data = $request->all();
         
         $permission = PermissionModel::findOrfail($id);
@@ -86,6 +101,10 @@ class PermissionController extends BackController
     
     public function show($id)
     {
+        if(!Entrust::can('admin.permission.permission.show')) {
+            return deny();
+        }
+        
         $permission = PermissionModel::findOrfail($id);
     
         return $this->view('permission.permission.show', compact('permission'));
@@ -93,6 +112,10 @@ class PermissionController extends BackController
     
     public function remove(Request $request)
     {    
+        if(!Entrust::can('admin.permission.permission.remove')) {
+            return deny();
+        }
+        
         $delId = $request->input('delId');
     
         $permission = PermissionModel::findOrfail($delId);
