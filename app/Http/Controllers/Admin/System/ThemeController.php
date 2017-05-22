@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\System;
 
 use App\Http\Controllers\Admin\BackController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Illuminate\Http\Request;
 use App\Repositories\ThemeRepository;
@@ -21,10 +22,18 @@ class ThemeController extends BackController
     {
         parent::__construct();
         $this->repository = $repository;
+    
+        if(!Entrust::can('admin.system.theme')) {
+            $this->middleware('deny');
+        }
     }
 
     public function index(Request $request)
     {
+        if(!Entrust::can('admin.system.theme')) {
+            return deny();
+        }
+        
         $themes = $this->repository->index();
 
         return $this->view('system.theme.index', compact('themes'));
@@ -32,11 +41,19 @@ class ThemeController extends BackController
     
     public function create()
     {
+        if(!Entrust::can('admin.system.theme.create')) {
+            return deny();
+        }
+        
         return $this->view('system.theme.create');
     }
     
     public function store(ThemeRequest $request)
     {
+        if(!Entrust::can('admin.system.theme.create')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $theme = $this->repository->store($data);        
         if ($theme->id) {
@@ -57,12 +74,20 @@ class ThemeController extends BackController
     
     public function edit($id)
     {
+        if(!Entrust::can('admin.system.theme.edit')) {
+            return deny();
+        }
+        
         $theme = $this->repository->edit($id);
         return $this->view('system.theme.edit', compact('theme'));
     }
     
     public function update(ThemeRequest $request, $id)
     {
+        if(!Entrust::can('admin.system.theme.edit')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $this->repository->update($id, $data);
     
@@ -71,12 +96,20 @@ class ThemeController extends BackController
     
     public function show($id)
     {
+        if(!Entrust::can('admin.system.theme.show')) {
+            return deny();
+        }
+        
         $theme = $this->repository->edit($id);
         return $this->view('system.theme.show', compact('theme'));
     }
     
     public function remove(Request $request)
     {
+        if(!Entrust::can('admin.system.theme.remove')) {
+            return deny();
+        }
+        
         $delId = $request->input('delId');
     
         $theme = $this->repository->edit($delId);
