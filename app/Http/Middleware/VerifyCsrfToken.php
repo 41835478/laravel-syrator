@@ -12,12 +12,6 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        '/api/member/login',
-        '/api/member/register',
-        '/api/member/sendverifycode',
-        '/api/member/validateverifycode',
-        '/api/member/resetpassword',
-        
-        '/api/system/app/get_guide_pages',        
+        '/api/*',    
     ];
 }
