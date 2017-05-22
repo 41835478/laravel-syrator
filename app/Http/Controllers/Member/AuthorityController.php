@@ -30,7 +30,6 @@ class AuthorityController extends MemberController
 
     public function postLogin(Request $request)
     {
-        //控制面板路径
         $redirectTo = site_path('', 'member');
         
         //认证凭证
@@ -41,20 +40,20 @@ class AuthorityController extends MemberController
         ];
         
         if (Auth::guard('member')->attempt($credentials, $request->has('remember'))) {
-            event(new MemberLogin(auth()->user()));  //触发登录事件
+            event(new MemberLogin(auth()->user()));
             return redirect()->intended($redirectTo);
         } else {
-            // 登录失败，跳回
-            return redirect()->back()->withInput()->withErrors(
-                ['attempt' => '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系超级管理员！']
-                );  //回传错误信息
+            // 登录失败
+            $msg = '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系超管！';
+            return redirect()->back()->withInput()->withErrors(['attempt' => $msg]);
         }
     }
 
     public function getLogout()
     {
-        @event(new MemberLogout(auth()->user()));  //触发登出事件
-        Auth::logout();
-        return redirect()->to(site_path('auth/login', 'admin'));
+        @event(new MemberLogout(auth()->user()));
+        Auth::guard('member')->logout();
+        
+        return redirect()->to(site_path('auth/login', 'member'));
     }
 }
