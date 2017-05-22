@@ -22,18 +22,27 @@ class MultiSiteAuthenticate
      */
     public function handle($request, Closure $next, $site = null)
     {
-        $backend_login_url = config('site.route.prefix.admin', 'admin').'/auth/login';
-        $desktop_login_url = config('site.route.prefix.desktop', '').'/member/auth/login';
+        $member_login_url = 'member/auth/login';
+        $member_login_url_mobile = 'mobile/member/auth/login';
+        $backend_login_url = 'admin/auth/login';
         switch ($site) {
             case 'admin':
                 $guard = 'web';
                 $login_url = $backend_login_url;
                 break;
+            case 'member':
+                $guard = 'member';
+                $login_url = $member_login_url;
+                break;
+            case 'mobile':
+                $guard = 'member';
+                $login_url = $member_login_url_mobile;
+                break;
             case 'desktop':
             default:
                 # code...
                 $guard = 'member';
-                $login_url = $desktop_login_url;
+                $login_url = $member_login_url;
                 break;
         }
         if (Auth::guard($guard)->guest()) {

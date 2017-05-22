@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 
 /**
- * SYRATOR后台管理 权限不足抛出异常响应 中间件
+ * 权限不足抛出异常响应
  *
  */
 class PermissionDenied

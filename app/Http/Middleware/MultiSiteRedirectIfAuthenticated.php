@@ -22,18 +22,27 @@ class MultiSiteRedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $site = null)
     {
-        $backend_home_url = config('site.route.prefix.admin', 'admin').'/home';
-        $desktop_home_url = config('site.route.prefix.desktop', '').'/i/welcome.html';
+        $member_home_url = 'member';
+        $member_home_url_mobile = 'mobile';
+        $backend_home_url = 'admin/home';
         switch ($site) {
             case 'admin':
                 $guard = 'web';
                 $home_url = $backend_home_url;
                 break;
+            case 'member':
+                $guard = 'member';
+                $home_url = $member_home_url;
+                break;
+            case 'mobile':
+                $guard = 'member';
+                $home_url = $member_home_url_mobile;
+                break;
             case 'desktop':
             default:
                 # code...
                 $guard = 'member';
-                $home_url = $desktop_home_url;
+                $home_url = $member_home_url;
                 break;
         }
         if (Auth::guard($guard)->check()) {
