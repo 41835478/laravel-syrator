@@ -23,27 +23,42 @@ class RoleController extends BackController
      */
     protected $role;
 
-
     public function __construct(RoleRepository $role)
     {
         parent::__construct();
         $this->role = $role;
+        
+        if(!Entrust::can('admin.permission.role')) {
+            $this->middleware('deny');
+        }
     }
 
     public function index()
     {
+        if(!Entrust::can('admin.permission.role')) {
+            return deny();
+        }
+        
         $roles = $this->role->index();
         return $this->view('permission.role.index', compact('roles'));
     }
 
     public function create()
     {
+        if(!Entrust::can('admin.permission.role.create')) {
+            return deny();
+        }
+        
         $permissions = $this->role->permissions();  //获取所有权限许可
         return $this->view('permission.role.create', compact('permissions'));
     }
 
     public function store(RoleRequest $request)
     {
+        if(!Entrust::can('admin.permission.role.create')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $role = $this->role->store($data);
         if ($role->id) {  
@@ -57,6 +72,10 @@ class RoleController extends BackController
 
     public function edit($id)
     {
+        if(!Entrust::can('admin.permission.role.edit')) {
+            return deny();
+        }
+        
         $role = $this->role->edit($id);
         $permissions = $this->role->permissions();
         $cans = $this->role->getRoleCans($role);
@@ -66,6 +85,10 @@ class RoleController extends BackController
 
     public function update(RoleRequest $request, $id)
     {
+        if(!Entrust::can('admin.permission.role.edit')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $this->role->update($id, $data);
         return redirect()->to(site_path('permission/role', 'admin'))->with('message', '修改角色成功！');
@@ -73,6 +96,10 @@ class RoleController extends BackController
     
     public function show($id)
     {
+        if(!Entrust::can('admin.permission.role.show')) {
+            return deny();
+        }
+        
         $role = $this->role->edit($id);
         $permissions = $this->role->permissions();
         $cans = $this->role->getRoleCans($role);
@@ -81,7 +108,11 @@ class RoleController extends BackController
     }
     
     public function remove(Request $request)
-    {        
+    {
+        if(!Entrust::can('admin.permission.role.remove')) {
+            return deny();
+        }
+        
         $delId = $request->input('delId');
 
         $objItem = RoleModel::find($delId);
