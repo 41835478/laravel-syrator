@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Member;
 
 use App\Http\Controllers\Admin\BackController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\MemberRequest;
@@ -21,10 +22,18 @@ class MemberController extends BackController
     {
         parent::__construct();
         $this->member = $member;
+        
+        if(!Entrust::can('admin.member.member')) {
+            $this->middleware('deny');
+        }
     }
 
     public function index(Request $request)
-    {
+    {        
+        if(!Entrust::can('admin.member.member')) {
+            return deny();
+        }
+        
         $data = [
             'm_group' => $request->input('m_group'),
         ];
@@ -35,13 +44,21 @@ class MemberController extends BackController
     }
     
     public function create()
-    {
+    {        
+        if(!Entrust::can('admin.member.member.create')) {
+            return deny();
+        }
+        
         $roles = $this->member->indexRank();
         return $this->view('member.member.create', compact('members', 'roles'));
     }
 
     public function store(MemberRequest $request)
-    {
+    {      
+        if(!Entrust::can('admin.member.member.create')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $manager = $this->member->store($data);
         if ($manager->id) {  
@@ -62,14 +79,22 @@ class MemberController extends BackController
     }
 
     public function edit($id)
-    {
+    {      
+        if(!Entrust::can('admin.member.member.edit')) {
+            return deny();
+        }
+        
         $member = $this->member->edit($id);
         $roles = $this->member->indexRank();
         return $this->view('member.member.edit', compact('member', 'roles'));
     }
 
     public function update(MemberRequest $request, $id)
-    {
+    {      
+        if(!Entrust::can('admin.member.member.edit')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $this->member->update($id, $data);
         
@@ -77,13 +102,21 @@ class MemberController extends BackController
     }
     
     public function show($id)
-    {
+    {      
+        if(!Entrust::can('admin.member.member.show')) {
+            return deny();
+        }
+        
         $member = $this->member->edit($id);
         return $this->view('member.member.show', compact('member'));
     }
     
     public function remove(Request $request)
-    {
+    {      
+        if(!Entrust::can('admin.member.member.remove')) {
+            return deny();
+        }
+        
         $delId = $request->input('delId');
     
         $member = $this->member->edit($delId);

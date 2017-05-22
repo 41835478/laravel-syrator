@@ -33,17 +33,26 @@ class MemberGroupController extends BackController
         if(!Entrust::can('admin.member.group')) {
             return deny();
         }
+        
         $groups = $this->member->indexRank();
         return $this->view('member.group.index', compact('groups'));
     }
 
     public function create()
-    {
+    {        
+        if(!Entrust::can('admin.member.group.create')) {
+            return deny();
+        }
+        
         return $this->view('member.group.create');
     }
 
     public function store(MemberGroupRequest $request)
-    {
+    {  
+        if(!Entrust::can('admin.member.group.create')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $manager = $this->member->storeRank($data);
         if ($manager->id) {  
@@ -65,12 +74,20 @@ class MemberGroupController extends BackController
 
     public function edit($id)
     {
+        if(!Entrust::can('admin.member.group.edit')) {
+            return deny();
+        }
+        
         $group = $this->member->editRank($id);
         return $this->view('member.group.edit', compact('group'));
     }
 
     public function update(MemberGroupRequest $request, $id)
     {
+        if(!Entrust::can('admin.member.group.edit')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $this->member->updateRank($id, $data);        
         return redirect()->to(site_path('member/group', 'admin'))->with('message', '修改会员分组成功！');
@@ -78,12 +95,20 @@ class MemberGroupController extends BackController
     
     public function show($id)
     {
+        if(!Entrust::can('admin.member.group.show')) {
+            return deny();
+        }
+        
         $group = $this->member->editRank($id);
         return $this->view('member.group.show', compact('group'));
     }
     
     public function remove(Request $request)
     {
+        if(!Entrust::can('admin.member.group.remove')) {
+            return deny();
+        }
+        
         $delId = $request->input('delId');    
         $group = $this->member->editRank($delId);
         if ($group->hasMembers()) {
