@@ -6,6 +6,6 @@ class HomeController extends MemberController
 {
     public function getIndex()
     {
-        return "Hello";
+        return "会员中心";
     }
 }
