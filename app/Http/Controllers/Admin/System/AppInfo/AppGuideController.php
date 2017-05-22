@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\System\AppInfo;
 
 use App\Http\Controllers\Admin\BackController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Illuminate\Http\Request;
 use App\Loggers\SystemLogger;
@@ -18,10 +19,18 @@ class AppGuideController extends BackController
     {
         parent::__construct();
         $this->repository = $repository;
+        
+        if(!Entrust::can('admin.system.appinfo.guide')) {
+            $this->middleware('deny');
+        }
     }
 
     public function index(Request $request)
     {
+        if(!Entrust::can('admin.system.appinfo.guide')) {
+            return deny();
+        }
+        
         $entityList = $this->repository->index();
         $countList = count($entityList);
         return $this->view('system.appinfo.guide.index', compact('entityList','countList'));
@@ -29,11 +38,19 @@ class AppGuideController extends BackController
     
     public function create()
     {
+        if(!Entrust::can('admin.system.appinfo.guide.create')) {
+            return deny();
+        }
+        
         return $this->view('system.appinfo.guide.create');
     }
 
     public function store(AppGuideRequest $request)
     {
+        if(!Entrust::can('admin.system.appinfo.guide.store')) {
+            return deny();
+        }
+        
         $data = $request->all();
         $manager = $this->repository->store($data);
         if ($manager->id) {  
@@ -55,6 +72,10 @@ class AppGuideController extends BackController
     
     public function remove(Request $request)
     {
+        if(!Entrust::can('admin.system.appinfo.guide.remove')) {
+            return deny();
+        }
+        
         $delId = $request->input('delId');
     
         $entity = $this->repository->edit($delId);
