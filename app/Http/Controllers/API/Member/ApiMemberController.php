@@ -20,6 +20,7 @@ use App\Loggers\SMSLogger;
  *   ),
  *   @SWG\Tag(name="Member", description="会员模块"),
  *   @SWG\Tag(name="System", description="系统模块"),
+ *   @SWG\Tag(name="Upload", description="文件上传模块"),
  *   basePath="/api"
  * )
  */
