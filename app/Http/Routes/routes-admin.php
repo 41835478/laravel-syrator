@@ -1,10 +1,10 @@
 <?php
 
 // 管理后台站点路由群组
-Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace' => 'Admin', 'middleware' => ['block:admin', 'web']], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['block:admin', 'web']], function () {
 
     Route::get('/', function() {
-        return redirect(config('site.route.prefix.admin', 'admin').'/auth/login');
+        return redirect('admin/auth/login');
     });
 
     Route::group(['prefix' => 'auth'], function () {
@@ -17,6 +17,7 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
     });
 
     Route::group(['prefix' => '', 'middleware' => ['multi-site.auth:admin']], function () {
+        
         // 后台首页：控制台
         Route::get('home', 'HomeController@getIndex');
 
@@ -41,6 +42,10 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
             // 模板管理
             Route::resource('theme', 'ThemeController');
     	    Route::post('theme/remove', 'ThemeController@remove');
+    	    
+    	    // 意见反馈
+    	    Route::resource('feedback', 'FeedbackController');
+    	    Route::post('feedback/reply', 'FeedbackController@reply');
     	    
     	    // app管理
     	    Route::group(['prefix' => 'appinfo', 'namespace' => 'AppInfo'], function () {    	        
