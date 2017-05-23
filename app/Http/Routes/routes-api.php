@@ -1,7 +1,7 @@
 <?php
 
 // API站点路由群组
-Route::group(['prefix' => config('site.route.prefix.api', 'api'), 'namespace' => 'API', 'middleware' => ['block:api', 'web']], function () {
+Route::group(['prefix' => 'api', 'namespace' => 'API', 'middleware' => ['block:api', 'web']], function () {
         
     // 会员模块
     Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
@@ -12,6 +12,11 @@ Route::group(['prefix' => config('site.route.prefix.api', 'api'), 'namespace' =>
         Route::any('validateverifycode', 'ApiMemberController@validateVerifyCode');
         
         Route::any('resetpassword', 'ApiMemberController@resetPassword');
+        
+        Route::any('bindwechat', 'ApiMemberController@bindWechat');
+        
+        Route::any('taobao_openim', 'ApiMemberController@getTaobaoOpenim');
+        Route::any('taobao_openim_delete', 'ApiMemberController@deleteTaobaoOpenim');
     });
     
     // 文件上传模块
