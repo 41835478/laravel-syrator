@@ -18,4 +18,15 @@ Route::group(['prefix' => config('site.route.prefix.api', 'api'), 'namespace' =>
         
         Route::any('resetpassword', 'ApiMemberController@resetPassword');
     });
+    
+    // 文件上传模块
+    Route::group(['prefix' => 'upload', 'namespace' => 'Upload'], function () {
+        Route::any('single', 'ApiUploadController@uploadSingle');
+    });
+
+    // 系统模块
+    Route::group(['prefix' => 'system', 'namespace' => 'System'], function () {
+        Route::any('dofeedback', 'ApiFeedbackController@doFeedback');
+        Route::any('app/get_guide_pages', 'ApiAppInfoController@getGuidePages');
+    });
 });
