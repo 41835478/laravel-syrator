@@ -55,10 +55,10 @@ Route::group(['prefix' => config('site.route.prefix.admin', 'admin'), 'namespace
         
         // 用户中心   
         Route::group(['prefix' => 'mine', 'namespace' => 'Mine'], function () {                 
-            Route::get('inforation', 'MeController@getMeInforation');
-            Route::put('inforation', 'MeController@putMeInforation');
-            Route::put('avatar', 'MeController@putMeAvatar');
-            Route::put('password', 'MeController@putMePassword');
+            Route::get('inforation', 'MineController@getMeInforation');
+            Route::put('inforation', 'MineController@putMeInforation');
+            Route::put('avatar', 'MineController@putMeAvatar');
+            Route::put('password', 'MineController@putMePassword');
         });
         
         // 会员管理
