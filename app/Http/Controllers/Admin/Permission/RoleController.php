@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Permission;
 
 use App\Http\Controllers\Admin\BackController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Illuminate\Http\Request;
 use App\Repositories\RoleRepository;
