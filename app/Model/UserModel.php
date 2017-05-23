@@ -4,12 +4,16 @@ namespace App\Model;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+
 /**
  * 系统用户模型
  *
  */
 class UserModel extends Authenticatable
 {
+    use EntrustUserTrait;
+    
     protected $table = 'users';
 
     /**

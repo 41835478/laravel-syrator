@@ -2,13 +2,13 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use Zizaco\Entrust\EntrustPermission;
 
 /**
  * 权限模型
  *
  */
-class PermissionModel extends Model
+class PermissionModel extends EntrustPermission
 {
     protected $table = 'permissions';
     

@@ -2,13 +2,13 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use Zizaco\Entrust\EntrustRole;
 
 /**
  * 角色模型
  *
  */
-class RoleModel extends Model
+class RoleModel extends EntrustRole
 {
     protected $table = 'roles';
     
