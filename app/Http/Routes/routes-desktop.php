@@ -16,9 +16,12 @@ Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => ['b
        
         Route::get('/', 'HomeController@getIndex');
     });
+    
 });
 
 // PC前台站点路由群组
 Route::group(['prefix' => '', 'namespace' => 'Desktop', 'middleware' => ['block:desktop', 'web']], function () {
-
+    
+    Route::get('/', 'HomeController@getIndex');
+    
 });
