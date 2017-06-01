@@ -14,7 +14,7 @@ class WechatController extends AdminController {
         parent::__construct();
         
         if(!Entrust::can('wechat.admin')) {
-            $this->middleware('deny');
+            return $this->deny();
         }
     }
 	
