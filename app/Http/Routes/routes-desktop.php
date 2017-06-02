@@ -16,7 +16,6 @@ Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => ['b
        
         Route::get('/', 'HomeController@getIndex');
     });
-    
 });
 
 // PC前台站点路由群组
