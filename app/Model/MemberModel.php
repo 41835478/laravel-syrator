@@ -12,6 +12,24 @@ class MemberModel extends Authenticatable
 {
     protected $table = 'member';
     
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'account', 'email', 'password', 'phone',
+    ];
+    
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+    
     public static function mergeData($data){
         if(!empty($data)){
             foreach($data as &$v){
@@ -32,5 +50,34 @@ class MemberModel extends Authenticatable
         }
     
         return $rank->name;
+    }
+    
+    public function getPointsBill() {
+        $bill = MemberPointsModel::where('member_id', '=', $this->id)->get();    
+        return $bill;
+    }
+    
+    public function getPoints() {
+        $points = MemberPointsModel::where('member_id', '=', $this->id)->sum('cost');
+        return intval($points);
+    }
+    
+    public function expendPoints($id, $cost, $title) {
+        $points = new MemberPointsModel();
+        $points->member_id = $this->id;
+        $points->product_id = $id;
+        $points->cost = $cost * (-1);
+        $points->title = $title;
+        return $points->save();
+    }
+    
+    public function isSign() {
+        $curDate = date("Y-m-d");
+        $signLog = MemberSignModel::whereRaw('member_id=? and date=?',[$this->id,$curDate])->get();
+        if (empty($signLog) || count($signLog)<=0) {
+            return false;
+        }
+        
+        return true;
     }
 }
