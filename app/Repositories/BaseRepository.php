@@ -6,38 +6,41 @@ use App\Interfaces\IRepository;
 
 abstract class BaseRepository implements IRepository
 {
-
-    /**
-     * The Model instance.
-     *
-     * @var Illuminate\Database\Eloquent\Model
-     */
     protected $model;
 
-    /**
-     * Get Model by id.
-     *
-     * @param  int $id
-     * @return App\Model
-     */
     public function getById($id)
     {
         return $this->model->findOrFail($id);
     }
 
-
-    /**
-     * IRepository接口destory方法
-     * [为保证数据完整性，一般不 销毁/删除 某数据对象，故此接口方法废弃不用，只空写实现体]
-     * 
-     * @param  int $id
-     * @param  string|array $extra
-     * @return void
-     */
+    // IRepository接口destory方法
+    public function index($data = [], $extra = '', $size = null)
+    {
+        return $this->model->all();
+    }
+    
+    public function store($inputs, $extra = '')
+    {
+        $item = new $this->model;
+        $item->saveFromInput($inputs);
+        return $item;
+    }
+    
+    public function edit($id, $extra = '')
+    {
+        $item = $this->getById($id);
+        return $item;
+    }
+    
+    public function update($id, $inputs, $extra = '')
+    {
+        $item = $this->getById($id);
+        $item->saveFromInput($inputs);
+        return $item;
+    }
+    
     public function destroy($id = 0, $extra = '')
     {
         return;
     }
-
-
 }
