@@ -127,4 +127,18 @@ class MemberRepository extends BaseRepository
         return $this->model->whereRaw('phone=? or email=? or account=?', 
             [$account,$account,$account])->get()->first();
     }
+    
+    /**
+     * 根据微信id获取会员
+     *  
+     * @param string $wchat_id
+     */
+    public function getByWechatID($wchat_id)
+    {
+        if (empty($wchat_id)) {
+            return null;
+        }
+    
+        return $this->model->where('wechat_id','=',$wchat_id)->get()->first();
+    }
 }
