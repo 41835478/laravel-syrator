@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\Inspire::class,
+        \Modules\Cms\Console\CmsTestCommand::class,
     ];
 
     /**
@@ -25,5 +26,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('inspire')->everyMinute();
+        $schedule->command('command:cms-test')->everyMinute();
     }
 }
