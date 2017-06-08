@@ -5,7 +5,7 @@ namespace Syrator\Data;
 use Illuminate\Database\Eloquent\Model;
 
 class SyratorBaseModel extends Model
-{    
+{
     public function getFullTableName() {
         return $this->getConnection()->getTablePrefix().$this->table;
     }

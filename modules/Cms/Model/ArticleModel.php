@@ -2,9 +2,9 @@
 
 namespace Modules\Cms\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use Syrator\Data\SyratorBaseModel;
 
-class ArticleModel extends BaseModel
+class ArticleModel extends SyratorBaseModel
 {
     protected $table = 'article';
     
