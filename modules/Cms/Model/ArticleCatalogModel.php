@@ -2,11 +2,11 @@
 
 namespace Modules\Cms\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use Syrator\Data\SyratorBaseModel;
 
-class ArticleCatModel extends BaseModel
+class ArticleCatalogModel extends SyratorBaseModel
 {
-    protected $table = 'article_cat';
+    protected $table = 'article_catalog';
     
     public function getCatalogByName($name) {
         return self::where('name','=',$name)->get()->first();
