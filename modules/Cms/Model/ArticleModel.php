@@ -17,7 +17,7 @@ class ArticleModel extends SyratorBaseModel
             return "保留";
         }
     
-        $cat = ArticleCatModel::find($this->cat_id);
+        $cat = ArticleCatalogModel::find($this->cat_id);
         if (empty($cat)) {
             return $this->cat_id;
         }

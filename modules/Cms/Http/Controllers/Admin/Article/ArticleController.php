@@ -3,20 +3,20 @@
 use Modules\Cms\Http\Controllers\Admin\AdminController;
 
 use Modules\Cms\Model\ArticleModel;
-use Modules\Cms\Model\ArticleCatModel;
+use Modules\Cms\Model\ArticleCatalogModel;
 
 class ArticleController extends AdminController {
 	
 	public function index()
 	{
 	    $listEntity = ArticleModel::all();
-	    $catalogs = ArticleCatModel::all();
+	    $catalogs = ArticleCatalogModel::all();
 		return view('cms::admin.article.index', compact('listEntity','catalogs'));
 	}
 	
 	public function create()
 	{
-	    $catalogs = ArticleCatModel::all();
+	    $catalogs = ArticleCatalogModel::all();
 	    
 	    $article = new ArticleModel();
 	    $editStruct = $article->getEditStructs();
@@ -57,7 +57,7 @@ class ArticleController extends AdminController {
 	
 	public function edit($id)
 	{
-	    $catalogs = ArticleCatModel::all();
+	    $catalogs = ArticleCatalogModel::all();
 	    
 	    $article = new ArticleModel();
 	    $editStruct = $article->getEditStructs();

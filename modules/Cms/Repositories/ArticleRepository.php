@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Model\ArticleModel;
-use App\Model\ArticleCatModel;
+use App\Model\ArticleCatalogModel;
 
 /**
  * 角色权限仓库ArticleRepository
@@ -14,7 +14,7 @@ class ArticleRepository extends BaseRepository
 {
     protected $catalogs;
 
-    public function __construct(ArticleModel $article, ArticleCatModel $catalogs)
+    public function __construct(ArticleModel $article, ArticleCatalogModel $catalogs)
     {
         $this->model = $article;
         $this->catalogs = $catalogs;
