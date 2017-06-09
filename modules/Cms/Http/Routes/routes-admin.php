@@ -11,6 +11,10 @@ Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\
 	   
 	    // 文章管理
 	    Route::group(['prefix' => 'article', 'namespace' => 'Article'], function () {
+	        Route::any('/', function () {
+	            return redirect('cms/admin/article/article');
+	        });
+	        
 	        Route::resource('article', 'ArticleController');
 	        Route::resource('catalog', 'ArticleCatalogController');
 	    });
