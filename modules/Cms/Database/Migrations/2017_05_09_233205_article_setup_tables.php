@@ -16,7 +16,7 @@ class ArticleSetupTables extends Migration
     {
         SyratorSchema::create('article_catalog', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->comment('分类名称')->default('');
+            $table->string('name')->comment('名称')->default('');
             $table->string('keywords')->comment('关键词')->default('');
             $table->string('description')->comment('描述')->default('');
             $table->tinyInteger('sort_num')->comment('排序序号')->default('0');

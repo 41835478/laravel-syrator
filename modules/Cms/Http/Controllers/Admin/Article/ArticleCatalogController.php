@@ -2,7 +2,6 @@
 
 use Modules\Cms\Http\Controllers\Admin\AdminController;
 
-use Modules\Cms\Model\ArticleModel;
 use Modules\Cms\Model\ArticleCatalogModel;
 
 class ArticleCatalogController extends AdminController {
@@ -14,11 +13,9 @@ class ArticleCatalogController extends AdminController {
 	}
 	
 	public function create()
-	{
-	    $catalogs = ArticleCatalogModel::all();
-	    
-	    $article = new ArticleModel();
-	    $editStruct = $article->getEditStructs();
+	{	    
+	    $catalog = new ArticleCatalogModel();
+	    $editStruct = $catalog->getEditStructs();
 	    
 	    // 再修正
 	    // 按照业务需求，该字段由系统赋值，前台无法编辑
@@ -46,7 +43,7 @@ class ArticleCatalogController extends AdminController {
             $editStruct['type']->dictionary['4'] = '来自门户';
         }
 	    
-	    return view('cms::admin.article.create', compact('catalogs', 'editStruct'));
+	    return view('cms::admin.article.catalog.create', compact('editStruct'));
 	}
 	
 	public function store(Request $request)
