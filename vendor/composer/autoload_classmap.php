@@ -3806,7 +3806,7 @@ return array(
     'Symfony\\Polyfill\\Util\\TestListener' => $vendorDir . '/symfony/polyfill-util/TestListener.php',
     'Syrator\\AppException' => $baseDir . '/syrator/AppException.php',
     'Syrator\\Cache\\DataCache' => $baseDir . '/syrator/Cache/DataCache.php',
-    'Syrator\\Data\\SyratorBaseData' => $baseDir . '/syrator/Data/SyratorBaseData.php',
+    'Syrator\\Data\\SyratorData' => $baseDir . '/syrator/Data/SyratorData.php',
     'Syrator\\Data\\SyratorEditProperty' => $baseDir . '/syrator/Data/SyratorEditProperty.php',
     'Syrator\\Data\\SyratorSchema' => $baseDir . '/syrator/Data/SyratorSchema.php',
     'Syrator\\Data\\SyratorSqlGrammar' => $baseDir . '/syrator/Data/SyratorSqlGrammar.php',

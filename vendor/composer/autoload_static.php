@@ -4236,7 +4236,7 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
         'Symfony\\Polyfill\\Util\\TestListener' => __DIR__ . '/..' . '/symfony/polyfill-util/TestListener.php',
         'Syrator\\AppException' => __DIR__ . '/../..' . '/syrator/AppException.php',
         'Syrator\\Cache\\DataCache' => __DIR__ . '/../..' . '/syrator/Cache/DataCache.php',
-        'Syrator\\Data\\SyratorBaseData' => __DIR__ . '/../..' . '/syrator/Data/SyratorBaseData.php',
+        'Syrator\\Data\\SyratorData' => __DIR__ . '/../..' . '/syrator/Data/SyratorData.php',
         'Syrator\\Data\\SyratorEditProperty' => __DIR__ . '/../..' . '/syrator/Data/SyratorEditProperty.php',
         'Syrator\\Data\\SyratorSchema' => __DIR__ . '/../..' . '/syrator/Data/SyratorSchema.php',
         'Syrator\\Data\\SyratorSqlGrammar' => __DIR__ . '/../..' . '/syrator/Data/SyratorSqlGrammar.php',

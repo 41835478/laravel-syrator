@@ -2,9 +2,9 @@
 
 namespace Modules\Cms\Model;
 
-use Syrator\Data\SyratorBaseModel;
+use Syrator\Data\SyratorModel;
 
-class ArticleCatalogModel extends SyratorBaseModel
+class ArticleCatalogModel extends SyratorModel
 {
     protected $table = 'article_catalog';
     

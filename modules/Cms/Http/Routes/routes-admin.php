@@ -10,8 +10,9 @@ Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\
 	    Route::get('/', 'CmsAdminController@index');
 	   
 	    // 文章管理
-	    Route::group(['prefix' => '', 'namespace' => 'Article'], function () {
+	    Route::group(['prefix' => 'article', 'namespace' => 'Article'], function () {
 	        Route::resource('article', 'ArticleController');
+	        Route::resource('catalog', 'ArticleCatalogController');
 	    });
 	});
 });
