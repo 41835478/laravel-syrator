@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Syrator\Data\SyratorRepository;
+
 use App\Model\UserModel;
 use App\Model\RoleModel;
 
@@ -11,7 +13,7 @@ use DB;
  * 用户仓库UserRepository
  *
  */
-class UserRepository extends BaseRepository
+class UserRepository extends SyratorRepository
 {
     /**
      * The Role instance.

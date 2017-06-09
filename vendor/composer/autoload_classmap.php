@@ -99,7 +99,6 @@ return array(
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Repositories\\ArticleRepository' => $baseDir . '/app/Repositories/ArticleRepository.php',
-    'App\\Repositories\\BaseRepository' => $baseDir . '/app/Repositories/BaseRepository.php',
     'App\\Repositories\\MemberRepository' => $baseDir . '/app/Repositories/MemberRepository.php',
     'App\\Repositories\\RoleRepository' => $baseDir . '/app/Repositories/RoleRepository.php',
     'App\\Repositories\\SystemRepository' => $baseDir . '/app/Repositories/SystemRepository.php',

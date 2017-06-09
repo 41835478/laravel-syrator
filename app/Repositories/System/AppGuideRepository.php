@@ -3,6 +3,7 @@
 namespace App\Repositories\System;
 
 use App\Repositories\BaseRepository;
+use Syrator\Data\SyratorRepository;
 
 use App\Model\System\AppGuideModel;
 
@@ -10,7 +11,7 @@ use App\Model\System\AppGuideModel;
  * 模板仓库ThemeRepository
  *
  */
-class AppGuideRepository extends BaseRepository
+class AppGuideRepository extends SyratorRepository
 {    
     public function __construct(AppGuideModel $model)
     {

@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Syrator\Data\SyratorRepository;
+
 use App\Model\RoleModel;
 use App\Model\PermissionModel;
 
@@ -10,7 +12,7 @@ use App\Model\PermissionModel;
  * 主 Model 为 Role
  *
  */
-class RoleRepository extends BaseRepository
+class RoleRepository extends SyratorRepository
 {
 
     /**

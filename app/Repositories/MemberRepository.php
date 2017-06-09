@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Syrator\Data\SyratorRepository;
+
 use App\Model\MemberModel;
 use App\Model\MemberRankModel;
 
@@ -10,7 +12,7 @@ use App\Model\MemberRankModel;
  * 主 Model 为 Member
  *
  */
-class MemberRepository extends BaseRepository
+class MemberRepository extends SyratorRepository
 {
     protected $memberRank;
     

@@ -2,10 +2,12 @@
 
 namespace App\Repositories;
 
+use Syrator\Data\SyratorRepository;
+
 use App\Model\ArticleModel;
 use App\Model\ArticleCatalogModel;
 
-class ArticleRepository extends BaseRepository
+class ArticleRepository extends SyratorRepository
 {
     public function __construct()
     {
@@ -13,13 +15,13 @@ class ArticleRepository extends BaseRepository
     
     public function all()
     {
-        $articles = $this->model->all();
+        $articles = ArticleModel::all();
         return $articles;
     }
 
     public function catalogs()
     {
-        $catalogs = $this->catalogs->all();
+        $catalogs = ArticleCatalogModel::all();
         return $catalogs;
     }
     

@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Syrator\Data\SyratorRepository;
+
 use App\Model\SystemOptionModel;
 use App\Model\SystemLogModel;
 
@@ -10,7 +12,7 @@ use App\Model\SystemLogModel;
  * [包括对系统配置与系统日志模型操作]
  *
  */
-class SystemRepository extends BaseRepository
+class SystemRepository extends SyratorRepository
 {
 
     /**

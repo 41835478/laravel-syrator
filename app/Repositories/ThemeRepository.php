@@ -2,13 +2,15 @@
 
 namespace App\Repositories;
 
+use Syrator\Data\SyratorRepository;
+
 use App\Model\ThemeModel;
 
 /**
  * 模板仓库ThemeRepository
  *
  */
-class ThemeRepository extends BaseRepository
+class ThemeRepository extends SyratorRepository
 {    
     public function __construct(ThemeModel $theme)
     {

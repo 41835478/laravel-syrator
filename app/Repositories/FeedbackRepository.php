@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
+use Syrator\Data\SyratorRepository;
 use App\Model\FeedbackModel;
 
-class FeedbackRepository extends BaseRepository
+class FeedbackRepository extends SyratorRepository
 {    
     public function __construct(FeedbackModel $model)
     {
