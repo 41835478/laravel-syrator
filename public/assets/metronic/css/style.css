@@ -29,7 +29,7 @@ light grey: #fafafa;
 /***
 Import fonts
 ***/
-@import url(../image/css);
+/*** @import url(../image/css);***/
 
 /***
 Reset and overrides  
@@ -1291,6 +1291,12 @@ Portlets
   color: #000 !important;
 }
 
+.portlet-title .tools > a.add {
+  background-image:url(../image/portlet-add-icon.png);
+  background-repeat: no-repeat;
+  width: 16px;
+}
+
 .portlet-title .tools > a.remove {
   background-image:url(../image/portlet-remove-icon.png);
   background-repeat: no-repeat;
@@ -1501,6 +1507,11 @@ Box portlet
 
 .portlet.box .portlet-title .tools {
   margin-top: 3px;
+}
+
+.portlet.box .portlet-title .tools > a.add, 
+.portlet.solid .portlet-title .tools > a.add {
+  background-image:url(../image/portlet-add-icon-white.png);
 }
 
 .portlet.box .portlet-title .tools > a.remove, 

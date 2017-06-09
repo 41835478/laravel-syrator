@@ -9,7 +9,7 @@ var FormFileUpload = function () {
             $('#fileupload').fileupload({
                 // Uncomment the following to send cross-domain cookies:
                 //xhrFields: {withCredentials: true},
-                url: 'assets/plugins/jquery-file-upload/server/php/'
+                url: '/jquery-file-upload/'
             });
 
             // Load existing files:
@@ -44,7 +44,7 @@ var FormFileUpload = function () {
             // Upload server status check for browsers with CORS support:
             if ($.support.cors) {
                 $.ajax({
-                    url: 'assets/plugins/jquery-file-upload/server/php/',
+                    url: '/jquery-file-upload',
                     type: 'HEAD'
                 }).fail(function () {
                     $('<span class="alert alert-error"/>')
@@ -57,7 +57,5 @@ var FormFileUpload = function () {
             // initialize uniform checkboxes  
             App.initUniform('.fileupload-toggle-checkbox');
         }
-
     };
-
 }();

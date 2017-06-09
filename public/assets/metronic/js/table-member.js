@@ -57,19 +57,6 @@ var TableMember = function () {
                 var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
                 oTable.fnSetColumnVis(iCol, (bVis ? false : true));
             });
-            
-            $('#syrator_table_member_select_role').change(function(){
-                alert(this.options[this.options.selectedIndex].value + this.options[this.options.selectedIndex].text);
-                oTable.columnFilter({
-           			aoColumns: [ { type: "select", values: [ 'Gecko', 'Trident', 'KHTML', 'Misc', 'Presto', 'Webkit', 'Tasman']  },
-               				     { type: "text" },
-               				     null,
-               				     { type: "number" },
-               				     { type: "select", values: [ 'A', 'C', 'U', 'X']  }
-               				]
-
-               		});
-            });
         }
     };
 }();

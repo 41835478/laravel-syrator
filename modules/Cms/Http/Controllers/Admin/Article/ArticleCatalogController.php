@@ -5,13 +5,12 @@ use Modules\Cms\Http\Controllers\Admin\AdminController;
 use Modules\Cms\Model\ArticleModel;
 use Modules\Cms\Model\ArticleCatalogModel;
 
-class ArticleCatalogController  extends AdminController {
+class ArticleCatalogController extends AdminController {
 	
 	public function index()
 	{
-	    $listEntity = ArticleModel::all();
-	    $catalogs = ArticleCatalogModel::all();
-		return view('cms::admin.article.index', compact('listEntity','catalogs'));
+	    $listEntity = ArticleCatalogModel::all();
+		return view('cms::admin.article.catalog.index', compact('listEntity'));
 	}
 	
 	public function create()
@@ -52,7 +51,7 @@ class ArticleCatalogController  extends AdminController {
 	
 	public function store(Request $request)
 	{
-	    return "Hello Store";	    
+	    return "Hello Store";
 	}
 	
 	public function edit($id)

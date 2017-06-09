@@ -24,7 +24,7 @@
  /* FILEUPLOAD PUBLIC CLASS DEFINITION
   * ================================= */
 
-  var Fileupload = function (element, options) {
+  var BootstrapFileupload = function (element, options) {
     this.$element = $(element)
     this.type = this.$element.data('uploadtype') || (this.$element.find('.thumbnail').length > 0 ? "image" : "file")
       
@@ -56,7 +56,7 @@
     this.listen()
   }
   
-  Fileupload.prototype = {
+  BootstrapFileupload.prototype = {
     
     listen: function() {
       this.$input.on('change.fileupload', $.proxy(this.change, this))
@@ -138,16 +138,16 @@
  /* FILEUPLOAD PLUGIN DEFINITION
   * =========================== */
 
-  $.fn.fileupload = function (options) {
+  $.fn.bootstrapFileupload = function (options) {
     return this.each(function () {
       var $this = $(this)
       , data = $this.data('fileupload')
-      if (!data) $this.data('fileupload', (data = new Fileupload(this, options)))
+      if (!data) $this.data('fileupload', (data = new BootstrapFileupload(this, options)))
       if (typeof options == 'string') data[options]()
     })
   }
 
-  $.fn.fileupload.Constructor = Fileupload
+  $.fn.bootstrapFileupload.Constructor = BootstrapFileupload
 
 
  /* FILEUPLOAD DATA-API
@@ -157,7 +157,7 @@
     $('body').on('click.fileupload.data-api', '[data-provides="fileupload"]', function (e) {
       var $this = $(this)
       if ($this.data('fileupload')) return
-      $this.fileupload($this.data())
+      $this.bootstrapFileupload($this.data())
       
       var $target = $(e.target).is('[data-dismiss=fileupload],[data-trigger=fileupload]') ?
         $(e.target) : $(e.target).parents('[data-dismiss=fileupload],[data-trigger=fileupload]').first()
