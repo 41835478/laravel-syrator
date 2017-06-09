@@ -50,6 +50,26 @@
             	<option value="{{$key}}" {{($per->value === $key)?'selected':''}}>{{$value}}</option>
           	@endforeach
           	</select>
+        @elseif($per->type=='datetime' || $per->type=='date')
+			<div id="form_datetime_{{$per->name}}" class="input-append date form_datetime">
+				<input size="16" type="text" id="{{$per->name}}" name="{{$per->name}}" value="{{$per->value}}" readonly class="input_form_datetime">
+				<span class="add-on"><i class="icon-remove"></i></span>
+				<span class="add-on"><i class="icon-calendar"></i></span>
+			</div>			
+		@else
+			<input style="box-sizing: content-box;" 
+				type="text" class="m-wrap large" 
+				id="{{$per->name}}" 
+				name="{{$per->name}}" 
+				autocomplete="{{$per->autocomplete}}" 
+				value="{{$per->value}}" 
+				placeholder="{{$per->placeholder}}">											
+			<span class="help-inline text-green">
+				{{$per->help}}
+				@if($per->is_request)											
+				<small>*</small>
+            	@endif
+			</span>
         @endif
 	</div>
 </div> 

@@ -52,7 +52,7 @@
 						<div class="portlet-body form">
 							<form method="post" action="{{ _route('admin:mygz.material.material.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
                                 {!! csrf_field() !!}
-								@include('cms::_widgets._edit-control-group')
+								@include('_widgets._edit-control-group')
 								<div class="form-actions">
 									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增</button>
 								</div>
@@ -68,6 +68,8 @@
 
 @section('extraPlugin')
 @parent
+<script src="{{ _asset('lib/ztree/js/jquery.ztree.core.js') }}"></script>
+<script src="{{ _asset('assets/js/ztree-expand.js') }}"></script>
 @stop
 
 @section('filledScript')
@@ -75,7 +77,15 @@
 jQuery(document).ready(function() {    
     App.init();
 
-    var ue = UE.getEditor('content');   
+	var dData = new Array();
+    @foreach ($catalogs as $k => $v)
+	dData[{{$k+1}}] = $.parseJSON('{!!$v!!}');
+    @endforeach
+    dData[0] = {id: -1, pId: -1, name:"顶级分类"};
+    var catSelectTree = new ZTreeExpand("pid", dData);
+    catSelectTree.init();
+
+    var ue = UE.getEditor('description');   
     ue.ready(function() {
         ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
     });

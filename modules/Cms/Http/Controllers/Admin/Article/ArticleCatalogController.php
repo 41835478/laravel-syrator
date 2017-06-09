@@ -18,13 +18,16 @@ class ArticleCatalogController extends AdminController {
 	    $editStruct = $catalog->getEditStructs();
 	    
 	    // 再修正
-	    // 按照业务需求，该字段由系统赋值，前台无法编辑
-        if (isset($editStruct['author_id'])) {
-            $editStruct['author_id']->is_editable = false;
-        }
+	    if (isset($editStruct['name'])) {
+	        $editStruct['name']->help = "*";
+	    }
         // 扩展插件，自定义类型
-        if (isset($editStruct['cat_id'])) {
-            $editStruct['cat_id']->type = "select_tree";
+        if (isset($editStruct['pid'])) {
+            $editStruct['pid']->type = "select_tree";
+        }
+        // 单选radio
+        if (isset($editStruct['sort_num'])) {
+            $editStruct['sort_num']->value = 0;
         }
         // 单选radio
         if (isset($editStruct['is_show'])) {
@@ -33,17 +36,9 @@ class ArticleCatalogController extends AdminController {
             $editStruct['is_show']->dictionary['0'] = '否'; 
             $editStruct['is_show']->dictionary['1'] = '是'; 
         }
-        // 单选select
-        if (isset($editStruct['type'])) {
-            $editStruct['type']->type = "select";
-            $editStruct['type']->value = 2; 
-            $editStruct['type']->dictionary['1'] = '原创';
-            $editStruct['type']->dictionary['2'] = '来自微博';
-            $editStruct['type']->dictionary['3'] = '来自朋友圈';
-            $editStruct['type']->dictionary['4'] = '来自门户';
-        }
 	    
-	    return view('cms::admin.article.catalog.create', compact('editStruct'));
+        $catalogs = ArticleCatalogModel::all();
+	    return view('cms::admin.article.catalog.create', compact('catalogs', 'editStruct'));
 	}
 	
 	public function store(Request $request)
