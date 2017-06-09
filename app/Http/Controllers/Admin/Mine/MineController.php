@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Mine;
 use App\Http\Controllers\Admin\BackController;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
-use App\Http\Requests\MeRequest;
+use App\Http\Requests\MineRequest;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 
@@ -33,7 +33,7 @@ class MineController extends BackController
         return $this->view('mine.index', compact('me'));
     }
 
-    public function putMeInforation(MeRequest $request)
+    public function putMeInforation(MineRequest $request)
     {        
         if(!Entrust::can('admin.mine.inforation')) {
             return deny();
@@ -53,7 +53,7 @@ class MineController extends BackController
         return redirect()->back()->with('message', '成功更新个人头像！');
     }    
     
-    public function putMePassword(MeRequest $request)
+    public function putMePassword(MineRequest $request)
     {  
         if(!Entrust::can('admin.mine.password')) {
             return deny();

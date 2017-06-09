@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class MeRequest extends Request
+class MineRequest extends Request
 {
 
     /**

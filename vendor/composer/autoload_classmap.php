@@ -65,7 +65,7 @@ return array(
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\ArticleRequest' => $baseDir . '/app/Http/Requests/ArticleRequest.php',
-    'App\\Http\\Requests\\MeRequest' => $baseDir . '/app/Http/Requests/MeRequest.php',
+    'App\\Http\\Requests\\MineRequest' => $baseDir . '/app/Http/Requests/MineRequest.php',
     'App\\Http\\Requests\\MemberGroupRequest' => $baseDir . '/app/Http/Requests/MemberGroupRequest.php',
     'App\\Http\\Requests\\MemberRequest' => $baseDir . '/app/Http/Requests/MemberRequest.php',
     'App\\Http\\Requests\\PermissionRequest' => $baseDir . '/app/Http/Requests/PermissionRequest.php',

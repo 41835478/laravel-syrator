@@ -495,7 +495,7 @@ class ComposerStaticInit7efb85ec1caebaf2feb716a989e6323a
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\ArticleRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ArticleRequest.php',
-        'App\\Http\\Requests\\MeRequest' => __DIR__ . '/../..' . '/app/Http/Requests/MeRequest.php',
+        'App\\Http\\Requests\\MineRequest' => __DIR__ . '/../..' . '/app/Http/Requests/MineRequest.php',
         'App\\Http\\Requests\\MemberGroupRequest' => __DIR__ . '/../..' . '/app/Http/Requests/MemberGroupRequest.php',
         'App\\Http\\Requests\\MemberRequest' => __DIR__ . '/../..' . '/app/Http/Requests/MemberRequest.php',
         'App\\Http\\Requests\\PermissionRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PermissionRequest.php',

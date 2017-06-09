@@ -43,14 +43,14 @@
 			</div>
 			<div class="row-fluid">
 				<div class="span12">                    
-					@include('cms::_widgets._fail-message')
-					@include('cms::_widgets._errors-message')                    
+					@include('_widgets._fail-message')
+					@include('_widgets._errors-message')                    
                     <div class="portlet box blue ">
                     	<div class="portlet-title">
                     		<div class="caption">新增文章</div>
                     	</div>
 						<div class="portlet-body form">
-							<form method="post" action="{{ _route('admin:mygz.material.material.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+							<form method="post" action="{{ _route('cms:admin.article.catalog.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
                                 {!! csrf_field() !!}
 								@include('_widgets._edit-control-group')
 								<div class="form-actions">

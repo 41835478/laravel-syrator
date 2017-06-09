@@ -1,5 +1,7 @@
 <?php namespace Modules\Cms\Http\Controllers\Admin\Article;
 
+use Illuminate\Http\Request;
+
 use Modules\Cms\Http\Controllers\Admin\AdminController;
 
 use Modules\Cms\Model\ArticleCatalogModel;
