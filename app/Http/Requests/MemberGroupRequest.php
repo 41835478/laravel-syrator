@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class MemberGroupRequest extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class MemberGroupRequest extends FormRequest
 {
     public function authorize()
     {

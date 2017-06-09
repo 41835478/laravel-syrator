@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin\Mine;
 use App\Http\Controllers\Admin\BackController;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
-use App\Http\Requests\MineRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\MineRequest;
 use App\Repositories\UserRepository;
 
 class MineController extends BackController

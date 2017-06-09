@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class RoleRequest extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class RoleRequest extends FormRequest
 {
 
     /**

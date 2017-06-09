@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class UserRequest extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class UserRequest extends FormRequest
 {
 
     /**

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class ThemeRequest extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class ThemeRequest extends FormRequest
 {
     public function authorize()
     {

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class PermissionRequest extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class PermissionRequest extends FormRequest
 {
 
     /**

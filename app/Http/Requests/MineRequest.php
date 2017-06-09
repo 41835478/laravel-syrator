@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class MineRequest extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class MineRequest extends FormRequest
 {
 
     /**
