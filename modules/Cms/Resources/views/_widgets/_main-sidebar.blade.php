@@ -11,7 +11,8 @@
 				<i class="icon-cogs"></i><span class="title">文章管理</span><span class="arrow "></span>
 			</a>
 			<ul class="sub-menu">
-				<li ><a href="{{ site_url('admin/article', 'cms') }}"><i class="icon-cogs"></i> 文章列表</a></li>
+				<li ><a href="{{ site_url('admin/article/article', 'cms') }}"><i class="icon-cogs"></i> 文章管理</a></li>
+				<li ><a href="{{ site_url('admin/article/catalog', 'cms') }}"><i class="icon-cogs"></i> 类别管理</a></li>
 			</ul>
 		</li>
 	</ul>

@@ -5,7 +5,7 @@ use Modules\Cms\Http\Controllers\Admin\AdminController;
 use Modules\Cms\Model\ArticleModel;
 use Modules\Cms\Model\ArticleCatalogModel;
 
-class ArticleController extends AdminController {
+class ArticleCatalogController  extends AdminController {
 	
 	public function index()
 	{
