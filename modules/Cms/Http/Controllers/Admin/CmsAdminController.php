@@ -1,23 +1,22 @@
 <?php namespace Modules\Cms\Http\Controllers\Admin;
 
-use Modules\Cms\Http\Controllers\BaseController;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
-class CmsAdminController extends BaseController {
+class CmsAdminController extends AdminController {
     
     public function __construct()
     {
         parent::__construct();
     
         if(!Entrust::can('cms.admin')) {
-            $this->middleware('deny');
+            return $this->deny();
         }
     }
 	
 	public function index()
 	{
-        if(!Entrust::can('admin.home')) {
-            $this->middleware('deny');
+        if(!Entrust::can('cms.admin')) {
+            return $this->deny();
         }
         
 		return view('cms::admin.index');

@@ -7,9 +7,22 @@ use Modules\Cms\Model\ArticleModel;
 use Modules\Cms\Model\ArticleCatalogModel;
 
 class ArticleController extends AdminController {
+    
+    public function __construct()
+    {
+        parent::__construct();
+    
+        if(!Entrust::can('cms.admin.article')) {
+            return $this->deny();
+        }
+    }
 	
 	public function index()
 	{
+        if(!Entrust::can('cms.admin.article')) {
+            return $this->deny();
+        }
+        
 	    $listEntity = ArticleModel::all();
 	    $catalogs = ArticleCatalogModel::all();
 		return view('cms::admin.article.index', compact('listEntity','catalogs'));
@@ -17,6 +30,10 @@ class ArticleController extends AdminController {
 	
 	public function create()
 	{
+        if(!Entrust::can('cms.admin.article')) {
+            return $this->deny();
+        }
+        
 	    $catalogs = ArticleCatalogModel::all();
 	    
 	    $article = new ArticleModel();
@@ -53,11 +70,19 @@ class ArticleController extends AdminController {
 	
 	public function store(Request $request)
 	{
+        if(!Entrust::can('cms.admin.article')) {
+            return $this->deny();
+        }
+        
 	    return "Hello Store";	    
 	}
 	
 	public function edit($id)
 	{
+        if(!Entrust::can('cms.admin.article')) {
+           return $this->deny();
+        }
+        
 	    $catalogs = ArticleCatalogModel::all();
 	    
 	    $article = new ArticleModel();
@@ -107,16 +132,28 @@ class ArticleController extends AdminController {
 	
 	public function update(Request $request, $id)
 	{
+        if(!Entrust::can('cms.admin.article')) {
+            return $this->deny();
+        }
+        
 	    return "Hello Update";
 	}
 	
 	public function remove(Request $request)
 	{
+        if(!Entrust::can('cms.admin.article')) {
+            return $this->deny();
+        }
+        
 	    return "Hello Remove";
 	}
 	
 	public function removeBatch(Request $request)
 	{
+        if(!Entrust::can('cms.admin.article')) {
+            return $this->deny();
+        }
+        
 	    return "Hello RemoveBatch";
 	}
 }

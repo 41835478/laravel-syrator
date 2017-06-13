@@ -11,12 +11,20 @@ class ArticleCatalogController extends AdminController {
 	
 	public function index()
 	{
+        if(!Entrust::can('cms.admin.article.catalog')) {
+            return $this->deny('deny');
+        }
+        
 	    $listEntity = ArticleCatalogModel::all();
 		return view('cms::admin.article.catalog.index', compact('listEntity'));
 	}
 	
 	public function create()
-	{	    
+	{
+        if(!Entrust::can('cms.admin.article.catalog')) {
+            return $this->deny('deny');
+        }
+        
 	    $catalog = new ArticleCatalogModel();
 	    $editStruct = $catalog->getEditStructs();
 	    
@@ -46,9 +54,9 @@ class ArticleCatalogController extends AdminController {
 	
 	public function store(Request $request)
 	{
-	    if(!Entrust::can('mygz.admin.material.catalog')) {
-	        return $this->deny();
-	    }
+        if(!Entrust::can('cms.admin.article.catalog')) {
+            return $this->deny('deny');
+        }
 	     
 	    $data = $request->all();
 	    $newData = $this->repository->storeCatalog($data);
@@ -68,6 +76,10 @@ class ArticleCatalogController extends AdminController {
 	
 	public function edit($id)
 	{
+        if(!Entrust::can('cms.admin.article.catalog')) {
+            return $this->deny('deny');
+        }
+        
 	    $catalogs = ArticleCatalogModel::all();
 	    
 	    $article = new ArticleModel();
@@ -117,16 +129,28 @@ class ArticleCatalogController extends AdminController {
 	
 	public function update(Request $request, $id)
 	{
+        if(!Entrust::can('cms.admin.article.catalog')) {
+            return $this->deny();
+        }
+        
 	    return "Hello Update";
 	}
 	
 	public function remove(Request $request)
 	{
+        if(!Entrust::can('cms.admin.article.catalog')) {
+            return $this->deny();
+        }
+        
 	    return "Hello Remove";
 	}
 	
 	public function removeBatch(Request $request)
 	{
+        if(!Entrust::can('cms.admin.article.catalog')) {
+            return $this->deny();
+        }
+        
 	    return "Hello RemoveBatch";
 	}
 }

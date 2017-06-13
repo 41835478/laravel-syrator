@@ -1,4 +1,4 @@
-<?php namespace Modules\Cms\Http\Controllers;
+<?php namespace Modules\Cms\Http\Controllers\Admin;
 
 use Pingpong\Modules\Routing\Controller;
 use Zizaco\Entrust\EntrustFacade as Entrust;
