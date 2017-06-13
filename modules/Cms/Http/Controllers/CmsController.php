@@ -1,6 +1,8 @@
 <?php namespace Modules\Cms\Http\Controllers;
 
-class CmsController extends BaseController {
+use Pingpong\Modules\Routing\Controller;
+
+class CmsController extends Controller {
 	
 	public function index()
 	{

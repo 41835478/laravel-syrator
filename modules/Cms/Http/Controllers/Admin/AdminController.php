@@ -3,7 +3,7 @@
 use Pingpong\Modules\Routing\Controller;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
-class BaseController extends Controller {
+class AdminController extends Controller {
     
     // 主题
     protected $theme = "cms::admin.";
