@@ -20,7 +20,7 @@ class ApiArticleController extends ApiBaseController
      * @SWG\Post(
      *   path="/forum/list",
      *   summary="获取所有的论坛文章列表",
-     *   tags={"Forum"},
+     *   tags={"Forum:论坛模块"},
      *   @SWG\Response(
      *     response=200,
      *     description="请求成功且业务逻辑正确"
