@@ -28,7 +28,7 @@
 					<ul class="breadcrumb">
 						<li>
 							<i class="icon-home"></i>
-							<a href="{{ site_url('admin', 'mygz') }}">首页</a>
+							<a href="{{ site_url('admin', 'cms') }}">首页</a>
 						</li>
 					</ul>
 				</div>

@@ -8,6 +8,15 @@ use Zizaco\Entrust\EntrustFacade as Entrust;
 use Modules\Cms\Model\ArticleCatalogModel;
 
 class ArticleCatalogController extends AdminController {
+    
+    public function __construct()
+    {
+        parent::__construct();
+    
+        if(!Entrust::can('cms.admin.article.catalog')) {
+            return $this->deny();
+        }
+    }
 	
 	public function index()
 	{
@@ -15,8 +24,7 @@ class ArticleCatalogController extends AdminController {
             return $this->deny('deny');
         }
         
-	    $listEntity = ArticleCatalogModel::all();
-		return view('cms::admin.article.catalog.index', compact('listEntity'));
+		return view('cms::admin.article.catalog.index');
 	}
 	
 	public function create()
