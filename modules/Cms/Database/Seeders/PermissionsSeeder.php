@@ -14,11 +14,9 @@ class PermissionsSeeder extends Seeder
     public function run()
     {
 
-        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
-//         \DB::table('permissions')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         
-        \DB::table('permissions')->insert(array ( 
+        DB::table('permissions')->insert(array ( 
             array (
                 'name' => 'cms.admin',
                 'display_name' => 'CMS后台',
@@ -48,6 +46,16 @@ class PermissionsSeeder extends Seeder
                 'updated_at' => '2017-01-01 00:00:00',
             ),
         ));
+        
+        $permissions = DB::table('permissions')->get();
+        foreach ($permissions as $key => $value) {
+            if (substr($value->name,0,4)=="cms.") {                
+                DB::table('permission_role')->insert(array (
+                    'permission_id' => $value->id,
+                    'role_id' => 1,
+                ));
+            }
+        }
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');        
     }
