@@ -45,7 +45,24 @@ class ArticleCatalogController extends AdminController {
 	
 	public function store(Request $request)
 	{
-	    return "Hello Store";
+	    if(!Entrust::can('mygz.admin.material.catalog')) {
+	        return $this->deny();
+	    }
+	     
+	    $data = $request->all();
+	    $newData = $this->repository->storeCatalog($data);
+	    
+	    if ($newData==null) {
+	        return redirect()->back()->withInput($request->input())->with('fail', '该名称的分类已经存在，请使用其他的名称！');
+	    }
+	    
+	    if ($newData->id) {
+	        //添加成功
+	        return redirect()->to(site_path('admin/material/catalog', 'mygz'))->with('message', '成功新增分类！');
+	    } else {
+	        //添加失败
+	        return redirect()->back()->withInput($request->input())->with('fail', '数据库操作返回异常！');
+	    }
 	}
 	
 	public function edit($id)
