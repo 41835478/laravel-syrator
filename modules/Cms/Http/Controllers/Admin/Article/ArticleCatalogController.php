@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 
 use Modules\Cms\Http\Controllers\Admin\AdminController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Modules\Cms\Model\ArticleCatalogModel;
 

@@ -1,8 +1,9 @@
 <?php namespace Modules\Cms\Http\Controllers\Admin;
 
-use Pingpong\Modules\Routing\Controller;
+use Modules\Cms\Http\Controllers\BaseController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
-class CmsAdminController extends Controller {
+class CmsAdminController extends BaseController {
     
     public function __construct()
     {

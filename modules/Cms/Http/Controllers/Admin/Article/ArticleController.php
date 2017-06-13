@@ -1,6 +1,7 @@
 <?php namespace Modules\Cms\Http\Controllers\Admin\Article;
 
 use Modules\Cms\Http\Controllers\Admin\AdminController;
+use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Modules\Cms\Model\ArticleModel;
 use Modules\Cms\Model\ArticleCatalogModel;
