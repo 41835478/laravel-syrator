@@ -57,21 +57,31 @@ class ArticleCatalogController extends AdminController {
         if(!Entrust::can('cms.admin.article.catalog')) {
             return $this->deny('deny');
         }
-	     
-	    $data = $request->all();
-	    $newData = $this->repository->storeCatalog($data);
-	    
-	    if ($newData==null) {
-	        return redirect()->back()->withInput($request->input())->with('fail', '该名称的分类已经存在，请使用其他的名称！');
-	    }
-	    
-	    if ($newData->id) {
-	        //添加成功
-	        return redirect()->to(site_path('admin/material/catalog', 'mygz'))->with('message', '成功新增分类！');
-	    } else {
-	        //添加失败
-	        return redirect()->back()->withInput($request->input())->with('fail', '数据库操作返回异常！');
-	    }
+        
+        $inputs = $request->all();
+        if (empty(e($inputs['name']))) {
+            return $this->backFail($request, '分类名称不能为空');
+        }
+        
+        // 新增，则需要判断名称是否存在
+        $catalog = ArticleCatalogModel::getCatalogByName(e($inputs['name']));
+        if ($catalog!=null && !empty($catalog) && $catalog->id<=0) {
+            return $this->backFail($request, '该名称的分类已经存在，请使用其他的名称');
+        }
+        
+        if (e($inputs['pid'])=='顶级分类') {
+            $inputs['pid'] = 0;
+        } else {
+            $inputs['pid'] = ArticleCatalogModel::getCatalogIdByName(e($inputs['parent']));
+        }
+        
+        $catalog = new ArticleCatalogModel();
+        if (!$catalog->saveFromInput($inputs)) {
+            return $this->backFail($request, '数据库操作返回异常');
+        }
+        
+        //添加成功
+        return $this->toSuccess(site_path('admin/article/catalog', 'cms'), '成功新增分类');
 	}
 	
 	public function edit($id)

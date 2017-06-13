@@ -8,11 +8,27 @@ class ArticleCatalogModel extends SyratorModel
 {
     protected $table = 'article_catalog';
     
-    public function getCatalogByName($name) {
+    // 递归获取所有分类
+    public static function recCatalogs($pid)
+    {
+        $catalogs = ArticleCatalogModel::getCatalogByPid($pid);
+        foreach ($catalogs as $catalog) {
+            $sub_catalogs = ArticleCatalogModel::getCatalogByPid($catalog['id']);
+            if (count($sub_catalogs) <= 0) {
+                $catalog['sub_catalogs'] = $sub_catalogs;
+                continue;
+            } else {
+                $catalog['sub_catalogs'] = ArticleCatalogModel::recCatalogs($catalog['id']);
+            }
+        }
+        return $catalogs;
+    }
+    
+    public static function getCatalogByName($name) {
         return self::where('name','=',$name)->get()->first();
     }
     
-    public function getCatalogIdByName($name) {        
+    public static function getCatalogIdByName($name) {        
         $objCatalog = self::where('name','=',$name)->get()->first();
         if ($objCatalog!=null && !empty($objCatalog)) {
             return $objCatalog->id;
@@ -21,7 +37,7 @@ class ArticleCatalogModel extends SyratorModel
         return null;
     }
     
-    public function getCatalogNameById($id) {
+    public static function getCatalogNameById($id) {
         if ($id==0) {
             return "顶级分类";
         }
@@ -32,6 +48,11 @@ class ArticleCatalogModel extends SyratorModel
         }
     
         return "";
+    }
+    
+    public static function getCatalogByPid($pid)
+    {
+        return ArticleCatalogModel::where('pid','=',$pid)->get();
     }
     
     public function isHasChild() {

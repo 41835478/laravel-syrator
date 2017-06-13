@@ -24,4 +24,14 @@ class AdminController extends Controller {
 	{
 	    return view($this->theme.$view, $data, $mergeData);
 	}
+    
+    public function backFail($request, $message)
+    {
+        return redirect()->back()->withInput($request->input())->with('fail', $message);
+    }
+    
+    public function toSuccess($url, $message)
+    {
+        return redirect()->to($url)->with('message', $message);
+    }
 }
