@@ -80,7 +80,7 @@ class ArticleCatalogController extends AdminController {
         if (e($inputs['pid'])=='顶级分类') {
             $inputs['pid'] = 0;
         } else {
-            $inputs['pid'] = ArticleCatalogModel::getCatalogIdByName(e($inputs['parent']));
+            $inputs['pid'] = ArticleCatalogModel::getCatalogIdByName(e($inputs['pid']));
         }
         
         $catalog = new ArticleCatalogModel();
