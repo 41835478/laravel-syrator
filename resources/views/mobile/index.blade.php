@@ -169,25 +169,25 @@
     <div id="slider" class="mui-slider" style="height:120px;position:fixed; bottom: 50px;">
     	<div class="mui-slider-group mui-slider-loop">
     		<div class="mui-slider-item mui-slider-item-duplicate">
-    			<a href="http://localhost:8801/mobile/mine">
+    			<a href="/mobile/mine">
     				<img src="/wapstyle/images/img4.jpg">
     			</a>
     		</div>
     		<!-- 第一张 -->
     		<div class="mui-slider-item">
-    			<a href="http://localhost:8801/mobile/mine">
+    			<a href="/mobile/mine">
     				<img src="/wapstyle/images/img1.jpg">
     			</a>
     		</div>
     		<!-- 第二张 -->
     		<div class="mui-slider-item">
-    			<a href="http://localhost:8801/mobile/mine">
+    			<a href="/mobile/mine">
     				<img src="/wapstyle/images/img2.jpg">
     			</a>
     		</div>
     		<!-- 第三张 -->
     		<div class="mui-slider-item">
-    			<a href="http://localhost:8801/mobile/mine">
+    			<a href="/mobile/mine">
     				<img src="/wapstyle/images/img3.jpg">
     			</a>
     		</div>
