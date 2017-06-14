@@ -66,7 +66,7 @@
 							<div class="caption">材料列表</div>
 							<div class="actions">
 								<div class="btn-group">
-									<a href="{{ _route('cms:admin.article.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
+									<a href="{{ _route('cms:admin.article.article.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
 									<a href="javascript:void(0);" class="btn" id="removebatch"><i class="icon-remove"></i> 删除</a>
 									<a class="btn" href="#" data-toggle="dropdown">选择显示列<i class="icon-angle-down"></i></a>
 									<div id="syrator_table_article_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
