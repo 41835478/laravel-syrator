@@ -24,6 +24,7 @@ return array(
     'f18cc91337d49233e5754e93f3ed9ec3' => $vendorDir . '/laravelcollective/html/src/helpers.php',
     'f9ee9b3b37b76a895bac7ba3464e2de5' => $vendorDir . '/xiaosier/libweibo/saetv2.ex.class.php',
     '9e090711773bfc38738f5dbaee5a7f14' => $vendorDir . '/overtrue/wechat/src/Payment/helpers.php',
+    '0c3c22e27afa83be19b4c938f4c6e9ea' => $vendorDir . '/spatie/laravel-backup/src/Helpers/functions.php',
     '368f6f5da676a38ba1d3f3da7dd0f3c6' => $baseDir . '/app/helper.php',
     '824a6f0a2cd63863de5a6fddfe97e73e' => $baseDir . '/syrator/helper.php',
     '7837cf023c63e9c01db17dc77c8fee8f' => $vendorDir . '/qqconnect/API/qqConnectAPI.php',
