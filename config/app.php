@@ -164,6 +164,7 @@ return [
         Jlapp\Swaggervel\SwaggervelServiceProvider::class,        
         Pingpong\Modules\ModulesServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
         
         Syrator\Providers\SyratorServiceProvider::class,
     ],

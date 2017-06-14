@@ -31,7 +31,8 @@
     27 => 'Jlapp\\Swaggervel\\SwaggervelServiceProvider',
     28 => 'Pingpong\\Modules\\ModulesServiceProvider',
     29 => 'Zizaco\\Entrust\\EntrustServiceProvider',
-    30 => 'Syrator\\Providers\\SyratorServiceProvider',
+    30 => 'Spatie\\Backup\\BackupServiceProvider',
+    31 => 'Syrator\\Providers\\SyratorServiceProvider',
   ),
   'eager' => 
   array (
@@ -53,7 +54,8 @@
     15 => 'Jlapp\\Swaggervel\\SwaggervelServiceProvider',
     16 => 'Pingpong\\Modules\\ModulesServiceProvider',
     17 => 'Zizaco\\Entrust\\EntrustServiceProvider',
-    18 => 'Syrator\\Providers\\SyratorServiceProvider',
+    18 => 'Spatie\\Backup\\BackupServiceProvider',
+    19 => 'Syrator\\Providers\\SyratorServiceProvider',
   ),
   'deferred' => 
   array (
