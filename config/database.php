@@ -63,6 +63,10 @@ return [
             'prefix'    => env('DB_PREFIX', 'syrator_'),
             'strict'    => false,
             'engine'    => null,
+
+            'dump_command_path' => '/alidata/server/mysql-5.6.21/bin/',
+            'dump_command_timeout' => 60 * 5, 
+            'dump_using_single_transaction' => true,
         ],
         
         'mysql_center' => [

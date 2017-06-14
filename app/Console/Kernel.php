@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('backup:run')->everyMinute();
         $schedule->command('inspire')->everyThirtyMinutes();
         $schedule->command('command:cms-test')->everyThirtyMinutes();
     }
