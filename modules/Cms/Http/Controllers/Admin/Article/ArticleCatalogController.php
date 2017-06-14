@@ -154,6 +154,17 @@ class ArticleCatalogController extends AdminController {
 	    return "Hello Update";
 	}
 	
+	public function show($id)
+	{
+	    if(!Entrust::can('cms.admin.article.catalog')) {
+	        return $this->deny();
+	    }
+	     
+	    $catalog = ArticleCatalogModel::find($id);
+	    $catalog->pid_name = $catalog->getCatalogNameById($catalog->pid);
+	    return $this->view('article.catalog.show', compact('catalog'));
+	}
+	
 	public function remove(Request $request)
 	{
         if(!Entrust::can('cms.admin.article.catalog')) {
