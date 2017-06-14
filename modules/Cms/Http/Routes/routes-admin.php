@@ -15,8 +15,11 @@ Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\
 	            return redirect('cms/admin/article/article');
 	        });
 	        
-	        Route::resource('article', 'ArticleController');
-	        Route::resource('catalog', 'ArticleCatalogController');
+            Route::post('article/remove', 'ArticleController@remove');
+	        Route::resource('article', 'ArticleController',['except' => ['destroy']]);
+	        
+	        Route::post('catalog/remove', 'ArticleCatalogController@remove');
+	        Route::resource('catalog', 'ArticleCatalogController',['except' => ['destroy']]);
 	    });
 	});
 });

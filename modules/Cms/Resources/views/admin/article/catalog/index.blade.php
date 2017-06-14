@@ -134,21 +134,39 @@
 
 @section('filledScript')
 <script>
-jQuery(document).ready(function() {    
-    App.init();
-});
+//主方法，运用递归实现  
+function createTableTree(data){
+	var html = "";
+	if(data != null) {
+		if (data.pid > 0) {
+			html += '<tr data-tt-id="' + data.id +'" data-tt-parent-id="' + data.pid +'">';
+		} else {
+			html += '<tr data-tt-id="' + data.id +'">';
+		}		
+		html += '<td>' + data.name + '</td>';
+		html += '<td>' + data.description + '</td>';
+		html += '<td style="text-align:center;">' + data.sort_num + '</td>';
+		if (data.is_show==1) {
+			html += '<td class="text-red" style="text-align:center;"><i class="icon-ok"></i></td>';
+		} else {
+			html += '<td class="text-red" style="text-align:center;"><i class="icon-remove"></i></td>';
+		}
+		html += '<td style="text-align:center;">';
+		html += '<a href="{{ _asset('cms/admin/article/catalog/') }}/' + data.id + '" class="layer_open"><i class="icon-eye-open" title="查看"></i></a>|';
+		html += '<a href="{{ _asset('cms/admin/article/catalog/') }}/' + data.id + '/edit" class="edit" ><i class="icon-edit" title="编辑"></i></a>|';
+		html += '<a href="javascript:void(0);" delid="' + data.id + '" class="remove" ><i class="icon-trash" title="删除"></i></a>';
+		html += '</td>';
+		html += "</tr>" ;
+		if(data.sub_catalogs != null) {		
+			for(var i=0; i<data.sub_catalogs.length; i++) {
+				html += createTableTree(data.sub_catalogs[i]);				
+			}
+		}
+	}  
 
-function reload() {
-	var objCatalogs = document.getElementById("catalogs_body");
-	objCatalogs.innerHTML = "";
-	loadData();
+	return html;  
 }
 
-var obj = document.getElementById("reload");
-obj.onclick = reload;
-
-loadData();
-	
 function loadData() {
 	$.ajax({
 		type:'post',
@@ -191,55 +209,35 @@ function loadData() {
 		}
 	});
 }
+</script>
+<script>
+jQuery(document).ready(function() {    
+    App.init();
 
-// 主方法，运用递归实现  
-function createTableTree(data){
-	var html = "";
-	if(data != null) {
-		if (data.pid > 0) {
-			html += '<tr data-tt-id="' + data.id +'" data-tt-parent-id="' + data.pid +'">';
-		} else {
-			html += '<tr data-tt-id="' + data.id +'">';
-		}		
-		html += '<td>' + data.name + '</td>';
-		html += '<td>' + data.description + '</td>';
-		html += '<td style="text-align:center;">' + data.sort_num + '</td>';
-		if (data.is_show==1) {
-			html += '<td class="text-red" style="text-align:center;"><i class="icon-ok"></i></td>';
-		} else {
-			html += '<td class="text-red" style="text-align:center;"><i class="icon-remove"></i></td>';
-		}
-		html += '<td style="text-align:center;">';
-		html += '<a href="{{ _asset('cms/admin/article/catalog/') }}/' + data.id + '" class="layer_open"><i class="icon-eye-open" title="查看"></i></a>|';
-		html += '<a href="{{ _asset('cms/admin/article/catalog/') }}/' + data.id + 'edit" class="edit" ><i class="icon-edit" title="编辑"></i></a>|';
-		html += '<a href="javascript:void(0);" delid="' + data.id + '" class="remove" ><i class="icon-trash" title="删除"></i></a>';
-		html += '</td>';
-		html += "</tr>" ;
-		if(data.sub_catalogs != null) {		
-			for(var i=0; i<data.sub_catalogs.length; i++) {
-				html += createTableTree(data.sub_catalogs[i]);				
-			}
-		}
-	}  
- 
-	return html;  
-}
+    loadData();
 
-$(document).on("click","a.remove",function(evt) {
-    var delId = $(this).attr("delId");
-	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-        $.post("{{ URL('cms/admin/article/catalog/remove') }}", {
-        	 _token:$('meta[name="_token"]').attr('content'),
-             delId:delId,
-        }, function(data){
-             if(data.code == 200){
-                 alert(data.message);
-                 location.reload();
-             } else {
-                 alert(data.message);
-             }
-        },"json");
-  	}
+    document.getElementById("reload").onclick = function() {
+    	var objCatalogs = document.getElementById("catalogs_body");
+    	objCatalogs.innerHTML = "";
+    	loadData();
+    };
+
+    $(document).on("click","a.remove",function(evt) {
+        var delId = $(this).attr("delId");
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
+            $.post("{{ URL('cms/admin/article/catalog/remove') }}", {
+            	 _token:$('meta[name="_token"]').attr('content'),
+                 delId:delId,
+            }, function(data){
+                 if(data.code == 200){
+                     alert(data.message);
+                     location.reload();
+                 } else {
+                     alert(data.message);
+                 }
+            },"json");
+      	}
+    });
 });
 </script>
 @stop

@@ -165,21 +165,12 @@ class ArticleCatalogController extends AdminController {
 	    return $this->view('article.catalog.show', compact('catalog'));
 	}
 	
-	public function remove(Request $request)
+	public function remove()
 	{
         if(!Entrust::can('cms.admin.article.catalog')) {
             return $this->deny();
         }
         
-	    return "Hello Remove";
-	}
-	
-	public function removeBatch(Request $request)
-	{
-        if(!Entrust::can('cms.admin.article.catalog')) {
-            return $this->deny();
-        }
-        
-	    return "Hello RemoveBatch";
+        return "Hello Remove";
 	}
 }
