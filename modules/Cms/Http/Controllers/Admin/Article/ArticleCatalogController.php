@@ -165,12 +165,35 @@ class ArticleCatalogController extends AdminController {
 	    return $this->view('article.catalog.show', compact('catalog'));
 	}
 	
-	public function remove()
+	public function remove(Request $request)
 	{
         if(!Entrust::can('cms.admin.article.catalog')) {
             return $this->deny();
         }
-        
-        return "Hello Remove";
+	     
+	    $rth['code'] = "500";
+	    $rth['message'] = "未知错误";
+	
+	    $id = $request->input('delId');
+	    $objItem = ArticleCatalogModel::find($id);
+	    if (!empty($objItem)) {
+	        if ($objItem->isHasChild()) {
+	            $rth['code'] = "300";
+	            $rth['message'] = "该分类下还有子分类，请先删除子类";
+	            return $rth;
+	        }
+	
+	        if ($objItem->delete()) {
+	            $rth['code'] = "200";
+	            $rth['message'] = "删除成功";
+	            return $rth;
+	        }
+	    } else {
+	        $rth['code'] = "201";
+	        $rth['message'] = "该分类不存在，或已经被删除了！";
+	        return $rth;
+	    }
+	
+	    return $rth;
 	}
 }
