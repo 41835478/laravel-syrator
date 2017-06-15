@@ -27,7 +27,7 @@ class ArticleController extends AdminController {
         
 	    $listEntity = ArticleModel::all();
 	    $catalogs = ArticleCatalogModel::all();
-		return view('cms::admin.article.index', compact('listEntity','catalogs'));
+		return $this->view('article.index', compact('listEntity','catalogs'));
 	}
 	
 	public function create()
@@ -66,7 +66,7 @@ class ArticleController extends AdminController {
         }
 
         $catalogs = ArticleCatalogModel::all();
-	    return view('cms::admin.article.create', compact('catalogs', 'editStruct'));
+	    return $this->view('article.create', compact('catalogs', 'editStruct'));
 	}
 	
 	public function store(Request $request)
@@ -80,7 +80,6 @@ class ArticleController extends AdminController {
             return $this->backFail($request, '标题不能为空');
         }
         
-        // 新增，则需要判断名称是否存在        
         if (e($inputs['catalog_id'])=='顶级分类') {
             $inputs['catalog_id'] = 0;
         } else {
@@ -93,7 +92,7 @@ class ArticleController extends AdminController {
         }
         
         //添加成功
-        return $this->toSuccess(site_path('admin/article/article', 'cms'), '成功新增分类');
+        return $this->toSuccess(site_path('admin/article/article', 'cms'), '成功新增文章');
 	}
 	
 	public function edit($id)
@@ -102,10 +101,9 @@ class ArticleController extends AdminController {
            return $this->deny();
         }
         
-	    $catalogs = ArticleCatalogModel::all();
-	    
-	    $article = new ArticleModel();
-	    $editStruct = $article->getEditStructs();
+        $entity = ArticleModel::find($id);
+        $entity->catalog_id = $entity->getCatalogName($entity->catalog_id);        
+        $editStruct = $entity->getEditStructs();
 	    
 	    // 再修正
 	    // 按照业务需求，该字段由系统赋值，前台无法编辑
@@ -132,21 +130,9 @@ class ArticleController extends AdminController {
             $editStruct['type']->dictionary['3'] = '来自朋友圈';
             $editStruct['type']->dictionary['4'] = '来自门户';
         }
-        
-        // 分组
-        $editStructGroup = array();
-        $editStructGroup[] = array(
-            'id' => 'base_info',
-            'name' => '基本信息',
-            'fields' => array('title','keywords','summary'),
-        );
-        $editStructGroup[] = array(
-            'id' => 'expand_info',
-            'name' => '扩展信息',
-            'fields' => array('catalog_id','type','content','is_show'),
-        );
 	    
-	    return view('cms::admin.article.edit', compact('catalogs', 'editStruct', 'editStructGroup'));
+        $catalogs = ArticleCatalogModel::all();
+	    return $this->view('article.edit', compact('entity', 'catalogs', 'editStruct'));
 	}
 	
 	public function update(Request $request, $id)
@@ -155,7 +141,24 @@ class ArticleController extends AdminController {
             return $this->deny();
         }
         
-	    return "Hello Update";
+        $inputs = $request->all();
+        if (empty(e($inputs['name']))) {
+            return $this->backFail($request, '标题不能为空');
+        }
+        
+        if (e($inputs['catalog_id'])=='顶级分类') {
+            $inputs['catalog_id'] = 0;
+        } else {
+            $inputs['catalog_id'] = ArticleCatalogModel::getCatalogIdByName(e($inputs['catalog_id']));
+        }
+        
+        $entity = ArticleModel::find($id);
+        if (!$entity->saveFromInput($inputs)) {
+            return $this->backFail($request, '数据库操作返回异常');
+        }
+        
+        //添加成功
+        return $this->toSuccess(site_path('admin/article/article', 'cms'), '成功更新文章');
 	}
 	
 	public function show($id)
@@ -165,8 +168,9 @@ class ArticleController extends AdminController {
         }
 	
 	    $entity = ArticleModel::find($id);
-	    $entity->catalog_name = $catalog->getCatalogNameById($entity->catalog_id);
-	    return $this->view('article.article.show', compact('article'));
+	    $entity->catalog_name = $entity->getCatalogName($entity->catalog_id);
+	    
+	    return $this->view('article.show', compact('entity'));
 	}
 	
 	public function remove(Request $request)

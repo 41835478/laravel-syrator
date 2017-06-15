@@ -37,7 +37,7 @@
 							<a href="{{ site_url('admin/article', 'cms') }}">文章管理</a> 
 							<i class="icon-angle-right"></i>
 						</li>
-						<li><a href="#">新增文章</a></li>
+						<li><a href="#">编辑文章</a></li>
 					</ul>
 				</div>
 			</div>
@@ -47,14 +47,15 @@
 					@include('_widgets._errors-message')                    
                     <div class="portlet box blue ">
                     	<div class="portlet-title">
-                    		<div class="caption">新增文章</div>
+                    		<div class="caption">编辑文章</div>
                     	</div>
 						<div class="portlet-body form">
-							<form method="post" action="{{ _route('cms:admin.article.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+							<form method="post" action="{{ _route('cms:admin.article.article.update', $entity->id) }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+                                {!! method_field('put') !!}
                                 {!! csrf_field() !!}
-								@include('cms::_widgets._edit_group-control-group')
+								@include('_widgets._edit-control-group')
 								<div class="form-actions">
-									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增</button>
+									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新</button>
 								</div>
 							</form>
 						</div>
