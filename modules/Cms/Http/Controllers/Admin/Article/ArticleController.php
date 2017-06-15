@@ -198,4 +198,23 @@ class ArticleController extends AdminController {
 	
 	    return $rth;
 	}
+	
+	public function removeBatch(Request $request)
+	{
+        if(!Entrust::can('cms.admin.article')) {
+            return $this->deny();
+        }
+	     
+	    $idsstr = $request->input('delId');
+	    $ids = explode(",",$idsstr);
+	    if (ArticleModel::whereIn('id', $ids)->delete()) {
+	        $rth['code'] = "200";
+	        $rth['message'] = "删除成功";
+	    } else {
+	        $rth['code'] = "500";
+	        $rth['message'] = "删除失败";
+	    }
+	
+	    return $rth;
+	}
 }
