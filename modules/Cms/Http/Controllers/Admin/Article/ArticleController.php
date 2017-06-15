@@ -1,5 +1,7 @@
 <?php namespace Modules\Cms\Http\Controllers\Admin\Article;
 
+use Illuminate\Http\Request;
+
 use Modules\Cms\Http\Controllers\Admin\AdminController;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
@@ -33,8 +35,6 @@ class ArticleController extends AdminController {
         if(!Entrust::can('cms.admin.article')) {
             return $this->deny();
         }
-        
-	    $catalogs = ArticleCatalogModel::all();
 	    
 	    $article = new ArticleModel();
 	    $editStruct = $article->getEditStructs();
@@ -45,8 +45,8 @@ class ArticleController extends AdminController {
             $editStruct['author_id']->is_editable = false;
         }
         // 扩展插件，自定义类型
-        if (isset($editStruct['cat_id'])) {
-            $editStruct['cat_id']->type = "select_tree";
+        if (isset($editStruct['catalog_id'])) {
+            $editStruct['catalog_id']->type = "select_tree";
         }
         // 单选radio
         if (isset($editStruct['is_show'])) {
@@ -64,7 +64,8 @@ class ArticleController extends AdminController {
             $editStruct['type']->dictionary['3'] = '来自朋友圈';
             $editStruct['type']->dictionary['4'] = '来自门户';
         }
-	    
+
+        $catalogs = ArticleCatalogModel::all();
 	    return view('cms::admin.article.create', compact('catalogs', 'editStruct'));
 	}
 	
@@ -74,7 +75,25 @@ class ArticleController extends AdminController {
             return $this->deny();
         }
         
-	    return "Hello Store";	    
+        $inputs = $request->all();
+        if (empty(e($inputs['name']))) {
+            return $this->backFail($request, '标题不能为空');
+        }
+        
+        // 新增，则需要判断名称是否存在        
+        if (e($inputs['catalog_id'])=='顶级分类') {
+            $inputs['catalog_id'] = 0;
+        } else {
+            $inputs['catalog_id'] = ArticleCatalogModel::getCatalogIdByName(e($inputs['catalog_id']));
+        }
+        
+        $entity = new ArticleModel();
+        if (!$entity->saveFromInput($inputs)) {
+            return $this->backFail($request, '数据库操作返回异常');
+        }
+        
+        //添加成功
+        return $this->toSuccess(site_path('admin/article/article', 'cms'), '成功新增分类');
 	}
 	
 	public function edit($id)
@@ -94,8 +113,8 @@ class ArticleController extends AdminController {
             $editStruct['author_id']->is_editable = false;
         }
         // 扩展插件，自定义类型
-        if (isset($editStruct['cat_id'])) {
-            $editStruct['cat_id']->type = "select_tree";
+        if (isset($editStruct['catalog_id'])) {
+            $editStruct['catalog_id']->type = "select_tree";
         }
         // 单选radio
         if (isset($editStruct['is_show'])) {
@@ -124,7 +143,7 @@ class ArticleController extends AdminController {
         $editStructGroup[] = array(
             'id' => 'expand_info',
             'name' => '扩展信息',
-            'fields' => array('cat_id','type','content','is_show'),
+            'fields' => array('catalog_id','type','content','is_show'),
         );
 	    
 	    return view('cms::admin.article.edit', compact('catalogs', 'editStruct', 'editStructGroup'));
@@ -139,21 +158,40 @@ class ArticleController extends AdminController {
 	    return "Hello Update";
 	}
 	
+	public function show($id)
+	{
+        if(!Entrust::can('cms.admin.article')) {
+            return $this->deny();
+        }
+	
+	    $entity = ArticleModel::find($id);
+	    $entity->catalog_name = $catalog->getCatalogNameById($entity->catalog_id);
+	    return $this->view('article.article.show', compact('article'));
+	}
+	
 	public function remove(Request $request)
 	{
         if(!Entrust::can('cms.admin.article')) {
             return $this->deny();
         }
-        
-	    return "Hello Remove";
-	}
 	
-	public function removeBatch(Request $request)
-	{
-        if(!Entrust::can('cms.admin.article')) {
-            return $this->deny();
-        }
-        
-	    return "Hello RemoveBatch";
+	    $rth['code'] = "500";
+	    $rth['message'] = "未知错误";
+	
+	    $id = $request->input('delId');
+	    $objItem = ArticleModel::find($id);
+	    if (!empty($objItem)) {	
+	        if ($objItem->delete()) {
+	            $rth['code'] = "200";
+	            $rth['message'] = "删除成功";
+	            return $rth;
+	        }
+	    } else {
+	        $rth['code'] = "201";
+	        $rth['message'] = "该文章不存在，或已经被删除了！";
+	        return $rth;
+	    }
+	
+	    return $rth;
 	}
 }

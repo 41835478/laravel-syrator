@@ -50,9 +50,9 @@
                     		<div class="caption">新增文章</div>
                     	</div>
 						<div class="portlet-body form">
-							<form method="post" action="{{ _route('cms:admin.article.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+							<form method="post" action="{{ _route('cms:admin.article.article.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
                                 {!! csrf_field() !!}
-								@include('cms::_widgets._edit-control-group')
+								@include('_widgets._edit-control-group')
 								<div class="form-actions">
 									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增</button>
 								</div>
@@ -82,7 +82,7 @@ jQuery(document).ready(function() {
 	dData[{{$k+1}}] = $.parseJSON('{!!$v!!}');
     @endforeach
     dData[0] = {id: -1, pId: -1, name:"顶级分类"};
-    var catSelectTree = new ZTreeExpand("cat_id", dData);
+    var catSelectTree = new ZTreeExpand("catalog_id", dData);
     catSelectTree.init();
 
     var ue = UE.getEditor('content');   

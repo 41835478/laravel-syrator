@@ -40,7 +40,7 @@
 				<tr>
 					<td class="text-muted">{{ $per->id }}</td>
 					<td class="text-green"><a href="{{ _route('desktop:article.show', $per->id) }}">{{ $per->title }}</a></td>
-					<td class="text-green">{{ $per->getCatName() }}</td>
+					<td class="text-green">{{ $per->getCatalogName() }}</td>
 				</tr>
 				@endforeach
 			</tbody>

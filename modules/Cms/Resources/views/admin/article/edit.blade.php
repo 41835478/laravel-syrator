@@ -82,7 +82,7 @@ jQuery(document).ready(function() {
 	dData[{{$k+1}}] = $.parseJSON('{!!$v!!}');
     @endforeach
     dData[0] = {id: -1, pId: -1, name:"顶级分类"};
-    var catSelectTree = new ZTreeExpand("cat_id", dData);
+    var catSelectTree = new ZTreeExpand("catalog_id", dData);
     catSelectTree.init();
 
     var ue = UE.getEditor('content');   

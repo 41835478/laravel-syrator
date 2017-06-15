@@ -108,8 +108,8 @@
 										<td style="width:8px;text-align:center;">
 											<input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
 										</td>
-                                        <td class="text-green">{{ $per->title }}</td>
-                                        <td class="text-green">{{ $per->getCatName() }}</td>
+                                        <td class="text-green">{{ $per->name }}</td>
+                                        <td class="text-green">{{ $per->getCatalogName() }}</td>
                                         <td>{{ $per->created_at }}</td>
                                         <td>{{ $per->updated_at }}</td>
                     					<td style="text-align: center;">                                        	
@@ -151,8 +151,9 @@ jQuery(document).ready(function() {
     App.init();
 
     var selectValues = new Array();
+    selectValues[0] = "顶级分类";
     @foreach ($catalogs as $k => $v)
-    selectValues[{{$k}}] = "{{$v->name}}";
+    selectValues[{{$v->id}}] = "{{$v->name}}";
     @endforeach
     TableExpand.init({
 		aoColumns: 
