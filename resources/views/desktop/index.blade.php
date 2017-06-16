@@ -257,18 +257,18 @@
 								<div class="span4">
 									<h3>Photo Stream</h3>
 									<ul class="unstyled blog-images">
-										<li><a href="#"><img src="assets/metronic/image/1.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/2.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/3.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/4.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/5.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/6.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/8.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/10.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/11.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/1.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/2.jpg" alt=""></a></li>
-										<li><a href="#"><img src="assets/metronic/image/7.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/1.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/2.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/3.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/4.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/5.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/6.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/8.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/10.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/11.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/1.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/2.jpg" alt=""></a></li>
+										<li><a href="#"><img src="/assets/metronic/image/7.jpg" alt=""></a></li>
 									</ul>
 								</div>
 								<div class="span4">
