@@ -6,9 +6,6 @@ Route::group(['middleware' => ['block:desktop', 'web'], 'prefix' => 'cms', 'name
     Route::group(['prefix' => '', 'namespace' => 'Desktop'], function () {
         
         // 文章
-        Route::group(['prefix' => 'article', 'namespace' => 'Article'], function () {
-            Route::get('/', 'ArticleController@index');
-            Route::get('show/{id}', 'ArticleController@show');
-        });
+        Route::resource('article', 'Article\ArticleController', ['only' => ['index', 'show']]);
     });
 });

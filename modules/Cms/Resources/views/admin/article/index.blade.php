@@ -113,7 +113,7 @@
                                         <td>{{ $per->created_at }}</td>
                                         <td>{{ $per->updated_at }}</td>
                     					<td style="text-align: center;">                                        	
-                                        	<a target="_blank" href="{{ _route('cms:admin.article.article.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                                        	<a target="_blank" href="{{ _route('cms:article.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
                                         		<i class="icon-eye-open"></i>
                                         	</a>
                                         	<a href="{{ _route('cms:admin.article.article.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
