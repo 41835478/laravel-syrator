@@ -151,14 +151,14 @@
 												</a>
 											</div>
 											<div class="span5 animated rotateInDownLeft">
-												<a href="index.html"><img src="assets/metronic/image/img1.png" alt=""></a>
+												<a href="index.html"><img src="/assets/metronic/image/img1.png" alt=""></a>
 											</div>
 										</div>
 									</div>
 									<div class="item">
 										<div class="row-fluid">
 											<div class="span5 animated rotateInUpRight">
-												<a href="index.html"><img src="assets/metronic/image/img1_2.png" alt=""></a>
+												<a href="index.html"><img src="/assets/metronic/image/img1_2.png" alt=""></a>
 											</div>
 											<div class="span7 margin-bottom-20 animated rotateInDownLeft">
 												<h1>Buy Metronic Today..</h1>
@@ -185,7 +185,7 @@
 						<div class="container">
 							<div class="row-fluid">
 								<div class="span5 margin-bottom-20">
-									<a href="index.html"><img src="assets/metronic/image/img2.png" alt=""></a>
+									<a href="index.html"><img src="/assets/metronic/image/img2.png" alt=""></a>
 								</div>
 								<div class="span7">
 									<h2>Metronic viverra vehicula sem ut volutpat</h2>
@@ -208,12 +208,12 @@
 									<p>Lunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita <a href="#">distinctio lorem ipsum dolor</a> sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
 								</div>
 								<div class="span6 margin-bottom-20">
-									<a href="index.html"><img src="assets/metronic/image/img3.png" alt=""></a>
+									<a href="index.html"><img src="/assets/metronic/image/img3.png" alt=""></a>
 								</div>
 							</div>
 							<div class="row-fluid">
 								<div class="span6">
-									<a href="index.html"><img src="assets/metronic/image/img4.png" alt=""></a>
+									<a href="index.html"><img src="/assets/metronic/image/img4.png" alt=""></a>
 								</div>
 								<div class="span6 margin-bottom-20">
 									<h2>Vero eos iusto odio..</h2>

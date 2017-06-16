@@ -52,7 +52,7 @@
 			</div>
 			@if(null !== auth()->user() && !empty(auth()->user()))
 			<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-				<img src="assets/metronic/image/menu-toggler.png" alt="" />
+				<img src="/assets/metronic/image/menu-toggler.png" alt="" />
 			</a>
 			<ul class="nav pull-right">
 				<li class="dropdown" id="header_notification_bar">
@@ -94,7 +94,7 @@
 						</li>
 						<li>
 							<a href="inbox.html?a=view">
-							<span class="photo"><img src="assets/metronic/image/avatar2.jpg" alt="" /></span>
+							<span class="photo"><img src="/assets/metronic/image/avatar2.jpg" alt="" /></span>
 							<span class="subject">
 							<span class="from">王思聪</span>
 							<span class="time">刚刚</span>

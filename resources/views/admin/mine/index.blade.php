@@ -50,7 +50,7 @@
 						<div class="tab-content">
 							<div class="tab-pane profile-classic row-fluid active" id="tab_1_1">
 								<div class="span2">
-									<img src="{{ _asset('assets/metronic/image/profile-img.png') }}" alt="" />
+									<img src="{{ _asset('/assets/metronic/image/profile-img.png') }}" alt="" />
 								</div>
 								<ul class="unstyled span10">
 									<li><span>账号:</span> {{ $me->username }}</li>

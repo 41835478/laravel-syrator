@@ -151,14 +151,14 @@
 												</a>
 											</div>
 											<div class="span5 animated rotateInDownLeft">
-												<a href="index.html"><img src="assets/metronic/image/img1.png" alt=""></a>
+												<a href="index.html"><img src="/assets/metronic/image/img1.png" alt=""></a>
 											</div>
 										</div>
 									</div>
 									<div class="item">
 										<div class="row-fluid">
 											<div class="span5 animated rotateInUpRight">
-												<a href="index.html"><img src="assets/metronic/image/img1_2.png" alt=""></a>
+												<a href="index.html"><img src="/assets/metronic/image/img1_2.png" alt=""></a>
 											</div>
 											<div class="span7 margin-bottom-20 animated rotateInDownLeft">
 												<h1>Buy Metronic Today..</h1>
@@ -185,7 +185,7 @@
 						<div class="container">
 							<div class="row-fluid">
 								<div class="span5 margin-bottom-20">
-									<a href="index.html"><img src="assets/metronic/image/img2.png" alt=""></a>
+									<a href="index.html"><img src="/assets/metronic/image/img2.png" alt=""></a>
 								</div>
 								<div class="span7">
 									<h2>Metronic viverra vehicula sem ut volutpat</h2>

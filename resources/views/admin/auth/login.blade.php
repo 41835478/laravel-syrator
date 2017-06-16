@@ -14,7 +14,7 @@
 
 @section('content')
 <div class="logo">
-	<img src="{{ _asset('assets/metronic/image/logo-big.png') }}" alt="" /> 
+	<img src="{{ _asset('/assets/metronic/image/logo-big.png') }}" alt="" /> 
 </div>
 <div class="content">
 	<form class="form-vertical login-form" method="post" action="{{ site_url('auth/login', 'admin') }}">

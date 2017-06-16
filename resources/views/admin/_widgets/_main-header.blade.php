@@ -3,10 +3,10 @@
 	<div class="navbar-inner">
 		<div class="container-fluid">
 			<a class="brand" href="{{ site_url('home', 'admin') }}"> 
-				<img src="{{ _asset('assets/metronic/image/logo.png') }}" alt="logo" />
+				<img src="{{ _asset('/assets/metronic/image/logo.png') }}" alt="logo" />
 			</a> 
 			<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse"> 
-				<img src="{{ _asset('assets/metronic/image/menu-toggler.png') }}" alt="" />
+				<img src="{{ _asset('/assets/metronic/image/menu-toggler.png') }}" alt="" />
 			</a>
 			<ul class="nav pull-right">
 				<li class="dropdown user">
