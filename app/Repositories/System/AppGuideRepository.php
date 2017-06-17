@@ -2,7 +2,6 @@
 
 namespace App\Repositories\System;
 
-use App\Repositories\BaseRepository;
 use Syrator\Data\SyratorRepository;
 
 use App\Model\System\AppGuideModel;
