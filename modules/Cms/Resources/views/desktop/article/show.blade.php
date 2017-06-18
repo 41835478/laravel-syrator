@@ -123,17 +123,17 @@ h1, h2, p, ul {
 
 @section('content')
 @include('cms::desktop._widgets._main-sidebar')
-<!-- <div class="page-container row-fluid"> -->
-<!-- 	<div class="page-content"> -->
-<!-- 		<div class="container-fluid"> -->
-<!-- 			<div class="row-fluid"> -->
-<!-- 				<div class="span12"> -->
-<!-- 				{!!$entity->content!!} -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- </div> -->
+<div class="page-container row-fluid">
+	<div class="page-content">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+				{!!$entity->content!!}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 @stop
 
 @section('filledScript')
