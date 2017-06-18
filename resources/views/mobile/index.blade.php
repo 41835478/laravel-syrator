@@ -193,13 +193,13 @@
     		</div>
     		<!-- 第四张 -->
     		<div class="mui-slider-item">
-    			<a href="http://localhost:8801/mobile/mine">
+    			<a href="/mobile/mine">
     				<img src="/wapstyle/images/img4.jpg">
     			</a>
     		</div>
     		<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
     		<div class="mui-slider-item mui-slider-item-duplicate">
-    			<a href="http://localhost:8801/mobile/mine">
+    			<a href="/mobile/mine">
     				<img src="/wapstyle/images/img1.jpg">
     			</a>
     		</div>
