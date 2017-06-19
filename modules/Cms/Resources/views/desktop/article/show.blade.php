@@ -4,29 +4,16 @@
 @parent
 <style type="text/css">
 
-body {
-    color: #999;
-    font: 14px/22px "Arial",sans-serif;
-}
-body, html {
-    height: 100%;
-    width: 100%;
-}
-html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
-    background: transparent none repeat scroll 0 0;
-    border: 0 none;
-    font-size: 100%;
-    margin: 0;
-    outline: 0 none;
-    padding: 0;
-    vertical-align: baseline;
-}
-
 *, *::before, *::after {
     box-sizing: border-box;
 }
 *, *::before, *::after {
     box-sizing: border-box;
+}
+@media (max-width: 1280px) {
+	.blog_left {
+        width: 300px;
+    }
 }
 .blog_left {
     background: rgba(0, 0, 0, 0) url("/modules/cms/images/blog_left.jpg") no-repeat scroll 0 0 / 100% 100%;
@@ -35,9 +22,6 @@ html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquot
     padding: 30px 60px 50px 30px;
     position: fixed;
     width: 250px;
-}
-.blog_left {
-    width: 300px;
 }
 .blog_left .blog_copyright {
     bottom: 25px;
