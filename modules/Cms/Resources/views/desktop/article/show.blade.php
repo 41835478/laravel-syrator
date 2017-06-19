@@ -14,8 +14,9 @@
 
 @section('content')
 @include('cms::desktop._widgets._main-sidebar-left')
-<div class="page-container row-fluid">
-	<div class="page-content">
+@include('cms::desktop._widgets._main-sidebar-right')
+<div id="cms_article" class="page-container row-fluid">
+	<div class="page-content" style="padding-top: 20px;">
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span12">
