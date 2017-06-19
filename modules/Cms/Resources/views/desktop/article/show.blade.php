@@ -11,6 +11,12 @@
     box-sizing: border-box;
 }
 
+.page-content {
+    margin-left: 300px;
+    margin-top: 0;
+    min-height: 760px;
+}
+
 .blog_left {
     background: rgba(0, 0, 0, 0) url("/modules/cms/images/blog_left.jpg") no-repeat scroll 0 0 / 100% 100%;
     color: #333;
@@ -23,6 +29,12 @@
 @media only screen and (max-width: 1280px) {
 	.blog_left {
         width: 250px;
+    }
+    
+    .page-content {
+        margin-left: 250px;
+        margin-top: 0;
+        min-height: 760px;
     }
 }
 
