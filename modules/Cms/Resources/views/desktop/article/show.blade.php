@@ -10,11 +10,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
-@media only screen and (max-width: 1280px) {
-	.blog_left {
-        width: 250px;
-    }
-}
+
 .blog_left {
     background: rgba(0, 0, 0, 0) url("/modules/cms/images/blog_left.jpg") no-repeat scroll 0 0 / 100% 100%;
     color: #333;
@@ -23,6 +19,13 @@
     position: fixed;
     width: 300px;
 }
+
+@media only screen and (max-width: 1280px) {
+	.blog_left {
+        width: 250px;
+    }
+}
+
 .blog_left .blog_copyright {
     bottom: 25px;
     left: 30px;
