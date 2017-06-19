@@ -18,23 +18,17 @@ body {
 #cms_article .page-content {
     margin-left: 300px !important;
 }
-
 .page-sidebar-closed #cms_article .page-content {
     margin-left: 300px !important;
 }
 
 @media only screen and (max-width: 1280px) {
-	
 	#cms_article .page-content {
 	    margin-left: 250px !important;
 	}
 	.page-sidebar-closed #cms_article .page-content {
 	    margin-left: 250px !important;
 	}
-    
-	.article_left {
-        width: 250px;
-    }
 }
 
 #cms_article .page-content {
@@ -57,6 +51,11 @@ body {
     padding: 30px 60px 50px 30px;
     position: fixed;
     width: 300px;
+}
+@media only screen and (max-width: 1280px) {    
+	.article_left {
+        width: 250px;
+    }
 }
 
 .article_left .article_copyright {

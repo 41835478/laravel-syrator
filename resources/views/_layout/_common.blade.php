@@ -28,7 +28,7 @@
 	<script src="{{ _asset(ref('jquery.cookie.js')) }}" type="text/javascript"></script>
 	<script src="{{ _asset(ref('jquery.uniform.js')) }}" type="text/javascript" ></script>
 	  
-	<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js" type="text/javascript"></script>	
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.1.0.js" type="text/javascript"></script>	
 	
 	<script src="{{ _asset(ref('syrator.js')) }}" type="text/javascript" ></script>
 @stop
