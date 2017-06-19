@@ -9,7 +9,7 @@
 
 @section('content-header')
 @parent
-@include('_widgets._main-header')
+@include('cms::desktop._widgets._main-header')
 @stop
 
 @section('content')
