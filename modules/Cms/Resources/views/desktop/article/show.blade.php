@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-@include('cms::desktop._widgets._main-sidebar')
+@include('cms::desktop._widgets._main-sidebar-left')
 <div class="page-container row-fluid">
 	<div class="page-content">
 		<div class="container-fluid">
