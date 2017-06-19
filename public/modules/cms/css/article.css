@@ -16,6 +16,11 @@ body {
     min-height: 260px;
 }
 
+.article_left dt, dd {
+    line-height: 1.42857;
+    margin: 0;	
+}
+
 .article_left {
     background: rgba(0, 0, 0, 0) url("/modules/cms/images/blog_left.jpg") no-repeat scroll 0 0 / 100% 100%;
     color: #333;
@@ -63,7 +68,7 @@ body {
     text-align: center;
     width: 50px;
 }
-.article_left .article_l_c .item_wrap .item_l .item {
+.article_left .article_l_c .item_wrap .item_l .item_value {
     color: #333;
     font-size: 24px;
     font-weight: bold;
