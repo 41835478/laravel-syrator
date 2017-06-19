@@ -10,9 +10,9 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
-@media (max-width: 1280px) {
+@media only screen and (max-width: 1280px) {
 	.blog_left {
-        width: 300px;
+        width: 250px;
     }
 }
 .blog_left {
@@ -21,7 +21,7 @@
     height: 100%;
     padding: 30px 60px 50px 30px;
     position: fixed;
-    width: 250px;
+    width: 300px;
 }
 .blog_left .blog_copyright {
     bottom: 25px;
