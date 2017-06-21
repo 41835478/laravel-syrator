@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call('PermissionRoleTableSeeder');
         
         // 会员
+        $this->call('MemberRanksTableSeeder');
         $this->call('MembersTableSeeder');
     }
 }
