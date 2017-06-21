@@ -30,59 +30,6 @@ class ApiMemberController extends ApiBaseController
     private $taobao_appid  = '23668242';
     private $taobao_secret = '0eb6a4ba9ee0febcb039beaa1f776d47';
     
-    protected $host = "http://utf8.sms.webchinese.cn";
-    
-    function get($url, $parameters = array())
-    {
-        // 拼接url
-        $url = "{$this->host}{$url}";
-    
-        // 如果带参数，拼接参数
-        if (!empty($parameters))
-        {
-            $url = $url . '?' . http_build_query ($parameters);
-        }
-    
-        // 开启一个curl对话
-        $ci = curl_init();
-    
-        // Curl 设置
-        curl_setopt($ci, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ci, CURLOPT_URL, $url );
-    
-        // Curl 执行
-        $response = curl_exec($ci);
-    
-        // Curl 关闭
-        curl_close ($ci);
-    
-        return $response;
-    }
-    
-    function post($url, $parameters = array())
-    {
-        // 拼接url
-        $url = "{$this->host}{$url}";
-    
-        $postfields = http_build_query($parameters);
-    
-        // 开启一个curl对话
-        $ci = curl_init();
-    
-        // Curl 设置
-        curl_setopt($ci, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ci, CURLOPT_URL, $url );
-        curl_setopt($ci, CURLOPT_POSTFIELDS, $postfields);
-    
-        // Curl 执行
-        $response = curl_exec($ci);
-    
-        // Curl 关闭
-        curl_close ($ci);
-    
-        return $response;
-    }
-    
     public function __construct(MemberRepository $repository)
     {
         parent::__construct();
