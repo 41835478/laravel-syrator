@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -10,6 +11,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class MemberModel extends Authenticatable
 {
+    use SoftDeletes;
+    
     protected $table = 'member';
     
     /**

@@ -2,10 +2,13 @@
 
 namespace App\Model;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class MemberPointsModel extends Model
 {
+    use SoftDeletes;
+    
     protected $table = 'member_points';
     
     public static function mergeData($data){
