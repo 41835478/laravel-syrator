@@ -32,6 +32,7 @@ class CreateMemberCertificateTable extends Migration
             $table->integer('verify_result')->comment('审核结果')->nullable();
             $table->string('verify_remark')->comment('审核意见')->nullable();
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '会员实名认证表';
         });

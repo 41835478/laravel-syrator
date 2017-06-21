@@ -23,6 +23,7 @@ class CreateThemeTable extends Migration
             $table->string('version')->comment('主题版本')->default('');
             $table->tinyInteger('is_current')->comment('是否为当前主题：0-否，1-是')->default('0');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '系统模板表';
         });

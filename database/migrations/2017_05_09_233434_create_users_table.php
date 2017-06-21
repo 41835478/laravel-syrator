@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('is_locked')->comment('1锁定,0正常')->default('0');
             $table->string('avatar')->comment('头像')->default('');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '用户表';
         });

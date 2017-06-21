@@ -22,6 +22,7 @@ class CreateFeedbackTable extends Migration
             $table->integer('reply_user_id')->comment('')->nullable();
             $table->string('reply_content')->comment('')->default('');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '意见反馈表';
         });

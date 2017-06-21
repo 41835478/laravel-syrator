@@ -19,6 +19,7 @@ class CreateWechatParamsTable extends Migration
             $table->string('name')->comment('微信接口配置选项名');
             $table->text('value')->comment('微信接口配置选项值')->default('');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '微信接口配置表';
         });

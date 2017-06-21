@@ -21,6 +21,7 @@ class CreateMemberPointsTable extends Migration
             $table->decimal('cost')->comment('积分')->default('0');
             $table->string('title')->comment('积分订单名称')->default('');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '会员积分明细表';
         });

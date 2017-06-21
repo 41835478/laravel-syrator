@@ -22,6 +22,7 @@ class CreateAppGuideTable extends Migration
             $table->tinyInteger('sort_num')->comment('排序序号')->default('0');
             $table->tinyInteger('is_show')->comment('是否展示')->default('1');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '移动端启动欢迎页配置';
         });

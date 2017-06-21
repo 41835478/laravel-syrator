@@ -22,6 +22,7 @@ class CreateSystemLogsTable extends Migration
             $table->string('content')->comment('操作内容')->default('');
             $table->string('operator_ip')->comment('操作者ip')->default('');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '系统日志表';
         });

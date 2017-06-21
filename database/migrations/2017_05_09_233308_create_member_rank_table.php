@@ -16,14 +16,10 @@ class CreateMemberRankTable extends Migration
     {
         SyratorSchema::create('member_rank', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->comment('分组名称')->default('');
-            $table->integer('min_points')->comment('最小积分值')->default('0');
-            $table->integer('max_points')->comment('最大积分值')->default('0');
-            $table->tinyInteger('discount')->comment('')->default('0');
-            $table->tinyInteger('show_price')->comment('')->default('0');
-            $table->tinyInteger('special_rank')->comment('')->default('0');
-            $table->tinyInteger('is_recomm')->comment('')->default('0');
+            $table->string('name')->comment('名称')->default('');
+            $table->string('description')->comment('描述')->default('');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '会员分组表';
         });

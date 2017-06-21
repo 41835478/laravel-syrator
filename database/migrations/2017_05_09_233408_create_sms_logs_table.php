@@ -24,6 +24,7 @@ class CreateSmsLogsTable extends Migration
             $table->string('res')->comment('短信平台返回码')->default('');
             $table->string('operator_ip')->comment('操作者ip')->default('');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '短信验证码明细表';
         });

@@ -19,6 +19,7 @@ class CreateMemberSignTable extends Migration
             $table->integer('member_id')->comment('会员id');
             $table->date('date')->comment('签到时间');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '会员签到记录表';
         });

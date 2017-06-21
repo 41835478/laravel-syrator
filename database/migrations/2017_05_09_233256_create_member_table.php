@@ -36,6 +36,7 @@ class CreateMemberTable extends Migration
             $table->string('taobao_password')->comment('淘宝平台用户密码')->default('');
             $table->tinyInteger('is_locked')->comment('是否锁定')->default('0');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->comment = '会员表';
         });
