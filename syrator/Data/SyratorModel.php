@@ -20,7 +20,7 @@ class SyratorModel extends Model
         // 先获取表结构
         $columns = $this->getFullColumnsInfo();
         foreach ($columns as $key => $column) {
-            if ($column->Field=="id" || $column->Field=="created_at" || $column->Field=="updated_at") {
+            if ($column->Field=="id" || $column->Field=="created_at" || $column->Field=="updated_at" || $column->Field=="deleted_at") {
                 continue;
             }
             
@@ -80,7 +80,7 @@ class SyratorModel extends Model
         $columns = $this->getFullColumnsInfo(); 
         foreach ($columns as $key => $column) {
             $key = $column->Field;
-            if ($key=="id" || $key=="created_at" || $key=="updated_at") {
+            if ($key=="id" || $key=="created_at" || $key=="updated_at" || $column->Field=="deleted_at") {
                 continue;
             }
             
