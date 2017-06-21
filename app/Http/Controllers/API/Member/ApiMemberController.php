@@ -6,6 +6,7 @@ use App\Http\Controllers\API\ApiBaseController;
 
 use Illuminate\Http\Request;
 
+use App\Model\MemberPointsModel;
 use App\Repositories\MemberRepository;
 use App\Loggers\SMSLogger;
 
@@ -76,9 +77,6 @@ class ApiMemberController extends ApiBaseController
         if ($res!=1) {
             return self::responseFailed('342','密码错误');
         }
-        
-        $objMember->password = "";
-        session()->set('member', $objMember);
 
         return self::responseSuccess('登录成功',$objMember);
     }
@@ -111,13 +109,17 @@ class ApiMemberController extends ApiBaseController
         // 获取参数
         $param = [
             'phone' => $request->input('phone'),
+            'account' => $request->input('phone'),
             'password' => $request->input('password'),
             'vcode' => $request->input('vcode'),
+            'email' => '',
+            'role' => '0',
+            'nickname' => '',
         ];
     
         // 参数检测
         if (empty(e($param['phone']))) {
-            return self::responseFailed('301','用户名不能为空');
+            return self::responseFailed('301','手机号不能为空');
         }
     
         if (empty(e($param['password']))) {
@@ -143,11 +145,18 @@ class ApiMemberController extends ApiBaseController
 	        } 
 	        
 	        // 创建用户
-	        $param['password'] = bcrypt(e($param['password']));
 	        $objMemberNew = $this->repository->store($param); 
 	        if ($objMemberNew===null || empty($objMemberNew)) {
                 return self::responseFailed('500','创建用户失败');	            
 	        }
+	        
+	        // 注册送积分
+            $pointsLog = new MemberPointsModel();
+            $pointsLog->member_id = $objMemberNew->id;
+            $pointsLog->product_id = 0;
+            $pointsLog->cost = 1000;
+            $pointsLog->title = '注册赠送积分';
+            $pointsLog->save();
 	        
             return self::responseSuccess('注册成功',$objMemberNew);
         } else {

@@ -7,16 +7,8 @@ Route::group(['prefix' => 'api', 'namespace' => 'API', 'middleware' => ['block:a
     Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
         Route::any('login', 'ApiMemberController@login');
         Route::any('register', 'ApiMemberController@register');
-        
-        Route::any('sendverifycode', 'ApiMemberController@sendVerifyCode');
-        Route::any('validateverifycode', 'ApiMemberController@validateVerifyCode');
-        
+        Route::any('validateverifycode', 'ApiMemberController@validateVerifyCode');        
         Route::any('resetpassword', 'ApiMemberController@resetPassword');
-        
-        Route::any('bindwechat', 'ApiMemberController@bindWechat');
-        
-        Route::any('taobao_openim', 'ApiMemberController@getTaobaoOpenim');
-        Route::any('taobao_openim_delete', 'ApiMemberController@deleteTaobaoOpenim');
     });
     
     // 文件上传模块
