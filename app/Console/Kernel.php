@@ -26,5 +26,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('backup:run --only-db')->daily();
+        $schedule->command('command:cms-test')->dailyAt('00:30');
     }
 }
