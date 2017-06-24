@@ -20,7 +20,6 @@ class AuthorityController extends MemberController
      */
     public function __construct()
     {
-        $this->middleware('multi-site.guest:member', ['except' => 'getLogout']);
     }
 
     public function getLogin()

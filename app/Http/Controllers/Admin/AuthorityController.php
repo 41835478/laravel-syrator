@@ -20,7 +20,6 @@ class AuthorityController extends BackController
      */
     public function __construct()
     {
-        $this->middleware('multi-site.guest:admin', ['except' => 'getLogout']);
     }
 
     public function getLogin()

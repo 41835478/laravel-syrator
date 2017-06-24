@@ -20,7 +20,9 @@ use App\Loggers\SMSLogger;
  * )
  */
 class ApiMemberController extends ApiBaseController
-{    
+{
+    protected $repository;
+    
     public function __construct(MemberRepository $repository)
     {
         parent::__construct();
