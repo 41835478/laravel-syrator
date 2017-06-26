@@ -34,7 +34,7 @@ class SystemLogger
             if (array_key_exists('content', $data)) {  //如果操作内容不存在，则拒绝记录系统日志
                 $data = array_add($data, 'user_id', 0);  //默认为0，表示操作者为系统
                 $data = array_add($data, 'type', 'system');  //默认为系统级操作
-                $data = array_add($data, 'url', '-');
+                $data = array_add($data, 'url', app('request')->url());
                 $data = array_add($data, 'operator_ip', app('request')->ip());  //操作者ip
                 $sys_log = new SystemLogModel;
                 $sys_log->fill($data);

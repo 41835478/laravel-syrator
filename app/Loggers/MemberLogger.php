@@ -21,7 +21,7 @@ class MemberLogger
                 $data = array_add($data, 'member_id', 0);
                 $data = array_add($data, 'entity_id', 0);
                 $data = array_add($data, 'type', 'member');
-                $data = array_add($data, 'url', '-');
+                $data = array_add($data, 'url', app('request')->url());
                 $data = array_add($data, 'operator_ip', app('request')->ip());  //操作者ip
                 $sys_log = new MemberLogModel;
                 $sys_log->fill($data);

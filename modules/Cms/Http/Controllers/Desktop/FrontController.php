@@ -11,9 +11,11 @@ class FrontController extends Controller
 {
     // 主题
     protected $theme = "cms::desktop.";
+    protected $member;
 
     public function __construct()
     {
+        $this->member = auth()->guard('member')->user();
     }
 
 	public function deny()

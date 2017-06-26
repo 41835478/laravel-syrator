@@ -13,7 +13,7 @@ class MemberLogModel extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'system_logs';
+    protected $table = 'member_logs';
     
     protected $fillable = ['user_id', 'member_id', 'type', 'url', 'content', 'operator_ip'];
 

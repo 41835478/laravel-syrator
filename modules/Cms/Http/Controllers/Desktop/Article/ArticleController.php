@@ -2,6 +2,8 @@
 
 use Modules\Cms\Http\Controllers\Desktop\FrontController;
 
+use App\Loggers\MemberLogger;
+
 use Modules\Cms\Model\ArticleModel;
 use Modules\Cms\Model\ArticleCatalogModel;
 
@@ -10,6 +12,26 @@ class ArticleController extends FrontController {
     public function __construct()
     {
         parent::__construct();
+    }
+    
+    protected function log($article) {
+        if (!empty($this->member)) {
+            $log = [
+                'member_id' => $this->member->id,
+                'entity_id' => $article->id,
+                'type'    => 'view-article',
+                'content' => '浏览文章:'.$article->name.'<'.$article->id.'>。',
+            ];
+            MemberLogger::write($log);
+        } else {
+            $log = [
+                'member_id' => 0,
+                'entity_id' => $article->id,
+                'type'    => 'view-article',
+                'content' => '浏览文章:'.$article->name.'<'.$article->id.'>。',
+            ];
+            MemberLogger::write($log);            
+        }
     }
 	
 	public function index()
@@ -20,9 +42,10 @@ class ArticleController extends FrontController {
 	}
 	
 	public function show($id)
-	{	
+	{		    
 	    $entity = ArticleModel::find($id);
 	    $entity->catalog_name = $entity->getCatalogName($entity->catalog_id);
+	    $this->log($entity);
 	    
 	    return $this->view('article.show', compact('entity'));
 	}
