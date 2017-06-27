@@ -44,9 +44,10 @@ class ArticleController extends FrontController {
 	public function show($id)
 	{		    
 	    $entity = ArticleModel::find($id);
-	    $entity->catalog_name = $entity->getCatalogName($entity->catalog_id);
+	    $entity->catalog_name = $entity->getCatalogName($entity->catalog_id);	    
 	    $this->log($entity);
 	    
-	    return $this->view('article.show', compact('entity'));
+	    $view_count = $entity->getViewCount();
+	    return $this->view('article.show', compact('entity','view_count'));
 	}
 }

@@ -18,7 +18,7 @@
                 <dd class="item_name">评论</dd>
             </dl>
             <dl class="item_l">
-                <dt class="item_value">69</dt>
+                <dt class="item_value">{{$view_count}}</dt>
                 <dd class="item_name">访问</dd>
             </dl>
         </div>
