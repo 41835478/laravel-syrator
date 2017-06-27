@@ -17,7 +17,7 @@
 							</form>
 						</li>
 						<li>
-							<a href="">首页</a>
+							<a href="{{ site_url('', '') }}">首页</a>
 						</li>
 						<li>
 							<a href="">布局</a>
