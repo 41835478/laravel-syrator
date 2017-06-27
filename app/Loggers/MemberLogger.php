@@ -17,12 +17,12 @@ class MemberLogger
     public static function write($data)
     {
         if (is_array($data)) {
-            if (array_key_exists('content', $data)) {
-                $data = array_add($data, 'member_id', 0);
+            if (array_key_exists('content', $data)) {                
                 $data = array_add($data, 'url', app('request')->url());
                 $data = array_add($data, 'operator_ip', app('request')->ip());
                 $sys_log = new MemberLogModel;
                 $sys_log->fill($data);
+                
                 return $sys_log->save($data);
             } else {
                 return false;

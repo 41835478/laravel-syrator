@@ -15,7 +15,7 @@ class MemberLogModel extends Model
 
     protected $table = 'member_logs';
     
-    protected $fillable = ['user_id', 'member_id', 'type', 'url', 'content', 'operator_ip'];
+    protected $fillable = ['member_id', 'entity_id', 'type', 'url', 'content', 'operator_ip'];
 
      /**
      * 操作用户
