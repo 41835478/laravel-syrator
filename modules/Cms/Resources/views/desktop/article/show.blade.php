@@ -34,7 +34,6 @@
 <script>
 jQuery(document).ready(function() {    
 	App.init();
-	$("#catalog_tree_menu").append("<p class='three'>我是子元素append</p>");
 });
 </script>
 @stop

@@ -12,8 +12,6 @@
 				</div>
 			</form>
 		</li>
-		<li>
-		</li>
 	</ul>
 </div>
 <script type="text/javascript" src="{{ _asset('assets/js/tree-catalog.js') }}"></script>
@@ -23,6 +21,6 @@
     dData[{{$k+1}}] = $.parseJSON('{!!$v!!}');
     @endforeach
     
-    var catMenuTree = new MenuTreeCatalog("sidebar_article_right", dData);
+    var catMenuTree = new MenuTreeCatalog("#catalog_tree_menu", dData);
     catMenuTree.init();
 </script>
