@@ -2,52 +2,44 @@ function MenuTreeCatalog(elemId, dData) {
 	this.elemId = elemId;  
     this.dData = dData;
     
-    alert(this.elemId);
-    alert(this.dData);
-    
-    var onClick = function(e, treeId, treeNode) {
-    	var zTree = $.fn.zTree.getZTreeObj("select_tree_items_" + elemId),
-		nodes = zTree.getSelectedNodes(),
-		v = "";
-		nodes.sort(function compare(a,b){return a.id-b.id;});
-		for (var i=0, l=nodes.length; i<l; i++) {
-			v += nodes[i].name + ",";
-		}
-		if (v.length > 0 ) v = v.substring(0, v.length-1);
-		var parentObj = $("#" + elemId);
-		parentObj.attr("value", v);
-		
-		hideSelectTree();
-	};
-	
-	var showSelectTree = function() {
-		var parentObj = $("#" + elemId);
-		var cityOffset = $("#" + elemId).offset();
-		$("#select_tree_" + elemId).css({
-			left:cityOffset.left + "px", 
-			top:cityOffset.top + parentObj.outerHeight() + "px"}
-		).slideDown("fast");
-		$("#select_tree_" + elemId).addClass("active");
-		
-		$("body").bind("mousedown", onBodyDown);
-	};
-	
-	var hideSelectTree = function() {
-		$("#select_tree_" + elemId).fadeOut("fast");
-		$("#select_tree_" + elemId).removeClass("active");
-		
-		$("body").unbind("mousedown", onBodyDown);
-	};
-	
-	var onBodyDown = function(event) {
-		if (!(event.target.id == "btn_" + elemId 
-			|| event.target.id == "select_tree_" + elemId 
-			|| $(event.target).parents("#select_tree_" + elemId).length>0)) {
-			hideSelectTree();
-		}
-	};
+    var createTableTree = function(data){
+    	var html = "";
+    	if(data != null) {
+    		if (data.pid > 0) {
+    			html += '<tr data-tt-id="' + data.id +'" data-tt-parent-id="' + data.pid +'">';
+    		} else {
+    			html += '<tr data-tt-id="' + data.id +'">';
+    		}		
+    		html += '<td>' + data.name + '</td>';
+    		html += '<td>' + data.description + '</td>';
+    		html += '<td style="text-align:center;">' + data.sort_num + '</td>';
+    		if (data.is_show==1) {
+    			html += '<td class="text-red" style="text-align:center;"><i class="icon-ok"></i></td>';
+    		} else {
+    			html += '<td class="text-red" style="text-align:center;"><i class="icon-remove"></i></td>';
+    		}
+    		html += '<td style="text-align:center;">';
+    		html += '</td>';
+    		html += "</tr>" ;
+    		if(data.sub_catalogs != null) {		
+    			for(var i=0; i<data.sub_catalogs.length; i++) {
+    				html += createTableTree(data.sub_catalogs[i]);				
+    			}
+    		}
+    	}  
+
+    	return html;  
+    }
    
     this.init = function() {
-		
+//    	var html = "";
+//		for(var i=0; i<this.dData.length; i++) {
+//			html += createTableTree(this.dData[i]);	
+//		}
+//		console.log(html);
+//		console.log($(elemId));
+    	var objTree = $("sidebar_article_right");
+    	console.log(objTree);
+    	objTree.append('<li class=""><a href=""><i class="icon-home"></i><span class="title">控制台</span><span class="selected"></span></a></li>');
     };
 };

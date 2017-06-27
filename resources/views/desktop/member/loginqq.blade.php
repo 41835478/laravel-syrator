@@ -37,10 +37,6 @@
 <script>
 jQuery(document).ready(function() {    
    App.init();
-   jQuery('#promo_carousel').carousel({
-      interval: 10000,
-      pause: 'hover'
-   });
 
    var childWindow;
    jQuery('#loginqq').click(function() {

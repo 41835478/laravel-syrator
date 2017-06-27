@@ -30,13 +30,21 @@
 
 @section('filledScript')
 @parent
+<script type="text/javascript" src="{{ _asset('assets/js/tree-catalog.js') }}"></script>
 <script>
 jQuery(document).ready(function() {    
-   App.init();
-   jQuery('#promo_carousel').carousel({
-      interval: 10000,
-      pause: 'hover'
-   });
+	App.init();
 });
 </script>
+
+<script type="text/javascript">
+    var dData = new Array();
+    @foreach ($catalogs as $k => $v)
+    dData[{{$k+1}}] = $.parseJSON('{!!$v!!}');
+    @endforeach
+    
+    var catMenuTree = new MenuTreeCatalog("sidebar_article_right", dData);
+    catMenuTree.init();
+</script>
+
 @stop

@@ -48,7 +48,7 @@ class ArticleController extends FrontController {
 	    $this->log($entity);
 	    
 	    $view_count = $entity->getViewCount();
-	    $catalogs = ArticleCatalogModel::recCatalogs(0);
+	    $catalogs = ArticleCatalogModel::all();
 	    return $this->view('article.show', compact('entity','view_count','catalogs'));
 	}
 }
