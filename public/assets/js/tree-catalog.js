@@ -38,7 +38,7 @@ function MenuTreeCatalog(elemId, dData) {
 //		}
 //		console.log(html);
 //		console.log($(elemId));
-    	var objTree = $("sidebar_article_right");
+    	var objTree = $(elemId);
     	console.log(objTree);
     	objTree.append('<li class=""><a href=""><i class="icon-home"></i><span class="title">控制台</span><span class="selected"></span></a></li>');
     };

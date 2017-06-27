@@ -111,9 +111,9 @@
                     					<th>是否显示</th>
                     					<th>操作</th>
                                     </tr>
-                                </thead>    
+                                </thead>
                                 <tbody id="catalogs_body">
-                                </tbody>       
+                                </tbody>
                     		</table>
             			</div>
             		</div>
