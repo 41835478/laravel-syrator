@@ -12,6 +12,22 @@
 				</div>
 			</form>
 		</li>
+		@foreach ($catalogs as $k => $v)		
+		<li class="">			
+			<a href="{{ site_url('mine/inforation', 'admin') }}">
+				<i class="icon-bookmark-empty"></i><span class="title">{{$v->name}}</span>
+			</a>
+			@if (count($v->sub_catalogs)>0) 			
+			<ul class="sub-menu">
+				<li ><a href="{{ site_url('system/cache', 'admin') }}"><i class="icon-cogs"></i> 重建缓存</a></li>
+				<li ><a href="{{ site_url('system/option', 'admin') }}"><i class="icon-cogs"></i> 参数配置</a></li>
+				<li ><a href="{{ site_url('system/log', 'admin') }}"><i class="icon-cogs"></i> 系统日志</a></li>
+				<li ><a href="{{ site_url('system/theme', 'admin') }}"><i class="icon-cogs"></i> 模板管理</a></li>
+				<li ><a href="{{ site_url('system/appinfo', 'admin') }}"><i class="icon-cogs"></i> APP管理</a></li>
+			</ul>
+			@endif
+		</li>
+        @endforeach
 		<li class="">
 			<a href="{{ site_url('home', 'admin') }}">
 				<i class="icon-home"></i><span class="title">控制台</span><span class="selected"></span>
@@ -69,39 +85,12 @@
 		</li>
 	</ul>
 </div>
+<script type="text/javascript" src="{{ _asset('assets/js/tree-catalog.js') }}"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-    var current_url = '//' + window.location.host + window.location.pathname;
-    
-    var url_path_array = window.location.pathname.split( '/' );
-    if (url_path_array[url_path_array.length-1]==='create') {
-    	current_url = current_url.substring(0,current_url.length-7);
-    } else if (url_path_array[url_path_array.length-1]==='edit') {
-    	current_url = '//' + window.location.host;
-    	for(var i=1; i<url_path_array.length-2;i++){
-    		current_url += '/' + url_path_array[i];
-   		}
-    }
-
-    var current_li = $('ul.page-sidebar-menu>li').find('a[href="'+current_url+'"]').closest('li');
-    if (current_li!=null) {
-    	current_li.addClass('active');
-    }
-
-    var current_parent = current_li.parent().parent();
-    if (current_parent!=null) {
-        current_parent.addClass('active');
-
-    	var current_parent_a = current_parent.children('a');
-    	if (current_parent_a!=null) {
-        	// 添加状态
-        	var spanObj = document.createElement('span');
-        	spanObj.className = "selected";
-    		current_parent_a.append(spanObj);
-
-    		// 修改箭头指向
-    		current_parent_a.children('span.arrow').addClass("open");
-    	}
-    }
-});
+var dData = new Array();
+@foreach ($catalogs as $k => $v)
+dData[{{$k+1}}] = $.parseJSON('{!!$v!!}');
+@endforeach
+var catMenuTree = new MenuTreeCatalog("pid", dData);
+catMenuTree.init();
 </script>

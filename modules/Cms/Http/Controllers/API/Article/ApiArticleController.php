@@ -48,7 +48,7 @@ class ApiArticleController extends ApiBaseController
         }
         
         if ($param['format_type'] == "tree") {        
-            $catalogs = ArticleCatalogModel::recCatalogs(0);    
+            $catalogs = ArticleCatalogModel::recCatalogs(0);
             return self::responseSuccess('成功',$catalogs);
         }
         
