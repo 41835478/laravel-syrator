@@ -76,7 +76,7 @@ select {
 							<div class="actions">
 								<div class="btn-group">
 									<a href="{{ _route('admin:permission.user.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
-									<a class="btn" href="#" data-toggle="dropdown">选择显示列<i class="icon-angle-down"></i></a>
+									<a class="btn" href="#" data-toggle="dropdown">显示列<i class="icon-angle-down"></i></a>
 									<div id="syrator_table_permission_user_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
 										<label><input type="checkbox" checked data-column="1">编号</label>
 										<label><input type="checkbox" checked data-column="2">登录名 / 昵称</label>
