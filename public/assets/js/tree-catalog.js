@@ -8,7 +8,7 @@ function MenuTreeCatalog(elemId, dData) {
     		if(data.sub_catalogs != null && data.sub_catalogs.length>0) {
         		html += '<li class="">';
     			html += '<a href="">';
-    			html += '<i class="icon-home"></i><span class="title">' + data.name + '</span><span class="arrow "></span>';
+    			html += '<i class="icon-sitemap"></i><span class="title">' + data.name + '</span><span class="arrow "></span>';
     			html += '</a>';
 				html += '<ul class="sub-menu">';
     			for(var i=0; i<data.sub_catalogs.length; i++) {
@@ -19,7 +19,7 @@ function MenuTreeCatalog(elemId, dData) {
     		} else {
         		html += '<li class="">';
     			html += '<a href="">';
-    			html += '<i class="icon-home"></i><span class="title">' + data.name + '</span></span>';
+    			html += '<i class="icon-sitemap"></i><span class="title">' + data.name + '</span></span>';
     			html += '</a>';
 				html += '</li>';
     		}

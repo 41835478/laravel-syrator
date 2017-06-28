@@ -17,6 +17,10 @@ Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\
 	        
             Route::post('article/remove', 'ArticleController@remove');
             Route::post('article/removebatch', 'ArticleController@removeBatch');
+            
+            Route::any('article/import', 'ArticleController@import');
+            Route::any('article/export', 'ArticleController@export');
+            
 	        Route::resource('article', 'ArticleController',['except' => ['destroy']]);
 	        
 	        Route::post('catalog/remove', 'ArticleCatalogController@remove');

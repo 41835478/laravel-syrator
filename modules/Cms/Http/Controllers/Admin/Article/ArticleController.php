@@ -102,7 +102,7 @@ class ArticleController extends AdminController {
         }
         
         $entity = ArticleModel::find($id);
-        $entity->catalog_id = $entity->getCatalogName($entity->catalog_id);        
+        $entity->catalog_id = $entity->getCatalogName();
         $editStruct = $entity->getEditStructs();
 	    
 	    // 再修正
@@ -168,7 +168,7 @@ class ArticleController extends AdminController {
         }
 	
 	    $entity = ArticleModel::find($id);
-	    $entity->catalog_name = $entity->getCatalogName($entity->catalog_id);
+	    $entity->catalog_name = $entity->getCatalogName();
 	    
 	    return $this->view('article.show', compact('entity'));
 	}
@@ -216,5 +216,15 @@ class ArticleController extends AdminController {
 	    }
 	
 	    return $rth;
+	}
+	
+	public function import(Request $request)
+	{
+	    
+	}
+	
+	public function export(Request $request)
+	{
+	     
 	}
 }

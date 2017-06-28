@@ -68,6 +68,8 @@
 								<div class="btn-group">
 									<a href="{{ _route('cms:admin.article.article.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
 									<a href="javascript:void(0);" class="btn" id="removebatch"><i class="icon-remove"></i> 删除</a>
+								</div>								
+								<div class="btn-group">
 									<a class="btn" href="#" data-toggle="dropdown">显示列<i class="icon-angle-down"></i></a>
 									<div id="syrator_table_article_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
 										<label><input type="checkbox" checked data-column="1">标题</label>
@@ -75,11 +77,18 @@
 										<label><input type="checkbox" checked data-column="3">创建时间</label>
 										<label><input type="checkbox" checked data-column="4">更新时间</label>
 									</div>
+								</div>								
+								<div class="btn-group">
+									<a class="btn green" href="#" data-toggle="dropdown"><i class="icon-cogs"></i> 工具<i class="icon-angle-down"></i></a>
+									<ul class="dropdown-menu pull-right">
+										<li><a href="{{ _route('cms:admin.article.article.import') }}"> 导入</a></li>
+										<li><a href="{{ _route('cms:admin.article.article.export') }}"> 导出</a></li>
+									</ul>
 								</div>
 							</div>	
 						</div>
 						<div class="portlet-body">
-							<table class="table table-striped table-bordered table-hover" id="syrator_table_article">							
+							<table class="table table-striped table-bordered table-hover" id="syrator_table_article">
 								<thead>
 									<tr>
 										<th style="width:8px;text-align:center;">
