@@ -8,6 +8,8 @@ use Zizaco\Entrust\EntrustFacade as Entrust;
 use Modules\Cms\Model\ArticleModel;
 use Modules\Cms\Model\ArticleCatalogModel;
 
+use Excel;
+
 class ArticleController extends AdminController {
     
     public function __construct()
@@ -294,19 +296,38 @@ class ArticleController extends AdminController {
 	
 	public function export(Request $request)
 	{
-	    $grades = Grade::all();
-	    Excel::create('年级信息表', function($excel) use($grades) {
-	        $excel->sheet('sheetName', function($sheet) use($grades) {
-	            $sheet->fromArray($grades, null, 'A1', false, false);
+	    $articles = ArticleModel::all();
+	    foreach ($articles as $k => $value) {
+	        $value->catalog_id = $value->getCatalogName();
+	    }
+	    
+	    Excel::create('文章列表', function($excel) use($articles) {
+	        $excel->sheet('sheetName', function($sheet) use($articles) {
+	            $sheet->fromArray($articles, null, 'A1', false, false);
 	            $sheet->prependRow(1, array(
-	                'ID', '名称'
+	                'ID',
+	                '所属分类',
+	                '名称',
+	                '关键词',
+	                '摘要',
+	                '缩略图',
+	                '详细内容',
+	                '创建时间',
+	                '更新时间'
 	            ));
 	            $sheet->setWidth([
-	                'A' => 11,
-	                'B' => 8,
+	                'A' => 5,
+	                'B' => 20,
+	                'C' => 20,
+	                'D' => 30,
+	                'E' => 30,
+	                'F' => 30,
+	                'G' => 80,
+	                'H' => 20,
+	                'I' => 20,
 	            ]);
 	            $sheet->getDefaultStyle();
 	        });
-	    })->export('xls');
+	    })->export('xlsx');
 	}
 }
