@@ -4,6 +4,15 @@
 @parent
 <link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/select2_metro.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/DT_bootstrap.css') }}" />
+<style>
+.alert {
+    padding: 14px 35px 8px 14px;
+    margin-bottom: 0px;
+    border: 1px solid #9d9c9c;
+	border-left: 0;
+	border-right: 0;
+}
+</style>
 @stop
 
 @section('body_attr') class="page-header-fixed" @stop
@@ -81,7 +90,7 @@
 								<div class="btn-group">
 									<a class="btn green" href="#" data-toggle="dropdown"><i class="icon-cogs"></i> 工具<i class="icon-angle-down"></i></a>
 									<ul class="dropdown-menu pull-right">
-										<li><a href="{{ _route('cms:admin.article.article.import') }}"> 导入</a></li>
+										<li><a href="{{ _route('cms:admin.article.article.import') }}" id="import-excel" data-title="导入"> 导入</a></li>
 										<li><a href="{{ _route('cms:admin.article.article.export') }}"> 导出</a></li>
 									</ul>
 								</div>
@@ -152,6 +161,7 @@
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.columnFilter.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/js/table-expand.js') }}"></script>
+<script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
 @stop
 
 @section('filledScript')
@@ -215,6 +225,21 @@ jQuery(document).ready(function() {
                  }
             },"json");
       	}
+    });
+
+    $(document).on("click","#import-excel",function(evt) {
+        evt.preventDefault();
+        var that = this;
+        var src = $(this).attr("href");
+        var title = $(this).data('title');
+        layer.open({
+            type: 2,
+            title: title,
+            shadeClose: false,
+            shade: 0,
+            area: ['640px', '160px'],
+            content: src
+        });
     });
 });
 </script>

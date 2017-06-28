@@ -218,13 +218,95 @@ class ArticleController extends AdminController {
 	    return $rth;
 	}
 	
-	public function import(Request $request)
+	public function getImport(Request $request)
 	{
-	    
+	    return $this->view('article.import');
+	}
+	
+	public function postImport(Request $request)
+	{
+	    $this->validate($request, [
+	        'file' => 'required',
+	    ]);
+	     
+	    if ($file = $request->file('file')) {
+	        Excel::load($file, function($reader) {
+	            $results = $reader->all();
+	             
+	            $courseIds = array();
+	            $objCourse = new Course;
+	            $objClass = new GradeClass;
+	            $objTeacher = new Teacher;
+	             
+	            foreach($results as $k=>$sheet) {
+	                $rowCount = 0;
+	                foreach($sheet as $k=>$row) {
+	                    $rowCount++;
+	                     
+	                    if ($rowCount <= 2) {
+	                        continue;
+	                    }
+	                     
+	                    // 先处理科目
+	                    if ($rowCount == 3) {
+	                        foreach($row as $k=>$course) {
+	                            if (empty($course)) {
+	                                continue;
+	                            }
+	                             
+	                            $curCourse = $objCourse->getStoreCourseByName($course);
+	                             
+	                            $courseIds[$k] = $curCourse['id'];
+	                        }
+	                    }
+	                     
+	                    // 获取班级id
+	                    $curClass = $objClass->getClassByName($row[0]);
+	                    if (empty($curClass) || count($curClass)<=0) {
+	                        continue;
+	                    }
+	                     
+	                    // 处理教师信息
+	                    foreach($row as $k=>$course) {
+	                        if ($k==0) {
+	                            continue;
+	                        }
+	                         
+	                        $curTeacher = $objTeacher->getStoreTeacherByName($course,$courseIds[$k]);
+	                        if (empty($curTeacher) || count($curTeacher)<=0) {
+	                            continue;
+	                        }
+	
+	                        $teacherClass = new TeacherClass();
+	                        $teacherClass->course_id = $courseIds[$k];
+	                        $teacherClass->class_id = $curClass['id'];
+	                        $teacherClass->teacher_id = $curTeacher['id'];
+	                         
+	                        $teacherClass->save();
+	                    }
+	                }
+	            }
+	        });
+	    }
+	     
+	    return view('admin.import.teacher');
 	}
 	
 	public function export(Request $request)
 	{
-	     
+	    $grades = Grade::all();
+	    Excel::create('年级信息表', function($excel) use($grades) {
+	        $excel->sheet('sheetName', function($sheet) use($grades) {
+	            $sheet->fromArray($grades, null, 'A1', false, false);
+	            $sheet->prependRow(1, array(
+	                'ID', '名称'
+	            ));
+	            $sheet->setWidth([
+	                'A' => 11,
+	                'B' => 8,
+	            ]);
+	            $sheet->getDefaultStyle();
+	        });
+	    })->export('xls');
 	}
 }
