@@ -32,7 +32,8 @@
     28 => 'Pingpong\\Modules\\ModulesServiceProvider',
     29 => 'Zizaco\\Entrust\\EntrustServiceProvider',
     30 => 'Spatie\\Backup\\BackupServiceProvider',
-    31 => 'Syrator\\Providers\\SyratorServiceProvider',
+    31 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    32 => 'Syrator\\Providers\\SyratorServiceProvider',
   ),
   'eager' => 
   array (
@@ -55,7 +56,8 @@
     16 => 'Pingpong\\Modules\\ModulesServiceProvider',
     17 => 'Zizaco\\Entrust\\EntrustServiceProvider',
     18 => 'Spatie\\Backup\\BackupServiceProvider',
-    19 => 'Syrator\\Providers\\SyratorServiceProvider',
+    19 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    20 => 'Syrator\\Providers\\SyratorServiceProvider',
   ),
   'deferred' => 
   array (

@@ -165,6 +165,7 @@ return [
         Pingpong\Modules\ModulesServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         
         Syrator\Providers\SyratorServiceProvider::class,
     ],
@@ -218,6 +219,7 @@ return [
          */
         'Module'    => Pingpong\Modules\Facades\Module::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
