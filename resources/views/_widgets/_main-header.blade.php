@@ -21,7 +21,7 @@
 							<a href="">首页</a>
 						</li>
 						<li>
-							<a href="">布局</a>
+							<a href="documents">文档</a>
 						</li>
 						<li>
 							<a href="">表格</a>
