@@ -226,72 +226,30 @@ class ArticleController extends AdminController {
 	}
 	
 	public function postImport(Request $request)
-	{
-	    $this->validate($request, [
-	        'file' => 'required',
-	    ]);
-	     
-	    if ($file = $request->file('file')) {
-	        Excel::load($file, function($reader) {
-	            $results = $reader->all();
-	             
-	            $courseIds = array();
-	            $objCourse = new Course;
-	            $objClass = new GradeClass;
-	            $objTeacher = new Teacher;
-	             
-	            foreach($results as $k=>$sheet) {
-	                $rowCount = 0;
-	                foreach($sheet as $k=>$row) {
-	                    $rowCount++;
-	                     
-	                    if ($rowCount <= 2) {
-	                        continue;
-	                    }
-	                     
-	                    // 先处理科目
-	                    if ($rowCount == 3) {
-	                        foreach($row as $k=>$course) {
-	                            if (empty($course)) {
-	                                continue;
-	                            }
-	                             
-	                            $curCourse = $objCourse->getStoreCourseByName($course);
-	                             
-	                            $courseIds[$k] = $curCourse['id'];
-	                        }
-	                    }
-	                     
-	                    // 获取班级id
-	                    $curClass = $objClass->getClassByName($row[0]);
-	                    if (empty($curClass) || count($curClass)<=0) {
-	                        continue;
-	                    }
-	                     
-	                    // 处理教师信息
-	                    foreach($row as $k=>$course) {
-	                        if ($k==0) {
-	                            continue;
-	                        }
-	                         
-	                        $curTeacher = $objTeacher->getStoreTeacherByName($course,$courseIds[$k]);
-	                        if (empty($curTeacher) || count($curTeacher)<=0) {
-	                            continue;
-	                        }
-	
-	                        $teacherClass = new TeacherClass();
-	                        $teacherClass->course_id = $courseIds[$k];
-	                        $teacherClass->class_id = $curClass['id'];
-	                        $teacherClass->teacher_id = $curTeacher['id'];
-	                         
-	                        $teacherClass->save();
-	                    }
-	                }
-	            }
-	        });
-	    }
-	     
-	    return view('admin.import.teacher');
+	{	    
+	    if ($request->ajax()) {
+	        $file = $request->file('file');
+	        $results = array();
+    	    if ($file = $file->getRealPath()) {
+    	        $results = Excel::load($file, function($reader){})->get();
+    	        if (empty($results) || count($results)<=0) {
+    	            return self::responseFailed('302','文件读取失败或者文件为空');
+    	        }
+    	        
+                foreach($results as $k=>$sheet) {
+                    foreach($sheet as $k=>$row) {
+                        foreach($row as $k=>$cell) {
+                        }
+                    }
+                }
+    	        
+    	        return self::responseSuccess('导入成功',$results);
+    	    }
+    	    
+    	    return self::responseFailed('301','不存在待导入的文件');
+	    } else {
+            return self::responseFailed('501','非法请求，不予处理！');
+        }
 	}
 	
 	public function export(Request $request)

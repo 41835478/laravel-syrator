@@ -15,12 +15,13 @@ Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\
 	            return redirect('cms/admin/article/article');
 	        });
 	        
-            Route::post('article/remove', 'ArticleController@remove');
-            Route::post('article/removebatch', 'ArticleController@removeBatch');
+            Route::post('remove', 'ArticleController@remove');
+            Route::post('removebatch', 'ArticleController@removeBatch');
             
-            Route::get('article/import', 'ArticleController@getImport');
-            Route::post('article/import', 'ArticleController@postImport');
-            Route::any('article/export', 'ArticleController@export');
+            Route::get('import', 'ArticleController@getImport');
+            Route::post('import', 'ArticleController@postImport');
+            
+            Route::any('export', 'ArticleController@export');
             
 	        Route::resource('article', 'ArticleController',['except' => ['destroy']]);
 	        

@@ -90,8 +90,8 @@
 								<div class="btn-group">
 									<a class="btn green" href="#" data-toggle="dropdown"><i class="icon-cogs"></i> 工具<i class="icon-angle-down"></i></a>
 									<ul class="dropdown-menu pull-right">
-										<li><a href="{{ _route('cms:admin.article.article.import') }}" id="import-excel" data-title="导入"> 导入</a></li>
-										<li><a href="{{ _route('cms:admin.article.article.export') }}"> 导出</a></li>
+										<li><a href="{{ _route('cms:admin.article.import') }}" id="import-excel" data-title="导入"> 导入</a></li>
+										<li><a href="{{ _route('cms:admin.article.export') }}"> 导出</a></li>
 									</ul>
 								</div>
 							</div>	
@@ -188,7 +188,7 @@ jQuery(document).ready(function() {
     $(document).on("click","a.remove",function(evt) {
         var itemId = $(this).attr("item-id");
     	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-            $.post("{{ URL('cms/admin/article/article/remove') }}", {
+            $.post("{{ URL('cms/admin/article/remove') }}", {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:itemId,
             }, function(data){
@@ -213,7 +213,7 @@ jQuery(document).ready(function() {
         }
         
     	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-            $.post("{{ URL('cms/admin/article/article/removebatch') }}", {
+            $.post("{{ URL('cms/admin/article/removebatch') }}", {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:strIds,
             }, function(data){
