@@ -1,7 +1,7 @@
 {{-- widget.main-header --}}
 <div class="header navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
-		<div class="container">
+		<div class="container-fluid">
 			<a class="brand" href="">
 				<img src="/assets/metronic/image/logo.png" alt="logo" />
 			</a>
