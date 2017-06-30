@@ -1,1 +1,1 @@
-@extends('documents._layout._doc')
+@extends('_layout._common')
