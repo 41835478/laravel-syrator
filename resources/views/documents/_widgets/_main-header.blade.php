@@ -57,7 +57,7 @@
 			<ul class="nav pull-right">
 				<li class="dropdown" id="header_notification_bar">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<i class="icon-warning-sign"></i>
+					<i class="icon-bell"></i>
 					<span class="badge">2</span>
 					</a>
 					<ul class="dropdown-menu extended notification">
@@ -111,7 +111,7 @@
 				</li>
 				<li class="dropdown" id="header_task_bar">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<i class="icon-tasks"></i>
+					<i class="icon-calendar"></i>
 					<span class="badge">2</span>
 					</a>
 					<ul class="dropdown-menu extended tasks">
@@ -147,7 +147,7 @@
 				</li>
 				<li class="dropdown user">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    					<img style="width: 29px; height: 29px;" alt="{{ auth()->user()->username }}" src="{{ auth()->user()->avatar }}" />
+    					<img class="img-circle" alt="{{ auth()->user()->username }}" src="{{ auth()->user()->avatar }}" />
     					<span class="username">{{auth()->user()->username }}</span>
     					<i class="icon-angle-down"></i>
 					</a>
