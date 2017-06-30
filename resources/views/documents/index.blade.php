@@ -4,7 +4,7 @@
 @parent
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
+@section('body_attr') class="page-header-fixed theme-light2" @stop
 
 @section('content-header')
 @parent

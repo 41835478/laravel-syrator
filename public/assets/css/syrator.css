@@ -54,3 +54,23 @@
 	margin-right: 5px; 
 	display: inline-block;
 }
+
+body.theme-blue,
+body.theme-blue .page-sidebar {
+	background-color: #4276a4 !important;
+}
+
+body.theme-grey,
+body.theme-grey .page-sidebar {
+	background-color: #707b88 !important;
+}
+
+body.theme-light,
+body.theme-light .page-sidebar {
+	background-color: white !important;
+}
+
+body.theme-light2,
+body.theme-light2 .page-sidebar {
+	background-color: #f6f6f6 !important;
+}
