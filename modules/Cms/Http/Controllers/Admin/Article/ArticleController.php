@@ -236,12 +236,19 @@ class ArticleController extends AdminController {
     	            return self::responseFailed('302','文件读取失败或者文件为空');
     	        }
     	        
-                foreach($results as $k=>$sheet) {
-                    foreach($sheet as $k=>$row) {
-                        foreach($row as $k=>$cell) {
+    	        if(is_array($results)) {
+                    foreach($results as $k1=>$sheet) {
+                        if(is_array($sheet)) {
+                            foreach($sheet as $k2=>$row) {
+                                if(is_array($row)) {
+                                    foreach($row as $k3=>$cell) {
+                                        $cell;
+                                    }
+                                }
+                            }
                         }
                     }
-                }
+    	        }
     	        
     	        return self::responseSuccess('导入成功',$results);
     	    }
