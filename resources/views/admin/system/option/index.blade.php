@@ -82,21 +82,9 @@
 												</div>
 											</div>
 											<div class="control-group">
-												<label class="control-label">公司全称</label>
+												<label class="control-label">网站描述</label>
 												<div class="controls">
-													<input type="text" class="m-wrap large" name="data[company_full_name]" autocomplete="off" value="{{ $data['company_full_name'] }}" placeholder="公司全称">
-												</div>
-											</div>
-											<div class="control-group">
-												<label class="control-label">公司简称</label>
-												<div class="controls">
-													<input type="text" class="m-wrap large" name="data[company_short_name]" autocomplete="off" value="{{ $data['company_short_name'] }}" placeholder="公司简称">
-												</div>
-											</div>
-											<div class="control-group">
-												<label class="control-label">公司电话</label>
-												<div class="controls">   
-													<input type="text" class="m-wrap large" name="data[company_telephone]" autocomplete="off" value="{{ $data['company_telephone'] }}" placeholder="公司电话">
+													<input type="text" class="m-wrap large"" name="data[website_description]" autocomplete="off" value="{{ $data['website_description'] }}" placeholder="网站描述">
 												</div>
 											</div>
 											<div class="control-group">
@@ -106,40 +94,27 @@
 												</div>
 											</div>
 											<div class="control-group">
-												<label class="control-label">后台分页大小</label>
+												<label class="control-label">公司全称</label>
 												<div class="controls">
-													<select class="small m-wrap" tabindex="1" data-placeholder="后台分页大小" name="data[page_size]">		
-                                                        <option value="10" {{ ($data['page_size'] === "10") ? 'selected':'' }}>10</option>
-                                                        <option value="15" {{ ($data['page_size'] === "15") ? 'selected':'' }}>15</option>
-                                                        <option value="20" {{ ($data['page_size'] === "50") ? 'selected':'' }}>20</option>
-                                                        <option value="25" {{ ($data['page_size'] === "25") ? 'selected':'' }}>25</option>
-													</select>
+													<input type="text" class="m-wrap large" name="data[organization_fullname]" autocomplete="off" value="{{ $data['organization_fullname'] }}" placeholder="公司全称">
 												</div>
 											</div>
-        									<div class="control-group">
-        										<label class="control-label">图片水印 </label>
-        										<div class="controls">
-        											<div class="fileupload fileupload-new" data-provides="fileupload">
-        												<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-        													<img src="{{ $data['picture_watermark'] }}" alt="" />
-        												</div>
-        												<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-        												<div>
-        													<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
-        													<span class="fileupload-exists">修改</span>
-        													<input type="file" class="default" name="file_picture_watermark" id="file_picture_watermark" accept=".jpg,.png,.gif,.bmp" /></span>
-        													<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
-        													<a id="uploadSubmit_picture_watermark" class="btn fileupload-exists">上传</a>
-        												</div>
-        												<input type="hidden" id="picture_watermark" name="data[picture_watermark]" value="{{ $data['picture_watermark'] }}">
-        											</div>                                                	
-        										</div>
-        									</div>
 											<div class="control-group">
-												<label class="control-label">上传图片是否添加水印</label>
+												<label class="control-label">公司简称</label>
 												<div class="controls">
-													<label class="radio"><input type="radio" name="data[is_watermark]" value="0" {{($data['is_watermark'] === '0')?'checked':''}}/>否</label>
-													<label class="radio"><input type="radio" name="data[is_watermark]" value="1" {{($data['is_watermark'] === '1')?'checked':''}}/>是</label>   
+													<input type="text" class="m-wrap large" name="data[organization_nickname]" autocomplete="off" value="{{ $data['organization_nickname'] }}" placeholder="公司简称">
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">公司电话</label>
+												<div class="controls">   
+													<input type="text" class="m-wrap large" name="data[organization_telephone]" autocomplete="off" value="{{ $data['organization_telephone'] }}" placeholder="公司电话">
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">公司地址</label>
+												<div class="controls">   
+													<input type="text" class="m-wrap large" name="data[organization_address]" autocomplete="off" value="{{ $data['organization_address'] }}" placeholder="公司地址">
 												</div>
 											</div>
 											<div class="form-actions">
@@ -151,41 +126,34 @@
 										<form method="post" action="{{ _route('admin:system.option') }}" class="form-horizontal" accept-charset="utf-8" id="formTab2">
         									{!! method_field('put') !!} 
                                             {!! csrf_field() !!}
-        									<div class="control-group">
-        										<label class="control-label">系统Logo</label>
-        										<div class="controls">
-        											<div class="fileupload fileupload-new" data-provides="fileupload">
-        												<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-        													<img src="{{ $data['system_logo'] }}" alt="" />
-        												</div>
-        												<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-        												<div>
-        													<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
-        													<span class="fileupload-exists">修改</span>
-        													<input type="file" class="default" name="file_system_logo" id="file_system_logo" accept=".jpg,.png,.gif,.bmp" /></span>
-        													<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
-        													<a id="uploadSubmit_system_logo" class="btn fileupload-exists">上传</a>
-        												</div>
-        												<input type="hidden" id="system_logo" name="data[system_logo]" value="{{ $data['system_logo'] }}">
-        											</div>
-        										</div>
-        									</div>
 											<div class="control-group">
 												<label class="control-label">系统版本号</label>
 												<div class="controls">
-													<input type="text" class="m-wrap large" name="data[system_version]" autocomplete="off" value="{{ $data['system_version'] }}" placeholder="系统版本号">
+													<input type="text" class="m-wrap large" name="data[version_code]" autocomplete="off" value="{{ $data['version_code'] }}" placeholder="系统版本号">
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">系统版本名</label>
+												<div class="controls">
+													<input type="text" class="m-wrap large" name="data[version_name]" autocomplete="off" value="{{ $data['version_name'] }}" placeholder="系统版本名">
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label">版本更新说明</label>
+												<div class="controls">
+													<input type="text" class="m-wrap large" name="data[version_log]" autocomplete="off" value="{{ $data['version_log'] }}" placeholder="版本更新说明">
 												</div>
 											</div>
 											<div class="control-group">
 												<label class="control-label">系统开发者</label>
 												<div class="controls">
-													<input type="text" class="m-wrap large" name="data[system_author]" autocomplete="off" value="{{ $data['system_author'] }}" placeholder="系统开发者">
+													<input type="text" class="m-wrap large" name="data[author_name]" autocomplete="off" value="{{ $data['author_name'] }}" placeholder="系统开发者">
 												</div>
 											</div>
 											<div class="control-group">
-												<label class="control-label">系统开发者网站</label>
+												<label class="control-label">开发者网站</label>
 												<div class="controls">
-													<input type="text" class="m-wrap large" name="data[system_author_website]" autocomplete="off" value="{{ $data['system_author_website'] }}" placeholder="系统开发者网站">
+													<input type="text" class="m-wrap large" name="data[author_url]" autocomplete="off" value="{{ $data['author_url'] }}" placeholder="系统开发者网站">
 												</div>
 											</div>
 											<div class="form-actions">

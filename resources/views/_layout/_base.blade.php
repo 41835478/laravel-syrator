@@ -10,7 +10,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="{{ cache('website_description') }}" />
     <meta name="keywords" content="{{ cache('website_keywords') }}" />
-    <meta name="author" content="{{ cache('system_author_website') }}" />
+    <meta name="author" content="{{ cache('author_name') }}" />
     <meta name="_token" content="{{ csrf_token() }}"/>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
