@@ -11,6 +11,7 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"
 @section('content')
 <div class="page-wrapper">
 	@include('admin._widgets._main-header')
+	<div class="clearfix"> </div>
 	<div class="page-container">
 		@include('admin._widgets._main-sidebar')
 		<div class="page-content-wrapper">
