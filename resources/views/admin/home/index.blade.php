@@ -4,20 +4,13 @@
 @parent
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
-@parent
-@include('admin._widgets._main-header')
-@stop
-
-@section('content-footer')
-@parent
-@include('admin._widgets._main-footer')
+@section('body_attr') 
+class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" 
 @stop
 
 @section('content')
-<div class="page-container">
+<div class="page-wrapper">
+	@include('admin._widgets._main-header')
 	@include('admin._widgets._main-sidebar')
 	<div class="page-content" style="min-height:993px !important">
 		<div class="container-fluid">
@@ -35,7 +28,8 @@
 				</div>
 			</div>
 		</div>  
-	</div>
+	</div>	
+	@include('admin._widgets._main-footer')
 </div>
 @stop
 

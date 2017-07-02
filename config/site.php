@@ -70,65 +70,6 @@ return [
             'pattern' => '/^lib\/.*/i',
         ],
 
-        #静态资源缩略别名，用于引用 路径较长 的资源，也为了方便后续静态类库的版本升级
-        'alias' => [
-            #基础通用样式和js
-            'bootstrap.css'                 => 'assets/metronic/css/bootstrap.min.css',
-            'bootstrap-responsive.css'      => 'assets/metronic/css/bootstrap-responsive.min.css',
-            'font-awesome.css'              => 'assets/metronic/css/font-awesome.min.css',
-            'style-metro.css'               => 'assets/metronic/css/style-metro.css',
-            'style.css'                     => 'assets/metronic/css/style.css',
-            'style-responsive.css'          => 'assets/metronic/css/style-responsive.css',
-            'default.css'                   => 'assets/metronic/css/default.css',
-            'uniform.default.css'           => 'assets/metronic/css/uniform.default.css',
-            
-            'jquery.js'                     => 'assets/metronic/js/jquery-1.10.1.min.js',
-            'jquery-migrate.js'             => 'assets/metronic/js/jquery-migrate-1.2.1.min.js',
-            'jquery-ui.custom.js'           => 'assets/metronic/js/jquery-ui-1.10.1.custom.min.js',
-            'bootstrap.js'                  => 'assets/metronic/js/bootstrap.min.js',
-            'jquery.slimscroll.js'          => 'assets/metronic/js/jquery.slimscroll.min.js',
-            'jquery.blockui.js'             => 'assets/metronic/js/jquery.blockui.min.js',
-            'jquery.cookie.js'              => 'assets/metronic/js/jquery.cookie.min.js',
-            'jquery.uniform.js'             => 'assets/metronic/js/jquery.uniform.min.js',
-            
-            'app.js'                        => 'assets/metronic/js/app.js',
-
-            'syrator.css'                   => 'assets/css/syrator.css',
-            'syrator.js'                    => 'assets/js/syrator.js',
-            
-            #相关插件样式和js                  
-            'lib.form.js'                   => 'lib/form/jquery.form.js',
-            
-            'layer.js'                      => 'lib/layer-2.x/layer.js',
-            
-            'icheck.js'                     => 'lib/icheck-1.x/icheck.min.js',
-            'icheck_all.css'                => 'lib/icheck-1.x/skins/all.css',
-            'icheck_blue.css'               => 'lib/icheck-1.x/skins/square/blue.css',
-            
-            'ionicons.css'                  => 'lib/ionicons/css/ionicons.min.css',
-            
-            'html5shiv.js'                  => 'lib/html5shiv/dist/html5shiv.min.js',
-            
-            'respond.js'                    => 'lib/respond/dest/respond.min.js',
-            
-            'chosen.js'                     => 'lib/chosen/chosen.jquery.min.js',
-            'chosen.css'                    => 'lib/chosen/chosen.css',
-            
-            'ckeditor.js'                   => 'lib/ckeditor/ckeditor.js',
-            
-            'my97datepicker.js'             => 'lib/My97DatePicker/WdatePicker.js',     
-            
-            'jquery.dataTables.min.js'      => 'lib/datatables/jquery.dataTables.min.js',
-            'dataTables.bootstrap.min.js'   => 'lib/datatables/dataTables.bootstrap.min.js',
-            'dataTables.bootstrap.css'      => 'lib/datatables/dataTables.bootstrap.css',
-            
-            'jquery.slimscroll.min.js'      => 'lib/slimScroll/jquery.slimscroll.min.js',
-            'jquery.slimscroll.js'          => 'lib/slimScroll/jquery.slimscroll.js',
-            
-            'fastclick.min.js'              => 'lib/fastclick/fastclick.min.js',
-            'fastclick.js'                  => 'lib/fastclick/fastclick.js',
-        ],
-
     ],
 
     // 文件存储相关配置(留作以后扩展)
