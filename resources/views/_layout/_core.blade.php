@@ -2,28 +2,28 @@
 
 @section('head_css_mandatory')
 @parent
-@include('_layout._css_mandatory')
+@include('_widgets.assets.style_core')
 @stop
 
 @section('head_css_page_level_plugins')
 @parent
-@show
+@stop
 
 @section('head_css_theme_global')
 @parent
-@show
+@stop
 
 @section('head_css_page_level')
 @parent
-@show
+@stop
 
 @section('head_css_theme_layout')
 @parent
-@show
+@stop
 
 @section('head_js_core_plugins')
 @parent
-@include('_layout._js_core_plugins')
+@include('_widgets.assets.script_core')
 @stop
 
 @section('head_js_page_level_plugins')
