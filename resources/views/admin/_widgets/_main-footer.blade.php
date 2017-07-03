@@ -1,4 +1,3 @@
-{{-- widget._main-footer --}}
 <div class="page-footer">
 	<div class="page-footer-inner">
 		2016 &copy; Syrator by recoding.

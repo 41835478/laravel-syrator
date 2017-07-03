@@ -54,7 +54,9 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"
                 <h1 class="page-title">
                     @section('page-content-title')
         			@show
-                </h1>
+                </h1>                
+                @include('_widgets.message._fail')
+                @include('_widgets.message._errors')
             	@section('page-content-row')
     			@show
     		</div>

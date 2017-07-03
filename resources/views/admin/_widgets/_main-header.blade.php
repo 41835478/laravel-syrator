@@ -1,4 +1,3 @@
-{{-- widget._main-header --}}
 <div class="page-header navbar navbar-fixed-top">
 	<div class="page-header-inner">
     	<div class="page-logo">
