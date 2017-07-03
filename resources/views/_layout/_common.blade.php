@@ -2,13 +2,7 @@
 
 @section('head_css_mandatory')
 @parent
-<!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('assets/metronic/global/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('assets/metronic/global/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('assets/metronic/global/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
-<!-- END GLOBAL MANDATORY STYLES -->
+@include('_layout._css_mandatory')
 @stop
 
 @section('head_css_page_level_plugins')
@@ -38,14 +32,7 @@
 
 @section('head_js_core_plugins')
 @parent
-<!-- BEGIN CORE PLUGINS -->
-<script src="{{ _asset('assets/metronic/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/js.cookie.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
+@include('_layout._js_core_plugins')
 @stop
 
 @section('head_js_page_level_plugins')
