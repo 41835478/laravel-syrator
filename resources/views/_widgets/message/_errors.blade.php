@@ -1,7 +1,6 @@
-{{-- widget._errors-message --}}
 @if($errors->any())
-<div class="alert alert-danger alert-dismissable">
-	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+<div class="alert alert-danger">
+	<button class="close" data-close="alert"></button>
 	<h4>
 		<i class="icon fa fa-ban"></i> 警告！
 	</h4>
