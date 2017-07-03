@@ -1,4 +1,4 @@
-@extends('_layout._base_ex')
+@extends('_layout._core')
 
 @section('head_css_mandatory')
 @parent
