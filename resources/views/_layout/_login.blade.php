@@ -19,17 +19,17 @@
 @section('head_css_page_level')
 @parent
 <!-- BEGIN PAGE LEVEL STYLES -->
-<link href="../assets/pages/css/login-3.min.css" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/pages/css/login-3.min.css') }}" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL STYLES -->
 @stop
 
-@section('head_css_theme_layout')
+@section('head_js_page_level_plugins')
 @parent
-<!-- BEGIN THEME LAYOUT STYLES -->
-<link href="{{ _asset('assets/metronic/layouts/layout/css/layout.min.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('assets/metronic/layouts/layout/css/themes/darkblue.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
-<link href="{{ _asset('assets/metronic/layouts/layout/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
-<!-- END THEME LAYOUT STYLES -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="{{ _asset('assets/metronic/global/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/jquery-validation/js/additional-methods.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
 @stop
 
 @section('head_js_theme_global')
@@ -39,12 +39,9 @@
 <!-- END THEME GLOBAL SCRIPTS -->
 @stop
 
-@section('head_js_theme_layout')
+@section('head_js_page_level')
 @parent
-<!-- BEGIN THEME LAYOUT SCRIPTS -->
-<script src="{{ _asset('assets/metronic/layouts/layout/scripts/layout.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/layouts/layout/scripts/demo.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/layouts/global/scripts/quick-sidebar.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/layouts/global/scripts/quick-nav.min.js') }}" type="text/javascript"></script>
-<!-- END THEME LAYOUT SCRIPTS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{{ _asset('assets/metronic/pages/scripts/login.min.js') }}" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
 @stop
