@@ -2,7 +2,6 @@
 
 @section('head_css')
 @parent
-<link href="{{ _asset('assets/metronic/css/login.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
 @section('body_attr') class="login" @stop
@@ -14,7 +13,12 @@
 
 @section('content')
 <div class="logo">
-	<img src="{{ _asset('/assets/metronic/image/logo-big.png') }}" alt="" /> 
+	<img src="" alt="" /> 
+</div>
+<div class="logo">
+    <a href="{{ site_url('', '') }}">
+        <img src="{{ _asset('assets/metronic/pages/img/logo-big.png') }}" alt="" /> 
+    </a>
 </div>
 <div class="content">
 	<form class="form-vertical login-form" method="post" action="{{ site_url('auth/login', 'admin') }}">

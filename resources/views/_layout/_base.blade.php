@@ -7,33 +7,27 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ cache('website_title') }}</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="description" content="{{ cache('website_description') }}" />
-    <meta name="keywords" content="{{ cache('website_keywords') }}" />
-    <meta name="author" content="{{ cache('author_name') }}" />
-    <meta name="_token" content="{{ csrf_token() }}"/>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="{{ cache('website_description') }}" name="description" />
+    <meta content="{{ cache('website_keywords') }}" name="keywords" />
+    <meta content="{{ cache('author_name') }}" name="author" />
+    <meta content="{{ csrf_token() }}" name="_token" />
+    <meta content="webkit" name="renderer" >
     <meta property="wb:webmaster" content="6a9cf8c6a5ca67c3" />
+   
+    @section('meta')
+    @show
     
     <link rel="shortcut icon" href="{{ _asset('favicon.ico') }}" type="image/x-icon">
 
-    @section('meta')
-    @show
-
     @section('head_css')
-    @show
-
-    @section('head_js')
-    @show
-
-    @section('beforeStyle')
     @show
 
     @section('head_style')
     @show
 
-    @section('afterStyle')
+    @section('head_js')
     @show
     
 </head>
