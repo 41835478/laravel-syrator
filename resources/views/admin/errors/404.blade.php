@@ -39,15 +39,3 @@
 	@include('admin._widgets._main-footer')
 </div>
 @stop
-
-@section('extraPlugin')
-@parent
-@stop
-
-@section('filledScript')
-<script>
-jQuery(document).ready(function() {    
-   App.init();
-});
-</script>
-@stop
