@@ -119,7 +119,7 @@
     		</li>    		
     		<li class="nav-item  ">
                 <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-briefcase"></i>
+                    <i class="icon-docs"></i>
                     <span class="title">应用管理</span>
                     <span class="arrow"></span>
                 </a>
