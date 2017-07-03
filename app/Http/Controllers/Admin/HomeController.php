@@ -22,7 +22,7 @@ class HomeController extends BackController
 
     public function getIndex()
     {
-        if(!Entrust::can('admin.homeasas')) {
+        if(!Entrust::can('admin.home')) {
             return deny();
         }
         

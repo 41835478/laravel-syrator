@@ -26,10 +26,10 @@
                 </h1>
                 <div class="row">
                     <div class="col-md-12 page-404">
-                        <div class="number font-green"> 404 </div>
+                        <div class="number font-green"> 403 </div>
                         <div class="details">
                             <h3>异常警告：权限不足</h3>
-                            <p> 您没有权限访问当前页面内容，请联系超级管理员或访问其它页面节点！ </p>
+                            <p>您没有权限访问当前页面内容，请联系超级管理员或访问其它页面节点!</p>
                         </div>
                     </div>
                 </div>
