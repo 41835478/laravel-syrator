@@ -1,20 +1,35 @@
-@extends('_layout._common')
+@extends('_layout._admin')
 
-@section('head_css')
-@parent
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/error.css') }}" />
-@stop
-
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
-@parent
-@include('admin._widgets._main-header')
-@stop
-
-@section('content-footer')
-@parent
-@include('admin._widgets._main-footer')
+@section('content')
+<div class="page-wrapper">
+	@include('admin._widgets._main-header')
+	<div class="clearfix"> </div>
+	<div class="page-container">
+		@include('admin._widgets._main-sidebar')
+		<div class="page-content-wrapper">
+			<div class="page-content">
+				<div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <a href="#">首页</a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>控制台</span>
+                        </li>
+                    </ul>
+                </div>                
+                <h1 class="page-title"> {{cache('website_title')}}
+                    <small>后台管理控制台</small>
+                </h1>
+                <div class="note note-info">
+                    <p> {{cache('website_title')}}后台管理系统 </p>
+                </div>
+    		</div>
+		</div>
+	</div>	
+	@include('admin._widgets._main-footer')
+</div>
 @stop
 
 @section('content')

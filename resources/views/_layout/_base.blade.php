@@ -34,7 +34,7 @@
     @show
     
 </head>
-<body @section('body_attr') class="" @show>
+<body @section('body_attr') @show>
 
     @section('beforeBody')
     @show

@@ -1,5 +1,10 @@
 @extends('_layout._core')
 
+@section('body_attr') 
+@parent
+class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" 
+@stop
+
 @section('head_css_theme_global')
 @parent
 <!-- BEGIN THEME GLOBAL STYLES -->

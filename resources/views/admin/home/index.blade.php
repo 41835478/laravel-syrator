@@ -4,10 +4,6 @@
 @parent
 @stop
 
-@section('body_attr') 
-class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" 
-@stop
-
 @section('content')
 <div class="page-wrapper">
 	@include('admin._widgets._main-header')

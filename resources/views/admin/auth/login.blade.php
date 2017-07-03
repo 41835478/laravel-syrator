@@ -9,8 +9,6 @@
 </style>
 @stop
 
-@section('body_attr') class="login" @stop
-
 @section('content-footer')
 @parent
 @include('admin._widgets._login-footer')

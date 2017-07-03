@@ -1,5 +1,7 @@
 @extends('_layout._core')
 
+@section('body_attr') class="login" @stop
+
 @section('head_css_page_level_plugins')
 @parent
 <!-- BEGIN PAGE LEVEL PLUGINS -->
