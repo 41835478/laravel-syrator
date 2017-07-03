@@ -1,6 +1,6 @@
 @extends('_layout._admin')
 
-@section('head_css')
+@section('head_style')
 @parent
 @stop
 

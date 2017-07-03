@@ -2,6 +2,7 @@
 
 @section('head_css')
 @parent
+
 	@section('head_css_mandatory')
     @show
     
@@ -22,6 +23,7 @@
 
 @section('head_js')
 @parent
+
     <!--[if lt IE 9]>
     <script src="{{ _asset('assets/global/plugins/respond.min.js') }}"></script>
     <script src="{{ _asset('assets/global/plugins/excanvas.min.js') }}"></script> 
@@ -49,6 +51,7 @@
 @stop
 
 @section('body')
+@parent
 
     @section('content-header')
     @show
@@ -62,7 +65,8 @@
 @stop
 
 @section('afterBody')
-    
+@parent
+
     @section('extraPlugin')
     @show
 

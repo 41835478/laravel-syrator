@@ -1,4 +1,4 @@
-@extends('_layout._common_core')
+@extends('_layout._login')
 
 @section('head_css')
 @parent

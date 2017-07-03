@@ -24,10 +24,13 @@
     @section('head_css')
     @show
 
+    @section('head_js')
+    @show
+    
     @section('head_style')
     @show
-
-    @section('head_js')
+    
+    @section('head_script')
     @show
     
 </head>
