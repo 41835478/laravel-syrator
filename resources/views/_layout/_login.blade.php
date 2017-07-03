@@ -30,7 +30,7 @@
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="{{ _asset('assets/metronic/global/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
 <script src="{{ _asset('assets/metronic/global/plugins/jquery-validation/js/additional-methods.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 @stop
 

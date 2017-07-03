@@ -75,8 +75,6 @@
 
 @section('extraPlugin')
 @parent
-<script src="{{ _asset('assets/metronic/js/jquery.validate.min.js') }}" type="text/javascript"></script>
-<script src="{{ _asset('assets/metronic/js/login.js') }}" type="text/javascript"></script>
 @stop
 
 @section('filledScript')
