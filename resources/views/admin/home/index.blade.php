@@ -22,7 +22,7 @@
                             <span>控制台</span>
                         </li>
                     </ul>
-                </div>                
+                </div>
                 <h1 class="page-title"> {{cache('website_title')}}
                     <small>后台管理控制台</small>
                 </h1>
