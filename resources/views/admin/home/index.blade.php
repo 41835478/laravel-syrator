@@ -15,7 +15,7 @@
 				<div class="page-bar">
                     <ul class="page-breadcrumb">
                         <li>
-                            <a href="#">首页</a>
+                            <a href="{{ site_url('home', 'admin') }}">首页</a>
                             <i class="fa fa-circle"></i>
                         </li>
                         <li>
