@@ -38,3 +38,28 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"
 <script src="{{ _asset('assets/metronic/layouts/global/scripts/quick-nav.min.js') }}" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 @stop
+
+@section('content')
+<div class="page-wrapper">
+	@include('admin._widgets._main-header')
+	<div class="clearfix"> </div>
+	<div class="page-container">
+		@include('admin._widgets._main-sidebar')
+		<div class="page-content-wrapper">
+			<div class="page-content">
+				<div class="page-bar">                    
+                    @section('page-content-bar')
+        			@show
+                </div>                
+                <h1 class="page-title">
+                    @section('page-content-title')
+        			@show
+                </h1>
+            	@section('page-content-row')
+    			@show
+    		</div>
+		</div>
+	</div>	
+	@include('admin._widgets._main-footer')
+</div>
+@stop

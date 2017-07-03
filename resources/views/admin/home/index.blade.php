@@ -1,49 +1,26 @@
 @extends('_layout._admin')
 
-@section('head_style')
+@section('page-content-bar')
 @parent
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('home', 'admin') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <span>控制台</span>
+    </li>
+</ul>
 @stop
 
-@section('content')
-<div class="page-wrapper">
-	@include('admin._widgets._main-header')
-	<div class="clearfix"> </div>
-	<div class="page-container">
-		@include('admin._widgets._main-sidebar')
-		<div class="page-content-wrapper">
-			<div class="page-content">
-				<div class="page-bar">
-                    <ul class="page-breadcrumb">
-                        <li>
-                            <a href="{{ site_url('home', 'admin') }}">首页</a>
-                            <i class="fa fa-circle"></i>
-                        </li>
-                        <li>
-                            <span>控制台</span>
-                        </li>
-                    </ul>
-                </div>
-                <h1 class="page-title"> {{cache('website_title')}}
-                    <small>后台管理控制台</small>
-                </h1>
-                <div class="note note-info">
-                    <p> {{cache('website_title')}}后台管理系统 </p>
-                </div>
-    		</div>
-		</div>
-	</div>	
-	@include('admin._widgets._main-footer')
+@section('page-content-title')
+@parent
+{{cache('website_title')}}<small>后台管理控制台</small>
+@stop
+
+@section('page-content-row')
+@parent
+<div class="note note-info">
+    <p> {{cache('website_title')}}后台管理系统 </p>
 </div>
-@stop
-
-@section('extraPlugin')
-@parent
-@stop
-
-@section('filledScript')
-<script>
-jQuery(document).ready(function() {    
-   App.init();
-});
-</script>
 @stop
