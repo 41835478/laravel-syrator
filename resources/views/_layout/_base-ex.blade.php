@@ -18,7 +18,7 @@
     @section('head_css_theme_layout')
     @show
     
-	<link href="{{ _asset('assets/css/syrator.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ _asset('assets/syrator/css/syrator.css') }}" rel="stylesheet" type="text/css"/>
 @stop
 
 @section('head_js')
@@ -47,7 +47,7 @@
 	<!-- BEGIN WECHAT SDK -->
 	<script src="https://res.wx.qq.com/open/js/jweixin-1.1.0.js" type="text/javascript"></script>	
 	<!-- END WECHAT SDK -->	
-	<script src="{{ _asset('assets/js/syrator.js') }}" type="text/javascript" ></script>
+	<script src="{{ _asset('assets/syrator/js/syrator.js') }}" type="text/javascript" ></script>
 @stop
 
 @section('body')
