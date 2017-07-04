@@ -7,7 +7,7 @@ var TableExpand = function () {
             
             var oTable = $('#'+elemId).dataTable({
                 "language": {
-                   url: '{{ _asset("assets/syrator/js/Chinese.json") }}"'
+                   url: '/assets/syrator/js/datatables/Chinese.json'
                 },
 
                 buttons: [
