@@ -632,10 +632,6 @@
 
 @section('extraPlugin')
 @parent
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/select2.min.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.columnFilter.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/syrator/js/table-expand.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/lib/layer-2.x/layer.js') }}"></script>
 @stop
@@ -647,7 +643,7 @@ jQuery(document).ready(function() {
 
     var selectValues = new Array();
     selectValues[0] = "顶级分类";
-    @foreach ($catalogs as $k => $v)
+    @foreach ($groups as $k => $v)
     selectValues[{{$v->id}}] = "{{$v->name}}";
     @endforeach
     TableExpand.init({

@@ -3,7 +3,7 @@
 	<div class="navbar-inner">
 		<div class="container-fluid">
 			<a class="brand" href="">
-				<img src="{{ _asset('assets/image/logo.png') }}" alt="logo" />
+				<img src="{{ _asset('assets/syrator/image/logo.png') }}" alt="logo" />
 			</a>
 			<div class="navbar hor-menu hidden-phone hidden-tablet">
 				<div class="navbar-inner">

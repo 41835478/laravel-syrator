@@ -2,7 +2,7 @@
 	<div class="page-header-inner">
     	<div class="page-logo">
             <a href="{{ site_url('home', 'admin') }}">
-                <img src="{{ _asset('assets/image/logo.png') }}" alt="logo" class="logo-default" /> 
+                <img src="{{ _asset('assets/syrator/image/logo.png') }}" alt="logo" class="logo-default" /> 
             </a>
             <div class="menu-toggler sidebar-toggler">
                 <span></span>
