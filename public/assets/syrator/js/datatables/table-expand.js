@@ -12,7 +12,7 @@ var TableExpand = function () {
 
                 buttons: [
                     { extend: 'print', className: 'btn dark btn-outline' },
-                    { extend: 'pdf', className: 'btn green btn-outline' },
+                    { extend: 'pdf', className: 'btn dark btn-outline' },
                     { extend: 'csv', className: 'btn purple btn-outline ' }
                 ],
 
