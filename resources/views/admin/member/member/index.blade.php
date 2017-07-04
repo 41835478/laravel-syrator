@@ -18,6 +18,10 @@
 <script src="{{ _asset('assets/syrator/js/datatables/table-expand.js') }}" type="text/javascript"></script>
 @stop
 
+@section('syrator_style')
+@parent
+@stop
+
 @section('page-content-bar')
 @parent
 <ul class="page-breadcrumb">
@@ -38,14 +42,42 @@
     <div class="col-md-12">
         <div class="portlet box green">
             <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-globe"></i>会员列表</div>
+                <div class="caption"><i class="fa fa-globe"></i>会员列表</div> 
                 <div class="actions">
-                    <a href="javascript:;" class="btn btn-default btn-sm">
-                        <i class="fa fa-plus"></i> Add </a>
-                    <a href="javascript:;" class="btn btn-default btn-sm">
-                        <i class="fa fa-print"></i> Print </a>
-                </div>
+                    <a href="{{ _route('admin:member.member.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
+                    	<span>新增</span>
+                    </a>                    
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-default dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">显示列  <i class="fa fa-angle-down"></i></a>
+        				<div id="syrator_table_member_column_toggler" class="dropdown-menu dropdown-checkboxes pull-right" role="menu">
+    						<label><input type="checkbox" checked data-column="1">账号</label>
+    						<label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="2">手机号<span></span></label>
+    						<label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="3">角色<span></span></label>
+    						<label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="4">昵称<span></span></label>
+    						<label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="5">邮箱<span></span></label>
+    					</div>					
+                    </div>
+                    
+                    <div class="actions">
+                        <div class="btn-group open">
+                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown" aria-expanded="true"> Actions
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <label><input type="checkbox" checked data-column="1">账号</label>
+                                </li>
+                                <li><label><input type="checkbox" checked data-column="1">账号</label>
+                                </li>
+                                <li><label><input type="checkbox" checked data-column="1">账号</label>
+                                </li>
+                                <li class="divider"> </li>
+                                <li><label><input type="checkbox" checked data-column="1">账号</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+    			</div>
             </div>
             <div class="portlet-body">
 				<table class="table table-striped table-bordered table-hover table-checkable order-column" id="syrator_table_member">
@@ -57,8 +89,8 @@
                                     <span></span>
                                 </label>
                             </th>
-							<th style="">账号</th>
-							<th style="">手机号</th>
+							<th data-field="column2" style="">账号</th>
+							<th data-field="column3" style="">手机号</th>
 							<th style="">角色</th>
 							<th style="">昵称</th>
 							<th style="">邮箱</th>

@@ -6,7 +6,7 @@ var TableExpand = function () {
                 "language": {
                    url: '/assets/syrator/js/datatables/Chinese.json'
                 },
-                "bStateSave": true,                
+                "bStateSave": false,                
                 "lengthMenu": [
                     [5, 10, 15, 20, -1],
                     [5, 10, 15, 20, "全部"]
@@ -53,6 +53,12 @@ var TableExpand = function () {
 
             table.on('change', 'tbody tr .checkboxes', function () {
                 $(this).parents('tr').toggleClass("active");
+            });
+            
+            $('#'+elemId + '_column_toggler input[type="checkbox"]').change(function(){
+                var iCol = parseInt($(this).attr("data-column"));
+                var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
+                oTable.fnSetColumnVis(iCol, (bVis ? false : true));
             });
         }
     };
