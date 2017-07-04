@@ -13,7 +13,11 @@
 <script src="{{ _asset('assets/metronic/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
 @stop
 
-<script type="text/javascript" src="{{ _asset('assets/syrator/js/datatables/table-expand.js') }}"></script>
+@section('js_page_level')
+@parent
+<script src="{{ _asset('assets/syrator/js/datatables/table-expand.js') }}" type="text/javascript"></script>
+@stop
+
 @section('page-content-bar')
 @parent
 <ul class="page-breadcrumb">
