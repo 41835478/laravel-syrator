@@ -13,7 +13,7 @@
 @parent
 @stop
 
-@section('css_page_level_layout')
+@section('css_page_level')
 @parent
 @stop
 
