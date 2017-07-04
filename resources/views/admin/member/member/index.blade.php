@@ -37,10 +37,15 @@
 <div class="row">
     <div class="col-md-12">
         <div class="portlet box green">
-        	<div class="portlet-title">
+            <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-globe"></i>会员列表</div>
-                <div class="tools"> </div>
+                <div class="actions">
+                    <a href="javascript:;" class="btn btn-default btn-sm">
+                        <i class="fa fa-plus"></i> Add </a>
+                    <a href="javascript:;" class="btn btn-default btn-sm">
+                        <i class="fa fa-print"></i> Print </a>
+                </div>
             </div>
             <div class="portlet-body">
 				<table class="table table-striped table-bordered table-hover table-checkable order-column" id="syrator_table_member">
@@ -72,7 +77,7 @@
 						</tr>
 					</tfoot>
 					<tbody>
-                        @foreach ($members as $per)                                                
+                        @foreach ($members as $per)
                         <tr class="odd gradeX">
 							<td style="width:8px;text-align:center;">
                                 <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
@@ -85,7 +90,295 @@
                             <td class="text-green">{{ $per->role_name }}</td>
                             <td>{{ $per->nickname }}</td>
                             <td>{{ $per->email }}</td>
-        					<td style="text-align: center;">                                        	
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-eye-open"></i>
+                            	</a>
+                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-edit"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            		<i class="icon-trash"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->account }}</td>
+                            <td class="text-green">{{ $per->phone }}</td>
+                            <td class="text-green">{{ $per->role_name }}</td>
+                            <td>{{ $per->nickname }}</td>
+                            <td>{{ $per->email }}</td>
+        					<td style="text-align: center;">        					                            	
                             	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
                             		<i class="icon-eye-open"></i>
                             	</a>

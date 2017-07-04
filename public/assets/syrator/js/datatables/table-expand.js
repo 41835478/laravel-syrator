@@ -14,27 +14,21 @@ var TableExpand = function () {
                 "pageLength": 10,
                 "pagingType": "bootstrap_full_number",
                 "columnDefs": [
-                {
-            	   'orderable': false,
-            	   'targets': [0]
-                }, 
-                {
-            	   "searchable": false,
-            	   "targets": [0]
-                }, 
-                {
-            	   "className": "dt-right",
-                }],
+	                {
+	            	   'orderable': false,
+	            	   'targets': [0]
+	                },
+	                {
+	            	   "searchable": false,
+	            	   "targets": [0]
+	                },
+	                {
+	            	   "className": "dt-right",
+	                }
+                ],
                 "order": [
                     [1, 'asc']
                 ],
-
-                buttons: [
-                    { extend: 'print', className: 'btn dark btn-outline' },
-                    { extend: 'pdf', className: 'btn dark btn-outline' },
-                    { extend: 'csv', className: 'btn purple btn-outline ' }
-                ],
-
                 responsive: {
                     details: {
                        
