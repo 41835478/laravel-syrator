@@ -1,4 +1,4 @@
-@extends('_layout._login')
+@extends('admin._layout._login')
 
 @section('head_style')
 @parent

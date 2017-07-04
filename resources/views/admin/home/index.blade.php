@@ -1,4 +1,4 @@
-@extends('_layout._admin')
+@extends('admin._layout._admin')
 
 @section('page-content-bar')
 @parent
