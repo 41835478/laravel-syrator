@@ -632,6 +632,7 @@
 
 @section('extraPlugin')
 @parent
+<script type="text/javascript" src="{{ _asset('assets/syrator/js/jquery.dataTables.columnFilter.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/syrator/js/table-expand.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/lib/layer-2.x/layer.js') }}"></script>
 @stop
