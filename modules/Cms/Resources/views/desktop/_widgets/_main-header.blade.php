@@ -2,7 +2,7 @@
 	<div class="navbar-inner">
 		<div class="container-fluid">
 			<a class="brand" href="">
-				<img src="/assets/metronic/image/logo.png" alt="logo" />
+				<img src="/assets/image/logo.png" alt="logo" />
 			</a>
 			<div class="navbar hor-menu hidden-phone hidden-tablet">
 				<div class="navbar-inner">

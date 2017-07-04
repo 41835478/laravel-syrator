@@ -86,7 +86,7 @@
                     </div>
                       <div class="form-group">
                         <label>图片上传  <a href="javascript:void(0);" class="uploadPic" data-id="thumb"><i class="fa fa-fw fa-picture-o" title="上传"></i></a>  <a href="javascript:void(0);" class="previewPic" data-id="thumb"><i class="fa fa-fw fa-eye" title="预览小图"></i></a></label>
-                        <input type="text" class="form-control" id="thumb" name="picture" value="{{ old('picture') }}" placeholder="图片地址：如{{ url('') }}/assets/img/syrator_logo.png" readonly="readonly">
+                        <input type="text" class="form-control" id="thumb" name="picture" value="{{ old('picture') }}" placeholder="图片地址：如{{ url('') }}/assets/image/logo.png" readonly="readonly">
                       </div>
                       <div class="form-group">
                         <label>文档上传 <a href="javascript:void(0);" class="uploadFile" data-id="file"><i class="fa fa-fw fa-file-o" title="上传"></i></a></label>
