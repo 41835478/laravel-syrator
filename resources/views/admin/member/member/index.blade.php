@@ -13,11 +13,6 @@
 <script src="{{ _asset('assets/metronic/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
 @stop
 
-@section('head_js_page_level')
-@parent
-<script src="{{ _asset('assets/metronic/pages/scripts/table-datatables-responsive.min.js') }}" type="text/javascript"></script>
-@stop
-
 @section('page-content-bar')
 @parent
 <ul class="page-breadcrumb">
@@ -43,7 +38,7 @@
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
-                <table class="table table-striped table-bordered table-hover dt-responsive" id="sample_3">
+                <table class="table table-striped table-bordered table-hover dt-responsive" id="syrator_table_member">
                     <thead>
                         <tr>
                             <th class="all">First name</th>
@@ -633,4 +628,70 @@
         </div>
     </div>
 </div>
+@stop
+
+@section('extraPlugin')
+@parent
+<script type="text/javascript" src="{{ _asset('assets/metronic/js/select2.min.js') }}"></script>
+<script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.js') }}"></script>
+<script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.columnFilter.js') }}"></script>
+<script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ _asset('assets/js/table-expand.js') }}"></script>
+<script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
+@stop
+
+@section('filledScript')
+<script>
+jQuery(document).ready(function() {
+    App.init();
+
+    var selectValues = new Array();
+    selectValues[0] = "顶级分类";
+    @foreach ($catalogs as $k => $v)
+    selectValues[{{$v->id}}] = "{{$v->name}}";
+    @endforeach
+    TableExpand.init({
+		aoColumns: 
+		[ 
+			null,
+            null,
+            {type: "select", values: selectValues},
+            null,
+            null,
+        ]
+	}, "syrator_table_member");
+
+    $(document).on("click","a.layer_open",function(evt) {
+        evt.preventDefault();
+        var that = this;
+        var src = $(this).attr("href");
+        var title = $(this).data('title');
+        layer.open({
+            type: 2,
+            title: title,
+            shadeClose: false,
+            shade: 0,
+            area: ['480px', '283px'],
+            content: src
+        });
+    });
+
+    $(document).on("click","a.remove",function(evt) {
+        var itemId = $(this).attr("item-id");
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
+            $.post("{{ URL('admin/member/member/remove') }}", {
+            	 _token:$('meta[name="_token"]').attr('content'),
+                 delId:itemId,
+            }, function(data){
+                 if(data.code == 200){
+                     alert(data.message);
+                     location.reload();
+                 } else {
+                     alert(data.message);
+                 }
+            },"json");
+      	}
+    });
+});
+</script>
 @stop
