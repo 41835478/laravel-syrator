@@ -1,4 +1,3 @@
-{{-- widget._edit_group-control-group --}}
 <div class="tabbable tabbable-custom">
 	<ul class="nav nav-tabs">
 		@foreach ($editStructGroup as $key => $perGroup) 

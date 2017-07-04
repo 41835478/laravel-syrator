@@ -1,27 +1,27 @@
 @extends('_layout._base')
 
-@section('head_css')
+@section('syrator_css')
 @parent
 
-	@section('head_css_mandatory')
+	@section('css_mandatory')
     @show
     
-    @section('head_css_page_level_plugins')
+    @section('css_page_level_plugins')
     @show
     
-    @section('head_css_theme_global')
+    @section('css_theme_global')
     @show
     
-    @section('head_css_page_level')
+    @section('css_page_level')
     @show
     
-    @section('head_css_theme_layout')
+    @section('css_theme_layout')
     @show
     
 	<link href="{{ _asset('assets/syrator/css/syrator.css') }}" rel="stylesheet" type="text/css"/>
 @stop
 
-@section('head_js')
+@section('syrator_js')
 @parent
 
     <!--[if lt IE 9]>
@@ -29,19 +29,19 @@
     <script src="{{ _asset('assets/global/plugins/excanvas.min.js') }}"></script> 
     <script src="{{ _asset('assets/global/plugins/ie8.fix.min.js') }}"></script> 
     <![endif]-->    
-	@section('head_js_core_plugins')
+	@section('js_core_plugins')
     @show
     
-	@section('head_js_page_level_plugins')
+	@section('js_page_level_plugins')
     @show
     
-	@section('head_js_theme_global')
+	@section('js_theme_global')
     @show
     
-    @section('head_js_page_level')
+    @section('js_page_level')
     @show
     
-	@section('head_js_theme_layout')
+	@section('js_theme_layout')
     @show
     
 	<!-- BEGIN WECHAT SDK -->

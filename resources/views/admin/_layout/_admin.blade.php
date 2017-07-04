@@ -5,7 +5,7 @@
 class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" 
 @stop
 
-@section('head_css_theme_global')
+@section('css_theme_global')
 @parent
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link href="{{ _asset('assets/metronic/global/css/components.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
@@ -13,7 +13,7 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"
 <!-- END THEME GLOBAL STYLES -->
 @stop
 
-@section('head_css_theme_layout')
+@section('css_theme_layout')
 @parent
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link href="{{ _asset('assets/metronic/layouts/layout/css/layout.min.css') }}" rel="stylesheet" type="text/css" />
@@ -22,14 +22,14 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"
 <!-- END THEME LAYOUT STYLES -->
 @stop
 
-@section('head_js_theme_global')
+@section('js_theme_global')
 @parent
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="{{ _asset('assets/metronic/global/scripts/app.min.js') }}" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 @stop
 
-@section('head_js_theme_layout')
+@section('js_theme_layout')
 @parent
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="{{ _asset('assets/metronic/layouts/layout/scripts/layout.min.js') }}" type="text/javascript"></script>

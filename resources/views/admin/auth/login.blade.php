@@ -1,6 +1,6 @@
 @extends('admin._layout._login')
 
-@section('head_style')
+@section('syrator_style')
 @parent
 <style>
 .login {

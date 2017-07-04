@@ -1,4 +1,3 @@
-{{-- widget._edit-control-group --}}
 @foreach ($editStruct as $per)  
 @if($per->is_editable)                              
 <div class="control-group">

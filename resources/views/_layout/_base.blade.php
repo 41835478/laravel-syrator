@@ -14,36 +14,25 @@
     <meta content="{{ cache('author_name') }}" name="author" />
     <meta content="{{ csrf_token() }}" name="_token" />
     <meta content="webkit" name="renderer" >
-    <meta property="wb:webmaster" content="6a9cf8c6a5ca67c3" />
-   
+    <meta property="wb:webmaster" content="6a9cf8c6a5ca67c3" />   
     @section('meta')
-    @show
-    
+    @show    
     <link rel="shortcut icon" href="{{ _asset('favicon.ico') }}" type="image/x-icon">
-
-    @section('head_css')
-    @show
-
-    @section('head_js')
-    @show
-    
-    @section('head_style')
-    @show
-    
-    @section('head_script')
-    @show
-    
+    @section('syrator_css')
+    @show    
+    @section('syrator_style')
+    @show    
 </head>
 <body @section('body_attr') @show>
-
     @section('beforeBody')
     @show
-
     @section('body')
     @show
-
+    @section('syrator_js')
+    @show    
+    @section('syrator_script')
+    @show    
     @section('afterBody')
-    @show
-    
+    @show    
 </body>
 </html>
