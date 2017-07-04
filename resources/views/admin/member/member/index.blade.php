@@ -637,7 +637,7 @@
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.columnFilter.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ _asset('assets/js/table-expand.js') }}"></script>
-<script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
+<script type="text/javascript" src="{{ _asset(lib/layer-2.x/layer.js)) }}"></script>
 @stop
 
 @section('filledScript')
