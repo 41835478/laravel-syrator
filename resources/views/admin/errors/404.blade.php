@@ -1,6 +1,6 @@
 @extends('admin._layout._admin')
 
-@section('css_page_level')
+@section('css_page_level_layout')
 @parent
 <link href="{{ _asset('assets/metronic/pages/css/error.min.css') }}" rel="stylesheet" type="text/css" />
 @stop

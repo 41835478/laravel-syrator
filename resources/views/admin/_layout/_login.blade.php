@@ -18,7 +18,7 @@
 <!-- END THEME GLOBAL STYLES -->
 @stop
 
-@section('css_page_level')
+@section('css_page_level_layout')
 @parent
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link href="{{ _asset('assets/metronic/pages/css/login-3.min.css') }}" rel="stylesheet" type="text/css" />

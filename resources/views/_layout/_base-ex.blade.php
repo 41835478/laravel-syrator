@@ -12,7 +12,7 @@
     @section('css_theme_global')
     @show
     
-    @section('css_page_level')
+    @section('css_page_level_layout')
     @show
     
     @section('css_theme_layout')
@@ -38,7 +38,7 @@
 	@section('js_theme_global')
     @show
     
-    @section('js_page_level')
+    @section('js_page_level_layout')
     @show
     
 	@section('js_theme_layout')

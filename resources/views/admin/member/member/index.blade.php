@@ -1,12 +1,12 @@
 @extends('admin._layout._admin')
 
-@section('head_css_page_level')
+@section('css_page_level_plugins')
 @parent
 <link href="{{ _asset('assets/metronic/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ _asset('assets/metronic/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('head_js_page_level_plugins')
+@section('js_page_level_plugins')
 @parent
 <script src="{{ _asset('assets/metronic/global/scripts/datatable.js') }}" type="text/javascript"></script>
 <script src="{{ _asset('assets/metronic/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
