@@ -17,7 +17,7 @@
 @section('content')
 <div class="logo">
     <a href="{{ site_url('', '') }}">
-        <img src="{{ _asset('assets/image/logo-big.png') }}" alt="" /> 
+        <img src="{{ _asset('assets/syrator/image/logo-big.png') }}" alt="" /> 
     </a>
 </div>
 <div class="content">
