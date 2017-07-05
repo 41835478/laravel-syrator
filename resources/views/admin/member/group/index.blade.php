@@ -46,12 +46,28 @@
             <div class="portlet-title">
                 <div class="caption"><i class="fa fa-globe"></i>会员列表</div> 
                 <div class="actions">
-                    <a href="{{ _route('admin:member.group.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
+                    <a href="{{ _route('admin:member.group.create') }}" class="btn btn-default btn-sm">
+                    	<i class="fa fa-plus"></i>
                     	<span>新增</span>
                     </a>
-                    <a href="{{ _route('admin:member.group.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
-                    	<span>新增</span>
+                    <a href="{{ _route('admin:member.group.removebatch') }}" class="btn btn-default btn-sm" id="removebatch">
+                    	<i class="fa fa-times"></i>
+                    	<span>删除</span>
                     </a>
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="javascript:;" data-toggle="dropdown">
+                            <i class="fa fa-share"></i>
+                            <span class="hidden-xs"> 工具</span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right" id="syrator_table_group_tools">
+                            <li><a href="javascript:;" data-action="0" class="tool-action"><i class="icon-printer"></i> 打印</a></li>
+                            <li><a href="javascript:;" data-action="1" class="tool-action"><i class="icon-check"></i> 复制</a></li>
+                            <li><a href="javascript:;" data-action="2" class="tool-action"><i class="icon-doc"></i> 导出PDF</a></li>
+                            <li><a href="javascript:;" data-action="3" class="tool-action"><i class="icon-paper-clip"></i> 导出Excel</a></li>
+                            <li><a href="javascript:;" data-action="4" class="tool-action"><i class="icon-cloud-upload"></i> 导出CSV</a></li>
+                        </ul>
+                    </div>
     			</div>
             </div>
             <div class="portlet-body">
@@ -60,7 +76,7 @@
                         <tr>
                             <th style="width:8px;text-align:center;">
                                 <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                    <input type="checkbox" class="group-checkable" data-set="#syrator_table_member .checkboxes" />
+                                    <input type="checkbox" class="group-checkable" data-set="#syrator_table_group .checkboxes" />
                                     <span></span>
                                 </label>
                             </th>
@@ -138,6 +154,34 @@ jQuery(document).ready(function() {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:itemId,
             }, function(data) {
+                 if(data.code == 200){
+                     alert(data.message);
+                     location.reload();
+                 } else {
+                     alert(data.message);
+                 }
+            },"json");
+      	}
+
+      	return false;
+    });
+
+    $(document).on("click","#removebatch",function(evt) {
+    	var itemIdsBoxes = $("input[class='checkboxes']");
+        var length = itemIdsBoxes.length;
+        var strIds = "";
+        for(var i=0;i<length;i++){
+            if(itemIdsBoxes[i].checked==true){
+            	strIds = strIds + "," + itemIdsBoxes[i].value;
+            }
+        }
+
+        var postUrl = $(this).attr("href");  
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
+            $.post(postUrl, {
+            	 _token:$('meta[name="_token"]').attr('content'),
+                 delId:strIds,
+            }, function(data){
                  if(data.code == 200){
                      alert(data.message);
                      location.reload();

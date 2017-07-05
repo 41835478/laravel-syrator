@@ -73,6 +73,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
             Route::resource('member', 'MemberController');
 
             Route::post('group/remove', 'MemberGroupController@remove');
+    	    Route::post('group/removebatch', 'MemberGroupController@removeBatch');
             Route::resource('group', 'MemberGroupController');
         });
 

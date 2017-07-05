@@ -68,7 +68,7 @@
     						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="4">昵称<span></span></label></li>
     						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="5">邮箱<span></span></label></li>
     					</ul>					
-                    </div>                    
+                    </div>
                     <div class="btn-group">
                         <a class="btn btn-default" href="javascript:;" data-toggle="dropdown">
                             <i class="fa fa-share"></i>
