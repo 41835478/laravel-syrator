@@ -40,12 +40,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
             Route::resource('log', 'LogController');
             
             // 模板管理
-            Route::resource('theme', 'ThemeController');
     	    Route::post('theme/remove', 'ThemeController@remove');
+            Route::resource('theme', 'ThemeController');
     	    
     	    // 意见反馈
-    	    Route::resource('feedback', 'FeedbackController');
     	    Route::post('feedback/reply', 'FeedbackController@reply');
+    	    Route::resource('feedback', 'FeedbackController');
     	    
     	    // app管理
     	    Route::group(['prefix' => 'appinfo', 'namespace' => 'AppInfo'], function () {    	        
@@ -68,26 +68,27 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
         
         // 会员管理
         Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {
-            Route::resource('member', 'MemberController');
     	    Route::post('member/remove', 'MemberController@remove');
-    	    
+    	    Route::post('member/removebatch', 'MemberController@removeBatch');
+            Route::resource('member', 'MemberController');
+
+            Route::post('group/remove', 'MemberGroupController@remove');
             Route::resource('group', 'MemberGroupController');
-    	    Route::post('group/remove', 'MemberGroupController@remove');
         });
 
         // 权限管理
         Route::group(['prefix' => 'permission', 'namespace' => 'Permission'], function () { 
-            // 后台用户管理        
-            Route::resource('user', 'UserController');
+            // 后台用户管理
     	    Route::post('user/remove', 'UserController@remove');
+            Route::resource('user', 'UserController');
 
     	    // 角色管理
-    	    Route::resource('role', 'RoleController');
     	    Route::post('role/remove', 'RoleController@remove');
+    	    Route::resource('role', 'RoleController');
     	    
     	    // 权限(项)管理
-    	    Route::resource('permission', 'PermissionController');
     	    Route::post('permission/remove', 'PermissionController@remove');
+    	    Route::resource('permission', 'PermissionController');
         });
     });
 });

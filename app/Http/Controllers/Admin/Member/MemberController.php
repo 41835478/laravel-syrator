@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin\Member;
 use App\Http\Controllers\Admin\BackController;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
+use App\Loggers\SystemLogger;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\MemberRequest;
-use App\Loggers\SystemLogger;
+use App\Model\MemberModel;
 use App\Repositories\MemberRepository;
 
 class MemberController extends BackController
@@ -127,6 +129,25 @@ class MemberController extends BackController
         } else {
             $rth['code'] = "201";
             $rth['message'] = "该会员不存在，或已经被删除了！";
+        }
+    
+        return $rth;
+    }
+    
+    public function removeBatch(Request $request)
+    {      
+        if(!Entrust::can('admin.member.member.remove')) {
+            return deny();
+        }
+    
+        $idsstr = $request->input('delId');
+        $ids = explode(",",$idsstr);
+        if (MemberModel::whereIn('id', $ids)->delete()) {
+            $rth['code'] = "200";
+            $rth['message'] = "删除成功";
+        } else {
+            $rth['code'] = "500";
+            $rth['message'] = "删除失败";
         }
     
         return $rth;

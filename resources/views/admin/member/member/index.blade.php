@@ -48,7 +48,10 @@
                 <div class="actions">
                     <a href="{{ _route('admin:member.member.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
                     	<span>新增</span>
-                    </a>                    
+                    </a>
+                    <a href="{{ _route('admin:member.member.removebatch') }}" class="btn btn-default btn-sm" id="removebatch"><i class="fa fa-plus"></i>
+                    	<span>删除</span>
+                    </a>
                     <div class="btn-group">
                         <a class="btn btn-default dropdown-toggle" href="#" data-toggle="dropdown">显示列  <i class="fa fa-angle-down"></i></a>
         				<ul id="syrator_table_member_column_toggler" class="dropdown-menu dropdown-checkboxes pull-right" role="menu">
@@ -166,6 +169,34 @@ jQuery(document).ready(function() {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:itemId,
             }, function(data) {
+                 if(data.code == 200){
+                     alert(data.message);
+                     location.reload();
+                 } else {
+                     alert(data.message);
+                 }
+            },"json");
+      	}
+
+      	return false;
+    });
+
+    $(document).on("click","#removebatch",function(evt) {
+    	var itemIdsBoxes = $("input[class='checkboxes']");
+        var length = itemIdsBoxes.length;
+        var strIds = "";
+        for(var i=0;i<length;i++){
+            if(itemIdsBoxes[i].checked==true){
+            	strIds = strIds + "," + itemIdsBoxes[i].value;
+            }
+        }
+
+        var postUrl = $(this).attr("href");  
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
+            $.post(postUrl, {
+            	 _token:$('meta[name="_token"]').attr('content'),
+                 delId:strIds,
+            }, function(data){
                  if(data.code == 200){
                      alert(data.message);
                      location.reload();
