@@ -10,10 +10,6 @@ use App\Http\Requests\MemberRequest;
 use App\Loggers\SystemLogger;
 use App\Repositories\MemberRepository;
 
-/**
- * 会员控制器
- *
- */
 class MemberController extends BackController
 {
     protected $member;
