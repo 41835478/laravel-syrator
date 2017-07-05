@@ -17,13 +17,6 @@ var TableExpand = function () {
 	                {
 	            	   'orderable': false,
 	            	   'targets': [0]
-	                },
-	                {
-	            	   "searchable": false,
-	            	   "targets": [0]
-	                },
-	                {
-	            	   "className": "dt-right",
 	                }
                 ],
                 "order": [
@@ -34,7 +27,7 @@ var TableExpand = function () {
                        
                     }
                 },
-            });
+            }).columnFilter(columnFilterSetting);
             
             var tableWrapper = jQuery('#' + elemId + '_wrapper');
             table.find('.group-checkable').change(function () {
@@ -55,10 +48,14 @@ var TableExpand = function () {
                 $(this).parents('tr').toggleClass("active");
             });
             
+            
             $('#'+elemId + '_column_toggler input[type="checkbox"]').change(function(){
                 var iCol = parseInt($(this).attr("data-column"));
                 var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
                 oTable.fnSetColumnVis(iCol, (bVis ? false : true));
+            });            
+            $('#'+elemId + '_column_toggler label').click(function(e) {
+                e.stopPropagation();
             });
         }
     };

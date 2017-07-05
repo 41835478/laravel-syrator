@@ -47,35 +47,15 @@
                     <a href="{{ _route('admin:member.member.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
                     	<span>新增</span>
                     </a>                    
-                    <div class="btn-group pull-right">
-                        <a class="btn btn-default dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">显示列  <i class="fa fa-angle-down"></i></a>
-        				<div id="syrator_table_member_column_toggler" class="dropdown-menu dropdown-checkboxes pull-right" role="menu">
-    						<label><input type="checkbox" checked data-column="1">账号</label>
-    						<label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="2">手机号<span></span></label>
-    						<label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="3">角色<span></span></label>
-    						<label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="4">昵称<span></span></label>
-    						<label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="5">邮箱<span></span></label>
-    					</div>					
-                    </div>
-                    
-                    <div class="actions">
-                        <div class="btn-group open">
-                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown" aria-expanded="true"> Actions
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <label><input type="checkbox" checked data-column="1">账号</label>
-                                </li>
-                                <li><label><input type="checkbox" checked data-column="1">账号</label>
-                                </li>
-                                <li><label><input type="checkbox" checked data-column="1">账号</label>
-                                </li>
-                                <li class="divider"> </li>
-                                <li><label><input type="checkbox" checked data-column="1">账号</label>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="btn-group">
+                        <a class="btn btn-default dropdown-toggle" href="#" data-toggle="dropdown">显示列  <i class="fa fa-angle-down"></i></a>
+        				<ul id="syrator_table_member_column_toggler" class="dropdown-menu dropdown-checkboxes pull-right" role="menu">
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="1">账号<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="2">手机号<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="3">角色<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="4">昵称<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="5">邮箱<span></span></label></li>
+    					</ul>					
                     </div>
     			</div>
             </div>
