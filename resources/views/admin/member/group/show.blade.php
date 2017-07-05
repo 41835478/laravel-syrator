@@ -1,31 +1,33 @@
-@extends('_layout._common')
+@extends('admin._layout._show')
 
-@section('head_css')
+@section('page-content-row')
 @parent
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/profile.css') }}" />
-@stop
-
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content')
-<div class="page-container row-fluid" style="margin-top:0px;">
-	<div class="page-content" style="height:220px;min-height:220px;margin-left:0px;">
-		<div class="container-fluid">
-			<div class="row-fluid profile">
-				<div class="span12">
-					<div class="portlet-body form">
-						<table class="table table-hover table-striped table-bordered" style="margin-bottom: 0px;">
-							<tbody>
-    							<tr>
-    								<td style="width: 80px;">分组名称：</td>
-    								<td>{{ $group->name }}</td>
-    							</tr>
-    						</tbody>
-						</table>					
-					</div>					
-				</div>
-			</div>
-		</div>
-	</div>  
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="portlet-body form">
+            <form class="form-horizontal" role="form">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">名称</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $group->name }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">创建时间</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $group->created_at }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">更新时间</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $group->updated_at }}">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 @stop
