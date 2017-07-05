@@ -4,6 +4,7 @@
 @parent
 <link href="{{ _asset('assets/metronic/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ _asset('assets/metronic/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
 @section('js_page_level_plugins')
@@ -11,6 +12,7 @@
 <script src="{{ _asset('assets/metronic/global/scripts/datatable.js') }}" type="text/javascript"></script>
 <script src="{{ _asset('assets/metronic/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
 <script src="{{ _asset('assets/metronic/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
 @stop
 
 @section('js_page_level')
@@ -43,17 +45,22 @@
 <div class="row">
     <div class="col-md-12">
         <div class="portlet box green">
-            <div class="portlet-title">
+			<div class="portlet-title">
                 <div class="caption"><i class="fa fa-globe"></i>会员列表</div> 
                 <div class="actions">
-                    <a href="{{ _route('admin:member.member.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
+                    <a href="{{ _route('admin:member.member.create') }}" class="btn btn-default btn-sm">
+                    	<i class="fa fa-plus"></i>
                     	<span>新增</span>
                     </a>
-                    <a href="{{ _route('admin:member.member.removebatch') }}" class="btn btn-default btn-sm" id="removebatch"><i class="fa fa-plus"></i>
+                    <a href="{{ _route('admin:member.member.removebatch') }}" class="btn btn-default btn-sm" id="removebatch">
+                    	<i class="fa fa-times"></i>
                     	<span>删除</span>
                     </a>
                     <div class="btn-group">
-                        <a class="btn btn-default dropdown-toggle" href="#" data-toggle="dropdown">显示列  <i class="fa fa-angle-down"></i></a>
+                        <a class="btn btn-default dropdown-toggle" href="#" data-toggle="dropdown">                        	
+                            <span class="hidden-xs">显示列  </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
         				<ul id="syrator_table_member_column_toggler" class="dropdown-menu dropdown-checkboxes pull-right" role="menu">
     						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="1">账号<span></span></label></li>
     						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="2">手机号<span></span></label></li>
@@ -61,6 +68,20 @@
     						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="4">昵称<span></span></label></li>
     						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="5">邮箱<span></span></label></li>
     					</ul>					
+                    </div>                    
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="javascript:;" data-toggle="dropdown">
+                            <i class="fa fa-share"></i>
+                            <span class="hidden-xs"> 工具</span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right" id="syrator_table_member_tools">
+                            <li><a href="javascript:;" data-action="0" class="tool-action"><i class="icon-printer"></i> 打印</a></li>
+                            <li><a href="javascript:;" data-action="1" class="tool-action"><i class="icon-check"></i> 复制</a></li>
+                            <li><a href="javascript:;" data-action="2" class="tool-action"><i class="icon-doc"></i> 导出PDF</a></li>
+                            <li><a href="javascript:;" data-action="3" class="tool-action"><i class="icon-paper-clip"></i> 导出Excel</a></li>
+                            <li><a href="javascript:;" data-action="4" class="tool-action"><i class="icon-cloud-upload"></i> 导出CSV</a></li>
+                        </ul>
                     </div>
     			</div>
             </div>
@@ -145,6 +166,9 @@ jQuery(document).ready(function() {
 	    {aoColumns: [null, null, null, {type: "select", values: selectValues}, null, null, null, ]},
 	    "syrator_table_member"
     );
+
+    TableExpand.init({},"sample_1");
+    TableExpand.init({},"sample_2");
 
     $(document).on("click","a.layer_open",function(evt) {
         evt.preventDefault();

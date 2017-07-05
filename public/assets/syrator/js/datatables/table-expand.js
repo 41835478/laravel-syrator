@@ -3,10 +3,18 @@ var TableExpand = function () {
         init: function (columnFilterSetting, elemId) {            
             var table = $('#'+elemId);
             var oTable = table.dataTable({
+                buttons: [
+  					{ extend: 'print', className: 'btn default'},
+  					{ extend: 'copy', className: 'btn default'},
+  					{ extend: 'pdf', className: 'btn default'},
+  					{ extend: 'excel', className: 'btn default'},
+  					{ extend: 'csv', className: 'btn default'},
+  	                { extend: 'colvis', className: 'btn default'}
+  				],
                 "language": {
                    url: '/assets/syrator/js/datatables/Chinese.json'
                 },
-                "bStateSave": false,                
+                "bStateSave": false,
                 "lengthMenu": [
                     [5, 10, 15, 20, -1],
                     [5, 10, 15, 20, "全部"]
@@ -22,11 +30,6 @@ var TableExpand = function () {
                 "order": [
                     [1, 'asc']
                 ],
-                responsive: {
-                    details: {
-                       
-                    }
-                },
             }).columnFilter(columnFilterSetting);
             
             var tableWrapper = jQuery('#' + elemId + '_wrapper');
@@ -43,11 +46,9 @@ var TableExpand = function () {
                     }
                 });
             });
-
             table.on('change', 'tbody tr .checkboxes', function () {
                 $(this).parents('tr').toggleClass("active");
             });
-            
             
             $('#'+elemId + '_column_toggler input[type="checkbox"]').change(function(){
                 var iCol = parseInt($(this).attr("data-column"));
@@ -56,6 +57,11 @@ var TableExpand = function () {
             });            
             $('#'+elemId + '_column_toggler label').click(function(e) {
                 e.stopPropagation();
+            });
+            
+            $('#'+elemId + '_tools > li > a.tool-action').on('click', function() {
+                var action = $(this).attr('data-action');
+                oTable.DataTable().button(action).trigger();
             });
         }
     };
