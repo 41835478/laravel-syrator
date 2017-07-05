@@ -48,11 +48,28 @@
 }
 
 .img-circle {
-	width: 29px; 
+	width: 29px;
 	height: 29px; 
 	border-radius: 50% !important;
 	margin-right: 5px; 
 	display: inline-block;
+}
+
+.filter_column_select {	
+    padding: 0px !important;	
+}
+
+.filter_column.filter_select select {	
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    background-color: #fff;
+    border: 1px solid #c2cad8;
+	    
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555;
+    display: block;
 }
 
 body.theme-blue,

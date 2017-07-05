@@ -15,6 +15,7 @@
 
 @section('js_page_level')
 @parent
+<script src="{{ _asset('assets/syrator/js/datatables/jquery.dataTables.columnFilter.js') }}" type="text/javascript"></script>
 <script src="{{ _asset('assets/syrator/js/datatables/table-expand.js') }}" type="text/javascript"></script>
 @stop
 
@@ -82,7 +83,7 @@
 							<th></th>
 							<th></th>
 							<th></th>
-							<th>选择角色</th>
+							<th class="filter_column_select">选择角色</th>
 							<th></th>
 							<th></th>
 							<th></th>
@@ -430,7 +431,9 @@ jQuery(document).ready(function() {
 		[ 
 			null,
             null,
+            null,
             {type: "select", values: selectValues},
+            null,
             null,
             null,
         ]
