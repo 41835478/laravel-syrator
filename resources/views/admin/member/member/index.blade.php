@@ -17,6 +17,7 @@
 @parent
 <script src="{{ _asset('assets/syrator/js/datatables/jquery.dataTables.columnFilter.js') }}" type="text/javascript"></script>
 <script src="{{ _asset('assets/syrator/js/datatables/table-expand.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/lib/layer-2.x/layer.js') }}" type="text/javascript"></script>
 @stop
 
 @section('syrator_style')
@@ -70,12 +71,12 @@
                                     <span></span>
                                 </label>
                             </th>
-							<th data-field="column2" style="">账号</th>
-							<th data-field="column3" style="">手机号</th>
-							<th style="">角色</th>
-							<th style="">昵称</th>
-							<th style="">邮箱</th>
-                            <th class="hidden-480" style="text-align:center;">操作</th>
+							<th>账号</th>
+							<th>手机号</th>
+							<th>角色</th>
+							<th>昵称</th>
+							<th>邮箱</th>
+                            <th style="text-align:center;">操作</th>
                         </tr>
                     </thead>
 					<tfoot>
@@ -104,13 +105,13 @@
                             <td>{{ $per->nickname }}</td>
                             <td>{{ $per->email }}</td>
         					<td style="text-align: center;">        					                            	
-                            	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:member.member.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
-                            		<i class="icon-eye-open"></i>
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.member.show', $per->id) }}" class="btn btn-xs layer_open">
+                            		<i class="fa fa-eye"></i>
                             	</a>
-                            	<a href="{{ _route('admin:member.member.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
-                            		<i class="icon-edit"></i>
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.member.edit', $per->id) }}" class="btn btn-xs">
+                            		<i class="fa fa-pencil-square-o"></i>
                             	</a>
-                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
+                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" class="remove btn btn-xs">
                             		<i class="icon-trash"></i>
                             	</a>
                             </td>
