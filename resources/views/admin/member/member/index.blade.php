@@ -111,7 +111,7 @@
                             	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.member.edit', $per->id) }}" class="btn btn-xs">
                             		<i class="fa fa-pencil-square-o"></i>
                             	</a>
-                            	<a item-id="{{ $per->id }}" href="javascript:void(0);" class="remove btn btn-xs">
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.member.remove') }}" class="btn btn-xs remove">
                             		<i class="icon-trash"></i>
                             	</a>
                             </td>
@@ -132,24 +132,16 @@
 @section('filledScript')
 <script>
 jQuery(document).ready(function() {
-    App.init();
-
+	
     var selectValues = new Array();
     @foreach ($groups as $k => $v)
     selectValues[{{$k}}] = "{{$v->name}}";
     @endforeach
-    TableExpand.init({
-		aoColumns: 
-		[ 
-			null,
-            null,
-            null,
-            {type: "select", values: selectValues},
-            null,
-            null,
-            null,
-        ]
-	}, "syrator_table_member");
+    
+    TableExpand.init(
+	    {aoColumns: [null, null, null, {type: "select", values: selectValues}, null, null, null, ]},
+	    "syrator_table_member"
+    );
 
     $(document).on("click","a.layer_open",function(evt) {
         evt.preventDefault();
@@ -168,11 +160,12 @@ jQuery(document).ready(function() {
 
     $(document).on("click","a.remove",function(evt) {
         var itemId = $(this).attr("item-id");
-    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-            $.post("{{ URL('admin/member/member/remove') }}", {
+        var postUrl = $(this).attr("href");        
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")) {
+            $.post(postUrl, {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:itemId,
-            }, function(data){
+            }, function(data) {
                  if(data.code == 200){
                      alert(data.message);
                      location.reload();
@@ -181,6 +174,8 @@ jQuery(document).ready(function() {
                  }
             },"json");
       	}
+
+      	return false;
     });
 });
 </script>
