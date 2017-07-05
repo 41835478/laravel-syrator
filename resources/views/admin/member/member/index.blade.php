@@ -76,7 +76,7 @@
 							<th>角色</th>
 							<th>昵称</th>
 							<th>邮箱</th>
-                            <th style="width:112px;text-align:center;">操作</th>
+                            <th style="width:68px;text-align:center;">操作</th>
                         </tr>
                     </thead>
 					<tfoot>

@@ -32,7 +32,7 @@
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{{ site_url('member/member', 'admin') }}">会员管理</a>
+        <a href="{{ site_url('member/group', 'admin') }}">会员分组管理</a>
         <i class="fa fa-circle"></i>
     </li>
 </ul>
@@ -46,13 +46,13 @@
             <div class="portlet-title">
                 <div class="caption"><i class="fa fa-globe"></i>会员列表</div> 
                 <div class="actions">
-                    <a href="{{ _route('admin:member.member.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
+                    <a href="{{ _route('admin:member.group.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
                     	<span>新增</span>
                     </a>
     			</div>
             </div>
             <div class="portlet-body">
-				<table class="table table-striped table-bordered table-hover table-checkable order-column" id="syrator_table_member">
+				<table class="table table-striped table-bordered table-hover table-checkable order-column" id="syrator_table_group">
 					<thead>
                         <tr>
                             <th style="width:8px;text-align:center;">
@@ -65,7 +65,7 @@
 							<th>名称</th>
 							<th>创建时间</th>
 							<th>更新时间</th>
-                            <th style="width:112px;text-align:center;">操作</th>
+                            <th style="width:68px;text-align:center;">操作</th>
                         </tr>
                     </thead>
 					<tbody>
@@ -82,13 +82,13 @@
                             <td>{{ $per->created_at }}</td>
                             <td>{{ $per->updated_at }}</td>
         					<td style="text-align: center;">        					                            	
-                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.member.show', $per->id) }}" class="btn btn-xs layer_open">
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.group.show', $per->id) }}" class="btn btn-xs layer_open">
                             		<i class="fa fa-eye"></i>
                             	</a>
-                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.member.edit', $per->id) }}" class="btn btn-xs">
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.group.edit', $per->id) }}" class="btn btn-xs">
                             		<i class="fa fa-pencil-square-o"></i>
                             	</a>
-                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.member.remove') }}" class="btn btn-xs remove">
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.group.remove') }}" class="btn btn-xs remove">
                             		<i class="icon-trash"></i>
                             	</a>
                             </td>
