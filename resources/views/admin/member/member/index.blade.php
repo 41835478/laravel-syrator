@@ -112,7 +112,7 @@
                             		<i class="fa fa-pencil-square-o"></i>
                             	</a>
                             	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.member.remove') }}" class="btn btn-xs remove">
-                            		<i class="icon-trash"></i>
+                            		<i class="fa fa-trash-o"></i>
                             	</a>
                             </td>
                         </tr>

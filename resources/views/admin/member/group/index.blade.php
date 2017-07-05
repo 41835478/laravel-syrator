@@ -49,6 +49,9 @@
                     <a href="{{ _route('admin:member.group.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
                     	<span>新增</span>
                     </a>
+                    <a href="{{ _route('admin:member.group.create') }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i>
+                    	<span>新增</span>
+                    </a>
     			</div>
             </div>
             <div class="portlet-body">
@@ -89,7 +92,7 @@
                             		<i class="fa fa-pencil-square-o"></i>
                             	</a>
                             	<a item-id="{{ $per->id }}" href="{{ _route('admin:member.group.remove') }}" class="btn btn-xs remove">
-                            		<i class="icon-trash"></i>
+                            		<i class="fa fa-trash-o"></i>
                             	</a>
                             </td>
                         </tr>
