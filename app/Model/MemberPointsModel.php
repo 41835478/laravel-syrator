@@ -5,7 +5,9 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
-class MemberPointsModel extends Model
+use Syrator\Data\SyratorModel;
+
+class MemberPointsModel extends SyratorModel
 {
     use SoftDeletes;
     

@@ -5,11 +5,13 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
+use Syrator\Data\SyratorModel;
+
 /**
  * 系统日志模型
  *
  */
-class SystemLogModel extends Model
+class SystemLogModel extends SyratorModel
 {
     use SoftDeletes;
 

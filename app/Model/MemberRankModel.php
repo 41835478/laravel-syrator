@@ -5,11 +5,13 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
+use Syrator\Data\SyratorModel;
+
 /**
  * 会员等级/分组模型
  *
  */
-class MemberRankModel extends Model
+class MemberRankModel extends SyratorModel
 {
     use SoftDeletes;
     

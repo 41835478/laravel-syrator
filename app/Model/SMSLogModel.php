@@ -5,11 +5,13 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
+use Syrator\Data\SyratorModel;
+
 /**
  * 短信验证码日志模型
  *
  */
-class SMSLogModel extends Model
+class SMSLogModel extends SyratorModel
 {
     use SoftDeletes;
 

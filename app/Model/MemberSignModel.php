@@ -5,7 +5,9 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
-class MemberSignModel extends Model
+use Syrator\Data\SyratorModel;
+
+class MemberSignModel extends SyratorModel
 {
     use SoftDeletes;
     

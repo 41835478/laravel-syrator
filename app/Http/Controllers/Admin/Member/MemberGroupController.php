@@ -42,7 +42,9 @@ class MemberGroupController extends BackController
             return deny();
         }
         
-        return $this->view('member.group.create');
+        $model = new MemberRankModel();
+        $editStruct = $model->getEditStructs();        
+        return $this->view('member.group.create', compact('editStruct'));
     }
 
     public function store(MemberGroupRequest $request)
