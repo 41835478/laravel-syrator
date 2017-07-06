@@ -21,7 +21,7 @@
                     </div>
                 </form>
             </li>
-            <li class="nav-item start active">
+            <li class="nav-item start">
     			<a href="{{ site_url('home', 'admin') }}" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">控制台</span>
