@@ -13,6 +13,7 @@ class SyratorEditProperty
     public $help = '';
     public $is_request = false;
     public $is_editable = true;
+    public $show_type = "";
     
     public $dictionary = array();
 }
