@@ -24,15 +24,11 @@
     @show    
 </head>
 <body @section('body_attr') @show>
-    @section('beforeBody')
-    @show
     @section('body')
     @show
     @section('syrator_js')
     @show    
     @section('syrator_script')
-    @show    
-    @section('afterBody')
-    @show    
+    @show
 </body>
 </html>

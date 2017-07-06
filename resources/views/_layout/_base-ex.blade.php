@@ -64,7 +64,7 @@
 
 @stop
 
-@section('afterBody')
+@section('syrator_script')
 @parent
 
     @section('extraPlugin')

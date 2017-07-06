@@ -65,3 +65,8 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"
 	@include('admin._widgets._main-footer')
 </div>
 @stop
+
+@section('syrator_script')
+@parent
+<script src="{{ _asset('assets/syrator/js/sidebar.js') }}" type="text/javascript"></script>
+@stop
