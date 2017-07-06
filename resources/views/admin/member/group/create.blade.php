@@ -44,9 +44,3 @@
     </div>
 </div>
 @stop
-
-@section('filledScript')
-<script>
-
-</script>
-@stop
