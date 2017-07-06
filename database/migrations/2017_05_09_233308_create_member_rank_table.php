@@ -17,7 +17,7 @@ class CreateMemberRankTable extends Migration
         SyratorSchema::create('member_rank', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->comment('名称')->default('');
-            $table->string('description')->comment('描述')->default('');
+            $table->text('description')->comment('描述')->default('');
             $table->timestamps();
             $table->softDeletes();
             

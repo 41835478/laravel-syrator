@@ -18,8 +18,8 @@
 		<span class="help-block">{{$per->help}}</span>
 	</div>
 	@elseif($per->type=='textarea')
-	<div class="col-md-9">
-		<textarea class="form-control" 
+	<div class="col-md-6">
+		<textarea class="form-control" rows="3" 
 			id="{{$per->name}}" 
 			name="{{$per->name}}" 
 			autocomplete="{{$per->autocomplete}}" 
@@ -45,16 +45,19 @@
 	</div>
     @elseif($per->type=='radio')
 	<div class="col-md-4">
-    	@foreach ($per->dictionary as $key => $value) 
-    		<label class="radio">
+		<div class="mt-radio-inline">
+        	@foreach ($per->dictionary as $key => $value) 
+    		<label class="mt-radio">
     			<input type="radio" name="{{$per->name}}" value="{{$key}}" {{($per->value === $key)?'checked':''}}/>{{$value}}
+    			<span></span>
     		</label>
-    	@endforeach
+    		@endforeach
+        </div>
 		<span class="help-block">{{$per->help}}</span>
 	</div>
     @elseif($per->type=='select')
 	<div class="col-md-4">
-    	<select class="large m-wrap" tabindex="1" name="{{$per->name}}">
+    	<select class="form-control" tabindex="1" name="{{$per->name}}">
     	@foreach ($per->dictionary as $key => $value) 
         	<option value="{{$key}}" {{($per->value === $key)?'selected':''}}>{{$value}}</option>
       	@endforeach
@@ -73,7 +76,7 @@
 	@else
 	<div class="col-md-4">
 		<input class="form-control" 
-			type="text" class="m-wrap large" 
+			type="{{$per->type}}" class="m-wrap large" 
 			id="{{$per->name}}" 
 			name="{{$per->name}}" 
 			autocomplete="{{$per->autocomplete}}" 

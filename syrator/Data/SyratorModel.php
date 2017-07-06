@@ -154,7 +154,7 @@ class SyratorModel extends Model
         return $editStruct;
     }
     
-    public static function saveFromInputTools($inputs, $model) {
+    public static function saveFromInputTools($model, $inputs) {
         $columns = $model->getConnection()->select('SHOW FULL COLUMNS FROM '.$model->getFullTableName());
         foreach ($columns as $key => $column) {
             $key = $column->Field;
@@ -167,6 +167,6 @@ class SyratorModel extends Model
             }
         }
     
-        return $this->save();
+        return $model->save();
     }
 }
