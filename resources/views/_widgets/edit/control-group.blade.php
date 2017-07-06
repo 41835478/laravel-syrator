@@ -1,5 +1,5 @@
-@foreach ($editStruct as $per)  
-@if($per->is_editable)                              
+@foreach ($editStruct as $per) 
+@if($per->is_editable) 
 <div class="form-group">
 	<label class="control-label col-md-3">{{$per->alias}}
     	@if($per->is_request)											
@@ -48,7 +48,7 @@
 		<div class="mt-radio-inline">
         	@foreach ($per->dictionary as $key => $value) 
     		<label class="mt-radio">
-    			<input type="radio" name="{{$per->name}}" value="{{$key}}" {{($per->value === $key)?'checked':''}}/>{{$value}}
+    			<input type="radio" name="{{$per->name}}" value="{{$key}}" {{($per->value == $key)?'checked':''}}/>{{$value}}
     			<span></span>
     		</label>
     		@endforeach
@@ -59,7 +59,7 @@
 	<div class="col-md-4">
     	<select class="form-control" tabindex="1" name="{{$per->name}}">
     	@foreach ($per->dictionary as $key => $value) 
-        	<option value="{{$key}}" {{($per->value === $key)?'selected':''}}>{{$value}}</option>
+        	<option value="{{$key}}" {{($per->value == $key)?'selected':''}}>{{$value}}</option>
       	@endforeach
       	</select>
 		<span class="help-block">{{$per->help}}</span>
@@ -118,7 +118,7 @@
 		<div class="mt-radio-inline">
         	@foreach ($per->dictionary as $key => $value) 
     		<label class="mt-radio">
-    			<input readonly="readonly" type="radio" name="{{$per->name}}" value="{{$key}}" {{($per->value === $key)?'checked':''}}/>{{$value}}
+    			<input readonly="readonly" type="radio" name="{{$per->name}}" value="{{$key}}" {{($per->value == $key)?'checked':''}}/>{{$value}}
     			<span></span>
     		</label>
     		@endforeach
@@ -196,7 +196,7 @@
 		<div class="mt-radio-inline">
         	@foreach ($per->dictionary as $key => $value) 
     		<label class="mt-radio">
-    			<input disabled="disabled" type="radio" name="{{$per->name}}" value="{{$key}}" {{($per->value === $key)?'checked':''}}/>{{$value}}
+    			<input disabled="disabled" type="radio" name="{{$per->name}}" value="{{$key}}" {{($per->value == $key)?'checked':''}}/>{{$value}}
     			<span></span>
     		</label>
     		@endforeach
@@ -207,7 +207,7 @@
 	<div class="col-md-4">
     	<select disabled="disabled" class="form-control" tabindex="1" name="{{$per->name}}">
     	@foreach ($per->dictionary as $key => $value) 
-        	<option value="{{$key}}" {{($per->value === $key)?'selected':''}}>{{$value}}</option>
+        	<option value="{{$key}}" {{($per->value == $key)?'selected':''}}>{{$value}}</option>
       	@endforeach
       	</select>
 		<span class="help-block">{{$per->help}}</span>

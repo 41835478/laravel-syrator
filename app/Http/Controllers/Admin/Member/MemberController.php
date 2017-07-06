@@ -155,9 +155,77 @@ class MemberController extends BackController
             return deny();
         }
         
-        $member = $this->member->edit($id);
-        $roles = $this->member->indexRank();
-        return $this->view('member.member.edit', compact('member', 'roles'));
+        $entity = $this->member->edit($id);        
+        $editStruct = SyratorModel::getEditStructsTools($entity);
+        if (isset($editStruct['phone'])) {
+            $editStruct['phone']->is_request = true;
+            $editStruct['phone']->help = "（创建后手机号无法修改）";
+        }
+        if (isset($editStruct['account'])) {
+            $editStruct['account']->is_request = true;
+            $editStruct['account']->help = "（必须以英文字母开头并且是英文字母或数字的组合）";
+        }
+        if (isset($editStruct['password'])) {
+            $editStruct['password']->type = "password";
+            $editStruct['password']->autocomplete = "off";
+            $editStruct['password']->is_request = true;
+        }
+        if (isset($editStruct['remember_token'])) {
+            $editStruct['remember_token']->is_editable = false;
+        }
+        if (isset($editStruct['role'])) {
+            $editStruct['role']->type = "select";
+            $editStruct['role']->dictionary = array();
+        
+            $roles = $this->member->indexRank();
+            foreach ($roles as $k => $value) {
+                $editStruct['role']->dictionary[$value->id] = $value->name;
+            }
+        }
+        if (isset($editStruct['gender'])) {
+            $editStruct['gender']->type = "select";
+            $editStruct['gender']->dictionary['0'] = '保密';
+            $editStruct['gender']->dictionary['1'] = '男';
+            $editStruct['gender']->dictionary['2'] = '女';
+        }
+        if (isset($editStruct['headimg'])) {
+            $editStruct['headimg']->is_editable = false;
+        }
+        if (isset($editStruct['points'])) {
+            $editStruct['points']->is_editable = false;
+        }
+        if (isset($editStruct['wechat_id'])) {
+            $editStruct['wechat_id']->is_editable = false;
+        }
+        if (isset($editStruct['wechat_name'])) {
+            $editStruct['wechat_name']->is_editable = false;
+        }
+        if (isset($editStruct['wechat_nickname'])) {
+            $editStruct['wechat_nickname']->is_editable = false;
+        }
+        if (isset($editStruct['wechat_avatar'])) {
+            $editStruct['wechat_avatar']->is_editable = false;
+        }
+        if (isset($editStruct['wechat_email'])) {
+            $editStruct['wechat_email']->is_editable = false;
+        }
+        if (isset($editStruct['wechat_token'])) {
+            $editStruct['wechat_token']->is_editable = false;
+        }
+        if (isset($editStruct['taobao_uid'])) {
+            $editStruct['taobao_uid']->is_editable = false;
+        }
+        if (isset($editStruct['taobao_password'])) {
+            $editStruct['taobao_password']->is_editable = false;
+        }
+        if (isset($editStruct['is_locked'])) {
+            $editStruct['is_locked']->type = "radio";
+            $editStruct['is_locked']->dictionary['0'] = '否';
+            $editStruct['is_locked']->dictionary['1'] = '是';
+            $editStruct['is_locked']->value = 0;
+        }
+        
+        return $this->view('member.member.edit', compact('entity', 'editStruct'));
     }
 
     public function update(MemberRequest $request, $id)
