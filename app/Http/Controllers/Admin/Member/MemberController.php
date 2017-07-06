@@ -7,6 +7,8 @@ use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use App\Loggers\SystemLogger;
 
+use Syrator\Data\SyratorModel;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\MemberRequest;
 use App\Model\MemberModel;
@@ -47,8 +49,15 @@ class MemberController extends BackController
             return deny();
         }
         
+        $model = new MemberModel();
+        $editStruct = SyratorModel::getEditStructsTools($model);
+       
+        if (isset($editStruct['name'])) {
+            $editStruct['name']->is_request = true;
+        }
+        
         $roles = $this->member->indexRank();
-        return $this->view('member.member.create', compact('members', 'roles'));
+        return $this->view('member.member.create', compact('members', 'roles', 'editStruct'));
     }
 
     public function store(MemberRequest $request)

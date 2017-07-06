@@ -42,6 +42,10 @@ class MemberModel extends Authenticatable
         return $data;
     }
     
+    public function getFullTableName() {
+        return $this->getConnection()->getTablePrefix().$this->table;
+    }
+    
     public function getRoleName() {
         if (empty($this->role)) {
             return $this->role;
