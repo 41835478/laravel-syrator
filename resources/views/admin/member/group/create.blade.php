@@ -1,19 +1,17 @@
-@extends('_layout._common')
+@extends('admin._layout._admin')
 
-@section('head_css')
+@section('page-content-bar')
 @parent
-@stop
-
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
-@parent
-@include('admin._widgets._main-header')
-@stop
-
-@section('content-footer')
-@parent
-@include('admin._widgets._main-footer')
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('home', 'admin') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="{{ site_url('member/group', 'admin') }}">会员分组管理</a>
+        <i class="fa fa-circle"></i>
+    </li>
+</ul>
 @stop
 
 @section('content')
@@ -88,10 +86,6 @@
 		</div>
 	</div>
 </div>
-@stop
-
-@section('extraPlugin')
-@parent
 @stop
 
 @section('filledScript')

@@ -91,10 +91,6 @@
 </div>
 @stop
 
-@section('extraPlugin')
-@parent
-@stop
-
 @section('filledScript')
 <script>
 jQuery(document).ready(function() {    

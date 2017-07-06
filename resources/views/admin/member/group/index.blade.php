@@ -20,10 +20,6 @@
 <script src="{{ _asset('assets/lib/layer-2.x/layer.js') }}" type="text/javascript"></script>
 @stop
 
-@section('syrator_style')
-@parent
-@stop
-
 @section('page-content-bar')
 @parent
 <ul class="page-breadcrumb">
@@ -119,10 +115,6 @@
         </div>
     </div>
 </div>
-@stop
-
-@section('extraPlugin')
-@parent
 @stop
 
 @section('filledScript')
