@@ -6,7 +6,7 @@
     <div class="col-xs-12 ">
         <div class="portlet-body form">
             <form class="form-horizontal" role="form">
-                <div class="form-body">
+                <div class="form-body" style="padding: 20px 20px 0px 20px !important;">
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">名称</label>
                         <div class="col-xs-9">

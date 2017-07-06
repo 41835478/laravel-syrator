@@ -171,7 +171,7 @@ jQuery(document).ready(function() {
             title: title,
             shadeClose: false,
             shade: 0,
-            area: ['480px', '283px'],
+            area: ['480px', '410px'],
             content: src
         });
     });

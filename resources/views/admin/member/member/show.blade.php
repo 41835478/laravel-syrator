@@ -1,47 +1,57 @@
-@extends('_layout._common')
+@extends('admin._layout._show')
 
-@section('head_css')
+@section('page-content-row')
 @parent
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/profile.css') }}" />
-@stop
-
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content')
-<div class="page-container row-fluid" style="margin-top:0px;">
-	<div class="page-content" style="height:220px;min-height:220px;margin-left:0px;">
-		<div class="container-fluid">
-			<div class="row-fluid profile">
-				<div class="span12">
-					<div class="portlet-body form">
-						<table class="table table-hover table-striped table-bordered" style="margin-bottom: 0px;">
-							<tbody>
-    							<tr>
-    								<td style="width: 80px;">账号：</td>
-    								<td>{{ $member->account }}</td>
-    							</tr>
-    							<tr>
-    								<td>手机号：</td>
-    								<td>{{ $member->phone }}</td>
-    							</tr>
-    							<tr>
-    								<td>角色：</td>
-    								<td>{{ $member->getRoleName() }}</td>
-    							</tr>
-    							<tr>
-    								<td>昵称：</td>
-    								<td>{{ $member->nickname }}</td>
-    							</tr>
-    							<tr>
-    								<td>邮箱：</td>
-    								<td>{{ $member->email }}</td>
-    							</tr>
-    						</tbody>
-						</table>					
-					</div>					
-				</div>
-			</div>
-		</div>
-	</div>  
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="portlet-body form">
+            <form class="form-horizontal" role="form">
+                <div class="form-body" style="padding: 20px 20px 0px 20px !important;">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">账号</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->account }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">手机号</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->phone }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">邮箱</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->email }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">昵称</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->nickname }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">角色</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->getRoleName() }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">创建时间</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->created_at }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">更新时间</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->updated_at }}">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 @stop
