@@ -43,7 +43,10 @@ class MemberGroupController extends BackController
         }
         
         $model = new MemberRankModel();
-        $editStruct = $model->getEditStructs();        
+        $editStruct = $model->getEditStructs();
+        if (isset($editStruct['name'])) {
+            $editStruct['name']->is_request = true;
+        }
         return $this->view('member.group.create', compact('editStruct'));
     }
 

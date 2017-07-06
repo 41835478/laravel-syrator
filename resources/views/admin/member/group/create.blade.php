@@ -30,16 +30,13 @@
                     {!! csrf_field() !!}
                     <div class="form-body">
                         @include('_widgets.edit.control-group')
-    					<div class="form-group">
-    						<label class="col-md-1 control-label">分组名<span class="required" aria-required="true"> * </span></label>
-    						<div class="col-md-11">										
-    							<input type="text" class="form-control" name="name" autocomplete="off" value="{{ old('name', isset($group) ? $group->name : null) }}" placeholder="分组名">
-    							<span class="help-block"> (select at least two) </span>
-    						</div>
-    					</div>
     					<div class="form-actions">
-    						<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增会员分组</button>
-    					</div>
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+    								<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增会员分组</button>
+                                </div>
+                            </div>
+                        </div>
 					</div>
 				</form>
 			</div>
