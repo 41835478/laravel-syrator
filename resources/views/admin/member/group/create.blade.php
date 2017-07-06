@@ -23,21 +23,23 @@
     <div class="col-md-12">
         <div class="portlet box blue ">
         	<div class="portlet-title">
-        		<div class="caption">新增会员分组</div>
+        		<div class="caption"><i class="fa fa-gift"></i>新增会员分组</div>
         	</div>
 			<div class="portlet-body form">
-				<form method="post" action="{{ _route('admin:member.group.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
+				<form method="post" action="{{ _route('admin:member.group.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
                     {!! csrf_field() !!}
-                    @include('_widgets._edit-control-group')
-					<div class="control-group">
-						<label class="control-label">分组名</label>
-						<div class="controls">										
-							<input type="text" class="m-wrap large" name="name" autocomplete="off" value="{{ old('name', isset($group) ? $group->name : null) }}" placeholder="分组名">
-							<span class="help-inline"><small class="text-red">*</small></span>
-						</div>
-					</div>
-					<div class="form-actions">
-						<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增会员分组</button>
+                    <div class="form-body">
+                        @include('_widgets.edit.control-group')
+    					<div class="form-group">
+    						<label class="col-md-1 control-label">分组名<span class="required" aria-required="true"> * </span></label>
+    						<div class="col-md-11">										
+    							<input type="text" class="form-control" name="name" autocomplete="off" value="{{ old('name', isset($group) ? $group->name : null) }}" placeholder="分组名">
+    							<span class="help-block"> (select at least two) </span>
+    						</div>
+    					</div>
+    					<div class="form-actions">
+    						<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增会员分组</button>
+    					</div>
 					</div>
 				</form>
 			</div>
