@@ -14,9 +14,12 @@ class BackController extends Controller
 {    
     // UI主题
     protected $theme = "admin.";
+    protected $user;
 
     public function __construct()
-    {
+    {        
+        $this->user = auth()->guard()->user();
+        
         if(!Entrust::hasRole('Admin') && !Entrust::can('admin')) {
             $this->middleware('deny');
         }
