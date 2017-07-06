@@ -28,8 +28,7 @@
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{{ site_url('member/group', 'admin') }}">会员分组管理</a>
-        <i class="fa fa-circle"></i>
+    	<span>会员分组管理</span>
     </li>
 </ul>
 @stop

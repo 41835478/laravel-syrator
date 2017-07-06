@@ -30,8 +30,7 @@
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{{ site_url('member/member', 'admin') }}">会员管理</a>
-        <i class="fa fa-circle"></i>
+    	<span>会员管理</span>
     </li>
 </ul>
 @stop
