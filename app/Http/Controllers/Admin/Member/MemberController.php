@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin\Member;
 use App\Http\Controllers\Admin\BackController;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
-use App\Loggers\SystemLogger;
-
 use Syrator\Data\SyratorModel;
 
 use Illuminate\Http\Request;
@@ -155,10 +153,12 @@ class MemberController extends BackController
             return deny();
         }
         
-        $entity = $this->member->edit($id);        
+        $entity = $this->member->edit($id);
         $editStruct = SyratorModel::getEditStructsTools($entity);
         if (isset($editStruct['phone'])) {
             $editStruct['phone']->is_request = true;
+            $editStruct['phone']->is_editable = false;
+            $editStruct['phone']->show_type = "readonly";
             $editStruct['phone']->help = "（创建后手机号无法修改）";
         }
         if (isset($editStruct['account'])) {
@@ -168,7 +168,7 @@ class MemberController extends BackController
         if (isset($editStruct['password'])) {
             $editStruct['password']->type = "password";
             $editStruct['password']->autocomplete = "off";
-            $editStruct['password']->is_request = true;
+            $editStruct['password']->value = "";
         }
         if (isset($editStruct['remember_token'])) {
             $editStruct['remember_token']->is_editable = false;
@@ -222,20 +222,35 @@ class MemberController extends BackController
             $editStruct['is_locked']->type = "radio";
             $editStruct['is_locked']->dictionary['0'] = '否';
             $editStruct['is_locked']->dictionary['1'] = '是';
-            $editStruct['is_locked']->value = 0;
         }
         
         return $this->view('member.member.edit', compact('entity', 'editStruct'));
     }
 
-    public function update(MemberRequest $request, $id)
+    public function update(Request $request, $id)
     {      
         if(!Entrust::can('admin.member.member.edit')) {
             return deny();
         }
         
-        $data = $request->all();
-        $this->member->update($id, $data);
+        $inputs = $request->all();
+        if (empty(e($inputs['phone']))) {
+            return $this->backFail($request, '手机号不能为空');
+        }
+        
+        if (empty(e($inputs['account']))) {
+            return $this->backFail($request, '账号不能为空');
+        }
+        
+        $entity = $this->member->edit($id);
+        if (empty(e($inputs['password']))) {
+            $inputs['password'] = $entity->password;
+        } else if ($entity->password!=$inputs['password']) {
+            $inputs['password'] = bcrypt(e($inputs['password']));
+        }
+        if (!SyratorModel::saveFromInputTools($entity, $inputs)) {
+            return $this->backFail($request, '数据库操作返回异常');
+        }
         
         return redirect()->to(site_path('member/member', 'admin'))->with('message', '修改会员成功！');
     }
@@ -246,8 +261,8 @@ class MemberController extends BackController
             return deny();
         }
         
-        $member = $this->member->edit($id);
-        return $this->view('member.member.show', compact('member'));
+        $entity = $this->member->edit($id);
+        return $this->view('member.member.show', compact('entity'));
     }
     
     public function remove(Request $request)
