@@ -12,8 +12,7 @@
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{{ site_url('member/group', 'admin') }}">新增会员分组</a>
-        <i class="fa fa-circle"></i>
+    	<span>新增会员分组</span>
     </li>
 </ul>
 @stop
