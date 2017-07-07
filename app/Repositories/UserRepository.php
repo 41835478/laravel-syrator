@@ -275,4 +275,13 @@ class UserRepository extends SyratorRepository
         if ($me->save()) {
         }
     }
+    
+    public function updateMePassword($me, $inputs)
+    {
+        if ((!empty($inputs['password'])) && (!empty($inputs['password_confirmation']))) {
+            $me->password = bcrypt(e($inputs['password']));
+        }
+        if ($me->save()) {
+        }
+    }
 }

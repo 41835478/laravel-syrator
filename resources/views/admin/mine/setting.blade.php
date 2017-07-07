@@ -82,9 +82,6 @@
                                 <li>
                                     <a href="#tab_1_3" data-toggle="tab">修改密码</a>
                                 </li>
-                                <li>
-                                    <a href="#tab_1_4" data-toggle="tab">隐私设置</a>
-                                </li>
                             </ul>
                         </div>
                         <div class="portlet-body">
@@ -147,91 +144,25 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="tab_1_3">
-                                    <form action="#">
+                                    <form method="post" action="{{ _route('admin:mine.password') }}" accept-charset="utf-8">
                                     	{!! method_field('put') !!}
                 						{!! csrf_field() !!}
-                                        <div class="form-group">
+										<input type="hidden" name="nickname" value="{{ $user->nickname }}">
+										<input type="hidden" name="realname" value="{{ $user->realname }}">								
+										<div class="form-group">
                                             <label class="control-label">当前密码</label>
-                                            <input type="password" class="form-control" /> </div>
-                                        <div class="form-group">
-                                            <label class="control-label">New Password</label>
-                                            <input type="password" class="form-control" /> </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Re-type New Password</label>
-                                            <input type="password" class="form-control" /> </div>
-                                        <div class="margin-top-10">
-                                            <a href="javascript:;" class="btn green"> Change Password </a>
-                                            <a href="javascript:;" class="btn default"> Cancel </a>
+                                            <input name="oldpassword" type="password" class="form-control" />
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane" id="tab_1_4">
-                                    <form action="#">
-                                        <table class="table table-light table-hover">
-                                            <tr>
-                                                <td> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus.. </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios1" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios1" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios11" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios11" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios21" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios21" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios31" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios31" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <div class="form-group">
+                                            <label class="control-label">新密码</label>
+                                            <input name="password" type="password" class="form-control" />
+										</div>
+                                        <div class="form-group">
+                                            <label class="control-label">确认新密码</label>
+                                            <input name="password_confirmation" type="password" class="form-control" />
+                                        </div>
                                         <div class="margin-top-10">
-                                            <a href="javascript:;" class="btn red"> Save Changes </a>
-                                            <a href="javascript:;" class="btn default"> Cancel </a>
+                                            <button type="submit" class="btn blue">修改密码</button>
                                         </div>
                                     </form>
                                 </div>

@@ -63,7 +63,13 @@ class MineController extends BackController
             return deny();
         }
         
-        $this->user->updateMe(auth()->user(), $request->all());
+        $inputs = $request->all();
+        $res = password_verify($inputs['password'],auth()->user()->password);
+        if ($res!=1) {
+            return $this->backFail($request, '当前密码错误');
+        }
+        
+        $this->user->updateMePassword(auth()->user(), $request->all());
         return redirect()->back()->with('message', '成功更新密码！');
     }
 }
