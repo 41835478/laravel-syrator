@@ -9,6 +9,8 @@ $(document).ready(function(){
     	for(var i=1; i<url_path_array.length-2;i++){
     		current_url += '/' + url_path_array[i];
    		}
+    } else if (url_path_array[url_path_array.length-2]==='info' && url_path_array[url_path_array.length-1]==='setting') {
+    	current_url = current_url.substring(0,current_url.length-7) + 'overview';
     }
 
     var current_li = $('ul.page-sidebar-menu>li').find('a[href="'+current_url+'"]').closest('li');

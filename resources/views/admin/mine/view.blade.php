@@ -54,10 +54,10 @@
                 <div class="profile-usermenu">
                     <ul class="nav">
                         <li class="active">
-                            <a href="{{ site_url('mine/info-view', 'admin') }}"><i class="icon-home"></i> 概览 </a>
+                            <a href="{{ site_url('mine/info/overview', 'admin') }}"><i class="icon-home"></i> 概览 </a>
                         </li>
                         <li>
-                            <a href="{{ site_url('mine/info-setting', 'admin') }}"><i class="icon-settings"></i> 设置 </a>
+                            <a href="{{ site_url('mine/info/setting', 'admin') }}"><i class="icon-settings"></i> 设置 </a>
                         </li>
                     </ul>
                 </div>

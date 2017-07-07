@@ -153,7 +153,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="{{ site_url('mine/info', 'admin') }}"><i class="icon-user"></i> 个人资料</a>
+							<a href="{{ site_url('mine/info/overview', 'admin') }}"><i class="icon-user"></i> 个人资料</a>
 						</li>
 						<li>
 							<a href="#"><i class="icon-tasks"></i> 我的任务</a>
