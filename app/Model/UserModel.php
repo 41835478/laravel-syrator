@@ -118,4 +118,17 @@ class UserModel extends Authenticatable
             $this->detachRole($role);
         }
     }
+    
+    public function getRoleName() {        
+        $role_name = "";
+        foreach ($this->roles as $k => $value) {
+            if (empty($role_name)) {
+                $role_name = $value->display_name;
+            } else {
+                $role_name = $role_name.'/'.$value->display_name;                
+            }
+        } 
+    
+        return $role_name;
+    }
 }
