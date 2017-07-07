@@ -47,7 +47,7 @@ class MineController extends BackController
         return redirect()->back()->with('message', '成功更新个人资料！');
     }
     
-    public function putMeAvatar(Request $request)
+    public function putAvatar(Request $request)
     {
         if(!Entrust::can('admin.mine.avatar')) {
             return deny();
@@ -57,7 +57,7 @@ class MineController extends BackController
         return redirect()->back()->with('message', '成功更新个人头像！');
     }    
     
-    public function putMePassword(MineRequest $request)
+    public function putPassword(MineRequest $request)
     {  
         if(!Entrust::can('admin.mine.password')) {
             return deny();

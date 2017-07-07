@@ -56,8 +56,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
         Route::group(['prefix' => 'mine', 'namespace' => 'Mine'], function () {
             Route::get('info/{type}', 'MineController@getInfo');
             Route::put('info', 'MineController@putInfo');
-            Route::put('avatar', 'MineController@putMeAvatar');
-            Route::put('password', 'MineController@putMePassword');
+            Route::put('avatar', 'MineController@putAvatar');
+            Route::put('password', 'MineController@putPassword');
         });
         
         // 会员管理

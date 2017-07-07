@@ -119,7 +119,9 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="tab_1_2">
-                                    <form action="#" role="form">
+                                    <form role="form" method="post" action="#">
+                                    	{!! method_field('put') !!}
+                						{!! csrf_field() !!}
                                         <div class="form-group">
                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
@@ -146,8 +148,10 @@
                                 </div>
                                 <div class="tab-pane" id="tab_1_3">
                                     <form action="#">
+                                    	{!! method_field('put') !!}
+                						{!! csrf_field() !!}
                                         <div class="form-group">
-                                            <label class="control-label">Current Password</label>
+                                            <label class="control-label">当前密码</label>
                                             <input type="password" class="form-control" /> </div>
                                         <div class="form-group">
                                             <label class="control-label">New Password</label>
