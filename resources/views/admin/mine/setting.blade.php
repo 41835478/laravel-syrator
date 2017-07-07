@@ -116,35 +116,39 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="tab_1_2">
-                                    <form role="form" method="post" action="#">
+                                    <form role="form" method="post" action="{{ _route('admin:mine.avatar') }}" accept-charset="utf-8">
                                     	{!! method_field('put') !!}
                 						{!! csrf_field() !!}
                                         <div class="form-group">
                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
-                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                                @if (empty($user->avatar))
+                                                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                                @else
+                                                	<img src="{{ $user->avatar }}" alt="" />
+                                                @endif
+                                                 </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                                </div>
                                                 <div>
                                                     <span class="btn default btn-file">
-                                                        <span class="fileinput-new"> Select image </span>
-                                                        <span class="fileinput-exists"> Change </span>
-                                                        <input type="file" name="..."> </span>
-                                                    <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                        <span class="fileinput-new"> 选择图片 </span>
+                                                        <span class="fileinput-exists"> 修改 </span>
+                                                        <input type="file" name="file_picture_avatar" id="file_picture_avatar" accept=".jpg,.png,.gif,.bmp" >
+                                                    </span>
+                                                    <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> 移除 </a>
+													<a id="uploadSubmit_picture" class="btn default fileinput-exists">上传</a>
                                                 </div>
-                                            </div>
-                                            <div class="clearfix margin-top-10">
-                                                <span class="label label-danger">NOTE! </span>
-                                                <span>Attached image thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only </span>
+                                                <input type="hidden" id="picture_avatar" name="avatar" value="{{ $user->avatar }}">
                                             </div>
                                         </div>
                                         <div class="margin-top-10">
-                                            <a href="javascript:;" class="btn green"> Submit </a>
-                                            <a href="javascript:;" class="btn default"> Cancel </a>
+                                        	<button type="submit" class="btn blue">保存修改</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="tab_1_3">
-                                    <form method="post" action="{{ _route('admin:mine.password') }}" accept-charset="utf-8">
+                                    <form role="form" method="post" action="{{ _route('admin:mine.password') }}" accept-charset="utf-8">
                                     	{!! method_field('put') !!}
                 						{!! csrf_field() !!}
 										<input type="hidden" name="nickname" value="{{ $user->nickname }}">
