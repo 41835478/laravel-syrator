@@ -54,8 +54,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
         
         // 用户中心   
         Route::group(['prefix' => 'mine', 'namespace' => 'Mine'], function () {                 
-            Route::get('info-view', 'MineController@getInfoView');
-            Route::get('info-setting', 'MineController@getInfoSetting');
+            Route::get('info/{type}', 'MineController@getInfo');
             Route::put('info', 'MineController@putInfo');
             Route::put('avatar', 'MineController@putMeAvatar');
             Route::put('password', 'MineController@putMePassword');

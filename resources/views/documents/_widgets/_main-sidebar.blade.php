@@ -19,7 +19,7 @@
 			</a>
 		</li>
 		<li class="">
-			<a href="{{ site_url('mine/info-view', 'admin') }}">
+			<a href="{{ site_url('mine/info', 'admin') }}">
 				<i class="icon-bookmark-empty"></i><span class="title">个人中心</span>
 			</a>
 		</li>
