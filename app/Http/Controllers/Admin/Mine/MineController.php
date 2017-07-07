@@ -23,14 +23,24 @@ class MineController extends BackController
         }
     }
 
-    public function getMeInforation()
+    public function getInfoView()
     {
         if(!Entrust::can('admin.mine.inforation')) {
             return deny();
         }
         
-        $me = auth()->user();
-        return $this->view('mine.index', compact('me'));
+        $user = auth()->user();
+        return $this->view('mine.view', compact('user'));
+    }
+    
+    public function getInfoSetting()
+    {
+        if(!Entrust::can('admin.mine.inforation')) {
+            return deny();
+        }
+    
+        $user = auth()->user();
+        return $this->view('mine.setting', compact('user'));
     }
 
     public function putMeInforation(MineRequest $request)

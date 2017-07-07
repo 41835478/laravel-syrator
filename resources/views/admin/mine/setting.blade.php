@@ -41,11 +41,11 @@
         <div class="profile-sidebar">
             <div class="portlet light profile-sidebar-portlet ">
                 <div class="profile-userpic">
-                    <img src="{{ $me->avatar }}" class="img-responsive" alt=""> 
+                    <img src="{{ $user->avatar }}" class="img-responsive" alt=""> 
                 </div>
                 <div class="profile-usertitle">
-                    <div class="profile-usertitle-name"> {{ $me->nickname }} </div>
-                    <div class="profile-usertitle-job"> {{ $me->getRoleName() }} </div>
+                    <div class="profile-usertitle-name"> {{ $user->nickname }} </div>
+                    <div class="profile-usertitle-job"> {{ $user->getRoleName() }} </div>
                 </div>
                 <div class="profile-userbuttons">
                     <button type="button" class="btn btn-circle green btn-sm">关注</button>
@@ -53,11 +53,11 @@
                 </div>
                 <div class="profile-usermenu">
                     <ul class="nav">
-                        <li class="active">
-                            <a href="#"><i class="icon-home"></i> 概览 </a>
-                        </li>
                         <li>
-                            <a href="#"><i class="icon-settings"></i> 设置 </a>
+                            <a href="{{ site_url('mine/info-view', 'admin') }}"><i class="icon-home"></i> 概览 </a>
+                        </li>
+                        <li class="active">
+                            <a href="{{ site_url('mine/info-setting', 'admin') }}"><i class="icon-settings"></i> 设置 </a>
                         </li>
                     </ul>
                 </div>

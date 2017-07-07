@@ -28,7 +28,7 @@
                 </a>
     		</li>
     		<li class="nav-item  ">
-    			<a href="{{ site_url('mine/inforation', 'admin') }}" class="nav-link nav-toggle">
+    			<a href="{{ site_url('mine/info-view', 'admin') }}" class="nav-link nav-toggle">
                     <i class="icon-user"></i>
                     <span class="title">个人中心</span>
                 </a>

@@ -21,7 +21,7 @@
                     </a>
 					<ul class="dropdown-menu dropdown-menu-default">
 						<li>
-							<a href="{{ site_url('mine/inforation', 'admin') }}"><i class="icon-user"></i> 个人资料</a>
+							<a href="{{ site_url('mine/info-view', 'admin') }}"><i class="icon-user"></i> 个人资料</a>
 						</li>
 						<li>
 							<a href="{{ site_url('mine/task', 'admin') }}"><i class="icon-rocket"></i> 我的任务</a>
