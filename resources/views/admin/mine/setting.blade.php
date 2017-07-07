@@ -19,6 +19,7 @@
 @section('js_page_level')
 @parent
 <script src="{{ _asset('assets/metronic/pages/scripts/profile.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/syrator/js/upload/upload.js') }}" type="text/javascript"></script>
 @stop
 
 @section('page-content-bar')
@@ -121,14 +122,14 @@
                 						{!! csrf_field() !!}
                                         <div class="form-group">
                                             <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
                                                 @if (empty($user->avatar))
-                                                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                                    <img src="http://www.placehold.it/150x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
                                                 @else
                                                 	<img src="{{ $user->avatar }}" alt="" />
                                                 @endif
                                                  </div>
-                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;">
                                                 </div>
                                                 <div>
                                                     <span class="btn default btn-file">
@@ -185,22 +186,22 @@
 jQuery(document).ready(function() {    
     App.init();
     
+    //ajax
     $('#uploadSubmit_picture').click(function(){
         var resultFile = $("#file_picture_avatar").get(0).files[0];    	  	
     	var formData = new FormData();
-    	formData.append("_token",$('meta[name="_token"]').attr('content'));
     	formData.append("picture",resultFile,resultFile.name);
     	var options = {
-            type: 'post', 
-            url: "{{ _route('admin:upload.picture.store') }}", 
-            dataType: 'json',
+	        type: 'post',
+			url:'/api/upload/single',
+	        dataType: 'json',
             processData: false,
             contentType: false,
             data: formData,
             timeout: 3000,
             success: function (data) {
                 alert('上传成功');
-                $("#picture_avatar")[0].value = data.info;
+                $("#picture_avatar")[0].value = data.data.uploaded_full_file_name;
             },
             error: function(){
                 alert('上传失败');
