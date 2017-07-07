@@ -43,7 +43,7 @@ class MineController extends BackController
         return $this->view('mine.setting', compact('user'));
     }
 
-    public function putMeInforation(MineRequest $request)
+    public function putInfo(MineRequest $request)
     {        
         if(!Entrust::can('admin.mine.inforation')) {
             return deny();
