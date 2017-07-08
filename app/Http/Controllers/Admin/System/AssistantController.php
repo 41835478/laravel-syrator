@@ -10,12 +10,6 @@ use Syrator\Cache\DataCache;
 
 class AssistantController extends BackController
 {
-    /**
-     * 重建系统缓存
-     * 更新内容或者刚安装完本CMS之后，如果数据显示异常，请执行本方法
-     *
-     * @return Response
-     */
     public function getRebuildCache(Request $request)
     {
         if(!Entrust::can('admin.system.cache')) {

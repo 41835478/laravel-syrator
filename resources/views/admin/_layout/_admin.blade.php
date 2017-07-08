@@ -57,6 +57,7 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"
                 </h1>                
                 @include('_widgets.message._fail')
                 @include('_widgets.message._errors')
+                @include('_widgets.message._message')
             	@section('page-content-row')
     			@show
     		</div>
