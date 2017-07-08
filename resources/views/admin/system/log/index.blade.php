@@ -1,103 +1,116 @@
-@extends('_layout._common')
+@extends('admin._layout._admin')
 
-@section('head_css')
+@section('css_page_level_plugins')
 @parent
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/select2_metro.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/DT_bootstrap.css') }}" />
+<link href="{{ _asset('assets/metronic/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
+@section('js_page_level_plugins')
 @parent
-@include('admin._widgets._main-header')
+<script src="{{ _asset('assets/metronic/global/scripts/datatable.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
 @stop
 
-@section('content-footer')
+@section('js_page_level')
 @parent
-@include('admin._widgets._main-footer')
+<script src="{{ _asset('assets/syrator/js/datatables/jquery.dataTables.columnFilter.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/syrator/js/datatables/table-expand.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/lib/layer-2.x/layer.js') }}" type="text/javascript"></script>
 @stop
 
-@section('content')
-<div class="page-container row-fluid">
-	@include('admin._widgets._main-sidebar')
-	<div class="page-content">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<h3 class="page-title">系统日志  <small> 系统相关的操作日志</small></h3>
-					<ul class="breadcrumb">
-						<li>
-							<i class="icon-home"></i>
-							<a href="{{ site_url('home', 'admin') }}">首页</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li><a href="#">系统日志</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
-					<div class="portlet box grey">
-						<div class="portlet-title">
-							<div class="caption">日志列表</div>
-						</div>
-						<div class="portlet-body">
-							<table class="table table-striped table-bordered table-hover" id="syrator_table">
-								<thead>
-									<tr>
-										<th style="width:8px;text-align: center;"><input type="checkbox" class="group-checkable" data-set="#syrator_table .checkboxes" /></th>			
-                                        <th style="width:45px;text-align: center;">类型</th>
-										<th>操作者</th>
-                                        <th class="hidden-480" style="width:80px;text-align: center;">操作者IP</th>
-                                        <th class="hidden-480" style="width:200px;text-align: center;">操作URL</th>
-                                        <th class="hidden-480" style="text-align: center;">操作内容</th>
-                                        <th style="width:80px;text-align: center;">操作时间</th>
-                                        <th class="hidden-480" style="width:45px;text-align: center;">查阅</th>
-									</tr>
-								</thead>
-								<tbody>
-                                    @foreach ($system_logs as $sys_log)
-                                    <tr class="odd gradeX">
-										<td><input type="checkbox" class="checkboxes" value="{{ $sys_log->id }}" /></td>
-                                        <td class="text-red">{{ dict('log_type.'.$sys_log->type) }}</td>
-                                        <td class="text-green">{{ $sys_log->username or '--' }} / {{ $sys_log->realname or '--' }}</td>
-                                        <td class="text-yellow">{{ $sys_log->operator_ip }}</td>
-                                        <td title="{{ $sys_log->url }}">{{ $sys_log->url }}</td>
-                                        <td title="{{ $sys_log->content }}">{{ str_limit($sys_log->content, 70, '...') }}</td>
-                                        <td>{{ $sys_log->created_at }}</td>
-                                        <td style="text-align: center;">                                        	
-                                        	<a data-title="{{ dict('log_type.'.$sys_log->type) }}" href="{{ _route('admin:system.log.show', $sys_log->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;">
-                                        		<i class="icon-eye-open"></i>
-                                        	</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+@section('page-content-bar')
+@parent
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('home', 'admin') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+    	<span>系统日志</span>
+    </li>
+</ul>
+@stop
+
+@section('page-content-row')
+@parent
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-globe"></i>日志列表</div> 
+                <div class="actions">
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="javascript:;" data-toggle="dropdown">
+                            <i class="fa fa-share"></i>
+                            <span class="hidden-xs"> 工具</span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right" id="syrator_table_tools">
+                            <li><a href="javascript:;" data-action="0" class="tool-action"><i class="icon-printer"></i> 打印</a></li>
+                            <li><a href="javascript:;" data-action="1" class="tool-action"><i class="icon-check"></i> 复制</a></li>
+                            <li><a href="javascript:;" data-action="2" class="tool-action"><i class="icon-doc"></i> 导出PDF</a></li>
+                            <li><a href="javascript:;" data-action="3" class="tool-action"><i class="icon-paper-clip"></i> 导出Excel</a></li>
+                            <li><a href="javascript:;" data-action="4" class="tool-action"><i class="icon-cloud-upload"></i> 导出CSV</a></li>
+                        </ul>
+                    </div>
+    			</div>
+            </div>
+            <div class="portlet-body">
+				<table class="table table-striped table-bordered table-hover table-checkable order-column" id="syrator_table">
+					<thead>
+                        <tr>
+                            <th style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="group-checkable" data-set="#syrator_table .checkboxes" />
+                                    <span></span>
+                                </label>
+                            </th>
+							<th>类型</th>
+							<th>操作者</th>
+							<th>操作者IP</th>
+							<th>操作URL</th>
+							<th>操作内容</th>
+							<th>操作时间</th>
+                            <th style="width:68px;text-align:center;">操作</th>
+                        </tr>
+                    </thead>
+					<tbody>
+                        @foreach ($system_logs as $per)
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->type }}</td>
+                            <td class="text-green">{{ $per->username }}</td>
+                            <td>{{ $per->operator_ip }}</td>
+                            <td>{{ $per->url }}</td>
+                            <td>{{ $per->content }}</td>
+                            <td>{{ $per->created_at }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:system.log.show', $per->id) }}" class="btn btn-xs layer_open">
+                            		<i class="fa fa-eye"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        @endforeach
+					</tbody>
+				</table>
+            </div>
+        </div>
+    </div>
 </div>
-@stop
-
-@section('extraPlugin')
-@parent
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/select2.min.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/table-managed.js') }}"></script>
-<script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
 @stop
 
 @section('filledScript')
 <script>
-jQuery(document).ready(function() {    
-    App.init();
-    TableManaged.init();
+jQuery(document).ready(function() {
+    
+    TableExpand.init({},"syrator_table");
 
     $(document).on("click","a.layer_open",function(evt) {
         evt.preventDefault();
@@ -109,7 +122,7 @@ jQuery(document).ready(function() {
             title: title,
             shadeClose: false,
             shade: 0,
-            area: ['480px', '283px'],
+            area: ['480px', '215px'],
             content: src
         });
     });
