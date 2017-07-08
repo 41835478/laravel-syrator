@@ -122,7 +122,7 @@ jQuery(document).ready(function() {
             title: title,
             shadeClose: false,
             shade: 0,
-            area: ['480px', '215px'],
+            area: ['480px', '420px'],
             content: src
         });
     });
