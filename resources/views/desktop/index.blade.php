@@ -1,24 +1,7 @@
-@extends('_layout._common')
+@extends('desktop._layout._desktop')
 
-@section('head_css')
+@section('page-content-row')
 @parent
-<link href="{{ _asset('assets/metronic/css/promo.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('assets/metronic/css/animate.css') }}" rel="stylesheet" type="text/css" />
-@stop
-
-@section('body_attr') class="page-header-fixed page-full-width" @stop
-
-@section('content-header')
-@parent
-@include('_widgets._main-header')
-@stop
-
-@section('content-footer')
-@parent
-@include('_widgets._main-footer')
-@stop
-
-@section('content')
 <div class="page-container row-fluid">
 	<div class="page-sidebar nav-collapse collapse visible-phone visible-tablet">
 		<ul class="page-sidebar-menu">

@@ -1,23 +1,20 @@
-@extends('_layout._common')
+@extends('admin._layout._admin')
 
-@section('head_css')
+@section('page-content-bar')
 @parent
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/bootstrap-fileupload.css') }}" />
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('home', 'admin') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+    	<span>参数配置</span>
+    </li>
+</ul>
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
+@section('page-content-row')
 @parent
-@include('admin._widgets._main-header')
-@stop
-
-@section('content-footer')
-@parent
-@include('admin._widgets._main-footer')
-@stop
-
-@section('content')
 <div class="page-container row-fluid">
 	@include('admin._widgets._main-sidebar')
 	<div class="page-content">
