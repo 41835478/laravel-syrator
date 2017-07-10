@@ -16,4 +16,8 @@ class PermissionModel extends EntrustPermission
     {
         return $this->belongsToMany(RoleModel::class, "permission_role", "permission_id", "role_id");
     }
+    
+    public function getFullTableName() {
+        return $this->getConnection()->getTablePrefix().$this->table;
+    }
 }

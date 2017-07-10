@@ -10,6 +10,8 @@ use App\Repositories\RoleRepository;
 use App\Http\Requests\PermissionRequest;
 use App\Model\PermissionModel;
 
+use Syrator\Data\SyratorModel;
+
 class PermissionController extends BackController
 {
     protected $role;
@@ -41,9 +43,12 @@ class PermissionController extends BackController
         }
         
         $model = new PermissionModel();
-        $editStruct = SyratorModel::getEditStructsTools($entity);
+        $editStruct = SyratorModel::getEditStructsTools($model);
         if (isset($editStruct['name'])) {
             $editStruct['name']->is_request = true;
+        }
+        if (isset($editStruct['pid'])) {
+            $editStruct['pid']->is_editable = false;
         }
         
         return $this->view('permission.permission.create', compact('editStruct'));

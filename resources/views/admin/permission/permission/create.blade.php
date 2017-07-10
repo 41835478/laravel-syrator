@@ -8,11 +8,11 @@
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{{ site_url('member/group', 'admin') }}">会员分组管理</a>
+        <a href="{{ site_url('permission/permission', 'admin') }}">权限管理</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
-    	<span>新增会员分组</span>
+    	<span>新增权限</span>
     </li>
 </ul>
 @stop
@@ -23,17 +23,17 @@
     <div class="col-md-12">
         <div class="portlet box blue ">
         	<div class="portlet-title">
-        		<div class="caption"><i class="fa fa-gift"></i>新增会员分组</div>
+        		<div class="caption"><i class="fa fa-gift"></i>新增权限</div>
         	</div>
 			<div class="portlet-body form">
-				<form method="post" action="{{ _route('admin:member.group.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
+				<form method="post" action="{{ _route('admin:permission.permission.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
                     {!! csrf_field() !!}
                     <div class="form-body">
                         @include('_widgets.edit.control-group')
     					<div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
-    								<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增会员分组</button>
+    								<button type="submit" class="btn blue"><i class="icon-ok"></i> 新增权限</button>
                                 </div>
                             </div>
                         </div>
