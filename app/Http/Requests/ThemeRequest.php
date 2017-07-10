@@ -18,7 +18,7 @@ class ThemeRequest extends FormRequest
         if($this->segment(4)){            
             $rules = [
                 'code'              => 'required|min:4|max:10|eng_alpha_num',
-                'name'              => 'required|min:2|max:255|regex:/^[\x{4e00}-\x{9fa5}]{2,5}$/u',              
+                'name'              => 'required|min:2|max:255',              
                 'is_current'        => 'required|boolean',
             ];
         }
@@ -26,7 +26,7 @@ class ThemeRequest extends FormRequest
         else{            
             $rules = [
                 'code'              => 'required|min:4|max:10|eng_alpha_num|unique:theme',
-                'name'              => 'required|min:2|max:255|regex:/^[\x{4e00}-\x{9fa5}]{2,5}$/u',              
+                'name'              => 'required|min:2|max:255',              
                 'is_current'        => 'required|boolean',
             ];
         }
@@ -46,7 +46,6 @@ class ThemeRequest extends FormRequest
             'name.required'         => '请填写模板名',
             'name.max'              => '名称过长，长度不得超出255',
             'name.min'              => '名称过短，长度不得少于2',
-            'name.regex'            => '名称包含非法字符，必须为中文',
 
             'is_current.required'   => '请选择模板状态',
             'is_current.boolean'    => '模板状态必须为布尔值',
