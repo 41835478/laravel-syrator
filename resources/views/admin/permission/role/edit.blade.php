@@ -113,7 +113,7 @@
                                     </div>
                                 </div>
 								<div class="form-actions">
-									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新角色</button>
+									<button type="submit" class="btn blue"><i class="icon-ok"></i> 更新角色</button>
 									<button id="button_reset" type="button" class="btn"> 重置</button>
 									<input id="input_checkall" name="checkall" type="checkbox">全选</input>
 								</div>

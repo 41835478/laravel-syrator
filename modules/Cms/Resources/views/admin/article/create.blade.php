@@ -54,7 +54,7 @@
                                 {!! csrf_field() !!}
 								@include('_widgets._edit-control-group')
 								<div class="form-actions">
-									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增</button>
+									<button type="submit" class="btn blue"><i class="icon-ok"></i> 新增</button>
 								</div>
 							</form>
 						</div>

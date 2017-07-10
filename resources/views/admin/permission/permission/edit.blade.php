@@ -92,7 +92,7 @@
 									</div>
 								</div>
 								<div class="form-actions">
-									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 更新权限</button>
+									<button type="submit" class="btn blue"><i class="icon-ok"></i> 更新权限</button>
 								</div>
 							</form>
 						</div>
