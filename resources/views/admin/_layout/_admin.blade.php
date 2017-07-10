@@ -2,7 +2,7 @@
 
 @section('body_attr') 
 @parent
-class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" 
+class="page-header-fixed page-footer-fixed page-sidebar-closed-hide-logo page-content-white" 
 @stop
 
 @section('css_theme_global')
