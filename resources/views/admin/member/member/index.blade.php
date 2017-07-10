@@ -158,9 +158,6 @@ jQuery(document).ready(function() {
 	    "syrator_table_member"
     );
 
-    TableExpand.init({},"sample_1");
-    TableExpand.init({},"sample_2");
-
     $(document).on("click","a.layer_open",function(evt) {
         evt.preventDefault();
         var that = this;
