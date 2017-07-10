@@ -94,15 +94,14 @@
                                     <span></span>
                                 </label>
                             </td>
-                            <td class="text-green">{{ $per->id }}</td>
                             <td class="text-green">{{ $per->code }}</td>
                             <td class="text-green">{{ $per->name }}</td>
                             <td class="text-green">{{ $per->author }}</td>
                             <td class="text-green">{{ $per->version }}</td>                            
-        					@if($per->is_current === '1')
-        					<td class="text-red" style="text-align:center;"><i class="icon-ok"></i></td>
+        					@if($per->is_current == '1')
+        					<td class="text-red" style="text-align:center;"><i class="fa fa-check"></i></td>
         					@else
-        					<td class="text-red" style="text-align:center;"><i class="icon-remove"></i></td>
+        					<td class="text-red" style="text-align:center;"><i class="fa fa-close"></i></td>
         					@endif
                             <td>{{ $per->created_at }}</td>
                             <td>{{ $per->updated_at }}</td>

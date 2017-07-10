@@ -33,7 +33,7 @@
     					<div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
-    								<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增会员分组</button>
+    								<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增模板</button>
                                 </div>
                             </div>
                         </div>
