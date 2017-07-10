@@ -156,7 +156,7 @@ class PermissionController extends BackController
     
     public function removeBatch(Request $request)
     {      
-        if(!Entrust::can('admin.system.theme.remove')) {
+        if(!Entrust::can('admin.permission.permission.remove')) {
             return deny();
         }
     

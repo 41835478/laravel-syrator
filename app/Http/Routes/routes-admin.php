@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
 
     	    // 角色管理
     	    Route::post('role/remove', 'RoleController@remove');
+    	    Route::post('role/removebatch', 'RoleController@removeBatch');
     	    Route::resource('role', 'RoleController');
     	    
     	    // 权限(项)管理

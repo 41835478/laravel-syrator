@@ -132,4 +132,23 @@ class RoleController extends BackController
         
         return $rth;
     }
+    
+    public function removeBatch(Request $request)
+    {      
+        if(!Entrust::can('admin.permission.role.remove')) {
+            return deny();
+        }
+    
+        $idsstr = $request->input('delId');
+        $ids = explode(",",$idsstr);
+        if (RoleModel::whereIn('id', $ids)->delete()) {
+            $rth['code'] = "200";
+            $rth['message'] = "删除成功";
+        } else {
+            $rth['code'] = "500";
+            $rth['message'] = "删除失败";
+        }
+    
+        return $rth;
+    }
 }
