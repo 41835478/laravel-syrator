@@ -128,7 +128,7 @@
                                                 @else
                                                 	<img src="{{ $user->avatar }}" alt="" />
                                                 @endif
-                                                 </div>
+                                                </div>
                                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;">
                                                 </div>
                                                 <div>
