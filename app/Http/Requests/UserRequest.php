@@ -28,12 +28,12 @@ class UserRequest extends FormRequest
         //update
         if($this->segment(4)){
             $rules = [
-                'nickname'              => 'required|alpha_dash|min:4|max:10',
-                'realname'              => 'required|min:2|max:5|regex:/^[\x{4e00}-\x{9fa5}]{2,5}$/u',  //中文正则匹配可能有遗漏
-                'password'              => 'min:6|max:16|regex:/^[a-zA-Z0-9~@#%_]{6,16}$/i',  //登录密码只能英文字母(a-zA-Z)、阿拉伯数字(0-9)、特殊符号(~@#%)
+                'nickname'              => 'alpha_dash|min:1|max:255',
+                'realname'              => 'required|min:1|max:255',  //中文正则匹配可能有遗漏
+                'password'              => 'min:6|max:16|regex:/^[a-zA-Z0-9~@#%_]{6,16}$/i',
                 'password_confirmation' => 'same:password',
                 'role'                  => 'required|exists:roles,id',
-                'is_locked'               => 'required|boolean',
+                'is_locked'             => 'required|boolean',
             ];
         }
         //store

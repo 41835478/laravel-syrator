@@ -195,7 +195,82 @@ class UserController extends BackController
             // 新建的管理员用户可能不存在关联role模型
             $own_role = $this->user->fakeRole();  // 伪造一个Role对象，以免报错
         }
-        return $this->view('permission.user.edit', compact('user', 'roles', 'own_role'));
+        
+        $editStruct = array();
+        $editStructTemp = SyratorModel::getEditStructsTools($user);
+        if (isset($editStructTemp['username'])) {
+            $editStructTemp['username']->is_request = true;
+            $editStructTemp['username']->is_editable = false;
+            $editStructTemp['username']->show_type = "readonly";
+            $editStructTemp['username']->help = "（账号创建后无法修改）";
+            $editStruct['username'] = $editStructTemp['username'];
+        }
+        if (isset($editStructTemp['email'])) {
+            $editStructTemp['email']->is_request = true;
+            $editStruct['email'] = $editStructTemp['email'];
+        }
+        if (isset($editStructTemp['password'])) {
+            $editStructTemp['password']->type = "password";
+            $editStructTemp['password']->autocomplete = "off";
+            $editStructTemp['password']->is_request = true;
+            $editStructTemp['password']->value = "";
+            $editStruct['password'] = $editStructTemp['password'];
+        }
+        if (isset($editStructTemp['password_confirmation'])) {
+            $editStructTemp['password_confirmation']->is_request = true;
+            $editStruct['password_confirmation'] = $editStructTemp['password_confirmation'];
+        } else {
+            $editProperty = new SyratorEditProperty();
+            $editProperty->name = 'password_confirmation';
+            $editProperty->alias = '确认密码';
+            $editProperty->type = "password";
+            $editProperty->autocomplete = "off";
+            $editProperty->is_request = true;
+            $editStruct['password_confirmation'] = $editProperty;
+        }
+        if (isset($editStructTemp['role'])) {
+            $editStructTemp['role']->is_request = true;
+            $editStruct['role'] = $editStructTemp['role'];
+        } else {
+            $editProperty = new SyratorEditProperty();
+            $editProperty->name = 'role';
+            $editProperty->alias = '角色';
+            $editProperty->type = "select";
+            $editProperty->is_request = true;
+            $editProperty->value = $own_role->id;
+            $editProperty->dictionary = array();
+            foreach ($roles as $k => $value) {
+                $editProperty->dictionary[$value->id] = $value->name.'('.$value->display_name.')';
+            }
+        
+            $editStruct['role'] = $editProperty;
+        }
+        
+        if (isset($editStructTemp['realname'])) {
+            $editStructTemp['realname']->is_request = true;
+            $editStruct['realname'] = $editStructTemp['realname'];
+        }
+        if (isset($editStructTemp['nickname'])) {
+            $editStructTemp['nickname']->is_request = true;
+            $editStruct['nickname'] = $editStructTemp['nickname'];
+        }
+        if (isset($editStructTemp['phone'])) {
+            $editStructTemp['phone']->is_request = true;
+            $editStruct['phone'] = $editStructTemp['phone'];
+        }
+        if (isset($editStructTemp['is_locked'])) {
+            $editStructTemp['is_locked']->type = "radio";
+            $editStructTemp['is_locked']->alias = '是否锁定';
+            $editStructTemp['is_locked']->dictionary['0'] = '否';
+            $editStructTemp['is_locked']->dictionary['1'] = '是';
+            $editStruct['is_locked'] = $editStructTemp['is_locked'];
+        }
+        
+        if (isset($editStruct['remember_token'])) {
+            $editStruct['remember_token']->is_editable = false;
+        }
+        
+        return $this->view('permission.user.edit', compact('user', 'roles', 'own_role', 'editStruct'));
     }
 
     /**

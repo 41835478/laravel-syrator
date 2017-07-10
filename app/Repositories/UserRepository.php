@@ -72,6 +72,9 @@ class UserRepository extends SyratorRepository
         $manager->nickname = e($inputs['nickname']);
         $manager->realname = e($inputs['realname']);
         $manager->is_locked = e($inputs['is_locked']);
+        $manager->phone = e($inputs['phone']);
+        $manager->email = e($inputs['email']);
+        $manager->avatar = e($inputs['avatar']);
         if ((!empty($inputs['password'])) && (!empty($inputs['password_confirmation']))) {
             $manager->password = bcrypt(e($inputs['password']));
         }
