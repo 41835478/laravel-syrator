@@ -78,7 +78,7 @@
 							<th>编号</th>
 							<th>登录名 / 昵称</th>
 							<th>真实姓名</th>
-							<th>角色</th>
+							<th style="width:120px;">角色</th>
 							<th>状态</th>
 							<th>最后登录时间</th>
 							<th>创建时间</th>
@@ -86,6 +86,20 @@
                             <th style="width:68px;text-align:center;">操作</th>
                         </tr>
                     </thead>
+					<tfoot>
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th class="filter_column_select">选择角色</th>
+							<th class="filter_column_select">选择状态</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</tfoot>
 					<tbody>
                         @foreach ($users as $per)
                         <tr class="odd gradeX">
@@ -139,8 +153,20 @@
 @section('filledScript')
 <script>
 jQuery(document).ready(function() {
+
+	var selectValues = new Array();
+    @foreach ($roles as $k => $v)
+    selectValues[{{$k}}] = "{{ $v->name }}({{ $v->display_name }})";
+    @endforeach
     
-    TableExpand.init({},"syrator_table");
+    TableExpand.init({
+        aoColumns: [null, null, null, null, 
+            {type: "select", values: selectValues}, 
+            {type: "select", values: ['正常','锁定']}, 
+            null, null, null, null,]
+    	},
+	    "syrator_table"
+    );
 
     $(document).on("click","a.layer_open",function(evt) {
         evt.preventDefault();
