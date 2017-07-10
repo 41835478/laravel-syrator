@@ -84,6 +84,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
     	    
     	    // 权限(项)管理
     	    Route::post('permission/remove', 'PermissionController@remove');
+    	    Route::post('permission/removebatch', 'PermissionController@removeBatch');
     	    Route::resource('permission', 'PermissionController');
         });
     });
