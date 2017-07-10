@@ -1,190 +1,147 @@
-@extends('_layout._common')
+@extends('admin._layout._admin')
 
-@section('head_css')
+@section('css_page_level_plugins')
 @parent
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/bootstrap-fileupload.css') }}" />
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
+@section('css_page_level')
 @parent
-@include('admin._widgets._main-header')
+<link href="{{ _asset('assets/metronic/pages/css/profile.min.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('content-footer')
+@section('js_page_level_plugins')
 @parent
-@include('admin._widgets._main-footer')
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/jquery.sparkline.min.js') }}" type="text/javascript"></script>
 @stop
 
-@section('content')
-<div class="page-container row-fluid">
-	@include('admin._widgets._main-sidebar')
-	<div class="page-content">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<h3 class="page-title">新增APP欢迎页  <small> 新增APP启动时显示的欢迎导航页面</small></h3>
-					<ul class="breadcrumb">
-						<li>
-							<i class="icon-home"></i>
-							<a href="{{ site_url('home', 'admin') }}">首页</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li>
-							<a href="{{ site_url('system/appinfo/guide', 'admin') }}">APP欢迎页管理</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li><a href="#">新增APP欢迎页</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span12">
-        			@if(session()->has('fail'))
-                    <div class="alert alert-warning alert-dismissable">
-                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                    	<h4>
-                    		<i class="icon icon fa fa-warning"></i> 提示！
-                    	</h4>
-                    	{{ session('fail') }}
-                    </div>
-                    @endif 
-                    
-                    @if($errors->any())
-                    <div class="alert alert-danger alert-dismissable">
-                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                    	<h4>
-                    		<i class="icon fa fa-ban"></i> 警告！
-                    	</h4>
-                    	<ul>
-                    		@foreach ($errors->all() as $error)
-                    		<li>{{ $error }}</li> 
-                    		@endforeach
-                    	</ul>
-                    </div>
-                    @endif
-                    <div class="portlet box blue ">
-                    	<div class="portlet-title">
-                    		<div class="caption">新增APP欢迎页</div>
-                    	</div>
-						<div class="portlet-body form">
-							<form method="post" action="{{ _route('admin:system.appinfo.guide.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
-                                {!! csrf_field() !!}								
-								<div class="control-group">
-									<label class="control-label">名称</label>
-									<div class="controls">										
-										<input type="text" class="m-wrap large" name="name" autocomplete="off" value="{{ old('name', isset($entity) ? $entity->name : null) }}" placeholder="名称">
-										<span class="help-inline"><small class="text-red">*</small></span>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">描述</label>
-									<div class="controls">										
-										<textarea type="text" class="m-wrap large" name="description" autocomplete="off" value="{{ old('description', isset($entity) ? $entity->description : null) }}" placeholder="描述"></textarea>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">排序</label>
-									<div class="controls">										
-										<input type="text" class="m-wrap large" name="sort_num" autocomplete="off" value="{{ old('sort_num', isset($catalog) ? $entity->sort_num : null) }}" placeholder="排序">
-										<span class="help-inline text-green"><small>*</small> 默认为0</span>
-									</div>
-								</div>								
-								<div class="control-group">
-									<label class="control-label">图片水印 </label>
-									<div class="controls">
-										<div class="fileupload fileupload-new" data-provides="fileupload">
-											<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-												<img src="" alt="" />
-											</div>
-											<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-											<div>
-												<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
-												<span class="fileupload-exists">修改</span>
-												<input type="file" class="default" name="file_picture_watermark" id="file_picture_watermark" accept=".jpg,.png,.gif,.bmp" /></span>
-												<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
-												<a id="uploadSubmit_picture_watermark" class="btn fileupload-exists">上传</a>
-											</div>
-											<input type="hidden" id="picture_watermark" name="url" value="">
-										</div>                                                	
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">是否显示</label>
-									<div class="controls">
-										<label class="radio"><input type="radio" name="is_show" value="0" />否</label>
-										<label class="radio"><input type="radio" name="is_show" value="1" checked />是</label>   
-									</div>
-								</div>
-								<div class="form-actions">
-									<button type="submit" class="btn blue" id="updateOptions1"><i class="icon-ok"></i> 新增APP欢迎页</button>
-								</div>
-							</form>
-						</div>
+@section('js_page_level')
+@parent
+<script src="{{ _asset('assets/metronic/pages/scripts/profile.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/syrator/js/upload/upload.js') }}" type="text/javascript"></script>
+@stop
+
+@section('page-content-bar')
+@parent
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('home', 'admin') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="{{ site_url('system/appinfo', 'admin') }}">APP管理</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+    	<span>新增APP欢迎页</span>
+    </li>
+</ul>
+@stop
+
+@section('page-content-row')
+@parent
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue ">
+        	<div class="portlet-title">
+        		<div class="caption"><i class="fa fa-gift"></i>新增APP欢迎页</div>
+        	</div>
+			<div class="portlet-body form">
+				<form method="post" action="{{ _route('admin:system.appinfo.guide.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
+                    {!! csrf_field() !!}                    
+                    <div class="form-body">
+    					<div class="form-group">
+    						<label class="control-label col-md-3">名称<span class="required" aria-required="true"> * </span></label>
+    						<div class="col-md-4">										
+    							<input type="text" class="form-control" name="name" autocomplete="off" placeholder="名称">
+    						</div>
+    					</div>
+    					<div class="form-group">
+    						<label class="control-label col-md-3">描述</label>
+    						<div class="col-md-4">										
+    							<textarea type="text" class="form-control" name="description" autocomplete="off" placeholder="描述"></textarea>
+    						</div>
+    					</div>
+    					<div class="form-group">
+    						<label class="control-label col-md-3">排序</label>
+    						<div class="col-md-4">										
+    							<input type="text" class="form-control" name="sort_num" autocomplete="off" placeholder="排序" value="0">
+    						</div>
+    					</div>
+    					<div class="form-group">
+    						<label class="control-label col-md-3">是否显示<span class="required" aria-required="true"> * </span></label>
+    						<div class="col-md-4">    						
+                        		<div class="mt-radio-inline">
+                            		<label class="mt-radio">
+                            			<input type="radio" name="is_show" value="0" />否
+                            			<span></span>
+                            		</label>
+                            		<label class="mt-radio">
+                            			<input type="radio" name="is_show" value="1" checked />是
+                            			<span></span>
+                            		</label>
+                                </div>
+    						</div>
+    					</div>
+                        <div class="form-group">
+    						<label class="control-label col-md-3">引导图片<span class="required" aria-required="true"> * </span></label>
+    						<div class="col-md-4">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                                        <img src="http://www.placehold.it/150x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;">
+                                    </div>
+                                    <div>
+                                        <span class="btn default btn-file">
+                                            <span class="fileinput-new"> 选择图片 </span>
+                                            <span class="fileinput-exists"> 修改 </span>
+                                            <input type="file" name="file_picture" id="file_picture" accept=".jpg,.png,.gif,.bmp" >
+                                        </span>
+                                        <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> 移除 </a>
+        								<a id="uploadSubmit_picture" class="btn default fileinput-exists">上传</a>
+                                    </div>
+                                    <input type="hidden" id="picture" name="url" value="">
+                                </div>
+							</div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+    								<button type="submit" class="btn blue"><i class="icon-ok"></i> 新增APP欢迎页</button>
+                                </div>
+                            </div>
+                        </div>                 
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
 @stop
 
-@section('extraPlugin')
-@parent
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/bootstrap-fileupload.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/form-components.js') }}"></script>
-@stop
-
 @section('filledScript')
 <script>
 jQuery(document).ready(function() {    
     App.init();
-
-    FormComponents.init();
-
+    
     //ajax
-    $('#uploadSubmit_picture_watermark').click(function(){
-        var resultFile = $("#file_picture_watermark").get(0).files[0];    	  	
+    $('#uploadSubmit_picture').click(function(){
+        var resultFile = $("#file_picture").get(0).files[0];    	  	
     	var formData = new FormData();
-    	formData.append("_token",$('meta[name="_token"]').attr('content'));
     	formData.append("picture",resultFile,resultFile.name);
     	var options = {
-            type: 'post', 
-            url: "{{ _route('admin:upload.picture.store') }}", 
-            dataType: 'json',
+	        type: 'post',
+			url:'/api/upload/single',
+	        dataType: 'json',
             processData: false,
             contentType: false,
             data: formData,
             timeout: 3000,
             success: function (data) {
                 alert('上传成功');
-                $("#picture_watermark")[0].value = data.info;
-            },
-            error: function(){
-                alert('上传失败');
-            }
-        };
-        $.ajax(options);
-    });
-
-    //ajax
-    $('#uploadSubmit_system_logo').click(function(){
-        var resultFile = $("#file_system_logo").get(0).files[0];    	  	
-    	var formData = new FormData();
-    	formData.append("_token",$('meta[name="_token"]').attr('content'));
-    	formData.append("picture",resultFile,resultFile.name);
-    	var options = {
-            type: 'post', 
-            url: "{{ _route('admin:upload.picture.store') }}", 
-            dataType: 'json',
-            processData: false,
-            contentType: false,
-            data: formData,
-            timeout: 3000,
-            success: function (data) {
-                alert('上传成功');
-                $("#system_logo")[0].value = data.info;
+                $("#picture")[0].value = data.data.uploaded_full_file_name;
             },
             error: function(){
                 alert('上传失败');
