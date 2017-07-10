@@ -10,31 +10,31 @@
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">编码</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $theme->code }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $theme->code }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">名称</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $theme->name }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $theme->name }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">描述</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $theme->description }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $theme->description }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">版本</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $theme->version }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $theme->version }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">作者</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $theme->author }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $theme->author }}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -55,13 +55,13 @@
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">创建时间</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $theme->created_at }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $theme->created_at }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">更新时间</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $theme->updated_at }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $theme->updated_at }}">
                         </div>
                     </div>
                 </div>

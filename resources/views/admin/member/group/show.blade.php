@@ -10,19 +10,19 @@
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">名称</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $group->name }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $group->name }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">创建时间</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $group->created_at }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $group->created_at }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">更新时间</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $group->updated_at }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $group->updated_at }}">
                         </div>
                     </div>
                 </div>

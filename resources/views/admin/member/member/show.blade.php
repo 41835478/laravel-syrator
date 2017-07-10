@@ -10,43 +10,43 @@
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">账号</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->account }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $entity->account }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">手机号</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->phone }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $entity->phone }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">邮箱</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->email }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $entity->email }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">昵称</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->nickname }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $entity->nickname }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">角色</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->getRoleName() }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $entity->getRoleName() }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">创建时间</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->created_at }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $entity->created_at }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-3 control-label" style="margin-top: 7px;">更新时间</label>
                         <div class="col-xs-9">
-                        	<input type="text" class="form-control" placeholder="Readonly" readonly="" value="{{ $entity->updated_at }}">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $entity->updated_at }}">
                         </div>
                     </div>
                 </div>
