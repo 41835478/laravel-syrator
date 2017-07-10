@@ -25,4 +25,7 @@ class RoleModel extends EntrustRole
         return $this->perms()->save($permission);
     }
 
+    public function getFullTableName() {
+        return $this->getConnection()->getTablePrefix().$this->table;
+    }
 }

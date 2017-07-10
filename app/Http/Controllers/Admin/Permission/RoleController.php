@@ -10,10 +10,8 @@ use App\Repositories\RoleRepository;
 use App\Http\Requests\RoleRequest;
 use App\Model\RoleModel;
 
-/**
- * 角色控制器
- *
- */
+use Syrator\Data\SyratorModel;
+
 class RoleController extends BackController
 {
 
@@ -50,8 +48,14 @@ class RoleController extends BackController
             return deny();
         }
         
-        $permissions = $this->role->permissions();  //获取所有权限许可
-        return $this->view('permission.role.create', compact('permissions'));
+        $model = new RoleModel();
+        $editStruct = SyratorModel::getEditStructsTools($model);
+        if (isset($editStruct['name'])) {
+            $editStruct['name']->is_request = true;
+        }
+        
+        $permissions = $this->role->permissions();
+        return $this->view('permission.role.create', compact('permissions', 'editStruct'));
     }
 
     public function store(RoleRequest $request)
