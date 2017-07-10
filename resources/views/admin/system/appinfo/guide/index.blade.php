@@ -1,5 +1,15 @@
 @extends('admin._layout._admin')
 
+@section('css_page_level_plugins')
+@parent
+<link href="{{ _asset('assets/metronic/global/plugins/fancybox/source/jquery.fancybox.css') }}" rel="stylesheet" type="text/css" />
+@stop
+
+@section('js_page_level_plugins')
+@parent
+<script src="{{ _asset('assets/metronic/global/plugins/fancybox/source/jquery.fancybox.pack.js') }}" type="text/javascript"></script>
+@stop
+
 @section('page-content-bar')
 @parent
 <ul class="page-breadcrumb">
@@ -35,40 +45,22 @@
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="mt-card-item">
                                 <div class="mt-card-avatar mt-overlay-1">
-                                    <img src="/assets/metronic/pages/img/avatars/team1.jpg">
+                                    <img src="{{$per->url}}" alt="">
                                     <div class="mt-overlay">
                                         <ul class="mt-info">
                                             <li>
-                                                <a class="btn default btn-outline" href="javascript:;">
+                                                <a class="btn default btn-outline fancybox-button" href="{{$per->url}}" data-rel="fancybox-button">
                                                     <i class="icon-magnifier"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="btn default btn-outline" href="javascript:;">
+                                                <a class="btn default btn-outline" href="{{$per->url}}" target="_black">
                                                     <i class="icon-link"></i>
                                                 </a>
                                             </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="mt-card-content">
-                                    <h3 class="mt-card-name">Mark Anthony</h3>
-                                    <p class="mt-card-desc font-grey-mint">Managing Director</p>
-                                    <div class="mt-card-social">
-                                        <ul>
                                             <li>
-                                                <a href="javascript:;">
-                                                    <i class="icon-social-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <i class="icon-social-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <i class="icon-social-dribbble"></i>
+                                                <a class="btn default btn-outline remove" href="javascript:void(0);" item-id="{{ $per->id }}" >
+                                                    <i class="fa fa-remove"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -89,6 +81,20 @@
 <script>
 jQuery(document).ready(function() {
     App.init();
+
+    if (jQuery(".fancybox-button").size() > 0) {
+        jQuery(".fancybox-button").fancybox({
+            groupAttr: 'data-rel',
+            prevEffect: 'none',
+            nextEffect: 'none',
+            closeBtn: true,
+            helpers: {
+                title: {
+                    type: 'inside'
+                }
+            }
+        });
+    }
     
     $(document).on("click","a.remove",function(evt) {
         var itemId = $(this).attr("item-id");
