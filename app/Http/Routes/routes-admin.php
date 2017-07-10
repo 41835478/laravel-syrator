@@ -76,6 +76,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
         Route::group(['prefix' => 'permission', 'namespace' => 'Permission'], function () { 
             // 后台用户管理
     	    Route::post('user/remove', 'UserController@remove');
+    	    Route::post('user/removebatch', 'UserController@removeBatch');
             Route::resource('user', 'UserController');
 
     	    // 角色管理

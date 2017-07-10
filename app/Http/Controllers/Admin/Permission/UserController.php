@@ -346,4 +346,23 @@ class UserController extends BackController
     
         return $rth;
     }
+    
+    public function removeBatch(Request $request)
+    {      
+        if(!Entrust::can('admin.permission.user.remove')) {
+            return deny();
+        }
+    
+        $idsstr = $request->input('delId');
+        $ids = explode(",",$idsstr);
+        if (UserModel::whereIn('id', $ids)->delete()) {
+            $rth['code'] = "200";
+            $rth['message'] = "删除成功";
+        } else {
+            $rth['code'] = "500";
+            $rth['message'] = "删除失败";
+        }
+    
+        return $rth;
+    }
 }
