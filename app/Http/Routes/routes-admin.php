@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
             
             // 模板管理
     	    Route::post('theme/remove', 'ThemeController@remove');
+    	    Route::post('theme/removebatch', 'ThemeController@removeBatch');
             Route::resource('theme', 'ThemeController');
     	    
     	    // 意见反馈

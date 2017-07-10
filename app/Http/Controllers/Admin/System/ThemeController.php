@@ -94,8 +94,15 @@ class ThemeController extends BackController
             return deny();
         }
         
-        $theme = $this->repository->edit($id);
-        return $this->view('system.theme.edit', compact('theme'));
+        $entity = $this->repository->edit($id);
+        $editStruct = $entity->getEditStructs();
+        if (isset($editStruct['is_current'])) {
+            $editStruct['is_current']->type = "radio";
+            $editStruct['is_current']->dictionary['0'] = '否';
+            $editStruct['is_current']->dictionary['1'] = '是';
+        }
+        
+        return $this->view('system.theme.edit', compact('entity', 'editStruct'));
     }
     
     public function update(ThemeRequest $request, $id)
@@ -140,6 +147,25 @@ class ThemeController extends BackController
         } else {
             $rth['code'] = "201";
             $rth['message'] = "该模板不存在，或已经被删除了！";
+        }
+    
+        return $rth;
+    }
+    
+    public function removeBatch(Request $request)
+    {      
+        if(!Entrust::can('admin.system.theme.remove')) {
+            return deny();
+        }
+    
+        $idsstr = $request->input('delId');
+        $ids = explode(",",$idsstr);
+        if (ThemeModel::whereIn('id', $ids)->delete()) {
+            $rth['code'] = "200";
+            $rth['message'] = "删除成功";
+        } else {
+            $rth['code'] = "500";
+            $rth['message'] = "删除失败";
         }
     
         return $rth;
