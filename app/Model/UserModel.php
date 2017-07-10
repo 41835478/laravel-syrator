@@ -44,6 +44,10 @@ class UserModel extends Authenticatable
         $this->restoreA();
         $this->restoreB();
     }
+    
+    public function getFullTableName() {
+        return $this->getConnection()->getTablePrefix().$this->table;
+    }
 
     //关联角色
     public function roles()

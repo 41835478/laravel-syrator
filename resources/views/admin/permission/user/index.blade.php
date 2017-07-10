@@ -1,201 +1,146 @@
-@extends('_layout._common')
+@extends('admin._layout._admin')
 
-@section('head_css')
+@section('css_page_level_plugins')
 @parent
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/select2_metro.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/DT_bootstrap.css') }}" />
+<link href="{{ _asset('assets/metronic/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('head_style')
+@section('js_page_level_plugins')
 @parent
-<style>
-select {
-    width: auto !important;
-}
-</style>
+<script src="{{ _asset('assets/metronic/global/scripts/datatable.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
+@section('js_page_level')
 @parent
-@include('admin._widgets._main-header')
+<script src="{{ _asset('assets/syrator/js/datatables/jquery.dataTables.columnFilter.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/syrator/js/datatables/table-expand.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/lib/layer-2.x/layer.js') }}" type="text/javascript"></script>
 @stop
 
-@section('content-footer')
+@section('page-content-bar')
 @parent
-@include('admin._widgets._main-footer')
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('home', 'admin') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+    	<span>管理员管理</span>
+    </li>
+</ul>
 @stop
 
-@section('content')
-<div class="page-container row-fluid">
-	@include('admin._widgets._main-sidebar')
-	<div class="page-content">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<h3 class="page-title">管理员管理  <small> 系统管理员管理</small></h3>
-					<ul class="breadcrumb">
-						<li>
-							<i class="icon-home"></i>
-							<a href="{{ site_url('home', 'admin') }}">首页</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li><a href="#">管理员管理</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
-					<div class="portlet box grey">
-                        @if(session()->has('fail'))
-                        <div class="alert alert-warning alert-dismissable">
-                        	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                        	<h4>
-                        		<i class="icon icon fa fa-warning"></i> 提示！
-                        	</h4>
-                        	{{ session('fail') }}
-                        </div>
-                        @endif 
-                        
-                        @if($errors->any())
-                        <div class="alert alert-danger alert-dismissable">
-                        	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                        	<h4>
-                        		<i class="icon fa fa-ban"></i> 警告！
-                        	</h4>
-                        	<ul>
-                        		@foreach ($errors->all() as $error)
-                        		<li>{{ $error }}</li> 
-                        		@endforeach
-                        	</ul>
-                        </div>
-                        @endif
-						<div class="portlet-title">
-							<div class="caption">管理员列表</div>
-							<div class="actions">
-								<div class="btn-group">
-									<a href="{{ _route('admin:permission.user.create') }}" class="btn"><i class="icon-pencil"></i> 新增</a>
-									<a class="btn" href="#" data-toggle="dropdown">显示列<i class="icon-angle-down"></i></a>
-									<div id="syrator_table_permission_user_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-										<label><input type="checkbox" checked data-column="1">编号</label>
-										<label><input type="checkbox" checked data-column="2">登录名 / 昵称</label>
-										<label><input type="checkbox" checked data-column="3">真实姓名</label>
-										<label><input type="checkbox" checked data-column="4">角色</label>
-										<label><input type="checkbox" checked data-column="5">状态</label>
-										<label><input type="checkbox" checked data-column="6">最后一次登录时间</label>
-									</div>
-								</div>
-							</div>	
-						</div>
-						<div class="portlet-body">
-							<table class="table table-striped table-bordered table-hover" id="syrator_table_permission_user">							
-								<thead>
-									<tr>
-										<th style="width:8px;text-align:center;">
-											<input type="checkbox" class="group-checkable" data-set="#syrator_table_permission_user .checkboxes" />
-										</th>			
-                                        <th>编号</th>
-                                        <th>登录名 / 昵称</th>
-                                        <th>真实姓名</th>
-                                        <th>角色</th>
-                                        <th>状态</th>
-                                        <th>最后一次登录时间</th>
-                                        <th class="hidden-480" style="text-align:center;">操作</th>
-									</tr>
-								</thead>								
-            					<tfoot>
-            						<tr>
-            							<th></th>
-            							<th></th>				
-            							<th></th>
-            							<th></th>
-            							<th>选择角色</th>
-            							<th>选择状态</th>
-            							<th></th>
-            							<th></th>
-            						</tr>
-            					</tfoot>
-								<tbody>
-                                    @foreach ($users as $per)
-                                    <tr class="odd gradeX">
-										<td style="width:8px;text-align:center;">
-											<input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
-										</td>
-                                        <td class="text-green">{{ $per->id }}</td>
-                                        <td class="text-green">{{ $per->username }} / {{ $per->nickname }}</td>
-                                        <td class="text-green">{{ $per->realname }}</td>
-                                        <td>
-                                            @if(null !== $per->roles->first())
-                                            	{{ $per->roles->first()->name }}({{ $per->roles->first()->display_name }})
-                                            @else
-                                            	NULL(空)
-                                            @endif
-                                        </td>                                        
-                                        <td class="text-yellow">
-                                          @if($per->is_locked)
-                                          	锁定
-                                          @else
-                                          	正常
-                                          @endif
-                                        </td>
-                                        <td>{{ $per->updated_at }}</td>
-                    					<td style="text-align: center;">                                        	
-                                        	<a data-title="{{ $per->nickname }}" href="{{ _route('admin:permission.user.show', $per->id) }}" role="button" class="layer_open btn btn-danger" style="background: none;padding:3px;">
-                                        		<i class="icon-eye-open"></i>
-                                        	</a>
-                                        	<a href="{{ _route('admin:permission.user.edit', $per->id) }}" role="button" class="btn btn-danger" style="background: none;padding:3px;">
-                                        		<i class="icon-edit"></i>
-                                        	</a>
-                                        	<a item-id="{{ $per->id }}" href="javascript:void(0);" role="button" class="remove btn btn-danger" style="background: none;padding:3px;">
-                                        		<i class="icon-trash"></i>
-                                        	</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+@section('page-content-row')
+@parent
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-globe"></i>管理员列表</div> 
+                <div class="actions">
+                    <a href="{{ _route('admin:permission.user.create') }}" class="btn btn-default btn-sm">
+                    	<i class="fa fa-plus"></i>
+                    	<span>新增</span>
+                    </a>
+                    <a href="{{ _route('admin:permission.user.removebatch') }}" class="btn btn-default btn-sm" id="removebatch">
+                    	<i class="fa fa-times"></i>
+                    	<span>删除</span>
+                    </a>
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="javascript:;" data-toggle="dropdown">
+                            <i class="fa fa-share"></i>
+                            <span class="hidden-xs"> 工具</span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right" id="syrator_table_tools">
+                            <li><a href="javascript:;" data-action="0" class="tool-action"><i class="icon-printer"></i> 打印</a></li>
+                            <li><a href="javascript:;" data-action="1" class="tool-action"><i class="icon-check"></i> 复制</a></li>
+                            <li><a href="javascript:;" data-action="2" class="tool-action"><i class="icon-doc"></i> 导出PDF</a></li>
+                            <li><a href="javascript:;" data-action="3" class="tool-action"><i class="icon-paper-clip"></i> 导出Excel</a></li>
+                            <li><a href="javascript:;" data-action="4" class="tool-action"><i class="icon-cloud-upload"></i> 导出CSV</a></li>
+                        </ul>
+                    </div>
+    			</div>
+            </div>
+            <div class="portlet-body">
+				<table class="table table-striped table-bordered table-hover table-checkable order-column" id="syrator_table">
+					<thead>
+                        <tr>
+                            <th style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="group-checkable" data-set="#syrator_table .checkboxes" />
+                                    <span></span>
+                                </label>
+                            </th>
+							<th>编号</th>
+							<th>登录名 / 昵称</th>
+							<th>真实姓名</th>
+							<th>角色</th>
+							<th>状态</th>
+							<th>最后登录时间</th>
+							<th>创建时间</th>
+							<th>更新时间</th>
+                            <th style="width:68px;text-align:center;">操作</th>
+                        </tr>
+                    </thead>
+					<tbody>
+                        @foreach ($users as $per)
+                        <tr class="odd gradeX">
+							<td style="width:8px;text-align:center;">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="checkboxes" value="{{ $per->id }}" />
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td class="text-green">{{ $per->id }}</td>
+                            <td class="text-green">{{ $per->username }} / {{ $per->nickname }}</td>
+                            <td class="text-green">{{ $per->realname }}</td>
+                            <td>
+                                @if(null !== $per->roles->first())
+                                	{{ $per->roles->first()->name }}({{ $per->roles->first()->display_name }})
+                                @else
+                                	NULL(空)
+                                @endif
+                            </td>
+                            <td class="text-yellow">
+                              @if($per->is_locked)
+                              	锁定
+                              @else
+                              	正常
+                              @endif
+                            </td>
+                            <td class="text-green">{{ $per->updated_at }}</td>
+                            <td>{{ $per->created_at }}</td>
+                            <td>{{ $per->updated_at }}</td>
+        					<td style="text-align: center;">        					                            	
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:permission.user.show', $per->id) }}" class="btn btn-xs layer_open">
+                            		<i class="fa fa-eye"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:permission.user.edit', $per->id) }}" class="btn btn-xs">
+                            		<i class="fa fa-pencil-square-o"></i>
+                            	</a>
+                            	<a item-id="{{ $per->id }}" href="{{ _route('admin:permission.user.remove') }}" class="btn btn-xs remove">
+                            		<i class="fa fa-trash-o"></i>
+                            	</a>
+                            </td>
+                        </tr>
+                        @endforeach
+					</tbody>
+				</table>
+            </div>
+        </div>
+    </div>
 </div>
-@stop
-
-@section('extraPlugin')
-@parent
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/select2.min.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/jquery.dataTables.columnFilter.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/DT_bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/js/table-permission-user.js') }}"></script> 
-<script type="text/javascript" src="{{ _asset(ref('layer.js')) }}"></script>
 @stop
 
 @section('filledScript')
 <script>
-jQuery(document).ready(function() {    
-    App.init();
-
-    var selectValues = new Array();
-    @foreach ($roles as $k => $v)
-    selectValues[{{$k}}] = "{{ $v->name }}({{ $v->display_name }})";
-    @endforeach
-    TablePermissionUser.init({
-		aoColumns: 
-		[ 
-			null,
-            null,
-            null,
-            null,
-            {type: "select", values: selectValues},
-            {type: "select", values: ['正常','锁定']},
-            null,
-            null,
-        ]
-	});
+jQuery(document).ready(function() {
+    
+    TableExpand.init({},"syrator_table");
 
     $(document).on("click","a.layer_open",function(evt) {
         evt.preventDefault();
@@ -207,17 +152,46 @@ jQuery(document).ready(function() {
             title: title,
             shadeClose: false,
             shade: 0,
-            area: ['480px', '283px'],
+            area: ['480px', '320px'],
             content: src
         });
     });
 
     $(document).on("click","a.remove",function(evt) {
         var itemId = $(this).attr("item-id");
-    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-            $.post("{{ URL('admin/permission/user/remove') }}", {
+        var postUrl = $(this).attr("href");        
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")) {
+            $.post(postUrl, {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:itemId,
+            }, function(data) {
+                 if(data.code == 200){
+                     alert(data.message);
+                     location.reload();
+                 } else {
+                     alert(data.message);
+                 }
+            },"json");
+      	}
+
+      	return false;
+    });
+
+    $(document).on("click","#removebatch",function(evt) {
+    	var itemIdsBoxes = $("input[class='checkboxes']");
+        var length = itemIdsBoxes.length;
+        var strIds = "";
+        for(var i=0;i<length;i++){
+            if(itemIdsBoxes[i].checked==true){
+            	strIds = strIds + "," + itemIdsBoxes[i].value;
+            }
+        }
+
+        var postUrl = $(this).attr("href");  
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
+            $.post(postUrl, {
+            	 _token:$('meta[name="_token"]').attr('content'),
+                 delId:strIds,
             }, function(data){
                  if(data.code == 200){
                      alert(data.message);
@@ -227,6 +201,8 @@ jQuery(document).ready(function() {
                  }
             },"json");
       	}
+
+      	return false;
     });
 });
 </script>

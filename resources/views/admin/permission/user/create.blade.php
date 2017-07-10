@@ -1,148 +1,122 @@
-@extends('_layout._common')
+@extends('admin._layout._admin')
 
-@section('head_css')
+@section('css_page_level_plugins')
 @parent
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
+@section('css_page_level')
 @parent
-@include('admin._widgets._main-header')
+<link href="{{ _asset('assets/metronic/pages/css/profile.min.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('content-footer')
+@section('js_page_level_plugins')
 @parent
-@include('admin._widgets._main-footer')
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/jquery.sparkline.min.js') }}" type="text/javascript"></script>
 @stop
 
-@section('content')
-<div class="page-container row-fluid">
-	@include('admin._widgets._main-sidebar')
-	<div class="page-content">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<h3 class="page-title">新增管理员  <small> 新增系统管理员</small></h3>
-					<ul class="breadcrumb">
-						<li>
-							<i class="icon-home"></i>
-							<a href="{{ site_url('home', 'admin') }}">首页</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li>
-							<a href="{{ site_url('permission/user', 'admin') }}">管理员管理</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li><a href="#">新增管理员</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span12">
-        			@if(session()->has('fail'))
-                    <div class="alert alert-warning alert-dismissable">
-                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                    	<h4>
-                    		<i class="icon icon fa fa-warning"></i> 提示！
-                    	</h4>
-                    	{{ session('fail') }}
-                    </div>
-                    @endif 
-                    
-                    @if($errors->any())
-                    <div class="alert alert-danger alert-dismissable">
-                    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                    	<h4>
-                    		<i class="icon fa fa-ban"></i> 警告！
-                    	</h4>
-                    	<ul>
-                    		@foreach ($errors->all() as $error)
-                    		<li>{{ $error }}</li> 
-                    		@endforeach
-                    	</ul>
-                    </div>
-                    @endif
-                    <div class="portlet box blue ">
-                    	<div class="portlet-title">
-                    		<div class="caption">新增管理员</div>
-                    	</div>
-						<div class="portlet-body form">
-							<form method="post" action="{{ _route('admin:permission.user.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
-                                {!! csrf_field() !!}
-								<div class="control-group">
-									<label class="control-label">登录(用户)名</label>
-									<div class="controls">										
-										<input type="text" class="m-wrap large" name="username" autocomplete="off" value="{{ old('username', isset($user) ? $user->username : null) }}" placeholder="用户名">
-										<span class="help-inline text-green"><small>*</small> 只能5-10位英文字母与阿拉伯数字组合</span>
-									</div>
-								</div>
-								<div class="control-group">
-    								<label class="control-label">角色(用户组)</label>
-    								<div class="controls">
-    									<select class="large m-wrap" tabindex="1" name="role">
-    									@foreach ($roles as $role)
-                                        	<option value="{{ $role->id }}">{{ $role->name }}({{ $role->display_name }})</option>
-                                      	@endforeach
-    									</select>
-    								</div>
-    							</div>
-								<div class="control-group">
-									<label class="control-label">初始化登录密码</label>
-									<div class="controls">										
-										<input type="password" class="m-wrap large" name="password" autocomplete="off" value="" placeholder="登录密码">
-										<span class="help-inline text-green"><small>*</small> 只能6-16位数字、字母和部分特殊符号（0-9a-zA-Z~@#%）组合</span>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">确认登录密码</label>
-									<div class="controls">										
-										<input type="password" class="m-wrap large" name="password_confirmation" autocomplete="off" value="" placeholder="重复上面登录密码">
-										<span class="help-inline text-green"><small>*</small></span>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">Email</label>
-									<div class="controls">										
-										<input type="text" class="m-wrap large" name="email" autocomplete="off" value="{{ old('email', isset($user) ? $user->email : null) }}" placeholder="Email">
-										<span class="help-inline text-green"><small>*</small> 用于找回或重置登录密码等操作</span>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">真实姓名</label>
-									<div class="controls">										
-										<input type="text" class="m-wrap large" name="realname" autocomplete="off" value="{{ old('realname', isset($user) ? $user->realname : null) }}" placeholder="真实姓名">
-										<span class="help-inline text-green"><small>*</small> 用于身份确认，必须为2字以上的中文</span>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">手机号</label>
-									<div class="controls">										
-										<input type="text" class="m-wrap large" name="phone" autocomplete="off" value="{{ old('phone', isset($user) ? $user->phone : null) }}" placeholder="手机号">
-										<span class="help-inline text-green"><small>*</small> 用于通讯联络，请填写国内真实的手机号码</span>
-									</div>
-								</div>
-								<div class="form-actions">
-									<button type="submit" class="btn blue"><i class="icon-ok"></i> 新增管理员</button>
-								</div>
-							</form>
-						</div>
+@section('js_page_level')
+@parent
+<script src="{{ _asset('assets/metronic/pages/scripts/profile.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/syrator/js/upload/upload.js') }}" type="text/javascript"></script>
+@stop
+
+@section('page-content-bar')
+@parent
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('home', 'admin') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="{{ site_url('permission/user', 'admin') }}">管理员管理</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+    	<span>新增管理员</span>
+    </li>
+</ul>
+@stop
+
+@section('page-content-row')
+@parent
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue ">
+        	<div class="portlet-title">
+        		<div class="caption"><i class="fa fa-gift"></i>新增管理员</div>
+        	</div>
+			<div class="portlet-body form">
+				<form method="post" action="{{ _route('admin:permission.user.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
+                    {!! csrf_field() !!}
+                    <div class="form-body">
+                        @include('_widgets.edit.control-group')
+                        <div class="form-group">
+    						<label class="control-label col-md-3">头像</label>
+    						<div class="col-md-4">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                                        <img src="http://www.placehold.it/150x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;">
+                                    </div>
+                                    <div>
+                                        <span class="btn default btn-file">
+                                            <span class="fileinput-new"> 选择图片 </span>
+                                            <span class="fileinput-exists"> 修改 </span>
+                                            <input type="file" name="file_picture" id="file_picture" accept=".jpg,.png,.gif,.bmp" >
+                                        </span>
+                                        <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> 移除 </a>
+        								<a id="uploadSubmit_picture" class="btn default fileinput-exists">上传</a>
+                                    </div>
+                                    <input type="hidden" id="picture" name="avatar" value="">
+                                </div>
+							</div>
+                        </div>
+    					<div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+    								<button type="submit" class="btn blue"><i class="icon-ok"></i> 新增管理员</button>
+                                </div>
+                            </div>
+                        </div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
-	</div>
+    </div>
 </div>
-@stop
-
-@section('extraPlugin')
-@parent
 @stop
 
 @section('filledScript')
 <script>
 jQuery(document).ready(function() {    
     App.init();
+    
+    //ajax
+    $('#uploadSubmit_picture').click(function(){
+        var resultFile = $("#file_picture").get(0).files[0];    	  	
+    	var formData = new FormData();
+    	formData.append("picture",resultFile,resultFile.name);
+    	var options = {
+	        type: 'post',
+			url:'/api/upload/single',
+	        dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: formData,
+            timeout: 3000,
+            success: function (data) {
+                alert('上传成功');
+                $("#picture")[0].value = data.data.uploaded_full_file_name;
+            },
+            error: function(){
+                alert('上传失败');
+            }
+        };
+        $.ajax(options);
+    });
 });
 </script>
 @stop

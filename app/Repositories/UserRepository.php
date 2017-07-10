@@ -44,11 +44,13 @@ class UserRepository extends SyratorRepository
      */
     private function saveManager($manager, $inputs)
     {
-        $manager->username = $manager->nickname = e($inputs['username']);
+        $manager->username = e($inputs['username']);
         $manager->password = bcrypt(e($inputs['password']));
         $manager->email = e($inputs['email']);
         $manager->realname = e($inputs['realname']);
         $manager->phone = e($inputs['phone']);
+        $manager->nickname = e($inputs['nickname']);
+        $manager->avatar = e($inputs['avatar']);
 
         if ($manager->save()) {
             $manager->roles()->attach($inputs['role']);  //附加上用户组（角色）
