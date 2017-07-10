@@ -8,6 +8,7 @@ use Zizaco\Entrust\EntrustFacade as Entrust;
 use Illuminate\Http\Request;
 use App\Repositories\ThemeRepository;
 use App\Http\Requests\ThemeRequest;
+use App\Model\ThemeModel;
 use App\Loggers\SystemLogger;
 
 /**
@@ -45,7 +46,22 @@ class ThemeController extends BackController
             return deny();
         }
         
-        return $this->view('system.theme.create');
+        $model = new ThemeModel();
+        $editStruct = $model->getEditStructs();
+        if (isset($editStruct['name'])) {
+            $editStruct['name']->is_request = true;
+        }
+        if (isset($editStruct['code'])) {
+            $editStruct['code']->is_request = true;
+        }
+        if (isset($editStruct['is_current'])) {
+            $editStruct['is_current']->type = "radio";
+            $editStruct['is_current']->dictionary['0'] = '否';
+            $editStruct['is_current']->dictionary['1'] = '是';
+            $editStruct['is_current']->value = 0;
+        }
+        
+        return $this->view('system.theme.create', compact('editStruct'));
     }
     
     public function store(ThemeRequest $request)

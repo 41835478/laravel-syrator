@@ -21,7 +21,7 @@ class CreateThemeTable extends Migration
             $table->string('author')->comment('主题作者')->default('');
             $table->string('description')->comment('主题描述')->default('');
             $table->string('version')->comment('主题版本')->default('');
-            $table->tinyInteger('is_current')->comment('是否为当前主题：0-否，1-是')->default('0');
+            $table->tinyInteger('is_current')->comment('是否设为当前主题')->default('0');
             $table->timestamps();
             $table->softDeletes();
             
