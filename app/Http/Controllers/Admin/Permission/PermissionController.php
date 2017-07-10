@@ -83,8 +83,16 @@ class PermissionController extends BackController
         }
         
         $permission = PermissionModel::findOrfail($id);
+
+        $editStruct = SyratorModel::getEditStructsTools($permission);
+        if (isset($editStruct['name'])) {
+            $editStruct['name']->is_request = true;
+        }
+        if (isset($editStruct['pid'])) {
+            $editStruct['pid']->is_editable = false;
+        }
     
-        return $this->view('permission.permission.edit', compact('permission'));
+        return $this->view('permission.permission.edit', compact('permission', 'editStruct'));
     }
     
     public function update(PermissionRequest $request, $id)
