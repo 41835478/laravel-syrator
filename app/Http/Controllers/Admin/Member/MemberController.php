@@ -48,7 +48,7 @@ class MemberController extends BackController
         }
         
         $entity = new MemberModel();
-        $editStruct = SyratorModel::getEditStructsTools($entity);       
+        $editStruct = SyratorModel::getEditStructsTools($entity);
         if (isset($editStruct['phone'])) {
             $editStruct['phone']->is_request = true;
             $editStruct['phone']->help = "（创建后手机号无法修改）";

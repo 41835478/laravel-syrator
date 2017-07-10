@@ -40,7 +40,13 @@ class PermissionController extends BackController
             return deny();
         }
         
-        return $this->view('permission.permission.create');
+        $model = new PermissionModel();
+        $editStruct = SyratorModel::getEditStructsTools($entity);
+        if (isset($editStruct['name'])) {
+            $editStruct['name']->is_request = true;
+        }
+        
+        return $this->view('permission.permission.create', compact('editStruct'));
     }
     
     public function store(PermissionRequest $request)
