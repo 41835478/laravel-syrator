@@ -84,8 +84,13 @@ class RoleController extends BackController
         $role = $this->role->edit($id);
         $permissions = $this->role->permissions();
         $cans = $this->role->getRoleCans($role);
+        
+        $editStruct = SyratorModel::getEditStructsTools($role);
+        if (isset($editStruct['name'])) {
+            $editStruct['name']->is_request = true;
+        }
 
-        return $this->view('permission.role.edit', compact('role', 'permissions', 'cans'));
+        return $this->view('permission.role.edit', compact('role', 'permissions', 'cans', 'editStruct'));
     }
 
     public function update(RoleRequest $request, $id)

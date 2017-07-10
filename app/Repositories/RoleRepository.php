@@ -96,7 +96,7 @@ class RoleRepository extends SyratorRepository
                     $role->perms()->sync($permissions);  //同步角色权限
                 }
             } else {
-                $role->perms()->sync([]);
+//                 $role->perms()->sync([]);
             }
         }
 
