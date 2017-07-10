@@ -11,6 +11,8 @@ $(document).ready(function(){
    		}
     } else if (url_path_array[url_path_array.length-2]==='info' && url_path_array[url_path_array.length-1]==='setting') {
     	current_url = current_url.substring(0,current_url.length-7) + 'overview';
+    } else if (url_path_array[url_path_array.length-2]==='appinfo' && url_path_array[url_path_array.length-1]==='guide') {
+    	current_url = current_url.substring(0,current_url.length-6);
     }
 
     var current_li = $('ul.page-sidebar-menu>li').find('a[href="'+current_url+'"]').closest('li');
