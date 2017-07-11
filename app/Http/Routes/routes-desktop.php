@@ -1,6 +1,12 @@
 <?php
 
-// PC前台
+Route::group(['prefix' => '', 'namespace' => 'Desktop', 'middleware' => ['block:desktop', 'web']], function () {
+    
+    Route::get('/', 'HomeController@getIndex');
+    
+});
+
+// PC会员中心
 Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => ['block:member', 'web']], function () {
 
     Route::group(['prefix' => 'auth'], function () {
@@ -13,14 +19,7 @@ Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => ['b
     });
     
     Route::group(['prefix' => '', 'middleware' => ['multi-site.auth:member']], function () {
-       
+        
         Route::get('/', 'HomeController@getIndex');
     });
-});
-
-// PC前台站点路由群组
-Route::group(['prefix' => '', 'namespace' => 'Desktop', 'middleware' => ['block:desktop', 'web']], function () {
-    
-    Route::get('/', 'HomeController@getIndex');
-    
 });
