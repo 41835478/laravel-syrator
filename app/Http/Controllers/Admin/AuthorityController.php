@@ -3,21 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+
 use Auth;
 use App\Events\UserLogin;
 use App\Events\UserLogout;
 
-
-/**
- * 后台管理员用户登录统一认证
- *
- */
 class AuthorityController extends BackController
 {
-
-    /**
-     * 添加路由过滤中间件
-     */
     public function __construct()
     {
     }
@@ -37,7 +29,7 @@ class AuthorityController extends BackController
             'username'  => $request->input('username'),
             'password'  => $request->input('password'),
             'is_locked' => 0,
-        ];
+        ];        
         
         if (Auth::guard('admin')->attempt($credentials, $request->has('remember'))) {
             event(new UserLogin(auth()->user()));  //触发登录事件
