@@ -24,7 +24,7 @@
 	<form class="login-form" method="post" action="{{ site_url('auth/login', 'admin') }}">
 		{{ csrf_field() }}
 		<h3 class="form-title" style="text-align: center">登录后台管理系统</h3>
-		@if (count($errors) > 0)
+		@if (isset($errors) && count($errors) > 0)
         <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
             <h4><i class="icon fa fa-ban"></i> 警告!</h4>
