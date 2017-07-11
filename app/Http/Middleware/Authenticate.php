@@ -42,16 +42,14 @@ class Authenticate
         }
 
         if (Auth::guard($guard)->guest()) {
+            echo $guard;
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
                 return redirect()->guest($redirectUrl);
             }
-
-        echo $guard;
-        exit();
         }
-
+        
         return $next($request);
     }
 }

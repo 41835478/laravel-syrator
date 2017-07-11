@@ -1,7 +1,7 @@
 <?php
 
 // 管理后台站点路由群组
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth:web']], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth:web', 'web']], function () {
 
     Route::get('/', function() {
         return redirect('admin/auth/login');

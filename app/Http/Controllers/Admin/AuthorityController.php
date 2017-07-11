@@ -31,7 +31,7 @@ class AuthorityController extends BackController
             'is_locked' => 0,
         ];        
         
-        if (Auth::guard('admin')->attempt($credentials, $request->has('remember'))) {
+        if (Auth::attempt($credentials, $request->has('remember'))) {
             event(new UserLogin(auth()->user()));  //触发登录事件
             return redirect()->intended($redirectTo);
         } else {
