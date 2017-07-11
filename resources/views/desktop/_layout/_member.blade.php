@@ -41,10 +41,10 @@ class="page-header-fixed page-footer-fixed page-sidebar-closed-hide-logo page-co
 
 @section('content')
 <div class="page-wrapper">
-	@include('desktop._widgets._member-main-header')
+	@include('desktop._widgets._member-header')
 	<div class="clearfix"> </div>
 	<div class="page-container">
-		@include('desktop._widgets._member-main-sidebar')
+		@include('desktop._widgets._member-sidebar')
 		<div class="page-content-wrapper">
 			<div class="page-content">
 				<div class="page-bar">                    
@@ -63,7 +63,7 @@ class="page-header-fixed page-footer-fixed page-sidebar-closed-hide-logo page-co
     		</div>
 		</div>
 	</div>	
-	@include('desktop._widgets._main-footer')
+	@include('desktop._widgets._member-footer')
 </div>
 @stop
 
