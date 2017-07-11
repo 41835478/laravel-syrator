@@ -1,7 +1,7 @@
 <?php
 
 // 文档站点路由群组
-Route::group(['prefix' => 'documents', 'namespace' => 'Documents',  'middleware' => ['block:document', 'web']], function () {
+Route::group(['prefix' => 'documents', 'namespace' => 'Documents',  'middleware' => ['web']], function () {
 
     Route::get('/', 'HomeController@getIndex');
     

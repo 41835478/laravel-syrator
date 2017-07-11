@@ -1,7 +1,7 @@
 <?php
 
 // API站点路由群组
-Route::group(['prefix' => 'api', 'namespace' => 'API', 'middleware' => ['block:api', 'web']], function () {
+Route::group(['prefix' => 'api', 'namespace' => 'API', 'middleware' => ['auth:web']], function () {
         
     // 会员模块
     Route::group(['prefix' => 'member', 'namespace' => 'Member'], function () {

@@ -1,4 +1,4 @@
-@if($errors->any())
+@if(session()->has('errors'))
 <div class="alert alert-danger">
 	<button class="close" data-close="alert"></button>
 	<h4>

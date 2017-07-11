@@ -1,7 +1,7 @@
 <?php
 
 // 管理后台站点路由群组
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['block:admin', 'web']], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth:web']], function () {
 
     Route::get('/', function() {
         return redirect('admin/auth/login');
@@ -16,7 +16,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['blo
         Route::post('login', $Authority.'postLogin');
     });
 
-    Route::group(['prefix' => '', 'middleware' => ['multi-site.auth:admin']], function () {
+    Route::group(['prefix' => '', 'middleware' => ['auth:admin']], function () {
         
         // 后台首页：控制台
         Route::get('home', 'HomeController@getIndex');

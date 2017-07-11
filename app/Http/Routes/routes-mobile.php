@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'mobile', 'namespace' => 'Mobile', 'middleware' => ['block:mobile', 'web']], function () {
+Route::group(['prefix' => 'mobile', 'namespace' => 'Mobile', 'middleware' => ['auth:web']], function () {
 
     Route::group(['prefix' => 'member/auth'], function () {
         // 登录
@@ -21,7 +21,7 @@ Route::group(['prefix' => 'mobile', 'namespace' => 'Mobile', 'middleware' => ['b
 });
 
 // mobile前台站点路由群组
-Route::group(['prefix' => 'mobile', 'namespace' => 'Mobile', 'middleware' => ['block:mobile', 'web']], function () {
+Route::group(['prefix' => 'mobile', 'namespace' => 'Mobile', 'middleware' => ['auth:mobile']], function () {
 
     Route::group(['prefix' => '', 'middleware' => ['multi-site.auth:mobile']], function () {
         // 首页

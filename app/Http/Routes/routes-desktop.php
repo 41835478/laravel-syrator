@@ -1,13 +1,13 @@
 <?php
 
-Route::group(['prefix' => '', 'namespace' => 'Desktop', 'middleware' => ['block:desktop', 'web']], function () {
+Route::group(['prefix' => '', 'namespace' => 'Desktop', 'middleware' => ['auth:web']], function () {
     
     Route::get('/', 'HomeController@getIndex');
     
 });
 
 // PC会员中心
-Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => ['block:member', 'web']], function () {
+Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => ['auth:web']], function () {
 
     Route::group(['prefix' => 'auth'], function () {
         $Authority = 'AuthorityController@';
@@ -18,7 +18,7 @@ Route::group(['prefix' => 'member', 'namespace' => 'Member', 'middleware' => ['b
         Route::post('login', $Authority.'postLogin');
     });
     
-    Route::group(['prefix' => '', 'middleware' => ['multi-site.auth:member']], function () {
+    Route::group(['prefix' => '', 'middleware' => ['auth:member']], function () {
         
         Route::get('/', 'HomeController@getIndex');
     });
