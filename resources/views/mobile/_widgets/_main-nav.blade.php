@@ -42,19 +42,19 @@ mui('.mui-bar-tab').on('tap', '.mui-tab-item', function() {
     		return;
     	} else if (id==='cases') {
     		mui.openWindow({
-    			url: "{{ site_url('forum', 'mobile') }}",
+    			url: "{{ site_url('index', 'mobile') }}",
     			id: "cases",
     		});
     		return;
     	} else if (id==='message') {
     		mui.openWindow({
-    			url: "{{ site_url('message', 'mobile') }}",
+    			url: "{{ site_url('index', 'mobile') }}",
     			id: "message",
     		});
     		return;
     	} else if (id==='mine') {
     		mui.openWindow({
-    			url: "{{ site_url('mine', 'mobile') }}",
+    			url: "{{ site_url('index', 'mobile') }}",
     			id: "mine",
     		});
     		return;

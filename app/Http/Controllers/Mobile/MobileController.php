@@ -11,7 +11,6 @@ class MobileController extends Controller
 
     public function __construct()
     {
-//        $this->theme = config('site.theme','mobile').'.';
     }
     
     public function view($view = null, $data = [], $mergeData = [])
