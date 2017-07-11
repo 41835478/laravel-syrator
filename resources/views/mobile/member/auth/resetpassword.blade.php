@@ -4,7 +4,7 @@
 @parent
 <style>
 body {
-	background:url('{{ _asset('wapstyle/images/member/login_bg.png') }}');
+	background:url('{{ _asset('assets/syrator/wap/images/member/login_bg.png') }}');
 	background-size:cover;
 }
 .mui-content {
@@ -80,32 +80,32 @@ body {
 </header>
 <div class="mui-content" style="padding-top: 0px;">
 	<div class="mui-input-row" style="height:100px; width:100%;">
-		<img id="mine-head-img" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+		<img id="mine-head-img" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 	</div>
 	<div class="mui-input-row">
 		<label style="width: 15%;">
-			<img style="width: 15px; height: 20px;" src="{{ _asset('wapstyle/images/member/login_icon_sd.png') }}">
+			<img style="width: 15px; height: 20px;" src="{{ _asset('assets/syrator/wap/images/member/login_icon_sd.png') }}">
 		</label>
 		<label style="width: 15%; float:right;">
-			<img style="width: 18px; height: 18px;" src="{{ _asset('wapstyle/images/member/login_fau.png') }}">
+			<img style="width: 18px; height: 18px;" src="{{ _asset('assets/syrator/wap/images/member/login_fau.png') }}">
 		</label>
 		<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
 	</div>
 	<div class="mui-input-row">
 		<label style="width: 15%;">
-			<img style="width: 15px; height: 20px;" src="{{ _asset('wapstyle/images/member/login_icon_sd.png') }}">
+			<img style="width: 15px; height: 20px;" src="{{ _asset('assets/syrator/wap/images/member/login_icon_sd.png') }}">
 		</label>
 		<label style="width: 15%; float:right;">
-			<img style="width: 18px; height: 18px;" src="{{ _asset('wapstyle/images/member/login_fau.png') }}">
+			<img style="width: 18px; height: 18px;" src="{{ _asset('assets/syrator/wap/images/member/login_fau.png') }}">
 		</label>
 		<input id='password_confirm' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
 	</div>
 	<div class="mui-input-row">		
 		<label style="width: 15%;">
-			<img style="width: 15px; height: 20px;" src="{{ _asset('wapstyle/images/member/login_icon_yh.png') }}">
+			<img style="width: 15px; height: 20px;" src="{{ _asset('assets/syrator/wap/images/member/login_icon_yh.png') }}">
 		</label>
 		<label style="width: 15%; float:right;">
-			<img style="width: 18px; height: 18px;" src="{{ _asset('wapstyle/images/member/login_cor.png') }}">
+			<img style="width: 18px; height: 18px;" src="{{ _asset('assets/syrator/wap/images/member/login_cor.png') }}">
 		</label>
 		<input id='phone' type="tel" class="mui-input-clear mui-input" placeholder="请输入手机号">
 	</div>

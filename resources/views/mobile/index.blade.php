@@ -9,7 +9,7 @@
 	left:0;
 	min-height:100%;
 	height:auto;
-	background: url({{ url('/wapstyle/images/tab1bg.png') }}) no-repeat center center;	
+	background: url({{ url('/assets/syrator/wap/images/tab1bg.png') }}) no-repeat center center;	
     background-size:cover;
 }
 .section-heading {
@@ -49,7 +49,7 @@
 		<div class="header-city" id="header-city" style="height: 50px;line-height: 50px;text-align: center;">
 			<a href="{{ url('/mobile/setting/city') }}">
 				<span style="float:left;text-align:right;padding-right:4px;width:50%;">
-					<img style="width:20px;height:25px;vertical-align:middle;" src="/wapstyle/images/ico_dingwei.png"></img>
+					<img style="width:20px;height:25px;vertical-align:middle;" src="/assets/syrator/wap/images/ico_dingwei.png"></img>
 				</span>
     			<span style="float:right;text-align:left;padding-left:4px;width:50%;padding-top:2px;color: #ffffff;font-weight:bold;">北京</span>    			   				
 			</a>				
@@ -58,7 +58,7 @@
 		<div class="header-issue" style="text-align: center">
 			<a href="{{ url('/mobile/task/create') }}" style="float:left;width:100%;">
 			    <div class="header-issue-bg" style="text-align:center;width:100%;">    					
-					<span><img width="120px;" src="/wapstyle/images/ico_needzhuangxiu.png"></img></span>		
+					<span><img width="120px;" src="/assets/syrator/wap/images/ico_needzhuangxiu.png"></img></span>		
     			</div>
     			<div class="header-issue-bg" style="text-align:center;width:100%;margin-top:-42px;color: #53868B; font-weight:bold; font-size: 14px;">
     				<span>我要发布</span>				
@@ -69,7 +69,7 @@
 		<div class="header-issue" style="text-align: center">
 			<a href="{{ url('/mobile/task/list') }}" style="float:left;width:100%;">
 			    <div class="header-issue-bg" style="text-align:center;width:100%;">    					
-					<span><img width="120px;" src="/wapstyle/images/ico_needzhuangxiu.png"></img></span>		
+					<span><img width="120px;" src="/assets/syrator/wap/images/ico_needzhuangxiu.png"></img></span>		
     			</div>
     			<div class="header-issue-bg" style="text-align:center;width:100%;margin-top:-42px;color: #53868B; font-weight:bold; font-size: 14px;">
     				<span>我要竞标</span>				
@@ -84,7 +84,7 @@
     		<li>
     			<a href="{{ url('/mobile/material') }}">
     			    <div class="home-menu-bg" style="text-align:center;width:100%;">    					
-    					<span><img height="42px" width="42px" src="/wapstyle/images/index/bg_material.png"></img></span>		
+    					<span><img height="42px" width="42px" src="/assets/syrator/wap/images/index/bg_material.png"></img></span>		
         			</div>
         			<div class="home-menu-bg" style="text-align:center;width:100%;margin-top:-55px;color: #53868B; font-size: 12px;">
         				<span>施工材料</span>				
@@ -94,7 +94,7 @@
           	<li>
     			<a href="{{ url('/mobile/servicer/shigong') }}">
     			    <div class="home-menu-bg" style="text-align:center;width:100%;">    					
-    					<span><img height="42px" width="42px" src="/wapstyle/images/index/bg_shigong.png"></img></span>		
+    					<span><img height="42px" width="42px" src="/assets/syrator/wap/images/index/bg_shigong.png"></img></span>		
         			</div>
         			<div class="home-menu-bg" style="text-align:center;width:100%;margin-top:-55px;color: #53868B; font-size: 12px;">
         				<span>找施工队</span>				
@@ -104,7 +104,7 @@
           	<li>
     			<a href="{{ url('/mobile/servicer/jianli') }}">
     			    <div class="home-menu-bg" style="text-align:center;width:100%;">    					
-    					<span><img height="42px" width="42px" src="/wapstyle/images/index/bg_jianli.png"></img></span>		
+    					<span><img height="42px" width="42px" src="/assets/syrator/wap/images/index/bg_jianli.png"></img></span>		
         			</div>
         			<div class="home-menu-bg" style="text-align:center;width:100%;margin-top:-55px;color: #53868B; font-size: 12px;">
         				<span>找工程师</span>				
@@ -114,7 +114,7 @@
           	<li>
     			<a href="{{ url('/mobile/device') }}">
     			    <div class="home-menu-bg" style="text-align:center;width:100%;">    					
-    					<span><img height="42px" width="42px" src="/wapstyle/images/index/bg_device.png"></img></span>		
+    					<span><img height="42px" width="42px" src="/assets/syrator/wap/images/index/bg_device.png"></img></span>		
         			</div>
         			<div class="home-menu-bg" style="text-align:center;width:100%;margin-top:-55px;color: #53868B; font-size: 12px;">
         				<span>设备租赁</span>				
@@ -126,7 +126,7 @@
     		<li>
     			<a href="{{ url('/mobile/project') }}"">
     			    <div class="home-menu-bg" style="text-align:center;width:100%;">    					
-    					<span><img height="42px" width="42px" src="/wapstyle/images/index/bg_project.png"></img></span>		
+    					<span><img height="42px" width="42px" src="/assets/syrator/wap/images/index/bg_project.png"></img></span>		
         			</div>
         			<div class="home-menu-bg" style="text-align:center;width:100%;margin-top:-55px;color: #53868B; font-size: 12px;">
         				<span>工程信息</span>				
@@ -136,7 +136,7 @@
           	<li>
     			<a href="{{ url('/mobile/servicer/fenbao') }}">
     			    <div class="home-menu-bg" style="text-align:center;width:100%;">    					
-    					<span><img height="42px" width="42px" src="/wapstyle/images/index/bg_fenbao.png"></img></span>		
+    					<span><img height="42px" width="42px" src="/assets/syrator/wap/images/index/bg_fenbao.png"></img></span>		
         			</div>
         			<div class="home-menu-bg" style="text-align:center;width:100%;margin-top:-55px;color: #53868B; font-size: 12px;">
         				<span>找分包商</span>				
@@ -146,7 +146,7 @@
           	<li>
     			<a href="{{ url('/mobile/finance') }}">
     			    <div class="home-menu-bg" style="text-align:center;width:100%;">    					
-    					<span><img height="42px" width="42px" src="/wapstyle/images/index/bg_finance.png"></img></span>		
+    					<span><img height="42px" width="42px" src="/assets/syrator/wap/images/index/bg_finance.png"></img></span>		
         			</div>
         			<div class="home-menu-bg" style="text-align:center;width:100%;margin-top:-55px;color: #53868B; font-size: 12px;">
         				<span>保险金融</span>				
@@ -156,7 +156,7 @@
           	<li>
     			<a href="{{ url('/mobile/freight') }}">
     			    <div class="home-menu-bg" style="text-align:center;width:100%;">    					
-    					<span><img height="42px" width="42px" src="/wapstyle/images/index/bg_freight.png"></img></span>		
+    					<span><img height="42px" width="42px" src="/assets/syrator/wap/images/index/bg_freight.png"></img></span>		
         			</div>
         			<div class="home-menu-bg" style="text-align:center;width:100%;margin-top:-55px;color: #53868B; font-size: 12px;">
         				<span>找货运</span>				
@@ -170,37 +170,37 @@
     	<div class="mui-slider-group mui-slider-loop">
     		<div class="mui-slider-item mui-slider-item-duplicate">
     			<a href="/mobile/mine">
-    				<img src="/wapstyle/images/img4.jpg">
+    				<img src="/assets/syrator/wap/images/img4.jpg">
     			</a>
     		</div>
     		<!-- 第一张 -->
     		<div class="mui-slider-item">
     			<a href="/mobile/mine">
-    				<img src="/wapstyle/images/img1.jpg">
+    				<img src="/assets/syrator/wap/images/img1.jpg">
     			</a>
     		</div>
     		<!-- 第二张 -->
     		<div class="mui-slider-item">
     			<a href="/mobile/mine">
-    				<img src="/wapstyle/images/img2.jpg">
+    				<img src="/assets/syrator/wap/images/img2.jpg">
     			</a>
     		</div>
     		<!-- 第三张 -->
     		<div class="mui-slider-item">
     			<a href="/mobile/mine">
-    				<img src="/wapstyle/images/img3.jpg">
+    				<img src="/assets/syrator/wap/images/img3.jpg">
     			</a>
     		</div>
     		<!-- 第四张 -->
     		<div class="mui-slider-item">
     			<a href="/mobile/mine">
-    				<img src="/wapstyle/images/img4.jpg">
+    				<img src="/assets/syrator/wap/images/img4.jpg">
     			</a>
     		</div>
     		<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
     		<div class="mui-slider-item mui-slider-item-duplicate">
     			<a href="/mobile/mine">
-    				<img src="/wapstyle/images/img1.jpg">
+    				<img src="/assets/syrator/wap/images/img1.jpg">
     			</a>
     		</div>
     	</div>

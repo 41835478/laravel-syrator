@@ -64,38 +64,38 @@
 				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 				<div class="mui-slider-item mui-slider-item-duplicate">
 					<a href="#">
-						<img src="/wapstyle/images/img4.jpg">
+						<img src="/assets/syrator/wap/images/img4.jpg">
 						<p class="mui-slider-title">静静看这世界</p>
 					</a>
 				</div>
 				<div class="mui-slider-item">
 					<a href="#">
-						<img src="/wapstyle/images/img1.jpg">
+						<img src="/assets/syrator/wap/images/img1.jpg">
 						<p class="mui-slider-title">幸福就是可以一起睡觉</p>
 					</a>
 				</div>
 				<div class="mui-slider-item">
 					<a href="#">
-						<img src="/wapstyle/images/img2.jpg">
+						<img src="/assets/syrator/wap/images/img2.jpg">
 						<p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
 					</a>
 				</div>
 				<div class="mui-slider-item">
 					<a href="#">
-						<img src="/wapstyle/images/img3.jpg">
+						<img src="/assets/syrator/wap/images/img3.jpg">
 						<p class="mui-slider-title">Color of SIP CBD</p>
 					</a>
 				</div>
 				<div class="mui-slider-item">
 					<a href="#">
-						<img src="/wapstyle/images/img4.jpg">
+						<img src="/assets/syrator/wap/images/img4.jpg">
 						<p class="mui-slider-title">静静看这世界</p>
 					</a>
 				</div>
 				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
 				<div class="mui-slider-item mui-slider-item-duplicate">
 					<a href="#">
-						<img src="/wapstyle/images/img1.jpg">
+						<img src="/assets/syrator/wap/images/img1.jpg">
 						<p class="mui-slider-title">幸福就是可以一起睡觉</p>
 					</a>
 				</div>
@@ -150,37 +150,37 @@
     									<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
     									<div class="mui-slider-item mui-slider-item-duplicate">
     										<a href="#">
-    											<img src="/wapstyle/images/img4.jpg">
+    											<img src="/assets/syrator/wap/images/img4.jpg">
     										</a>
     									</div>
     									<!-- 第一张 -->
     									<div class="mui-slider-item">
     										<a href="#">
-    											<img src="/wapstyle/images/img1.jpg">
+    											<img src="/assets/syrator/wap/images/img1.jpg">
     										</a>
     									</div>
     									<!-- 第二张 -->
     									<div class="mui-slider-item">
     										<a href="#">
-    											<img src="/wapstyle/images/img2.jpg">
+    											<img src="/assets/syrator/wap/images/img2.jpg">
     										</a>
     									</div>
     									<!-- 第三张 -->
     									<div class="mui-slider-item">
     										<a href="#">
-    											<img src="/wapstyle/images/img3.jpg">
+    											<img src="/assets/syrator/wap/images/img3.jpg">
     										</a>
     									</div>
     									<!-- 第四张 -->
     									<div class="mui-slider-item">
     										<a href="#">
-    											<img src="/wapstyle/images/img4.jpg">
+    											<img src="/assets/syrator/wap/images/img4.jpg">
     										</a>
     									</div>
     									<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
     									<div class="mui-slider-item mui-slider-item-duplicate">
     										<a href="#">
-    											<img src="/wapstyle/images/img1.jpg">
+    											<img src="/assets/syrator/wap/images/img1.jpg">
     										</a>
     									</div>
     								</div>
@@ -252,7 +252,7 @@
 
 @section('afterBody') 
 @parent
-<script src="{{ _asset('wapstyle/js/mui.view.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.view.js') }}"></script>
 <script>
 mui.init();
 //初始化单页view
@@ -323,7 +323,7 @@ function loadData() {
 
 					html += '<li class="mui-table-view-cell mui-media">';
 					html += '<a href="{{ _asset('mobile/device/show') }}/' + d[i].goods_id + '">';
-					html += '<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_default.png') }}">'
+					html += '<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">'
 					html += '<div class="mui-media-body">'
 					html += d[i].goods_name;
 					html += '<p class="mui-ellipsis">这是评论，不错</p>';

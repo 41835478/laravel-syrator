@@ -29,7 +29,7 @@
 	<ul class="mui-table-view mui-table-view-chevron" style="background: #60D4AB;">
 		<li class="mui-table-view-cell mui-media mui-table-view-cell-head">
 			<a class="mui-navigate-right" href="#account">
-				<img class="mui-media-object mui-pull-left head-img" id="head-img" style="height: 60px; width: 60px;max-width: 60px;margin-top: 8px;" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+				<img class="mui-media-object mui-pull-left head-img" id="head-img" style="height: 60px; width: 60px;max-width: 60px;margin-top: 8px;" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 				<div class="mui-media-body" style="height: 80px; line-height: 40px;">
 				@if (Session::get('member')->nickname!="")
 				{{Session::get('member')->nickname}}
@@ -95,49 +95,49 @@
 				<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 152px; margin-bottom: 50px;">
 					<li class="mui-table-view-cell">
 						<a href="#account" class="mui-navigate-right">
-							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 							<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">我的案例</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell">
 						<a href="#account" class="mui-navigate-right">
-							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 							<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">我的订单</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell">
 						<a href="#account" class="mui-navigate-right">
-							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 							<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">我的抵用券</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell">
 						<a href="#account" class="mui-navigate-right">
-							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 							<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">我要成为</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell">
 						<a href="#account" class="mui-navigate-right">
-							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 							<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">我的发布</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell">
 						<a href="#account" class="mui-navigate-right">
-							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 							<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">使用帮助</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell">
 						<a href="#account" class="mui-navigate-right">
-							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 							<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">关于我们</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell">
 						<a href="#account" class="mui-navigate-right">
-							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+							<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
 							<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">意见与建议</div>
 						</a>
 					</li>
@@ -151,7 +151,7 @@
 
 @section('afterBody') 
 @parent
-<script src="{{ _asset('wapstyle/js/mui.view.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.view.js') }}"></script>
 <script>
 	mui.init();
 	//初始化单页view

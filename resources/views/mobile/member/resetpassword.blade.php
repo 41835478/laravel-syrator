@@ -109,7 +109,7 @@
 
 @section('afterBody') 
 @parent
-<script src="{{ _asset('wapstyle/js/mui.view.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.view.js') }}"></script>
 <script>
 mui.init();
 //初始化单页view

@@ -4,7 +4,7 @@
 
 @section('head_style')
 @parent
-<link href="{{ _asset('wapstyle/css/feedback.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/syrator/wap/css/feedback.css') }}" rel="stylesheet" type="text/css" />
 <style>
 #topPopoverMenu {
 	width: 70px;
@@ -41,7 +41,7 @@
 }
 
 .feedback .image-item {
-	background-image: url({{ _asset('wapstyle/images/iconfont-tianjia.png') }});
+	background-image: url({{ _asset('assets/syrator/wap/images/iconfont-tianjia.png') }});
 }
 .mui-slider-item img {
 	height:150px;
@@ -108,7 +108,7 @@
     			<div class="mui-card" style="margin: 0px;">
 					<div class="mui-card-header" style="font-weight: 800;">标题：装修扫盲之壁挂式空调安装及验收</div>
     				<div class="mui-card-header mui-card-media">
-    					<img src="{{ _asset('wapstyle/images/logo_default.png') }}" />
+    					<img src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}" />
     					<div class="mui-media-body">
     						<span>作者：小M</span>				
     						<div class="title-reply-count">
@@ -166,14 +166,14 @@
 
 @section('afterBody') 
 @parent
-<script src="{{ _asset('wapstyle/js/mui.view.js') }}"></script>
-<script src="{{ _asset('wapstyle/libs/easymob-webim-sdk/jquery-1.11.1.js') }}"></script>
-<script src="{{ _asset('wapstyle/libs/easymob-webim-sdk/strophe-custom-2.0.0.js') }}"></script>
-<script src="{{ _asset('wapstyle/libs/easymob-webim-sdk/json2.js') }}"></script>
-<script src="{{ _asset('wapstyle/libs/easymob-webim-sdk/easemob.im-1.0.5.js') }}"></script>
-<script src="{{ _asset('wapstyle/js/feedback.js') }}"></script>
-<script src="{{ _asset('wapstyle/js/feedback-page.js') }}"></script>
-<script src="{{ _asset('wapstyle/js/mui.picker.min.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.view.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/libs/easymob-webim-sdk/jquery-1.11.1.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/libs/easymob-webim-sdk/strophe-custom-2.0.0.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/libs/easymob-webim-sdk/json2.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/libs/easymob-webim-sdk/easemob.im-1.0.5.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/feedback.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/feedback-page.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.picker.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script>
 mui.init();
 
@@ -264,7 +264,7 @@ function loadData() {
 					html += '<li class="mui-table-view-cell mui-media" style="padding: 0px;">';
 					html += '<div class="mui-card" style="margin: 0px;">';
 					html += '<div class="mui-card-header mui-card-media">';
-					html += '<img src="{{ _asset('wapstyle/images/logo_default.png') }}" />';
+					html += '<img src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}" />';
 					html += '<div class="mui-media-body">';
 					html += '<span>' + d[i].goods_name + '</span>';				
 					html += '<div class="title-reply-count">';

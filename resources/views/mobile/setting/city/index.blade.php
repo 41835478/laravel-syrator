@@ -5,7 +5,7 @@
 
 @section('head_css')
 @parent
-<link href="{{ _asset('wapstyle/css/mui.indexedlist.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/syrator/wap/css/mui.indexedlist.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
 @section('beforeBody')
@@ -242,7 +242,7 @@
 
 @section('afterBody')
 @parent
-<script src="{{ _asset('wapstyle/js/mui.indexedlist.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.indexedlist.js') }}"></script>
 <script>
 mui.init();
 mui.ready(function() {

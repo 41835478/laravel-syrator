@@ -4,7 +4,7 @@
 @parent
 <style>
 body {
-	background:url('{{ _asset('wapstyle/images/member/login_bg.png') }}');
+	background:url('{{ _asset('assets/syrator/wap/images/member/login_bg.png') }}');
 	background-size:cover;
 }
 .mui-content {
@@ -66,23 +66,23 @@ body {
 	<form method="post" action="{{ site_url('member/auth/login', 'mobile') }}">
 		{{ csrf_field() }}
     	<div class="mui-input-row" style="height:100px; width:100%;">
-    		<img id="mine-head-img" src="{{ _asset('wapstyle/images/logo_default.png') }}">
+    		<img id="mine-head-img" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">
     	</div>
     	<div class="mui-input-row">		
     		<label style="width: 15%;">
-    			<img style="width: 15px; height: 20px;" src="{{ _asset('wapstyle/images/member/login_icon_yh.png') }}">
+    			<img style="width: 15px; height: 20px;" src="{{ _asset('assets/syrator/wap/images/member/login_icon_yh.png') }}">
     		</label>
     		<label style="width: 15%; float:right;">
-    			<img style="width: 18px; height: 18px;" src="{{ _asset('wapstyle/images/member/login_cor.png') }}">
+    			<img style="width: 18px; height: 18px;" src="{{ _asset('assets/syrator/wap/images/member/login_cor.png') }}">
     		</label>
     		<input id='phone' name="phone" type="tel" class="mui-input-clear mui-input" placeholder="请输入账号">
     	</div>
     	<div class="mui-input-row">
     		<label style="width: 15%;">
-    			<img style="width: 15px; height: 20px;" src="{{ _asset('wapstyle/images/member/login_icon_sd.png') }}">
+    			<img style="width: 15px; height: 20px;" src="{{ _asset('assets/syrator/wap/images/member/login_icon_sd.png') }}">
     		</label>
     		<label style="width: 15%; float:right;">
-    			<img style="width: 18px; height: 18px;" src="{{ _asset('wapstyle/images/member/login_fau.png') }}">
+    			<img style="width: 18px; height: 18px;" src="{{ _asset('assets/syrator/wap/images/member/login_fau.png') }}">
     		</label>
     		<input id='password' type="password" name="password" class="mui-input-clear mui-input" placeholder="请输入密码">
     	</div>			
@@ -100,13 +100,13 @@ body {
     	</div>
     	<div class="mui-input-row" style="width:100%; height:100px; text-align:center; margin-top: 15px;">
     		<label style="width: 28%; margin-left:8%;">
-    			<img style="width: 30px;" src="{{ _asset('wapstyle/images/member/login_btn_qq.png') }}">
+    			<img style="width: 30px;" src="{{ _asset('assets/syrator/wap/images/member/login_btn_qq.png') }}">
     		</label>
     		<label style="width: 28%;">
-    			<img style="width: 40px;" src="{{ _asset('wapstyle/images/member/login_btn_wb.png') }}">
+    			<img style="width: 40px;" src="{{ _asset('assets/syrator/wap/images/member/login_btn_wb.png') }}">
     		</label>
     		<label style="width: 28%; margin-right:8%;">
-    			<img style="width: 40px;" src="{{ _asset('wapstyle/images/member/login_btn_wx.png') }}">
+    			<img style="width: 40px;" src="{{ _asset('assets/syrator/wap/images/member/login_btn_wx.png') }}">
     		</label>
     	</div>
 	</form>
@@ -115,7 +115,7 @@ body {
 
 @section('afterBody') 
 @parent
-<script src="{{ _asset('wapstyle/js/mui.enterfocus.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.enterfocus.js') }}"></script>
 
 @if (count($errors) > 0)
 <script>

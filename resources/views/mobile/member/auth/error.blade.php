@@ -7,7 +7,7 @@
 
 @section('afterBody') 
 @parent
-<script src="{{ _asset('wapstyle/js/mui.enterfocus.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.enterfocus.js') }}"></script>
 
 @if (count($errors) > 0)
 <script>

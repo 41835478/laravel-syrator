@@ -79,7 +79,7 @@
 
 @section('afterBody') 
 @parent
-<script src="{{ _asset('wapstyle/js/mui.view.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.view.js') }}"></script>
 <script>
 mui.init();
 //初始化单页view
@@ -132,7 +132,7 @@ function loadData() {
 
 					html += '<li class="mui-table-view-cell mui-media">';
 					html += '<a href="{{ _asset('mobile/finance/show') }}/' + d[i].goods_id + '">';
-					html += '<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_default.png') }}">'
+					html += '<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}">'
 					html += '<div class="mui-media-body">'
 					html += d[i].goods_name;
 					html += '<p class="mui-ellipsis">专心做事，认真做人</p>';

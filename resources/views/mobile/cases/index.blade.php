@@ -58,7 +58,7 @@
 
 @section('afterBody')
 @parent
-<script src="{{ _asset('wapstyle/js/mui.view.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.view.js') }}"></script>
 <script>
 //初始化单页的区域滚动
 mui('.mui-scroll-wrapper').scroll();

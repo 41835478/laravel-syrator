@@ -5,7 +5,7 @@
 @section('head_css')
 @parent
 <link href="{{ _asset('assets/metronic/default.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ _asset('wapstyle/css/feedback.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/syrator/wap/css/feedback.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
 @section('head_style')
@@ -27,7 +27,7 @@ input {
     width: 96%;	
 }
 .feedback .image-item {
-	background-image: url({{ _asset('wapstyle/images/iconfont-tianjia.png') }});
+	background-image: url({{ _asset('assets/syrator/wap/images/iconfont-tianjia.png') }});
 }
 </style>
 @stop
@@ -136,14 +136,14 @@ input {
 
 @section('afterBody')
 @parent
-<script src="{{ _asset('wapstyle/js/mui.view.js') }}"></script>
-<script src="{{ _asset('wapstyle/libs/easymob-webim-sdk/jquery-1.11.1.js') }}"></script>
-<script src="{{ _asset('wapstyle/libs/easymob-webim-sdk/strophe-custom-2.0.0.js') }}"></script>
-<script src="{{ _asset('wapstyle/libs/easymob-webim-sdk/json2.js') }}"></script>
-<script src="{{ _asset('wapstyle/libs/easymob-webim-sdk/easemob.im-1.0.5.js') }}"></script>
-<script src="{{ _asset('wapstyle/js/feedback.js') }}"></script>
-<script src="{{ _asset('wapstyle/js/feedback-page.js') }}"></script>
-<script src="{{ _asset('wapstyle/js/mui.picker.min.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.view.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/libs/easymob-webim-sdk/jquery-1.11.1.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/libs/easymob-webim-sdk/strophe-custom-2.0.0.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/libs/easymob-webim-sdk/json2.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/libs/easymob-webim-sdk/easemob.im-1.0.5.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/feedback.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/feedback-page.js') }}"></script>
+<script src="{{ _asset('assets/syrator/wap/js/mui.picker.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script>
 (function($) {
 	$.init();

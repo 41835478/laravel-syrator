@@ -30,13 +30,13 @@
 	<ul class="mui-table-view" id="mui-table-view-list">
 		<li class="mui-table-view-cell">
 			<a href="#account" class="mui-navigate-right">
-				<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_customer_service.png') }}">
+				<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_customer_service.png') }}">
 				<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">人工客服一</div>
 			</a>
 		</li>
 		<li class="mui-table-view-cell">
 			<a href="#account" class="mui-navigate-right">
-				<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('wapstyle/images/logo_customer_service.png') }}">
+				<img class="mui-media-object mui-pull-left" style="height: 25px; width: 25px;max-width: 25px;" src="{{ _asset('assets/syrator/wap/images/logo_customer_service.png') }}">
 				<div class="mui-media-body" style="height: 30px; line-height: 30px; font-size: 14px;">人工客服二</div>
 			</a>
 		</li>
@@ -46,7 +46,7 @@
 			<li class="mui-table-view-cell mui-media">
 				<a href="{{ _asset('mobile/message/chat/1') }}">
 					<div class="head-icon">
-						<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_notice.png') }}"></<img>
+						<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_notice.png') }}"></<img>
 						<span class="mui-badge">2</span>
 					</div>					
 					<div class="mui-media-body" style="font-size: 14px;">
@@ -59,7 +59,7 @@
 			<li class="mui-table-view-cell mui-media">
 				<a href="{{ _asset('mobile/message/chat/2') }}">
 					<div class="head-icon">
-						<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_notice.png') }}"></<img>
+						<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_notice.png') }}"></<img>
 						<span class="mui-badge">3</span>
 					</div>					
 					<div class="mui-media-body" style="font-size: 14px;">
@@ -72,7 +72,7 @@
 			<li class="mui-table-view-cell mui-media">
 				<a href="{{ _asset('mobile/message/chat/3') }}">
 					<div class="head-icon">
-						<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_notice.png') }}"></<img>
+						<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_notice.png') }}"></<img>
 						<span class="mui-badge">2</span>
 					</div>					
 					<div class="mui-media-body" style="font-size: 14px;">
@@ -85,7 +85,7 @@
 			<li class="mui-table-view-cell mui-media">
 				<a href="{{ _asset('mobile/message/chat/4') }}">
 					<div class="head-icon">
-						<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_default.png') }}"></<img>
+						<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}"></<img>
 						<span class="mui-badge">2</span>
 					</div>					
 					<div class="mui-media-body" style="font-size: 14px;">
@@ -98,7 +98,7 @@
 			<li class="mui-table-view-cell mui-media">
 				<a href="{{ _asset('mobile/message/chat/5') }}">
 					<div class="head-icon">
-						<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_default.png') }}"></<img>
+						<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}"></<img>
 					</div>					
 					<div class="mui-media-body" style="font-size: 14px;">
 						张师傅
@@ -110,7 +110,7 @@
 			<li class="mui-table-view-cell mui-media">
 				<a href="{{ _asset('mobile/message/chat/6') }}">
 					<div class="head-icon">
-						<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_default.png') }}"></<img>
+						<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}"></<img>
 					</div>					
 					<div class="mui-media-body" style="font-size: 14px;">
 						张师傅
@@ -122,7 +122,7 @@
 			<li class="mui-table-view-cell mui-media">
 				<a href="{{ _asset('mobile/message/chat/7') }}">
 					<div class="head-icon">
-						<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_default.png') }}"></<img>
+						<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}"></<img>
 					</div>					
 					<div class="mui-media-body" style="font-size: 14px;">
 						张师傅
@@ -134,7 +134,7 @@
 			<li class="mui-table-view-cell mui-media">
 				<a href="{{ _asset('mobile/message/chat/8') }}">
 					<div class="head-icon">
-						<img class="mui-media-object mui-pull-left" src="{{ _asset('wapstyle/images/logo_default.png') }}"></<img>
+						<img class="mui-media-object mui-pull-left" src="{{ _asset('assets/syrator/wap/images/logo_default.png') }}"></<img>
 					</div>					
 					<div class="mui-media-body" style="font-size: 14px;">
 						张师傅

@@ -67,10 +67,11 @@ class AuthorityController extends MobileController
         ];
         
         if (Auth::guard('member')->attempt($credentials, $request->has('remember'))) {
-            event(new MemberLogin(auth()->user()));
+            event(new MemberLogin(auth()->guard('member')->user()));
             return redirect()->intended($redirectTo);
         } else {
-            return redirect()->back()->withInput()->withErrors(['attempt' => '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系客服！']);
+            $msg = '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系客服！';
+            return redirect()->back()->withInput()->withErrors(['attempt' => $msg]);
         }
     }
 

@@ -8,9 +8,9 @@ class HomeController extends MobileController
 {
     public function getIndex(Request $request)
     {
-        $member = $request->session()->get('member');
+        $member = auth()->guard('member')->user();
         if ($member==null || empty($member)) {
-            return redirect()->to(site_path('member/login', 'mobile'));
+            return redirect()->to(site_path('member/auth/login', 'mobile'));
         }
         
         return $this->view('index');
