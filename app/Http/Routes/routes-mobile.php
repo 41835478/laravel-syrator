@@ -21,9 +21,9 @@ Route::group(['prefix' => 'mobile', 'namespace' => 'Mobile', 'middleware' => ['a
 });
 
 // mobile前台站点路由群组
-Route::group(['prefix' => 'mobile', 'namespace' => 'Mobile', 'middleware' => ['auth:mobile']], function () {
+Route::group(['prefix' => 'mobile', 'namespace' => 'Mobile', 'middleware' => ['auth:web']], function () {
 
-    Route::group(['prefix' => '', 'middleware' => ['multi-site.auth:mobile']], function () {
+    Route::group(['prefix' => '', 'middleware' => ['auth:mobile']], function () {
         // 首页
         Route::get('/', 'HomeController@getIndex');
         Route::get('index', 'HomeController@getIndex');

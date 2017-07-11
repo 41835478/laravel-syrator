@@ -6,7 +6,7 @@ Route::group(['middleware' => 'web', 'prefix' => 'wechat', 'namespace' => 'Modul
         Route::any('/', 'AccessController@access');
     });
     
-	Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['multi-site.auth:admin']], function () {
+	Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth:admin']], function () {
 	    // 后台首页：控制台
 	    Route::get('/', 'WechatController@index');
 	    Route::get('index', 'WechatController@index');

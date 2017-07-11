@@ -27,8 +27,6 @@ class AuthorityController extends MobileController
     {
         parent::__construct();
         
-        $this->middleware('multi-site.guest:mobile', ['except' => 'getLogout']);
-        
         $this->repository = $repository;
     }
 

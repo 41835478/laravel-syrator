@@ -5,7 +5,7 @@ Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\
 	Route::get('/', 'CmsController@index');
 	
 	// 管理后台
-	Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['multi-site.auth:admin']], function () {
+	Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth:admin']], function () {
 	
 	    Route::get('/', 'CmsAdminController@index');
 	   
