@@ -39,14 +39,12 @@ class AuthorityController extends BackController
             'is_locked' => 0,
         ];
         
-        if (Auth::attempt($credentials, $request->has('remember'))) {
+        if (Auth::guard('admin')->attempt($credentials, $request->has('remember'))) {
             event(new UserLogin(auth()->user()));  //触发登录事件
             return redirect()->intended($redirectTo);
         } else {
-            // 登录失败，跳回
-            return redirect()->back()->withInput()->withErrors(
-                ['attempt' => '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系超级管理员！']
-                );  //回传错误信息
+            $msg = '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系超级管理员！';
+            return redirect()->back()->withInput()->withErrors(['attempt' => $msg]);
         }
     }
 

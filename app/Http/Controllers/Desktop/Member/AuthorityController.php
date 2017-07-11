@@ -42,7 +42,6 @@ class AuthorityController extends MemberController
             event(new MemberLogin(auth()->user()));
             return redirect()->intended($redirectTo);
         } else {
-            // 登录失败
             $msg = '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系超管！';
             return redirect()->back()->withInput()->withErrors(['attempt' => $msg]);
         }
