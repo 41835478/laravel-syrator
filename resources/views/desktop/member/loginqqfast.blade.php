@@ -1,1 +1,0 @@
-{{ header("Location:$login_url") }}

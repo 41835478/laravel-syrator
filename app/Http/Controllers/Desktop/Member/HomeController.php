@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Member;
+namespace App\Http\Controllers\Desktop\Member;
 
 class HomeController extends MemberController
 {
     public function getIndex()
     {
-        return "会员中心";
+        $member = auth()->guard('member')->user();
+        if ($member==null || empty($member)) {
+            return redirect()->to(site_path('member/auth/login', 'desktop'));
+        }
+        
+        return $this->view('index');
     }
 }

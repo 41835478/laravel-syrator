@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Member;
+namespace App\Http\Controllers\Desktop\Member;
 
 use Illuminate\Http\Request;
 use Auth;
@@ -39,7 +39,7 @@ class AuthorityController extends MemberController
         ];
         
         if (Auth::guard('member')->attempt($credentials, $request->has('remember'))) {
-            event(new MemberLogin(auth()->user()));
+            event(new MemberLogin(auth()->guard('member')->user()));
             return redirect()->intended($redirectTo);
         } else {
             $msg = '“用户名”、“密码”错误或帐号已被锁定，请重新登录或联系超管！';
