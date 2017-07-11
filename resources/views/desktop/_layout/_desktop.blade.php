@@ -2,7 +2,7 @@
 
 @section('body_attr') 
 @parent
-class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" 
+class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-full-width" 
 @stop
 
 @section('css_theme_global')
@@ -41,16 +41,15 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"
 
 @section('content')
 <div class="page-wrapper">
-	@include('admin._widgets._main-header')
+	@include('desktop._widgets._main-header')
 	<div class="clearfix"> </div>
 	<div class="page-container">
-		@include('admin._widgets._main-sidebar')
 		<div class="page-content-wrapper">
 			<div class="page-content">
 				<div class="page-bar">                    
                     @section('page-content-bar')
         			@show
-                </div>                
+                </div>
                 <h1 class="page-title">
                     @section('page-content-title')
         			@show
@@ -63,7 +62,7 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"
     		</div>
 		</div>
 	</div>	
-	@include('admin._widgets._main-footer')
+	@include('desktop._widgets._main-footer')
 </div>
 @stop
 
