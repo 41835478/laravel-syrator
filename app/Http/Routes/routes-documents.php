@@ -2,10 +2,8 @@
 
 // 文档站点路由群组
 Route::group(['prefix' => 'documents', 'namespace' => 'Documents',  'middleware' => ['auth:web', 'web']], function () {
-
-    Route::get('/', 'HomeController@getIndex');
-    
-    // 开发演示
-    Route::get('demo/form', 'Demo\DemoController@getForm');
-    Route::get('demo/icon', 'Demo\DemoController@getIcon');
+    Route::get('/', function() {
+        return redirect('documents/home');
+    });
+    Route::get('home', 'HomeController@getIndex');
 });

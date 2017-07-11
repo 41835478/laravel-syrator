@@ -4,11 +4,6 @@ namespace App\Http\Controllers\Documents;
 
 use App\Http\Controllers\Controller;
 
-/**
- * 桌面站点前台共用控制器
- * FrontController
- *
- */
 class DocumentsController extends Controller
 {
     // 主题

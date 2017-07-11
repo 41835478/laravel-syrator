@@ -1,52 +1,26 @@
-@extends('_layout._common')
+@extends('documents._layout._documents')
 
-@section('head_css')
+@section('page-content-bar')
 @parent
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('home', 'documents') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <span>控制台</span>
+    </li>
+</ul>
 @stop
 
-@section('body_attr') class="page-header-fixed theme-light2" @stop
-
-@section('content-header')
+@section('page-content-title')
 @parent
-@include('documents._widgets._main-header')
+{{cache('website_title')}}<small>文档中心</small>
 @stop
 
-@section('content-footer')
+@section('page-content-row')
 @parent
-@include('documents._widgets._main-footer')
-@stop
-
-@section('content')
-<div class="page-container">
-	@include('documents._widgets._main-sidebar')
-	<div class="page-content" style="min-height:993px !important">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<h3 class="page-title">{{cache('website_title')}}后台管理控制台</h3>
-					<ul class="breadcrumb">
-						<li>
-							<i class="icon-home"></i>
-							<a href="#">首页</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li><a href="#">控制台</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>  
-	</div>
+<div class="note note-info">
+    <p> {{cache('website_title')}}文档中心</p>
 </div>
-@stop
-
-@section('extraPlugin')
-@parent
-@stop
-
-@section('filledScript')
-<script>
-jQuery(document).ready(function() {    
-   App.init();
-});
-</script>
 @stop
