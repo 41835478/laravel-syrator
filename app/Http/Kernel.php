@@ -47,11 +47,8 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'block' => \App\Http\Middleware\BlockSite::class,
-        'multi-site.auth' => \App\Http\Middleware\MultiSiteAuthenticate::class,
         'deny' => \App\Http\Middleware\PermissionDenied::class,
         
         'role' => 'Zizaco\Entrust\Middleware\EntrustRole',
