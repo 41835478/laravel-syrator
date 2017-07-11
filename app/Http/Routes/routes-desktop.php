@@ -17,8 +17,10 @@ Route::group(['prefix' => '', 'namespace' => 'Desktop', 'middleware' => ['auth:w
         });
     
         Route::group(['prefix' => '', 'middleware' => ['auth:member']], function () {
-
-            Route::get('/', 'HomeController@getIndex');
+            Route::get('/', function() {
+                return redirect('member/home');
+            });
+            Route::get('home', 'HomeController@getIndex');
         });
     });
     

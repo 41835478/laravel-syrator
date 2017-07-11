@@ -29,7 +29,7 @@ class AuthorityController extends MemberController
 
     public function postLogin(Request $request)
     {
-        $redirectTo = site_path('', 'member');
+        $redirectTo = site_path('home', 'member');
         
         //认证凭证
         $credentials = [
