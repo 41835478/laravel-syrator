@@ -51,7 +51,7 @@ class WechatController extends AdminController {
 	    $data = $request->input('data');
 	    if ($data && is_array($data)) {
 	        WechatParamModel::updateParams($data);
-	        return redirect()->back()->with('message', '成功更新微信配置！');
+	        return redirect()->to(site_path('admin/params', 'wechat'))->with('message', '成功更新微信配置！');
 	    } else {
 	        return redirect()->back()->with('fail', '提交数据异常！');
 	    }
