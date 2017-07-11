@@ -1,4 +1,4 @@
-@extends('cms::layouts.master')
+@extends('shop::layouts.master')
 
 @section('content')
 	
