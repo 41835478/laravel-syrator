@@ -45,7 +45,7 @@
 				<div class="span12">                    
 					@include('_widgets._fail-message')
 					@include('_widgets._errors-message')                    
-                    <div class="portlet box blue ">
+                    <div class="portlet light portlet-fit portlet-form bordered ">
                     	<div class="portlet-title">
                     		<div class="caption">新增文章</div>
                     	</div>

@@ -13,7 +13,7 @@
 		<div class="container-fluid" style="padding-left: 0px; padding-right: 0px; height:116px !important;">
 			<div class="row-fluid" style="height:76px !important; padding-top:38px;">
 				<div class="span12">                 
-                    <div class="portlet box blue " style="border: 0px solid #b4cef8; margin-bottom: 0px;">
+                    <div class="portlet light portlet-fit portlet-form bordered " style="border: 0px solid #b4cef8; margin-bottom: 0px;">
 						<div class="portlet-body form" style="padding:0px">
                             <div class="control-group" style="margin: 0px !important;">
 								<div class="controls" style="margin-left: 120px;">

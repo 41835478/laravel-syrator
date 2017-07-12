@@ -21,7 +21,7 @@
 @parent
 <div class="row">
     <div class="col-md-12">
-        <div class="portlet box blue ">
+        <div class="portlet light portlet-fit portlet-form bordered ">
         	<div class="portlet-title">
         		<div class="caption"><i class="fa fa-gift"></i>新增模板</div>
         	</div>
