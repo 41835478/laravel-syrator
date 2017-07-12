@@ -1,8 +1,19 @@
-@extends('_layout._common')
+@extends('cms::admin._layout._admin')
 
-@section('head_css')
+@section('css_page_level')
 @parent
-<link href="{{ _asset('lib/treetable/stylesheets/jquery.treetable.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ _asset('assets/lib/treetable/stylesheets/jquery.treetable.css') }}" rel="stylesheet" type="text/css"/>
+@stop
+
+@section('js_page_level')
+@parent
+<script src="{{ _asset('assets/lib/treetable/javascripts/jquery.treetable-ajax-persist.js') }}"></script>
+<script src="{{ _asset('assets/lib/treetable/javascripts/jquery.treetable-3.0.0.js') }}"></script>
+<script src="{{ _asset('assets/lib/treetable/javascripts/persist-min.js') }}"></script>
+@stop
+
+@section('style_head')
+@parent
 <style>
 .portlet.box .portlet-body {
 	padding: 0px !important;
@@ -38,98 +49,49 @@
 </style>
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
+@section('page-content-bar')
 @parent
-@include('admin._widgets._main-header')
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('admin', 'cms') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <span>文章类别管理</span>
+    </li>
+</ul>
 @stop
 
-@section('content-footer')
+@section('page-content-row')
 @parent
-@include('admin._widgets._main-footer')
-@stop
-
-@section('content') 
-<div class="page-container row-fluid">
-	@include('cms::_widgets._main-sidebar')
-	<div class="page-content">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<h3 class="page-title">类别管理  <small> 文章类别管理</small></h3>
-					<ul class="breadcrumb">
-						<li>
-							<i class="icon-home"></i>
-							<a href="{{ site_url('admin', 'cms') }}">首页</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li><a href="#">类别管理</a></li>
-					</ul>
-				</div>
+<div class="row">
+    <div class="col-md-12">
+    	<div class="portlet box purple">    	
+    		<div class="portlet-title">
+    			<div class="caption"><i class="icon-comments"></i>分类列表</div>
+    			<div class="tools">
+    				<a class="add" href="{{ _route('cms:admin.article.catalog.create') }}" ></a>
+    				<a class="reload" id="reload"></a>
+    			</div>
+    		</div>
+			<div class="list-div portlet-body">				
+        		<table id="catalogs">
+        			<thead>
+                        <tr>
+        					<th>名称</th>
+        					<th>描述</th>
+        					<th>排序</th>
+        					<th>是否显示</th>
+        					<th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="catalogs_body">
+                    </tbody>
+        		</table>
 			</div>
-			<div class="row-fluid">
-            	<div class="span12">
-            		<div class="portlet box purple">            		
-                        @if(session()->has('fail'))
-                        <div class="alert alert-warning alert-dismissable">
-                        	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                        	<h4>
-                        		<i class="icon icon fa fa-warning"></i> 提示！
-                        	</h4>
-                        	{{ session('fail') }}
-                        </div>
-                        @endif 
-                        
-                        @if($errors->any())
-                        <div class="alert alert-danger alert-dismissable">
-                        	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                        	<h4>
-                        		<i class="icon fa fa-ban"></i> 警告！
-                        	</h4>
-                        	<ul>
-                        		@foreach ($errors->all() as $error)
-                        		<li>{{ $error }}</li> 
-                        		@endforeach
-                        	</ul>
-                        </div>
-                        @endif
-            			<div class="portlet-title">
-            				<div class="caption"><i class="icon-comments"></i>分类列表</div>
-            				<div class="tools">
-            					<a class="add" href="{{ _route('cms:admin.article.catalog.create') }}" ></a>
-            					<a class="reload" id="reload"></a>
-            				</div>
-            			</div>
-            			<div class="list-div portlet-body">				
-                    		<table id="catalogs">
-                    			<thead>
-                                    <tr>
-                    					<th>名称</th>
-                    					<th>描述</th>
-                    					<th>排序</th>
-                    					<th>是否显示</th>
-                    					<th>操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="catalogs_body">
-                                </tbody>
-                    		</table>
-            			</div>
-            		</div>
-            	</div>
-            </div>
 		</div>
-	</div>
+    </div>
 </div>
-@stop
-
-@section('extraPlugin')
-@parent
-<script src="{{ _asset('lib/treetable/javascripts/jquery.treetable-ajax-persist.js') }}"></script>
-<script src="{{ _asset('lib/treetable/javascripts/jquery.treetable-3.0.0.js') }}"></script>
-<script src="{{ _asset('lib/treetable/javascripts/persist-min.js') }}"></script>
-<script src="{{ _asset(ref('layer.js')) }}"></script>
 @stop
 
 @section('filledScript')
@@ -211,7 +173,7 @@ function loadData() {
 }
 </script>
 <script>
-jQuery(document).ready(function() {    
+jQuery(document).ready(function() {
     App.init();
 
     loadData();
@@ -223,12 +185,13 @@ jQuery(document).ready(function() {
     };
 
     $(document).on("click","a.remove",function(evt) {
-        var delId = $(this).attr("delId");
-    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
-            $.post("{{ URL('cms/admin/article/catalog/remove') }}", {
+        var itemId = $(this).attr("item-id");
+        var postUrl = $(this).attr("href");        
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")) {
+            $.post(postUrl, {
             	 _token:$('meta[name="_token"]').attr('content'),
-                 delId:delId,
-            }, function(data){
+                 delId:itemId,
+            }, function(data) {
                  if(data.code == 200){
                      alert(data.message);
                      location.reload();
@@ -237,6 +200,8 @@ jQuery(document).ready(function() {
                  }
             },"json");
       	}
+
+      	return false;
     });
 });
 </script>

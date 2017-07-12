@@ -20,6 +20,8 @@
     
 	<link href="{{ _asset('assets/syrator/css/syrator.css') }}" rel="stylesheet" type="text/css"/>
 	
+	@section('style_head')
+    @show
 @stop
 
 @section('body')
