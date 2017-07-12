@@ -163,18 +163,6 @@ class ArticleController extends AdminController {
         return $this->toSuccess(site_path('admin/article/article', 'cms'), '成功更新文章');
 	}
 	
-	public function show($id)
-	{
-        if(!Entrust::can('cms.admin.article')) {
-            return $this->deny();
-        }
-	
-	    $entity = ArticleModel::find($id);
-	    $entity->catalog_name = $entity->getCatalogName();
-	    
-	    return $this->view('article.show', compact('entity'));
-	}
-	
 	public function remove(Request $request)
 	{
         if(!Entrust::can('cms.admin.article')) {

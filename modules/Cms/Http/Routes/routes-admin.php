@@ -23,7 +23,7 @@ Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\
             
             Route::any('export', 'ArticleController@export');
             
-	        Route::resource('article', 'ArticleController',['except' => ['destroy']]);
+	        Route::resource('article', 'ArticleController',['except' => ['destroy', 'show']]);
 	        
 	        Route::post('catalog/remove', 'ArticleCatalogController@remove');
 	        Route::resource('catalog', 'ArticleCatalogController',['except' => ['destroy']]);
