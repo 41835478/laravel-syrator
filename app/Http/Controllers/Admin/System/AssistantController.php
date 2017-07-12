@@ -17,11 +17,10 @@ class AssistantController extends BackController
         }
         
         $isCache = $request->input('isCache');
-        
         if ($isCache=='on') {
             DataCache::cacheStatic();
             DataCache::cachePermission();
-            return $this->view('system.cache.index')->with('message', '重建缓存成功！');            
+            return $this->backSuccess($request,'重建缓存成功！');            
         }
         
         return $this->view('system.cache.index');

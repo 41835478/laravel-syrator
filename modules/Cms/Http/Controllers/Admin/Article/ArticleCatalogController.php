@@ -42,6 +42,7 @@ class ArticleCatalogController extends AdminController {
 	    }
         // 扩展插件，自定义类型
         if (isset($editStruct['pid'])) {
+            $editStruct['pid']->alias = "所属父类";
             $editStruct['pid']->type = "select_tree";
         }
         // 单选radio

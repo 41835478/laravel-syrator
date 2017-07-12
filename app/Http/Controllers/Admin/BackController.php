@@ -35,6 +35,11 @@ class BackController extends Controller
         return redirect()->back()->withInput($request->input())->with('fail', $message);
     }
     
+    public function backSuccess($request, $message)
+    {
+        return redirect()->back()->withInput($request->input())->with('message', $message);
+    }
+    
     public function toSuccess($url, $message)
     {
         return redirect()->to($url)->with('message', $message);
