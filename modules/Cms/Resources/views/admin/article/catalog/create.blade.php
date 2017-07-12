@@ -11,6 +11,15 @@
 <script src="{{ _asset('assets/syrator/js/tree/ztree-expand.js') }}"></script>
 @stop
 
+@section('style_head')
+@parent
+<style>
+.form-horizontal .form-group {
+	padding-right:5px;
+}
+</style>
+@stop
+
 @section('page-content-bar')
 @parent
 <ul class="page-breadcrumb">
