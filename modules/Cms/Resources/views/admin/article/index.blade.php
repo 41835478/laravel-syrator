@@ -145,7 +145,7 @@
                             	<a item-id="{{ $per->id }}" href="{{ _route('cms:admin.article.article.edit', $per->id) }}" class="btn btn-xs">
                             		<i class="fa fa-pencil-square-o"></i>
                             	</a>
-                            	<a item-id="{{ $per->id }}" href="{{ _route('cms:admin.article.article.remove', $per->id) }}" class="btn btn-xs remove">
+                            	<a item-id="{{ $per->id }}" href="{{ _route('cms:admin.article.remove', $per->id) }}" class="btn btn-xs remove">
                             		<i class="fa fa-trash-o"></i>
                             	</a>
                             </td>
