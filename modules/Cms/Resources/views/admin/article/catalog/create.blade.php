@@ -39,7 +39,7 @@
         		<div class="caption"><i class="fa fa-gift"></i>新增文章类别</div>
         	</div>
 			<div class="portlet-body form">
-				<form method="post" action="{{ _route('cms:admin.article.catalog.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
+				<form method="post" action="{{ _route('cms:admin.article.catalog.store') }}" accept-charset="utf-8" class="form-horizontal  form-bordered form-label-stripped" role="form">
                     {!! csrf_field() !!}
                     <div class="form-body">
                         @include('_widgets.edit.control-group')
