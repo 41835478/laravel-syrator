@@ -1,61 +1,68 @@
-@extends('_layout._common')
+@extends('cms::admin._layout._admin')
 
-@section('head_css')
+@section('css_page_level_plugins')
 @parent
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/bootstrap-fileupload.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/chosen.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/profile.css') }}" />
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('content') 
-<div class="page-container row-fluid" style="height:116px !important;">
-	<div class="page-content" style="margin-left: 0px !important; padding: 0px !important; height:116px !important; min-height: 106px !important;">
-		<div class="container-fluid" style="padding-left: 0px; padding-right: 0px; height:116px !important;">
-			<div class="row-fluid" style="height:76px !important; padding-top:38px;">
-				<div class="span12">                 
-                    <div class="portlet light portlet-fit portlet-form bordered " style="border: 0px solid #b4cef8; margin-bottom: 0px;">
-						<div class="portlet-body form" style="padding:0px">
-                            <div class="control-group" style="margin: 0px !important;">
-								<div class="controls" style="margin-left: 120px;">
-									<div class="fileupload fileupload-new" data-provides="fileupload" style="margin-bottom: 0px;">
-										<input type="hidden">
-										<div class="input-append">
-											<div class="uneditable-input" style="width: 280px; height:34px;">
-												<i class="icon-file fileupload-exists"></i> 
-												<span class="fileupload-preview"></span>
-											</div>
-											<span class="btn btn-file">
-											<span class="fileupload-new">选择文件</span>
-											<span class="fileupload-exists">修改</span>
-											<input id="file-import" type="file" class="default">
-											</span>
-											<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
-											<button id="submit-import" type="submit" class="btn blue">确定</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+@section('css_page_level')
+@parent
+<link href="{{ _asset('assets/metronic/pages/css/profile.min.css') }}" rel="stylesheet" type="text/css" />
+@stop
+
+@section('js_page_level_plugins')
+@parent
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+@stop
+
+@section('js_page_level')
+@parent
+<script src="{{ _asset('assets/metronic/pages/scripts/profile.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/syrator/js/upload/upload.js') }}" type="text/javascript"></script>
+@stop
+
+@section('content')
+<div class="page-wrapper" style="margin-left: 0px !important; padding: 0px !important; height:116px !important; min-height: 106px !important;">
+	<div class="page-container" style="margin-left: 0px !important; padding: 0px !important; height:116px !important; min-height: 106px !important;">
+		<div class="page-content-wrapper" style="margin-left: 0px !important; padding: 0px !important; height:116px !important; min-height: 106px !important;">
+			<div class="page-content" style="margin-left: 0px !important; padding: 0px !important; height:116px !important; min-height: 106px !important;">
+                <div class="row" style="margin-left: 0px !important; padding: 0px !important; height:116px !important; min-height: 106px !important;">
+                    <div class="col-md-12">                 
+                        <div class="portlet-body form">
+    						<div class="form-horizontal">
+                                <div class="form-body">
+    								<div class="form-group">
+    									<div class="col-md-4">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-preview fileinput-exists" style="width: 280px; height:34px;display: inline-block; border: 1px solid #ddd;"></div>
+                                                <div style="float:right;">
+                                                    <span class="btn default btn-file">
+                                                        <span class="fileinput-new"> 选择文件 </span>
+                                                        <span class="fileinput-exists"> 修改 </span>
+                                                        <input type="file" name="file-import" id="file-import" accept=".xls,.xlsx,.csv" >
+                                                    </span>
+                                                    <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> 移除 </a>
+                    								<a id="submit-import" class="btn default fileinput-exists">导入</a>
+                                                </div>
+                                                <input type="hidden" id="file" name="file" value="">
+                                            </div>
+    									</div>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+                </div>
+    		</div>
 		</div>
 	</div>
 </div>
 @stop
 
-@section('extraPlugin')
-@parent
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/bootstrap-fileupload.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/form-components.js') }}"></script>
-<script type="text/javascript" src="{{ _asset('assets/metronic/js/chosen.jquery.min.js') }}"></script>
-@stop
-
 @section('filledScript')
 <script>
-jQuery(document).ready(function() {    
-    App.init();
-
+jQuery(document).ready(function() {
     //ajax
     $('#submit-import').click(function(){
         var resultFile = $("#file-import").get(0).files[0];
