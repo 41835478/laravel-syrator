@@ -1,18 +1,11 @@
-@extends('_layout._common')
+@extends('cms::desktop._layout._desktop')
 
-@section('head_css')
+@section('css_page_level')
 @parent
-<link href="{{ _asset('modules/cms/css/article.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ _asset('assets/syrator/modules/cms/css/article.css') }}" rel="stylesheet" type="text/css"/>
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
-@parent
-@include('cms::desktop._widgets._main-header')
-@stop
-
-@section('content')
+@section('page-content-row')
 @include('cms::desktop._widgets._main-sidebar-left')
 @include('cms::desktop._widgets._main-sidebar-right')
 <div id="cms_article" class="page-container row-fluid">
@@ -26,14 +19,4 @@
 		</div>
 	</div>
 </div>
-@stop
-
-@section('filledScript')
-@parent
-<script type="text/javascript" src="{{ _asset('assets/js/tree-catalog.js') }}"></script>
-<script>
-jQuery(document).ready(function() {    
-	App.init();
-});
-</script>
 @stop

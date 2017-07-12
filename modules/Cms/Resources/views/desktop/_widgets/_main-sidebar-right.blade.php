@@ -14,7 +14,8 @@
 		</li>
 	</ul>
 </div>
-<script type="text/javascript" src="{{ _asset('assets/js/tree-catalog.js') }}"></script>
+@include('_widgets.assets.script_core')
+<script type="text/javascript" src="{{ _asset('assets/syrator/js/tree/tree-catalog.js') }}"></script>
 <script type="text/javascript">
     var dData = new Array();
     @foreach ($catalogs as $k => $v)

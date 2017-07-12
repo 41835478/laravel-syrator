@@ -45,7 +45,7 @@ body {
 }
 
 .article_left {
-    background: rgba(0, 0, 0, 0) url("/modules/cms/images/blog_left.jpg") no-repeat scroll 0 0 / 100% 100%;
+    background: rgba(0, 0, 0, 0) url("/assets/syrator/modules/cms/images/blog_left.jpg") no-repeat scroll 0 0 / 100% 100%;
     color: #333;
     height: 100%;
     padding: 30px 60px 50px 30px;
