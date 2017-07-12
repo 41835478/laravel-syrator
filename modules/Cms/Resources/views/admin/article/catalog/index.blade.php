@@ -15,10 +15,14 @@
 @section('style_head')
 @parent
 <style>
+.portlet>.portlet-title>.tools>a.add {
+	background-image: url(/assets/syrator/image/portlet-add-icon.png);
+	background-repeat: no-repeat;
+	width: 13px;
+}
 .portlet.box .portlet-body {
 	padding: 0px !important;
 }
-
 .list-div {
 	width: 100%;
 	background: #ffffff;
