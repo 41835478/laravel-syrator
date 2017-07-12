@@ -106,7 +106,7 @@ class ArticleCatalogController extends AdminController {
          
         // 再修正
         if (isset($editStruct['name'])) {
-            $editStruct['name']->help = "*";
+	        $editStruct['name']->is_request = true;
         }
         // 扩展插件，自定义类型
         if (isset($editStruct['pid'])) {
