@@ -37,8 +37,6 @@
 </ul>
 @stop
 
-@include('UEditor::head')
-
 @section('page-content-row')
 @parent
 <div class="row">
@@ -68,6 +66,8 @@
 @stop
 
 @section('filledScript')
+
+@include('UEditor::head')
 <script>
 jQuery(document).ready(function() {    
     App.init();
