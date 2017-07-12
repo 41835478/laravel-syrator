@@ -2,7 +2,7 @@
 
 @section('css_page_level')
 @parent
-<link href="{{ _asset('assets/lib/treetable/stylesheets/jquery.treetable.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ _asset('assets/lib/ztree/css/zTreeStyle/zTreeStyle.css') }}" rel="stylesheet" type="text/css"/>
 @stop
 
 @section('js_page_level')
