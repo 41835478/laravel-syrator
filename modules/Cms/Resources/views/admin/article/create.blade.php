@@ -1,78 +1,73 @@
-@extends('_layout._common')
+@extends('cms::admin._layout._admin')
 
-@section('head_css')
+@section('css_page_level')
 @parent
-<link href="{{ _asset('lib/ztree/css/zTreeStyle/zTreeStyle.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ _asset('assets/lib/ztree/css/zTreeStyle/zTreeStyle.css') }}" rel="stylesheet" type="text/css"/>
 @stop
 
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content-header')
+@section('js_page_level')
 @parent
-@include('admin._widgets._main-header')
+<script src="{{ _asset('assets/lib/ztree/js/jquery.ztree.core.js') }}"></script>
+<script src="{{ _asset('assets/syrator/js/tree/ztree-expand.js') }}"></script>
 @stop
 
-@section('content-footer')
+@section('style_head')
 @parent
-@include('admin._widgets._main-footer')
+<style>
+.form-horizontal .form-group {
+	padding-right:5px;
+}
+</style>
 @stop
 
-@include('UEditor::head')
+@section('page-content-bar')
+@parent
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('admin', 'cms') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="{{ site_url('admin/article', 'cms') }}"">文章管理</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+    	<span>新增文章</span>
+    </li>
+</ul>
+@stop
 
-@section('content') 
-<div class="page-container row-fluid">
-	@include('cms::_widgets._main-sidebar')
-	<div class="page-content">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<h3 class="page-title">文章管理  <small> 新增文章</small></h3>
-					<ul class="breadcrumb">
-						<li>
-							<i class="icon-home"></i>
-							<a href="{{ site_url('admin', 'cms') }}">首页</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li>
-							<a href="{{ site_url('admin/article', 'cms') }}">文章管理</a> 
-							<i class="icon-angle-right"></i>
-						</li>
-						<li><a href="#">新增文章</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span12">                    
-					@include('_widgets._fail-message')
-					@include('_widgets._errors-message')                    
-                    <div class="portlet light portlet-fit portlet-form bordered ">
-                    	<div class="portlet-title">
-                    		<div class="caption">新增文章</div>
-                    	</div>
-						<div class="portlet-body form">
-							<form method="post" action="{{ _route('cms:admin.article.article.store') }}" accept-charset="utf-8" class="form-horizontal form-bordered form-label-stripped">
-                                {!! csrf_field() !!}
-								@include('_widgets._edit-control-group')
-								<div class="form-actions">
-									<button type="submit" class="btn blue"><i class="icon-ok"></i> 新增</button>
-								</div>
-							</form>
-						</div>
+@section('page-content-row')
+@parent
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit portlet-form bordered ">
+        	<div class="portlet-title">
+        		<div class="caption"><i class="fa fa-gift"></i>新增文章</div>
+        	</div>
+			<div class="portlet-body form">
+				<form method="post" action="{{ _route('cms:admin.article.article.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
+                    {!! csrf_field() !!}
+                    <div class="form-body">
+                        @include('_widgets.edit.control-group')
+    					<div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+    								<button type="submit" class="btn blue"><i class="icon-ok"></i> 新增文章</button>
+                                </div>
+                            </div>
+                        </div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
-	</div>
+    </div>
 </div>
 @stop
 
-@section('extraPlugin')
-@parent
-<script src="{{ _asset('lib/ztree/js/jquery.ztree.core.js') }}"></script>
-<script src="{{ _asset('assets/js/ztree-expand.js') }}"></script>
-@stop
-
 @section('filledScript')
+
+@include('UEditor::head')
 <script>
 jQuery(document).ready(function() {    
     App.init();
@@ -85,6 +80,9 @@ jQuery(document).ready(function() {
     var catSelectTree = new ZTreeExpand("catalog_id", dData);
     catSelectTree.init();
 
+    if($('#content').hasClass('form-control')){
+    	$('#content').removeClass('form-control');
+    }
     var ue = UE.getEditor('content');   
     ue.ready(function() {
         ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
