@@ -10,6 +10,7 @@
 <script src="{{ _asset('assets/lib/treetable/javascripts/jquery.treetable-ajax-persist.js') }}"></script>
 <script src="{{ _asset('assets/lib/treetable/javascripts/jquery.treetable-3.0.0.js') }}"></script>
 <script src="{{ _asset('assets/lib/treetable/javascripts/persist-min.js') }}"></script>
+<script src="{{ _asset('assets/lib/layer-2.x/layer.js') }}" type="text/javascript"></script>
 @stop
 
 @section('style_head')
@@ -43,7 +44,7 @@
 }
 .list-div td {
 	background: #FFF;
-	padding: 10px;
+	padding: 2px;
 }
 .list-div td.first-cell {
 	font-weight: bold;
@@ -113,14 +114,14 @@ function createTableTree(data){
 		html += '<td>' + data.description + '</td>';
 		html += '<td style="text-align:center;">' + data.sort_num + '</td>';
 		if (data.is_show==1) {
-			html += '<td class="text-red" style="text-align:center;"><i class="icon-ok"></i></td>';
+			html += '<td class="text-red" style="text-align:center;"><i class="fa fa-check"></i></td>';
 		} else {
-			html += '<td class="text-red" style="text-align:center;"><i class="icon-remove"></i></td>';
+			html += '<td class="text-red" style="text-align:center;"><i class="fa fa-close"></i></td>';
 		}
 		html += '<td style="text-align:center;">';
-		html += '<a href="{{ _asset('cms/admin/article/catalog/') }}/' + data.id + '" class="layer_open"><i class="icon-eye-open" title="查看"></i></a>|';
-		html += '<a href="{{ _asset('cms/admin/article/catalog/') }}/' + data.id + '/edit" class="edit" ><i class="icon-edit" title="编辑"></i></a>|';
-		html += '<a href="javascript:void(0);" delid="' + data.id + '" class="remove" ><i class="icon-trash" title="删除"></i></a>';
+		html += '<a item-id="' + data.id + '" href="{{ _asset('cms/admin/article/catalog/') }}/' + data.id + '" class="layer_open"><i class="fa fa-eye" title="查看"></i></a>|';
+		html += '<a item-id="' + data.id + '" href="{{ _asset('cms/admin/article/catalog/') }}/' + data.id + '/edit" class="edit" ><i class="fa fa-pencil-square-o" title="编辑"></i></a>|';
+		html += '<a item-id="' + data.id + '" href="{{ _asset('cms/admin/article/catalog/remove') }}" class="remove" ><i class="fa fa-trash-o" title="删除"></i></a>';
 		html += '</td>';
 		html += "</tr>" ;
 		if(data.sub_catalogs != null) {		
@@ -165,7 +166,7 @@ function loadData() {
                         title: title,
                         shadeClose: false,
                         shade: 0,
-                        area: ['540px', '320px'],
+                        area: ['540px', '360px'],
                         content: src //iframe的url
                     });
                 });

@@ -1,43 +1,51 @@
-@extends('_layout._common')
+@extends('admin._layout._show')
 
-@section('head_css')
+@section('page-content-row')
 @parent
-<link rel="stylesheet" type="text/css" href="{{ _asset('assets/metronic/css/profile.css') }}" />
-@stop
-
-@section('body_attr') class="page-header-fixed" @stop
-
-@section('content')
-<div class="page-container row-fluid" style="margin-top:0px;">
-	<div class="page-content" style="height:280px;min-height:220px;margin-left:0px;">
-		<div class="container-fluid">
-			<div class="row-fluid profile">
-				<div class="span12">
-					<div class="portlet-body form">
-						<table class="table table-hover table-striped table-bordered" style="margin-bottom: 0px;">
-							<tbody>
-    							<tr>
-    								<td style="width: 120px;">名称：</td>
-    								<td>{{ $catalog->name }}</td>
-    							</tr>
-    							<tr>
-    								<td>关键词：</td>
-    								<td>{{ $catalog->keywords }}</td>
-    							</tr>
-    							<tr>
-    								<td>描述：</td>
-    								<td>{{ $catalog->description }}</td>
-    							</tr>
-    							<tr>
-    								<td>所属父类：</td>
-    								<td>{{ $catalog->pid_name }}</td>
-    							</tr>
-    						</tbody>
-						</table>					
-					</div>					
-				</div>
-			</div>
-		</div>
-	</div>  
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="portlet-body form">
+            <form class="form-horizontal" role="form">
+                <div class="form-body" style="padding: 20px 20px 0px 20px !important;">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">名称</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $catalog->name }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">关键词</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $catalog->keywords }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">描述</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $catalog->description }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">所属父类</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $catalog->pid_name }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">创建时间</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $catalog->created_at }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="margin-top: 7px;">更新时间</label>
+                        <div class="col-xs-9">
+                        	<input type="text" class="form-control" placeholder="" readonly="Readonly" value="{{ $catalog->updated_at }}">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 @stop
