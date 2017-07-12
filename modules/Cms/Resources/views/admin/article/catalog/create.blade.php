@@ -39,7 +39,7 @@
         		<div class="caption"><i class="fa fa-gift"></i>新增文章类别</div>
         	</div>
 			<div class="portlet-body form">
-				<form method="post" action="{{ _route('cms:admin.article.catalog.store') }}" accept-charset="utf-8" class="form-horizontal  form-bordered form-label-stripped" role="form">
+				<form method="post" action="{{ _route('cms:admin.article.catalog.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
                     {!! csrf_field() !!}
                     <div class="form-body">
                         @include('_widgets.edit.control-group')
@@ -71,6 +71,9 @@ jQuery(document).ready(function() {
     var catSelectTree = new ZTreeExpand("pid", dData);
     catSelectTree.init();
 
+    if($('#description').hasClass('form-control')){
+    	$('#description').removeClass('form-control');
+    }
     var ue = UE.getEditor('description');   
     ue.ready(function() {
         ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');

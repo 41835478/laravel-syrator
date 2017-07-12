@@ -20,6 +20,7 @@
 	@elseif($per->type=='textarea')
 	<div class="col-md-9">
 		<textarea class="form-control" rows="6" 
+			type="text" 
 			id="{{$per->name}}" 
 			name="{{$per->name}}" 
 			autocomplete="{{$per->autocomplete}}" 
@@ -105,8 +106,9 @@
 		<span class="help-block">{{$per->help}}</span>
 	</div>
 	@elseif($per->type=='textarea')
-	<div class="col-md-6">
+	<div class="col-md-9">
 		<textarea readonly="readonly" class="form-control" rows="6" 
+			type="text" 
 			id="{{$per->name}}" 
 			name="{{$per->name}}" 
 			autocomplete="{{$per->autocomplete}}" 
@@ -166,8 +168,9 @@
 		<span class="help-block">{{$per->help}}</span>
 	</div>
 	@elseif($per->type=='textarea')
-	<div class="col-md-6">
+	<div class="col-md-9">
 		<textarea disabled="disabled" class="form-control" rows="6" 
+			type="text" 
 			id="{{$per->name}}" 
 			name="{{$per->name}}" 
 			autocomplete="{{$per->autocomplete}}" 
