@@ -13,6 +13,11 @@ class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-s
 <!-- END THEME GLOBAL STYLES -->
 @stop
 
+@section('css_page_level')
+@parent
+<link href="{{ _asset('assets/syrator/modules/cms/css/article.css') }}" rel="stylesheet" type="text/css"/>
+@stop
+
 @section('css_theme_layout')
 @parent
 <!-- BEGIN THEME LAYOUT STYLES -->
