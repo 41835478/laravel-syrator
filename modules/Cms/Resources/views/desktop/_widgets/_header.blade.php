@@ -11,6 +11,7 @@
         <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
             <span></span>
         </a>
+        @if(null !== auth()->guard('member')->user() && !empty(auth()->guard('member')->user()))
 		<div class="top-menu">
 			<ul class="nav navbar-nav pull-right">
 				<li class="dropdown dropdown-user">
@@ -34,5 +35,6 @@
 				</li>
 			</ul>
 		</div>
+		@endif
 	</div>
 </div>
