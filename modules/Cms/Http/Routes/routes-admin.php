@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\Cms\Http\Controllers', 'middleware' => ['auth:web']], function()
+Route::group(['middleware' => 'web', 'prefix' => 'cms', 'namespace' => 'Modules\Cms\Http\Controllers', 'middleware' => ['auth:web', 'web']], function()
 {
 	Route::get('/', 'CmsController@index');
 	

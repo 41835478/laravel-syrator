@@ -1,7 +1,7 @@
 <?php
 
 // PC前台站点路由群组
-Route::group(['middleware' => ['auth:web'], 'prefix' => 'cms', 'namespace' => 'Modules\Cms\Http\Controllers'], function () {
+Route::group(['middleware' => ['auth:web'], 'prefix' => 'cms', 'namespace' => 'Modules\Cms\Http\Controllers', 'middleware' => ['auth:web', 'web']], function () {
     
     Route::group(['prefix' => '', 'namespace' => 'Desktop'], function () {
         
