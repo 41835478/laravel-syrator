@@ -6,15 +6,9 @@
 @stop
 
 @section('page-content-row')
-<div id="cms_article" class="row">
-	<div class="page-content" style="padding-top: 20px;">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-				{!!$entity->content!!}
-				</div>
-			</div>
-		</div>
+<div id="cms_article" class="row">	
+	<div class="span12">
+	{!!$entity->content!!}
 	</div>
 </div>
 @stop
