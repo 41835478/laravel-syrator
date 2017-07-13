@@ -91,3 +91,7 @@ body.theme-light2,
 body.theme-light2 .page-sidebar {
 	background-color: #f6f6f6 !important;
 }
+
+#edui_fixedlayer{  
+    z-index: 10005 !important;  
+}
