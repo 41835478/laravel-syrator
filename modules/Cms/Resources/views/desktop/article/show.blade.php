@@ -6,9 +6,7 @@
 @stop
 
 @section('page-content-row')
-@include('cms::desktop._widgets._main-sidebar-left')
-@include('cms::desktop._widgets._main-sidebar-right')
-<div id="cms_article" class="page-container row-fluid">
+<div id="cms_article" class="row">
 	<div class="page-content" style="padding-top: 20px;">
 		<div class="container-fluid">
 			<div class="row-fluid">
