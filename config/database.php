@@ -69,6 +69,23 @@ return [
             'dump_using_single_transaction' => true,
         ],
         
+        'mysql_game' => [
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'game',
+            'username'  => 'root',
+            'password'  => '77a7debe12',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => env('DB_PREFIX', ''),
+            'strict'    => false,
+            'engine'    => null,
+        
+            'dump_command_path' => '/alidata/server/mysql-5.6.21/bin/',
+            'dump_command_timeout' => 60 * 5,
+            'dump_using_single_transaction' => true,
+        ],
+        
         'mysql_center' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
