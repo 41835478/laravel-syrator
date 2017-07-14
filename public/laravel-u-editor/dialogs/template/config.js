@@ -6,6 +6,12 @@
  * To change this template use File | Settings | File Templates.
  */
 var templates = [
+	{
+	    "pre":"pre2.png",
+	    'title':lang.mineexpand,
+	    'preHtml':'<p class="ue_t">&nbsp;自定义模板！</p>',
+	    "html":'<h1 label="Title left" name="tl" style="border-bottom-color:#cccccc;border-bottom-width:2px;border-bottom-style:solid;padding:0px 4px 0px 0px;margin:0px 0px 10px;"><span style="color:#e36c09;" class="ue_t">[此处键入公司名称]</span></h1><p><span style="color:#e36c09;"><br/></span></p><table width="100%" border="1" bordercolor="#95B3D7" style="border-collapse:collapse;"><tbody><tr class="firstRow"><td width="200" style="text-align:center;" class="ue_t">【此处插入照片】</td><td><p><br/></p><p>                    简介：[键入公司简介]</p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p></td></tr></tbody></table><h3><span style="color:#e36c09;font-size:20px;">产品介绍</span></h3><p style="text-indent:2em;" class="ue_t">[此处键入公司产品简介]</p><h3><span style="color:#e36c09;font-size:20px;">案例</span></h3><p style="text-indent: 2em;" class="ue_t">[此处键入公司的经典案例]</p>'
+	},
     {
         "pre":"pre0.png",
         'title':lang.blank,

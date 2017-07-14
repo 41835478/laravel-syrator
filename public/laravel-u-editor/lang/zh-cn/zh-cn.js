@@ -442,9 +442,8 @@ UE.I18N['zh-cn'] = {
         'blog':"博客文章",
         'resume':"个人简历",
         'richText':"图文混排",
-        'sciPapers':"科技论文"
-
-
+        'sciPapers':"科技论文",
+        'mineexpand':"我的扩展",
     },
     'scrawl':{
         'static':{
