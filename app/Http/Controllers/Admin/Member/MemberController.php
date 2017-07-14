@@ -80,8 +80,8 @@ class MemberController extends BackController
             $editStruct['gender']->dictionary['1'] = '男';
             $editStruct['gender']->dictionary['2'] = '女';
         }
-        if (isset($editStruct['headimg'])) {
-            $editStruct['headimg']->is_editable = false;
+        if (isset($editStruct['avatar'])) {
+            $editStruct['avatar']->is_editable = false;
         }
         if (isset($editStruct['points'])) {
             $editStruct['points']->is_editable = false;
@@ -188,8 +188,8 @@ class MemberController extends BackController
             $editStruct['gender']->dictionary['1'] = '男';
             $editStruct['gender']->dictionary['2'] = '女';
         }
-        if (isset($editStruct['headimg'])) {
-            $editStruct['headimg']->is_editable = false;
+        if (isset($editStruct['avatar'])) {
+            $editStruct['avatar']->is_editable = false;
         }
         if (isset($editStruct['points'])) {
             $editStruct['points']->is_editable = false;

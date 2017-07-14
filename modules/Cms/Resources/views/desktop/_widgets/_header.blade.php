@@ -13,7 +13,7 @@
 			<ul class="nav navbar-nav pull-right">
 				<li class="dropdown dropdown-user">
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle" src="{{ auth()->guard('member')->user()->headimg }}" />
+                        <img alt="" class="img-circle" src="{{ auth()->guard('member')->user()->avatar }}" />
                         <span class="username username-hide-on-mobile"> {{ auth()->guard('member')->user()->nickname }} </span>
                         <i class="fa fa-angle-down"></i>
                     </a>

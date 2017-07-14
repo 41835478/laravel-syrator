@@ -24,7 +24,7 @@ class CreateMemberTable extends Migration
             $table->string('nickname')->comment('用户昵称')->default('');
             $table->string('role')->comment('角色')->default('');
             $table->tinyInteger('gender')->comment('性别')->default('0');
-            $table->string('headimg')->comment('头像')->default('');
+            $table->string('avatar')->comment('头像')->default('');
             $table->integer('points')->comment('会员积分')->default('0');
             $table->string('wechat_id')->comment('微信账号')->default('');
             $table->string('wechat_name')->comment('微信名称')->default('');

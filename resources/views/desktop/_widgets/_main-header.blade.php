@@ -42,7 +42,7 @@
         <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
             <span></span>
         </a>
-        @if(null !== auth()->user() && !empty(auth()->user()))
+        @if(null !== auth()->guard('member')->user() && !empty(auth()->guard('member')->user()))
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
             	<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
@@ -176,20 +176,20 @@
                 </li>
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle" src="{{ auth()->user()->avatar }}" />
-                        <span class="username username-hide-on-mobile"> {{auth()->user()->username }} </span>
+                        <img alt="" class="img-circle" src="{{ auth()->guard('member')->user()->avatar }}" />
+                        <span class="username username-hide-on-mobile"> {{auth()->guard('member')->user()->nickname }} </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                            <a href="{{ site_url('mine/info', 'admin') }}"><i class="icon-user"></i>个人资料</a>
+                            <a href="{{ site_url('mine/info', 'member') }}"><i class="icon-user"></i>个人资料</a>
                         </li>
                         <li>
                             <a href=""><i class="icon-rocket"></i>我的任务<span class="badge badge-success"> 7 </span></a>
                         </li>
                         <li class="divider"> </li>
                         <li>
-                            <a href="{{ site_url('auth/logout', 'admin') }}"><i class="icon-key"></i>退出</a>
+                            <a href="{{ site_url('auth/logout', 'member') }}"><i class="icon-key"></i>退出</a>
                         </li>
                     </ul>
                 </li>
