@@ -1,7 +1,7 @@
 <div class="page-header navbar navbar-fixed-top">
 	<div class="page-header-inner">
     	<div class="page-logo">
-            <a href="">
+            <a href="{{ site_url('')}}">
                 <img src="{{ _asset('assets/syrator/image/logo.png') }}" alt="logo" class="logo-default" /> 
             </a>
             <div class="menu-toggler sidebar-toggler">

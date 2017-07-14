@@ -1,7 +1,7 @@
 <div class="page-header navbar navbar-fixed-top">
     <div class="page-header-inner ">
         <div class="page-logo">
-            <a href="">
+            <a href="{{ site_url('')}}">
                 <img src="/assets/metronic/layouts/layout/img/logo.png" alt="logo" class="logo-default" />
             </a>
         </div>
