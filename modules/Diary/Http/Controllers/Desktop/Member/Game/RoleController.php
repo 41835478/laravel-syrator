@@ -160,9 +160,8 @@ class RoleController extends GameController
     
     public function show($id)
     {    
-        $catalog = ArticleCatalogModel::find($id);
-        $catalog->pid_name = $catalog->getCatalogNameById($catalog->pid);
-        return $this->view('article.catalog.show', compact('catalog'));
+        $entity = GameRoleModel::find($id);
+        return $this->view('role.show', compact('entity'));
     }
     
     public function remove(Request $request)
