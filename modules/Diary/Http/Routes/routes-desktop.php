@@ -13,6 +13,9 @@ Route::group(['middleware' => ['auth:web', 'web'], 'prefix' => '', 'namespace' =
             
             Route::group(['prefix' => 'game', 'namespace' => 'Game'], function () {
                 Route::get('/', 'HomeController@index');
+                
+                Route::post('role/remove', 'RoleController@remove');
+                Route::resource('role', 'RoleController',['except' => ['destroy']]);
             });
         });
     });

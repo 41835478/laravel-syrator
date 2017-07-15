@@ -19,7 +19,7 @@ var TableExpand = function () {
                     [5, 10, 15, 20, -1],
                     [5, 10, 15, 20, "全部"]
                 ],
-                "pageLength": 10,
+                "pageLength": 5,
                 "pagingType": "bootstrap_full_number",
                 "columnDefs": [
 	                {
