@@ -1,4 +1,17 @@
-@extends('admin._layout._show')
+@extends('diary::desktop._layout._member')
+
+@section('page-content-bar')
+@parent
+<ul class="page-breadcrumb">
+    <li>
+        <a href="{{ site_url('game', 'member') }}">首页</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <span>控制台</span>
+    </li>
+</ul>
+@stop
 
 @section('page-content-row')
 @parent
