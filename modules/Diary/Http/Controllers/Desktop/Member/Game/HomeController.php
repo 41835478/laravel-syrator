@@ -2,13 +2,13 @@
 
 use Illuminate\Http\Request;
 
-use Modules\Diary\Model\RoleModel;
+use Modules\Diary\Model\GameRoleModel;
 
 class HomeController extends GameController
 {
     public function index(Request $request)
     {
-        $roles = RoleModel::all();
+        $roles = GameRoleModel::all();
         echo json_encode($roles);
         exit();
         return $this->view('index');
