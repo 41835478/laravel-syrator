@@ -18,120 +18,143 @@ class RoleController extends GameController
     }
     
     public function create()
-    {    
-        $catalog = new ArticleCatalogModel();
-        $editStruct = $catalog->getEditStructs();
-         
-        // 再修正
+    {
+        $model = new GameRoleModel();
+        $editStruct = $model->getEditStructs();
+        
         if (isset($editStruct['name'])) {
             $editStruct['name']->is_request = true;
         }
-        // 扩展插件，自定义类型
-        if (isset($editStruct['pid'])) {
-            $editStruct['pid']->alias = "所属父类";
-            $editStruct['pid']->type = "select_tree";
+        if (isset($editStruct['position'])) {
+            $editStruct['position']->is_request = true;
+            $editStruct['position']->type = "select";
+            $editStruct['position']->dictionary['前排'] = '前排';
+            $editStruct['position']->dictionary['中排'] = '中排';
+            $editStruct['position']->dictionary['后排'] = '后排';
         }
-        // 单选radio
-        if (isset($editStruct['sort_num'])) {
-            $editStruct['sort_num']->value = 0;
+        if (isset($editStruct['quality'])) {
+            $editStruct['quality']->is_request = true;
+            $editStruct['quality']->type = "select";
+            $editStruct['quality']->dictionary['12'] = '12';
+            $editStruct['quality']->dictionary['13'] = '13';
+            $editStruct['quality']->dictionary['14'] = '14';
         }
-        // 单选radio
-        if (isset($editStruct['is_show'])) {
-            $editStruct['is_show']->type = "radio";
-            $editStruct['is_show']->value = 1;
-            $editStruct['is_show']->dictionary['0'] = '否';
-            $editStruct['is_show']->dictionary['1'] = '是';
+        if (isset($editStruct['type'])) {
+            $editStruct['type']->is_request = true;
+            $editStruct['type']->type = "select";
+            $editStruct['type']->dictionary['输出'] = '输出';
+            $editStruct['type']->dictionary['双系输出'] = '双系输出';
+            $editStruct['type']->dictionary['物理输出'] = '物理输出';
+            $editStruct['type']->dictionary['念力输出'] = '念力输出';
+            $editStruct['type']->dictionary['物理防御'] = '物理防御';
+            $editStruct['type']->dictionary['念力防御'] = '念力防御';
+            $editStruct['type']->dictionary['治疗'] = '治疗';
+            $editStruct['type']->dictionary['控制'] = '控制';
+            $editStruct['type']->dictionary['辅助'] = '辅助';
         }
-         
-        $catalogs = ArticleCatalogModel::all();
-        return view('cms::admin.article.catalog.create', compact('catalogs', 'editStruct'));
+        if (isset($editStruct['catalog'])) {
+            $editStruct['catalog']->is_request = true;
+            $editStruct['catalog']->type = "select";
+            $editStruct['catalog']->dictionary['1'] = '1';
+            $editStruct['catalog']->dictionary['2'] = '2';
+            $editStruct['catalog']->dictionary['3'] = '3';
+            $editStruct['catalog']->dictionary['4'] = '4';
+            $editStruct['catalog']->dictionary['5'] = '5';
+        }
+        if (isset($editStruct['group'])) {
+            $editStruct['group']->is_request = true;
+            $editStruct['group']->type = "select";
+            $editStruct['group']->dictionary['圣斗士'] = '圣斗士';
+            $editStruct['group']->dictionary['冥斗士'] = '冥斗士';
+            $editStruct['group']->dictionary['海斗士'] = '海斗士';
+        }
+        
+        return $this->view('role.create', compact('editStruct'));
     }
     
     public function store(Request $request)
     {    
         $inputs = $request->all();
         if (empty(e($inputs['name']))) {
-            return $this->backFail($request, '分类名称不能为空');
+            return $this->backFail($request, '名称不能为空');
         }
     
-        // 新增，则需要判断名称是否存在
-        $catalog = ArticleCatalogModel::getCatalogByName(e($inputs['name']));
-        if ($catalog!=null && !empty($catalog) && $catalog->id>0) {
-            return $this->backFail($request, '该名称的分类已经存在，请使用其他的名称');
-        }
-    
-        if (e($inputs['pid'])=='顶级分类') {
-            $inputs['pid'] = 0;
-        } else {
-            $inputs['pid'] = ArticleCatalogModel::getCatalogIdByName(e($inputs['pid']));
-        }
-    
-        $catalog = new ArticleCatalogModel();
-        if (!$catalog->saveFromInput($inputs)) {
+        $model = new GameRoleModel();
+        if (!$model->saveFromInput($inputs)) {
             return $this->backFail($request, '数据库操作返回异常');
         }
     
         //添加成功
-        return $this->backSuccess($request, '成功新增分类');
+        return $this->backSuccess($request, '成功新增角色');
     }
     
     public function edit($id)
-    {    
-        $catalog = ArticleCatalogModel::find($id);
-        $catalog->pid = $catalog->getCatalogNameById($catalog->pid);
-    
-        $editStruct = $catalog->getEditStructs();
-         
-        // 再修正
+    {
+        $entity = GameRoleModel::find($id);
+        $editStruct = $entity->getEditStructs();
+        
         if (isset($editStruct['name'])) {
             $editStruct['name']->is_request = true;
         }
-        // 扩展插件，自定义类型
-        if (isset($editStruct['pid'])) {
-            $editStruct['pid']->type = "select_tree";
+        if (isset($editStruct['position'])) {
+            $editStruct['position']->is_request = true;
+            $editStruct['position']->type = "select";
+            $editStruct['position']->dictionary['前排'] = '前排';
+            $editStruct['position']->dictionary['中排'] = '中排';
+            $editStruct['position']->dictionary['后排'] = '后排';
         }
-        // 单选radio
-        if (isset($editStruct['sort_num'])) {
-            $editStruct['sort_num']->value = 0;
+        if (isset($editStruct['quality'])) {
+            $editStruct['quality']->is_request = true;
+            $editStruct['quality']->type = "select";
+            $editStruct['quality']->dictionary['12'] = '12';
+            $editStruct['quality']->dictionary['13'] = '13';
+            $editStruct['quality']->dictionary['14'] = '14';
         }
-        // 单选radio
-        if (isset($editStruct['is_show'])) {
-            $editStruct['is_show']->type = "radio";
-            $editStruct['is_show']->dictionary['0'] = '否';
-            $editStruct['is_show']->dictionary['1'] = '是';
+        if (isset($editStruct['type'])) {
+            $editStruct['type']->is_request = true;
+            $editStruct['type']->type = "select";
+            $editStruct['type']->dictionary['输出'] = '输出';
+            $editStruct['type']->dictionary['双系输出'] = '双系输出';
+            $editStruct['type']->dictionary['物理输出'] = '物理输出';
+            $editStruct['type']->dictionary['念力输出'] = '念力输出';
+            $editStruct['type']->dictionary['物理防御'] = '物理防御';
+            $editStruct['type']->dictionary['念力防御'] = '念力防御';
+            $editStruct['type']->dictionary['治疗'] = '治疗';
+            $editStruct['type']->dictionary['控制'] = '控制';
+            $editStruct['type']->dictionary['辅助'] = '辅助';
         }
-    
-        $catalogs = ArticleCatalogModel::all();
-        return view('cms::admin.article.catalog.edit', compact('catalog', 'catalogs', 'editStruct'));
+        if (isset($editStruct['catalog'])) {
+            $editStruct['catalog']->is_request = true;
+            $editStruct['catalog']->type = "select";
+            $editStruct['catalog']->dictionary['1'] = '1';
+            $editStruct['catalog']->dictionary['2'] = '2';
+            $editStruct['catalog']->dictionary['3'] = '3';
+            $editStruct['catalog']->dictionary['4'] = '4';
+            $editStruct['catalog']->dictionary['5'] = '5';
+        }
+        if (isset($editStruct['group'])) {
+            $editStruct['group']->is_request = true;
+            $editStruct['group']->type = "select";
+            $editStruct['group']->dictionary['圣斗士'] = '圣斗士';
+            $editStruct['group']->dictionary['冥斗士'] = '冥斗士';
+            $editStruct['group']->dictionary['海斗士'] = '海斗士';
+        }
+        
+        return $this->view('role.edit', compact('entity','editStruct'));
     }
     
     public function update(Request $request, $id)
     {    
         $inputs = $request->all();
         if (empty(e($inputs['name']))) {
-            return $this->backFail($request, '分类名称不能为空');
+            return $this->backFail($request, '名称不能为空');
         }
-    
-        $catalog = ArticleCatalogModel::find($id);
-        if ($catalog->name != e($inputs['name'])) {
-            // 名称如果也改变,则需要判断新名称是否存在
-            $catalogTemp = ArticleCatalogModel::getCatalogByName(e($inputs['name']));
-            if ($catalogTemp!=null && !empty($catalogTemp) && $catalogTemp->id>0) {
-                return $this->backFail($request, '该名称的分类已经存在，请使用其他的名称');
-            }
-        }
-    
-        if (e($inputs['pid'])=='顶级分类') {
-            $inputs['pid'] = 0;
-        } else {
-            $inputs['pid'] = ArticleCatalogModel::getCatalogIdByName(e($inputs['pid']));
-        }
-    
-        if (!$catalog->saveFromInput($inputs)) {
+        
+        $model = GameRoleModel::find($id);
+        if (!$model->saveFromInput($inputs)) {
             return $this->backFail($request, '数据库操作返回异常');
         }
     
-        //添加成功
         return $this->backSuccess($request, '更新成功');
     }
     
@@ -148,14 +171,8 @@ class RoleController extends GameController
         $rth['message'] = "未知错误";
     
         $id = $request->input('delId');
-        $objItem = ArticleCatalogModel::find($id);
-        if (!empty($objItem)) {
-            if ($objItem->isHasChild()) {
-                $rth['code'] = "300";
-                $rth['message'] = "该分类下还有子分类，请先删除子类";
-                return $rth;
-            }
-    
+        $objItem = GameRoleModel::find($id);
+        if (!empty($objItem)) {    
             if ($objItem->delete()) {
                 $rth['code'] = "200";
                 $rth['message'] = "删除成功";
@@ -163,10 +180,25 @@ class RoleController extends GameController
             }
         } else {
             $rth['code'] = "201";
-            $rth['message'] = "该分类不存在，或已经被删除了！";
+            $rth['message'] = "该角色不存在，或已经被删除了！";
             return $rth;
         }
     
         return $rth;
     }
+	
+	public function removeBatch(Request $request)
+	{	     
+	    $idsstr = $request->input('delId');
+	    $ids = explode(",",$idsstr);
+	    if (GameRoleModel::whereIn('id', $ids)->delete()) {
+	        $rth['code'] = "200";
+	        $rth['message'] = "删除成功";
+	    } else {
+	        $rth['code'] = "500";
+	        $rth['message'] = "删除失败";
+	    }
+	
+	    return $rth;
+	}
 }

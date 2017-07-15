@@ -43,11 +43,11 @@
 			<div class="portlet-title">
                 <div class="caption"><i class="fa fa-globe"></i>角色列表</div> 
                 <div class="actions">
-                    <a href="{{ _route('diary:admin.article.article.create') }}" class="btn btn-default btn-sm">
+                    <a href="{{ _route('member:game.role.create') }}" class="btn btn-default btn-sm">
                     	<i class="fa fa-plus"></i>
                     	<span>新增</span>
                     </a>
-                    <a href="{{ _route('cms:admin.article.article.removebatch') }}" class="btn btn-default btn-sm" id="removebatch">
+                    <a href="{{ _route('member:game.role.removebatch') }}" class="btn btn-default btn-sm" id="removebatch">
                     	<i class="fa fa-times"></i>
                     	<span>删除</span>
                     </a>
@@ -64,25 +64,6 @@
     						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="5">分组<span></span></label></li>
     						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="6">身份<span></span></label></li>
     					</ul>					
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-default" href="javascript:;" data-toggle="dropdown">
-                            <i class="fa fa-share"></i>
-                            <span class="hidden-xs"> 工具</span>
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu pull-right" id="syrator_table_tools">
-                        	<li>
-                        		<a href="{{ _route('cms:admin.article.import') }}" data-action="10" class="tool-action" id="import-excel">
-                        			<i class="fa fa-clone"></i> 导入
-                        		</a>
-                        	</li>
-							<li>
-								<a href="{{ _route('cms:admin.article.export') }}" data-action="11" class="tool-action">
-									<i class="fa fa-share"></i> 导出
-								</a>
-							</li>
-                        </ul>
                     </div>
                     <div class="btn-group">
                         <a class="btn btn-default" href="javascript:;" data-toggle="dropdown">
@@ -147,13 +128,13 @@
                             <td>{{ $per->catalog }}</td>
                             <td>{{ $per->group }}</td>
         					<td style="text-align: center;">        					                            	
-                            	<a item-id="{{ $per->id }}" href="{{ _route('cms:article.show', $per->id) }}" class="btn btn-xs layer_open" target="_blank" >
+                            	<a item-id="{{ $per->id }}" href="{{ _route('member:game.role.show', $per->id) }}" class="btn btn-xs layer_open" target="_blank" >
                             		<i class="fa fa-eye"></i>
                             	</a>
-                            	<a item-id="{{ $per->id }}" href="{{ _route('cms:admin.article.article.edit', $per->id) }}" class="btn btn-xs">
+                            	<a item-id="{{ $per->id }}" href="{{ _route('member:game.role.edit', $per->id) }}" class="btn btn-xs">
                             		<i class="fa fa-pencil-square-o"></i>
                             	</a>
-                            	<a item-id="{{ $per->id }}" href="{{ _route('cms:admin.article.remove', $per->id) }}" class="btn btn-xs remove">
+                            	<a item-id="{{ $per->id }}" href="{{ _route('member:game.role.remove', $per->id) }}" class="btn btn-xs remove">
                             		<i class="fa fa-trash-o"></i>
                             	</a>
                             </td>
@@ -178,7 +159,7 @@ jQuery(document).ready(function() {
     	    null, 
     	    {type: "select", values: ['前排','中排','后排']}, 
     	    {type: "select", values: ['14','13','12']}, 
-    	    {type: "select", values: ['输出','双系输出','物理防御','念力防御','治疗','控制','辅助']}, 
+    	    {type: "select", values: ['输出','双系输出','物理输出','念力输出','物理防御','念力防御','治疗','控制','辅助']}, 
     	    {type: "select", values: ['1','2','3','4','5']}, 
     	    {type: "select", values: ['圣斗士','冥斗士','海斗士']}, 
     	    null, 
@@ -193,6 +174,34 @@ jQuery(document).ready(function() {
             	 _token:$('meta[name="_token"]').attr('content'),
                  delId:itemId,
             }, function(data) {
+                 if(data.code == 200){
+                     alert(data.message);
+                     location.reload();
+                 } else {
+                     alert(data.message);
+                 }
+            },"json");
+      	}
+
+      	return false;
+    });
+
+    $(document).on("click","#removebatch",function(evt) {
+    	var itemIdsBoxes = $("input[class='checkboxes']");
+        var length = itemIdsBoxes.length;
+        var strIds = "";
+        for(var i=0;i<length;i++){
+            if(itemIdsBoxes[i].checked==true){
+            	strIds = strIds + "," + itemIdsBoxes[i].value;
+            }
+        }
+
+        var postUrl = $(this).attr("href");  
+    	if(confirm("删除后数据将无法恢复，您确定要删除?")){
+            $.post(postUrl, {
+            	 _token:$('meta[name="_token"]').attr('content'),
+                 delId:strIds,
+            }, function(data){
                  if(data.code == 200){
                      alert(data.message);
                      location.reload();

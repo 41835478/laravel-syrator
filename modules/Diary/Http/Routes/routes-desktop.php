@@ -15,6 +15,7 @@ Route::group(['middleware' => ['auth:web', 'web'], 'prefix' => '', 'namespace' =
                 Route::get('/', 'HomeController@index');
                 
                 Route::post('role/remove', 'RoleController@remove');
+                Route::post('role/removebatch', 'RoleController@removeBatch');
                 Route::resource('role', 'RoleController',['except' => ['destroy']]);
             });
         });
