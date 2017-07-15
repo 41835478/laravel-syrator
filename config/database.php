@@ -58,9 +58,9 @@ return [
             'database'  => env('DB_DATABASE', 'syrator'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', '77a7debe12'),
+            'prefix'    => env('DB_PREFIX', 'syrator_'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => env('DB_PREFIX', 'syrator_'),
             'strict'    => false,
             'engine'    => null,
 
@@ -69,15 +69,15 @@ return [
             'dump_using_single_transaction' => true,
         ],
         
-        'mysql_game' => [
+        'mysql_diary' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'game',
+            'database'  => 'syrator_diary',
             'username'  => 'root',
             'password'  => '77a7debe12',
+            'prefix'    => 'syrator_',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => env('DB_PREFIX', ''),
             'strict'    => false,
             'engine'    => null,
         
