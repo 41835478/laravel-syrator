@@ -28,7 +28,6 @@ var TableExpand = function () {
 	                }
                 ],
                 "order": [
-                    [1, 'asc']
                 ],
             }).columnFilter(columnFilterSetting);
             
