@@ -152,7 +152,6 @@
 <script>
 jQuery(document).ready(function() {
 	
-    var selectValues = new Array('圣斗士','冥斗士','海斗士');
     TableExpand.init({
 	    aoColumns: [
     	    null, 

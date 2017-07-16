@@ -41,13 +41,13 @@
     <div class="col-md-12">
         <div class="portlet box green">
 			<div class="portlet-title">
-                <div class="caption"><i class="fa fa-globe"></i>角色列表</div> 
+                <div class="caption"><i class="fa fa-globe"></i>日常培养明细</div> 
                 <div class="actions">
-                    <a href="{{ _route('member:game.role.create') }}" class="btn btn-default btn-sm">
+                    <a href="{{ _route('member:game.diary.create') }}" class="btn btn-default btn-sm">
                     	<i class="fa fa-plus"></i>
                     	<span>新增</span>
                     </a>
-                    <a href="{{ _route('member:game.role.removebatch') }}" class="btn btn-default btn-sm" id="removebatch">
+                    <a href="{{ _route('member:game.diary.removebatch') }}" class="btn btn-default btn-sm" id="removebatch">
                     	<i class="fa fa-times"></i>
                     	<span>删除</span>
                     </a>
@@ -100,18 +100,6 @@
                             <th style="width:68px;text-align:center;">操作</th>
                         </tr>
                     </thead>
-					<tfoot>
-						<tr>
-							<th></th>
-							<th></th>
-							<th class="filter_column_select">位置</th>
-							<th class="filter_column_select">资质</th>
-							<th class="filter_column_select">定位</th>
-							<th class="filter_column_select">分组</th>
-							<th class="filter_column_select">身份</th>
-							<th></th>
-						</tr>
-					</tfoot>
 					<tbody>
                         @foreach ($listEntity as $per)
                         <tr class="odd gradeX">
@@ -128,13 +116,13 @@
                             <td>{{ $per->catalog }}</td>
                             <td>{{ $per->group }}</td>
         					<td style="text-align: center;">        					                            	
-                            	<a item-id="{{ $per->id }}" href="{{ _route('member:game.role.show', $per->id) }}" class="btn btn-xs layer_open" target="_blank" >
+                            	<a item-id="{{ $per->id }}" href="{{ _route('member:game.diary.show', $per->id) }}" class="btn btn-xs layer_open" target="_blank" >
                             		<i class="fa fa-eye"></i>
                             	</a>
-                            	<a item-id="{{ $per->id }}" href="{{ _route('member:game.role.edit', $per->id) }}" class="btn btn-xs">
+                            	<a item-id="{{ $per->id }}" href="{{ _route('member:game.diary.edit', $per->id) }}" class="btn btn-xs">
                             		<i class="fa fa-pencil-square-o"></i>
                             	</a>
-                            	<a item-id="{{ $per->id }}" href="{{ _route('member:game.role.remove', $per->id) }}" class="btn btn-xs remove">
+                            	<a item-id="{{ $per->id }}" href="{{ _route('member:game.diary.remove', $per->id) }}" class="btn btn-xs remove">
                             		<i class="fa fa-trash-o"></i>
                             	</a>
                             </td>
@@ -152,19 +140,7 @@
 <script>
 jQuery(document).ready(function() {
 	
-    var selectValues = new Array('圣斗士','冥斗士','海斗士');
-    TableExpand.init({
-	    aoColumns: [
-    	    null, 
-    	    null, 
-    	    {type: "select", values: ['前排','中排','后排']}, 
-    	    {type: "select", values: ['14','13','12']}, 
-    	    {type: "select", values: ['输出','双系输出','物理输出','念力输出','物理防御','念力防御','治疗','控制','辅助']}, 
-    	    {type: "select", values: ['1','2','3','4','5']}, 
-    	    {type: "select", values: ['圣斗士','冥斗士','海斗士']}, 
-    	    null, 
-	    ]
-	},"syrator_table");
+    TableExpand.init({},"syrator_table");
 
     $(document).on("click","a.remove",function(evt) {
         var itemId = $(this).attr("item-id");
