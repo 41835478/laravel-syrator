@@ -17,6 +17,10 @@ Route::group(['middleware' => ['auth:web', 'web'], 'prefix' => '', 'namespace' =
                 Route::post('role/remove', 'RoleController@remove');
                 Route::post('role/removebatch', 'RoleController@removeBatch');
                 Route::resource('role', 'RoleController',['except' => ['destroy']]);
+                
+                Route::post('diary/remove', 'RoleDiaryController@remove');
+                Route::post('diary/removebatch', 'RoleDiaryController@removeBatch');
+                Route::resource('diary', 'RoleDiaryController',['except' => ['destroy']]);
             });
         });
     });
