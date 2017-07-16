@@ -18,6 +18,11 @@ $(document).ready(function(){
     	for(var i=1; i<url_path_array.length-2;i++){
     		current_url += '/' + url_path_array[i];
    		}
+    } else if (!isNaN(url_path_array[url_path_array.length-1])) {
+    	current_url = '//' + window.location.host;
+    	for(var i=1; i<url_path_array.length-1;i++){
+    		current_url += '/' + url_path_array[i];
+   		}
     }
 
     var current_li = $('ul.page-sidebar-menu>li').find('a[href="'+current_url+'"]').closest('li');

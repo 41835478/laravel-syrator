@@ -103,7 +103,20 @@ class RoleDiaryController extends GameController
     public function show($id)
     {    
         $entity = GameRoleDiaryModel::find($id);
-        return $this->view('diary.show', compact('entity'));
+        $editStruct = $entity->getEditStructs();
+        foreach ($editStruct as $key => $value ) {
+            $editStruct[$key]->is_editable = false;
+            $editStruct[$key]->type = "text";
+            $editStruct[$key]->show_type = "readonly";
+        }
+        
+        if (isset($editStruct['role_id'])) {
+            $editStruct['role_id']->is_editable = false;
+            $editStruct['role_id']->show_type = "readonly";
+            $editStruct['role_id']->value = $entity->getRoleName();
+        }
+        
+        return $this->view('diary.show', compact('entity','editStruct'));
     }
     
     public function remove(Request $request)
