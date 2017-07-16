@@ -1,11 +1,5 @@
 @extends('diary::desktop._layout._member')
 
-@section('css_page_level')
-@parent
-<link href="{{ _asset('assets/lib/ztree/css/zTreeStyle/zTreeStyle.css') }}" rel="stylesheet" type="text/css"/>
-<link href="{{ _asset('laravel-u-editor/xiumi/xiumi-ue-v5.css') }}" rel="stylesheet" type="text/css"/>
-@stop
-
 @section('js_page_level')
 @parent
 <script src="{{ _asset('assets/lib/ztree/js/jquery.ztree.core.js') }}"></script>

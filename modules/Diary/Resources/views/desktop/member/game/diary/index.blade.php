@@ -58,11 +58,25 @@
                         </a>
         				<ul id="syrator_table_column_toggler" class="dropdown-menu dropdown-checkboxes pull-right" role="menu">
     						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="1">名称<span></span></label></li>
-    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="2">位置<span></span></label></li>
-    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="3">资质<span></span></label></li>
-    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="4">定位<span></span></label></li>
-    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="5">分组<span></span></label></li>
-    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="6">身份<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="2">星级<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="3">魂石<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="4">觉醒<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="5">水晶<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="6">第六感<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="7">第七感<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="8">第八感<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="9">神感<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="10">神钢<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="11">头盔<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="12">肩甲<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="13">胸甲<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="14">腰带<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="15">护臂<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="16">护腿<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="17">好感度<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="18">圣器<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="19">等级<span></span></label></li>
+    						<li><label class="mt-checkbox mt-checkbox-outline"><input type="checkbox" checked data-column="20">战力<span></span></label></li>
     					</ul>					
                     </div>
                     <div class="btn-group">
@@ -91,13 +105,27 @@
                                     <span></span>
                                 </label>
                             </th>
-							<th>名称</th>
-							<th>位置</th>
-							<th>资质</th>
-							<th>定位</th>
-							<th>分组</th>
-							<th>身份</th>
-                            <th style="width:68px;text-align:center;">操作</th>
+							<th style="min-width:80px;">名称</th>
+							<th>星级</th>
+							<th>魂石</th>
+							<th>觉醒</th>
+							<th>水晶</th>
+							<th>第六感</th>
+							<th>第七感</th>
+							<th>第八感</th>
+							<th>神感</th>
+							<th>神钢</th>
+							<th>头盔</th>
+							<th>肩甲</th>
+							<th>胸甲</th>
+							<th>腰带</th>
+							<th>护臂</th>
+							<th>护腿</th>
+							<th>好感度</th>
+							<th>圣器</th>
+							<th>等级</th>
+							<th>战力</th>
+                            <th style="min-width:68px;text-align:center;">操作</th>
                         </tr>
                     </thead>
 					<tbody>
@@ -109,12 +137,26 @@
                                     <span></span>
                                 </label>
                             </td>
-                            <td>{{ $per->name }}</td>
-                            <td>{{ $per->position }}</td>
-                            <td>{{ $per->quality }}</td>
-                            <td>{{ $per->type }}</td>
-                            <td>{{ $per->catalog }}</td>
-                            <td>{{ $per->group }}</td>
+                            <td>{{ $per->getRoleName() }}</td>
+                            <td>{{ $per->getStar() }}</td>
+                            <td>{{ $per->stone }}</td>
+                            <td>{{ $per->wake_stone }}</td>
+                            <td>{{ $per->universe_star }}</td>
+                            <td>{{ $per->universe_6 }}</td>
+                            <td>{{ $per->universe_7 }}</td>
+                            <td>{{ $per->universe_8 }}</td>
+                            <td>{{ $per->universe_9 }}</td>
+                            <td>{{ $per->cloth_star }}</td>
+                            <td>{{ $per->cloth_header }}</td>
+                            <td>{{ $per->cloth_shoulder }}</td>
+                            <td>{{ $per->cloth_chest }}</td>
+                            <td>{{ $per->cloth_waist }}</td>
+                            <td>{{ $per->cloth_arm }}</td>
+                            <td>{{ $per->cloth_leg }}</td>
+                            <td>{{ $per->favor }}</td>
+                            <td>{{ $per->equipment }}</td>
+                            <td>{{ $per->level }}</td>
+                            <td>{{ $per->score }}</td>
         					<td style="text-align: center;">        					                            	
                             	<a item-id="{{ $per->id }}" href="{{ _route('member:game.diary.show', $per->id) }}" class="btn btn-xs layer_open" target="_blank" >
                             		<i class="fa fa-eye"></i>
