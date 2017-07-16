@@ -69,10 +69,16 @@
 	</div>
     @elseif($per->type=='datetime' || $per->type=='date')
 	<div class="col-md-4">
-		<div id="form_datetime_{{$per->name}}" class="input-append date form_datetime">
-			<input size="16" type="text" id="{{$per->name}}" name="{{$per->name}}" value="{{$per->value}}" readonly class="input_form_datetime">
-			<span class="add-on"><i class="icon-remove"></i></span>
-			<span class="add-on"><i class="icon-calendar"></i></span>
+		<div id="form_datetime_{{$per->name}}"  class="input-group date form_datetime">
+			<input type="text" size="16" readonly class="form-control" id="{{$per->name}}" name="{{$per->name}}" value="{{$per->value}}">
+			<span class="input-group-btn">
+                <button class="btn default date-reset" type="button">
+                    <i class="fa fa-times"></i>
+                </button>
+                <button class="btn default date-set" type="button">
+                    <i class="fa fa-calendar"></i>
+                </button>
+            </span>
 		</div>
 		<span class="help-block">{{$per->help}}</span>
 	</div>	
@@ -128,15 +134,6 @@
     		@endforeach
         </div>
 		<span class="help-block">{{$per->help}}</span>
-	</div>
-    @elseif($per->type=='datetime' || $per->type=='date')
-	<div class="col-md-4">
-		<div id="form_datetime_{{$per->name}}" class="input-append date form_datetime">
-			<input readonly="readonly" size="16" type="text" id="{{$per->name}}" name="{{$per->name}}" value="{{$per->value}}" readonly class="input_form_datetime">
-			<span class="add-on"><i class="icon-remove"></i></span>
-			<span class="add-on"><i class="icon-calendar"></i></span>
-		</div>
-		<span class="help-block">{{$per->help}}</span>
 	</div>	
 	@else
 	<div class="col-md-4">
@@ -189,15 +186,6 @@
     		</label>
     		@endforeach
         </div>
-		<span class="help-block">{{$per->help}}</span>
-	</div>
-	@elseif($per->type=='datetime' || $per->type=='date')
-	<div class="col-md-4">
-		<div id="form_datetime_{{$per->name}}" class="input-append date form_datetime">
-			<input disabled="disabled" size="16" type="text" id="{{$per->name}}" name="{{$per->name}}" value="{{$per->value}}" readonly class="input_form_datetime">
-			<span class="add-on"><i class="icon-remove"></i></span>
-			<span class="add-on"><i class="icon-calendar"></i></span>
-		</div>
 		<span class="help-block">{{$per->help}}</span>
 	</div>	
 	@else

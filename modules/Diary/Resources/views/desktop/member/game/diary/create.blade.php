@@ -1,18 +1,22 @@
 @extends('diary::desktop._layout._member')
 
-@section('js_page_level')
+@section('css_page_level_plugins')
 @parent
-<script src="{{ _asset('assets/lib/ztree/js/jquery.ztree.core.js') }}"></script>
-<script src="{{ _asset('assets/syrator/js/tree/ztree-expand.js') }}"></script>
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/clockface/css/clockface.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
-@section('style_head')
+@section('js_page_level_plugins')
 @parent
-<style>
-.form-horizontal .form-group {
-	padding-right:5px;
-}
-</style>
+<script src="{{ _asset('assets/metronic/global/plugins/moment.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/clockface/js/clockface.js') }}" type="text/javascript"></script>
 @stop
 
 @section('page-content-bar')
@@ -54,4 +58,20 @@
 		</div>
     </div>
 </div>
+@stop
+
+@section('filledScript')
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js') }}" type="text/javascript"></script>
+<script>
+jQuery(document).ready(function() {
+	$("#form_datetime_date").datetimepicker({
+		language:  'zh-CN', 
+        format: 'yyyy-mm-dd',
+        todayBtn: 1,
+        autoclose: 1,
+        minView: "month",
+        pickerPosition: "bottom-left"
+    });
+});
+</script>
 @stop

@@ -32,6 +32,10 @@ class RoleDiaryController extends GameController
             }
         }
         
+        if (isset($editStruct['date'])) {
+            $editStruct['date']->data_format = "yyyy-mm-dd";
+        }
+        
         return $this->view('diary.create', compact('editStruct'));
     }
     
