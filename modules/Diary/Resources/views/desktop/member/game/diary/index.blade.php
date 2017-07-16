@@ -105,6 +105,7 @@
                                     <span></span>
                                 </label>
                             </th>
+                            <th style="min-width:80px;">日期</th>
 							<th style="min-width:80px;">名称</th>
 							<th>星级</th>
 							<th>魂石</th>
@@ -137,6 +138,7 @@
                                     <span></span>
                                 </label>
                             </td>
+                            <td>{{ $per->date }}</td>
                             <td>{{ $per->getRoleName() }}</td>
                             <td>{{ $per->getStar() }}</td>
                             <td>{{ $per->stone }}</td>

@@ -41,7 +41,7 @@
         		<div class="caption"><i class="fa fa-gift"></i>新增角色</div>
         	</div>
 			<div class="portlet-body form">
-				<form method="post" action="{{ _route('member:game.role.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
+				<form method="post" action="{{ _route('member:game.diary.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
                     {!! csrf_field() !!}
                     <div class="form-body">
                         @include('_widgets.edit.control-group')

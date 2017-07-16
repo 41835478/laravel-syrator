@@ -14,7 +14,7 @@ class RoleDiaryController extends GameController
     
     public function index(Request $request)
     {
-        $listEntity = GameRoleDiaryModel::all();
+        $listEntity = GameRoleDiaryModel::where('id', '>', 0)->orderBy('date','desc')->get();
         return $this->view('diary.index', compact('listEntity'));
     }
     
