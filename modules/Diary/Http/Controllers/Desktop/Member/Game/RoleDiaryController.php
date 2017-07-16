@@ -65,12 +65,15 @@ class RoleDiaryController extends GameController
         $editStruct = $entity->getEditStructs();
         
         if (isset($editStruct['role_id'])) {
-            $editStruct['role_id']->is_request = true;
-            $editStruct['role_id']->type = "select";            
-            $roles = GameRoleModel::All();
-            foreach ($roles as $key => $value ) {
-                $editStruct['role_id']->dictionary[$value->id] = $value->name;
-            }
+            $editStruct['role_id']->is_editable = false;
+            $editStruct['role_id']->show_type = "readonly";
+            $editStruct['role_id']->value = $entity->getRoleName();
+        }
+        
+        if (isset($editStruct['date'])) {
+            $editStruct['date']->is_editable = false;
+            $editStruct['date']->type = "text";
+            $editStruct['date']->show_type = "readonly";
         }
         
         return $this->view('diary.edit', compact('entity','editStruct'));
@@ -88,6 +91,8 @@ class RoleDiaryController extends GameController
         }
         
         $model = GameRoleDiaryModel::find($id);
+        $inputs['role_id'] = $model->role_id;
+        $inputs['date'] = $model->date;
         if (!$model->saveFromInput($inputs)) {
             return $this->backFail($request, '数据库操作返回异常');
         }
