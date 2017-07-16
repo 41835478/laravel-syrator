@@ -161,7 +161,8 @@ class RoleController extends GameController
     public function show($id)
     {    
         $entity = GameRoleModel::find($id);
-        return $this->view('role.show', compact('entity'));
+        $curDiary = $entity->getCurrentDiary();
+        return $this->view('role.show', compact('entity','curDiary'));
     }
     
     public function remove(Request $request)
