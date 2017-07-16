@@ -1,5 +1,11 @@
 @extends('diary::desktop._layout._member')
 
+@section('css_page_level_plugins')
+@parent
+<link href="{{ _asset('assets/metronic/global/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+@stop
+
 @section('js_page_level_plugins')
 @parent
 <script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/amcharts.js') }}"></script>
@@ -12,11 +18,15 @@
 <script src="{{ _asset('assets/metronic/global/plugins/amcharts/ammap/ammap.js') }}"></script>
 <script src="{{ _asset('assets/metronic/global/plugins/amcharts/ammap/maps/js/worldLow.js') }}"></script>
 <script src="{{ _asset('assets/metronic/global/plugins/amcharts/amstockcharts/amstock.js') }}"></script>
+
+<script src="{{ _asset('assets/metronic/global/plugins/select2/js/select2.full.min.js') }}"></script>
 @stop
 
 @section('js_page_level')
 @parent
 <script src="{{ _asset('assets/metronic/pages/scripts/charts-amcharts.min.js') }}"></script>
+
+<script src="{{ _asset('assets/metronic/pages/scripts/components-select2.min.js') }}"></script>
 @stop
 
 @section('page-content-bar')
