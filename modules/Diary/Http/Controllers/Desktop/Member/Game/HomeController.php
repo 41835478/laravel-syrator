@@ -9,6 +9,6 @@ class HomeController extends GameController
     public function index(Request $request)
     {
         $roles = GameRoleModel::all();
-        return $this->view('index');
+        return $this->view('index', compact('roles'));
     }
 }
