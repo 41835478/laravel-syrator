@@ -457,6 +457,7 @@ jQuery(document).ready(function() {
 			type:'post',
 			url:'/member/game/stat',
 			data: {
+	           	 _token:$('meta[name="_token"]').attr('content'),
 				role_ids:$("#multiple_select_role").val(),
 				date_start:$("#date_start").val(),
 				date_end:$("#date_end").val(),
