@@ -3,10 +3,6 @@
 // 管理后台站点路由群组
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth:web', 'web']], function () {
 
-    Route::get('/', function() {
-        return redirect('admin/auth/login');
-    });
-
     Route::group(['prefix' => 'auth'], function () {
         $Authority = 'AuthorityController@';
         // 退出
@@ -17,6 +13,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     });
 
     Route::group(['prefix' => '', 'middleware' => ['auth:admin']], function () {
+        
+        Route::get('/', function() {
+            return redirect('admin/home');
+        });
         
         // 后台首页：控制台
         Route::get('home', 'HomeController@getIndex');
