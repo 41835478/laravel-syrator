@@ -5,10 +5,20 @@
     	<span class="required" aria-required="true"> * </span>
     	@endif
     </label>
-	<div class="col-md-9">
-		<textarea class="form-control" rows="6" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" placeholder="{{$field->placeholder}}" >{{$field->value}}</textarea>
+	<div class="col-md-4">
+		<div id="form_datetime_{{$field->name}}"  class="input-group date form_datetime">
+			<input type="text" size="16" readonly class="form-control" id="{{$field->name}}" name="{{$field->name}}" value="{{$field->value}}">
+			<span class="input-group-btn">
+                <button class="btn default date-reset" type="button">
+                    <i class="fa fa-times"></i>
+                </button>
+                <button class="btn default date-set" type="button">
+                    <i class="fa fa-calendar"></i>
+                </button>
+            </span>
+		</div>
 		<span class="help-block">{{$field->help}}</span>
-	</div>
+	</div>	
 </div>
 @elseif($field->show_type=="readonly")
 <div class="form-group">
@@ -17,8 +27,8 @@
     	<span class="required" aria-required="true"> * </span>
     	@endif
     </label>
-	<div class="col-md-9">
-		<textarea readonly="readonly" class="form-control" rows="6" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" placeholder="{{$field->placeholder}}" >{{$field->value}}</textarea>
+	<div class="col-md-4">
+		<input readonly="readonly" class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
@@ -29,8 +39,8 @@
     	<span class="required" aria-required="true"> * </span>
     	@endif
     </label>
-	<div class="col-md-9">
-		<textarea disabled="disabled" class="form-control" rows="6" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" placeholder="{{$field->placeholder}}" >{{$field->value}}</textarea>
+	<div class="col-md-4">
+		<input disabled="disabled" class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
