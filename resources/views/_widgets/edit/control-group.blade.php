@@ -159,6 +159,19 @@
         </div>
 		<span class="help-block">{{$per->help}}</span>
 	</div>	
+	@elseif($per->type=='image')
+	<div class="col-md-4">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+            <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+            @if (empty($per->value))
+                <img src="http://www.placehold.it/150x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+            @else
+            	<img src="{{ $per->value }}" alt="" />
+            @endif
+            </div>
+            <input readonly="readonly" type="hidden" id="picture_thumb_{{$per->name}}" name="{{$per->name}}" value="{{ $per->value }}">
+        </div>
+    </div>
 	@else
 	<div class="col-md-4">
 		<input readonly="readonly" class="form-control" 
@@ -211,7 +224,20 @@
     		@endforeach
         </div>
 		<span class="help-block">{{$per->help}}</span>
-	</div>	
+	</div>		
+	@elseif($per->type=='image')
+	<div class="col-md-4">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+            <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+            @if (empty($per->value))
+                <img src="http://www.placehold.it/150x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+            @else
+            	<img src="{{ $per->value }}" alt="" />
+            @endif
+            </div>
+            <input disabled="disabled" type="hidden" id="picture_thumb_{{$per->name}}" name="{{$per->name}}" value="{{ $per->value }}">
+        </div>
+    </div>
 	@else
 	<div class="col-md-4">
 		<input disabled="disabled" class="form-control" 
