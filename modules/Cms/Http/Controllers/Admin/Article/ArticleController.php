@@ -66,6 +66,10 @@ class ArticleController extends AdminController {
             $editStruct['type']->dictionary['3'] = '来自朋友圈';
             $editStruct['type']->dictionary['4'] = '来自门户';
         }
+        
+        if (isset($editStruct['thumb'])) {
+            $editStruct['thumb']->type = "image";
+        }
 
         $catalogs = ArticleCatalogModel::all();
 	    return $this->view('article.create', compact('catalogs', 'editStruct'));
@@ -131,6 +135,10 @@ class ArticleController extends AdminController {
             $editStruct['type']->dictionary['2'] = '来自微博';
             $editStruct['type']->dictionary['3'] = '来自朋友圈';
             $editStruct['type']->dictionary['4'] = '来自门户';
+        }
+        
+        if (isset($editStruct['thumb'])) {
+            $editStruct['thumb']->type = "image";
         }
 	    
         $catalogs = ArticleCatalogModel::all();

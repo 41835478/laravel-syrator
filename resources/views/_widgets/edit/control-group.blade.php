@@ -82,6 +82,30 @@
 		</div>
 		<span class="help-block">{{$per->help}}</span>
 	</div>	
+	@elseif($per->type=='image')
+	<div class="col-md-4">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+            <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+            @if (empty($per->value))
+                <img src="http://www.placehold.it/150x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+            @else
+            	<img src="{{ $per->value }}" alt="" />
+            @endif
+            </div>
+            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;">
+            </div>
+            <div>
+                <span class="btn default btn-file">
+                    <span class="fileinput-new"> 选择图片 </span>
+                    <span class="fileinput-exists"> 修改 </span>
+                    <input type="file" name="file_picture_{{$per->name}}" id="file_picture_{{$per->name}}" accept=".jpg,.png,.gif,.bmp" >
+                </span>
+                <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> 移除 </a>
+				<a id="submit_upload_picture_{{$per->name}}" class="btn default fileinput-exists">上传</a>
+            </div>
+            <input type="hidden" id="picture_thumb_{{$per->name}}" name="{{$per->name}}" value="{{ $per->value }}">
+        </div>
+    </div>
 	@else
 	<div class="col-md-4">
 		<input class="form-control" 

@@ -184,9 +184,6 @@
 @section('filledScript')
 <script>
 jQuery(document).ready(function() {    
-    App.init();
-    
-    //ajax
     $('#uploadSubmit_picture').click(function(){
         var resultFile = $("#file_picture_avatar").get(0).files[0];    	  	
     	var formData = new FormData();

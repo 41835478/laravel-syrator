@@ -7,8 +7,8 @@
 
 @section('js_page_level')
 @parent
-<script src="{{ _asset('assets/lib/ztree/js/jquery.ztree.core.js') }}"></script>
-<script src="{{ _asset('assets/syrator/js/tree/ztree-expand.js') }}"></script>
+<script src="{{ _asset('assets/lib/ztree/js/jquery.ztree.core.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/syrator/js/tree/ztree-expand.js') }}" type="text/javascript"></script>
 @stop
 
 @section('style_head')
