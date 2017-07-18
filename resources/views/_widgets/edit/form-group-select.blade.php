@@ -5,8 +5,12 @@
     	<span class="required" aria-required="true"> * </span>
     	@endif
     </label>
-	<div class="col-md-9">
-		<textarea class="form-control" rows="6" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" placeholder="{{$field->placeholder}}" >{{$field->value}}</textarea>
+	<div class="col-md-4">
+    	<select class="form-control" tabindex="1" name="{{$per->name}}">
+    	@foreach ($field->dictionary as $key => $value) 
+        	<option value="{{$key}}" {{($field->value == $key)?'selected':''}}>{{$value}}</option>
+      	@endforeach
+      	</select>
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
@@ -17,8 +21,8 @@
     	<span class="required" aria-required="true"> * </span>
     	@endif
     </label>
-	<div class="col-md-9">
-		<textarea readonly="readonly" class="form-control" rows="6" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" placeholder="{{$field->placeholder}}" >{{$field->value}}</textarea>
+	<div class="col-md-4">
+		<input readonly="readonly" class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
@@ -29,8 +33,8 @@
     	<span class="required" aria-required="true"> * </span>
     	@endif
     </label>
-	<div class="col-md-9">
-		<textarea disabled="disabled" class="form-control" rows="6" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" placeholder="{{$field->placeholder}}" >{{$field->value}}</textarea>
+	<div class="col-md-4">
+		<input disabled="disabled" class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
