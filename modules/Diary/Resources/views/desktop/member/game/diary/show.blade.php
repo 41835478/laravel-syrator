@@ -26,7 +26,7 @@
                     {!! method_field('put') !!}
                     {!! csrf_field() !!}
                     <div class="form-body">
-                        @include('_widgets.edit.control-group')
+                        @include('_widgets.edit.form-group')
 					</div>
 				</form>
 			</div>

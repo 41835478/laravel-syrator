@@ -51,7 +51,7 @@
 				<form method="post" action="{{ _route('admin:permission.user.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
                     {!! csrf_field() !!}
                     <div class="form-body">
-                        @include('_widgets.edit.control-group')
+                        @include('_widgets.edit.form-group')
                         <div class="form-group">
     						<label class="control-label col-md-3">头像</label>
     						<div class="col-md-4">

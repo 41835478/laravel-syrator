@@ -52,7 +52,7 @@
                     {!! method_field('put') !!}
                     {!! csrf_field() !!}
                     <div class="form-body">
-                        @include('_widgets.edit.control-group')
+                        @include('_widgets.edit.form-group')
                         <div class="form-group">
     						<label class="control-label col-md-3">头像</label>
     						<div class="col-md-4">
