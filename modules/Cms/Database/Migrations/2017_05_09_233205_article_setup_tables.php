@@ -18,7 +18,7 @@ class ArticleSetupTables extends Migration
             $table->increments('id');
             $table->string('name')->comment('名称')->default('');
             $table->string('keywords')->comment('关键词')->default('');
-            $table->string('description')->comment('描述')->default('');
+            $table->text('description')->comment('描述')->default('');
             $table->tinyInteger('sort_num')->comment('排序序号')->default('0');
             $table->tinyInteger('is_show')->comment('是否展示')->default('0');
             $table->smallInteger('pid')->comment('父类id');

@@ -6,7 +6,14 @@
     	@endif
     </label>
 	<div class="col-md-4">
-		<input class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
+		<div class="mt-radio-inline">
+        	@foreach ($field->dictionary as $key => $value) 
+    		<label class="mt-radio">
+    			<input type="radio" name="{{$field->name}}" value="{{$key}}" {{($field->value == $key)?'checked':''}}/>{{$value}}
+    			<span></span>
+    		</label>
+    		@endforeach
+        </div>
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
@@ -18,7 +25,14 @@
     	@endif
     </label>
 	<div class="col-md-4">
-		<input readonly="readonly" class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
+		<div class="mt-radio-inline">
+        	@foreach ($field->dictionary as $key => $value) 
+    		<label class="mt-radio">
+    			<input readonly="readonly" type="radio" name="{{$field->name}}" value="{{$key}}" {{($field->value == $key)?'checked':''}}/>{{$value}}
+    			<span></span>
+    		</label>
+    		@endforeach
+        </div>
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
@@ -30,7 +44,14 @@
     	@endif
     </label>
 	<div class="col-md-4">
-		<input disabled="disabled" class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
+		<div class="mt-radio-inline">
+        	@foreach ($field->dictionary as $key => $value) 
+    		<label class="mt-radio">
+    			<input disabled="disabled" type="radio" name="{{$field->name}}" value="{{$key}}" {{($field->value == $key)?'checked':''}}/>{{$value}}
+    			<span></span>
+    		</label>
+    		@endforeach
+        </div>
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
