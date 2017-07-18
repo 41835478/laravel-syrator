@@ -42,40 +42,19 @@ class RoleDiaryController extends GameController
             'id' => 'base_info',
             'name' => '基本信息',
             'fields' => array(
-                'name',
-                'base_sn',
-                'base_version',
-                'base_kind',
-                'base_owner_type',
-                'base_foreign_state',
-                'base_catalog_id',
-                'base_project_type'
+                'role_id',
+                'date'
             ),
         );
         $editStructGroup[] = array(
             'id' => 'expand_info',
-            'name' => '项目详情',
+            'name' => '小宇宙',
             'fields' => array(
-                'expand_description',
-                'expand_devices',
-                'expand_remark'
-            ),
-        );
-        $editStructGroup[] = array(
-            'id' => 'scope_info',
-            'name' => '其他',
-            'fields' => array(
-                'scope_area',
-                'scope_build_area',
-                'scope_investment',
-                'scope_costs',
-                'project_structure',
-                'project_decoration',
-                'duration_start_date',
-                'duration_end_date',
-                'duration_state',
-                'duration_state_expand',
-                'duration_state_desc'
+                'universe_star',
+                'universe_6',
+                'universe_7',
+                'universe_8',
+                'universe_9'
             ),
         );
         

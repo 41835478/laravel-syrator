@@ -6,7 +6,7 @@
     	@endif
     </label>
 	<div class="col-md-4">
-    	<select class="form-control" tabindex="1" name="{{$per->name}}">
+    	<select class="form-control" tabindex="1" name="{{$field->name}}">
     	@foreach ($field->dictionary as $key => $value) 
         	<option value="{{$key}}" {{($field->value == $key)?'selected':''}}>{{$value}}</option>
       	@endforeach

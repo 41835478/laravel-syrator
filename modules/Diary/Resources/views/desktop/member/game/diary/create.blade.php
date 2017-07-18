@@ -45,7 +45,7 @@
                     {!! csrf_field() !!}
                     <div class="form-body">
 <!--                         @include('_widgets.edit.form-group') -->
-                        @include('_widgets._edit_group-control-group')
+                        @include('_widgets.edit.form-group-tabs')
     					<div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
