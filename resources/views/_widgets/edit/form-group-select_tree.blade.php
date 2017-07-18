@@ -5,8 +5,16 @@
     	<span class="required" aria-required="true"> * </span>
     	@endif
     </label>
-	<div class="col-md-9">
-		<textarea class="form-control" rows="6" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" placeholder="{{$field->placeholder}}" >{{$field->value}}</textarea>
+	<div class="col-md-4">
+		<div class="input-group">
+    		<input class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
+    		<span class="input-group-btn">
+    			<button type="button" class="btn blue" id="btn_{{$field->name}}">选择</button>
+            </span>
+		</div>
+        <div id="select_tree_{{$field->name}}" class="menuContent" style="display:none;margin-right:55px;">
+        	<ul id="select_tree_items_{{$field->name}}" class="ztree" style="margin-top:0; width:160px;"></ul>
+        </div>
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
@@ -17,8 +25,8 @@
     	<span class="required" aria-required="true"> * </span>
     	@endif
     </label>
-	<div class="col-md-9">
-		<textarea readonly="readonly" class="form-control" rows="6" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" placeholder="{{$field->placeholder}}" >{{$field->value}}</textarea>
+	<div class="col-md-4">
+		<input readonly="readonly" class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
@@ -29,8 +37,8 @@
     	<span class="required" aria-required="true"> * </span>
     	@endif
     </label>
-	<div class="col-md-9">
-		<textarea disabled="disabled" class="form-control" rows="6" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" placeholder="{{$field->placeholder}}" >{{$field->value}}</textarea>
+	<div class="col-md-4">
+		<input disabled="disabled" class="form-control" type="text" id="{{$field->name}}" name="{{$field->name}}" autocomplete="{{$field->autocomplete}}" value="{{$field->value}}" placeholder="{{$field->placeholder}}">
 		<span class="help-block">{{$field->help}}</span>
 	</div>
 </div>
