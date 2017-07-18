@@ -44,7 +44,8 @@
 				<form method="post" action="{{ _route('member:game.diary.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
                     {!! csrf_field() !!}
                     <div class="form-body">
-                        @include('_widgets.edit.form-group')
+<!--                         @include('_widgets.edit.form-group') -->
+                        @include('_widgets._edit_group-control-group')
     					<div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
