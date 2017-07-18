@@ -13,6 +13,7 @@ Route::group(['middleware' => ['auth:web', 'web'], 'prefix' => '', 'namespace' =
             
             Route::group(['prefix' => 'game', 'namespace' => 'Game'], function () {
                 Route::get('/', 'HomeController@index');
+                Route::post('stat', 'HomeController@postStat');
                 
                 Route::post('role/remove', 'RoleController@remove');
                 Route::post('role/removebatch', 'RoleController@removeBatch');

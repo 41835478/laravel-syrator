@@ -11,4 +11,10 @@ class HomeController extends GameController
         $roles = GameRoleModel::all();
         return $this->view('index', compact('roles'));
     }
+    
+    public function postStat(Request $request)
+    {
+        $roles = GameRoleModel::all();
+        return self::responseSuccess('成功',$roles);
+    }
 }

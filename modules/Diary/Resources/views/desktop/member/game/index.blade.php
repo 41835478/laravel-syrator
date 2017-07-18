@@ -4,22 +4,33 @@
 @parent
 <link href="{{ _asset('assets/metronic/global/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ _asset('assets/metronic/global/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ _asset('assets/metronic/global/plugins/clockface/css/clockface.css') }}" rel="stylesheet" type="text/css" />
 @stop
 
 @section('js_page_level_plugins')
 @parent
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/amcharts.js') }}"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/serial.js') }}"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/pie.js') }}"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/radar.js') }}"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/themes/light.js') }}"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/themes/patterns.js') }}"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/themes/chalk.js') }}"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/ammap/ammap.js') }}"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/ammap/maps/js/worldLow.js') }}"></script>
-<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amstockcharts/amstock.js') }}"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/amcharts.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/serial.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/pie.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/radar.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/themes/light.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/themes/patterns.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amcharts/themes/chalk.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/ammap/ammap.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/ammap/maps/js/worldLow.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/amcharts/amstockcharts/amstock.js') }}" type="text/javascript"></script>
 
-<script src="{{ _asset('assets/metronic/global/plugins/select2/js/select2.full.min.js') }}"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
+
+<script src="{{ _asset('assets/metronic/global/plugins/moment.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js') }}" type="text/javascript"></script>
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
+
 @stop
 
 @section('js_page_level')
@@ -64,6 +75,16 @@
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                         </span>
+                    </div>
+                </div>                
+                <div class="form-group">
+                    <label class="control-label">选择起始时间</label>
+                    <div class="input-group">
+                        <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                            <input type="text" class="form-control" name="from" id="date_start">
+                            <span class="input-group-addon"> 至 </span>
+                            <input type="text" class="form-control" name="to" id="date_end"> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -415,6 +436,7 @@
 @stop
 
 @section('filledScript')
+<script src="{{ _asset('assets/metronic/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js') }}" type="text/javascript"></script>
 <script>
 jQuery(document).ready(function() {
 	$("#multiple_select_role").select2({
@@ -422,8 +444,37 @@ jQuery(document).ready(function() {
         width: null
     });
 
+    $('.date-picker').datepicker({
+        rtl: App.isRTL(),
+        orientation: "bottom left",
+        autoclose: true,
+    	language: 'zh-CN', 
+        format: 'yyyy-mm-dd',
+    });
+
 	$("#btn_select_role").click(function(){
-		alert($("#multiple_select_role").val());
+		$.ajax({
+			type:'post',
+			url:'/member/game/stat',
+			data: {
+				role_ids:$("#multiple_select_role").val(),
+				date_start:$("#date_start").val(),
+				date_end:$("#date_end").val(),
+	    	}, 
+			dataType:'json',
+			async:true,
+			success:function(data) {
+				var code = data['code'];
+				if(code == "200") {	
+					var d = data['data'];
+					for(var i=0; i<d.length; i++) {
+						alert(d[i].name);
+					}
+				} else {
+					alert("读取内容失败");
+				}
+			}
+		});
     });
 });
 </script>
