@@ -42,8 +42,20 @@ class RoleDiaryController extends GameController
             'id' => 'base_info',
             'name' => '基本信息',
             'fields' => array(
+                'date',
                 'role_id',
-                'date'
+                'equipment',
+                'level',
+                'favor',
+                'score'
+            ),
+        );
+        $editStructGroup[] = array(
+            'id' => 'stone',
+            'name' => '魂石',
+            'fields' => array(
+                'stone',
+                'wake_stone'
             ),
         );
         $editStructGroup[] = array(
@@ -55,6 +67,19 @@ class RoleDiaryController extends GameController
                 'universe_7',
                 'universe_8',
                 'universe_9'
+            ),
+        );
+        $editStructGroup[] = array(
+            'id' => 'choth',
+            'name' => '圣衣',
+            'fields' => array(
+                'cloth_star',
+                'cloth_header',
+                'cloth_shoulder',
+                'cloth_chest',
+                'cloth_waist',
+                'cloth_arm',
+                'cloth_leg'
             ),
         );
         
@@ -98,7 +123,54 @@ class RoleDiaryController extends GameController
             $editStruct['date']->show_type = "readonly";
         }
         
-        return $this->view('diary.edit', compact('entity','editStruct'));
+        // 分组
+        $editStructGroup = array();
+        $editStructGroup[] = array(
+            'id' => 'base_info',
+            'name' => '基本信息',
+            'fields' => array(
+                'date',
+                'role_id',
+                'equipment',
+                'level',
+                'favor',
+                'score'
+            ),
+        );
+        $editStructGroup[] = array(
+            'id' => 'stone',
+            'name' => '魂石',
+            'fields' => array(
+                'stone',
+                'wake_stone'
+            ),
+        );
+        $editStructGroup[] = array(
+            'id' => 'expand_info',
+            'name' => '小宇宙',
+            'fields' => array(
+                'universe_star',
+                'universe_6',
+                'universe_7',
+                'universe_8',
+                'universe_9'
+            ),
+        );
+        $editStructGroup[] = array(
+            'id' => 'choth',
+            'name' => '圣衣',
+            'fields' => array(
+                'cloth_star',
+                'cloth_header',
+                'cloth_shoulder',
+                'cloth_chest',
+                'cloth_waist',
+                'cloth_arm',
+                'cloth_leg'
+            ),
+        );
+        
+        return $this->view('diary.edit', compact('entity', 'editStruct', 'editStructGroup'));
     }
     
     public function update(Request $request, $id)
