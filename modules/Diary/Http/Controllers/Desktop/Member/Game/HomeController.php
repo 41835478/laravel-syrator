@@ -14,6 +14,7 @@ class HomeController extends GameController
     
     public function postStat(Request $request)
     {
+        $inputs = $request->all();
         $roles = GameRoleModel::all();
         return self::responseSuccess('成功',$roles);
     }
