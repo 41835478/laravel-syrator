@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 
-use Modules\Diary\Model\GameRoleDiaryModel;
 use Modules\Diary\Model\GameRoleModel;
+use Modules\Diary\Model\GameRoleDiaryModel;
 
 class RoleDiaryController extends GameController
 {    

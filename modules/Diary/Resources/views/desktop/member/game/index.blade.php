@@ -453,14 +453,17 @@ jQuery(document).ready(function() {
     });
 
 	$("#btn_select_role").click(function(){
+		var idsRole = $("#multiple_select_role").val();
+		var dateStrat = $("#date_start").val();
+		var dateEnd = $("#date_end").val();		
 		$.ajax({
 			type:'post',
 			url:'/member/game/stat',
 			data: {
 	           	 _token:$('meta[name="_token"]').attr('content'),
-				role_ids:$("#multiple_select_role").val(),
-				date_start:$("#date_start").val(),
-				date_end:$("#date_end").val(),
+				role_ids: idsRole,
+				date_start: dateStrat,
+				date_end: dateEnd,
 	    	}, 
 			dataType:'json',
 			async:true,
@@ -469,8 +472,8 @@ jQuery(document).ready(function() {
 				if(code == "200") {	
 					var d = data['data'];
 					for(var i=0; i<d.length; i++) {
-						alert(d[i].name);
 					}
+					console.log(d);
 				} else {
 					alert("读取内容失败");
 				}
