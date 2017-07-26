@@ -475,7 +475,7 @@ jQuery(document).ready(function() {
 					}
 					console.log(d);
 				} else {
-					alert("读取内容失败");
+					alert(data['description']);
 				}
 			}
 		});
