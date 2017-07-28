@@ -35,7 +35,8 @@ class HomeController extends GameController
         }
         
         $repository = new RoleRepository();
-        $roles = $repository->doStat($param['role_ids'], $param['date_start'], $param['date_end']);
+        $fields = array('score','stone','wake_stone','favor');
+        $roles = $repository->doStat($param['role_ids'], $param['date_start'], $param['date_end'],$fields);
         return self::responseSuccess('成功',$roles);
     }
 }
