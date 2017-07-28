@@ -34,22 +34,25 @@ class RoleRepository extends SyratorRepository
         // 计算，合计
         $date = strtotime($strBegin);
         $end = strtotime($strEnd);
+        $count = 0;
         while ($date <= $end) {
             $strDate = date('Y-m-d', $date);
-            $rtn[$strDate] = array();
+            $rtn[$count] = array();
+            $rtn[$count]['date'] = $strDate;
             foreach ($aryFields as $field) {
-                $rtn[$strDate][$field] = 0;
+                $rtn[$count][$field] = 0;
             }
             
             foreach ($aryIds as $key => $value) {
                 foreach ($aryFields as $field) {
                     if (!empty($diarys[$strDate][$value])) {
-                        $rtn[$strDate][$field] += $diarys[$strDate][$value]->$field;                        
+                        $rtn[$count][$field] += $diarys[$strDate][$value]->$field;                        
                     }
                 }
             }
         
             $date = $date + 3600*24;
+            $count++;
         }
         
         return $rtn;
