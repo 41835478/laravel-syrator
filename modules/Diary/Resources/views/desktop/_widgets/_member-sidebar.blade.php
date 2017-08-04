@@ -44,6 +44,11 @@
     						<span class="title">日常培养</span>
     					</a>
     				</li>
+    				<li class="nav-item  ">
+    					<a class="nav-link " href="{{ site_url('game/material', 'member') }}">
+                            <span class="title">资源管理</span>
+    					</a>
+					</li>
     			</ul>
     		</li>
     	</ul>
