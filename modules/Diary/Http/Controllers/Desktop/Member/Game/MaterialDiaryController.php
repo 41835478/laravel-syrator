@@ -13,7 +13,7 @@ class MaterialDiaryController extends GameController
     
     public function index(Request $request)
     {
-        $listEntity = GameMaterialDiaryModel::where('id', '>', 0)->orderBy('date','desc')->get();
+        $listEntity = GameMaterialDiaryModel::where('id', '>', 0)->orderBy('date','asc')->get();
         return $this->view('material.index', compact('listEntity'));
     }
     
