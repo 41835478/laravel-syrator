@@ -19,7 +19,7 @@
     <div class="col-md-12">
         <div class="portlet light portlet-fit portlet-form bordered ">
         	<div class="portlet-title">
-        		<div class="caption"><i class="fa fa-gift"></i>编辑角色</div>
+        		<div class="caption"><i class="fa fa-gift"></i>资源浏览</div>
         	</div>
 			<div class="portlet-body form">
 				<form method="post" action="{{ _route('member:game.diary.update', $entity->id) }}" accept-charset="utf-8" class="form-horizontal" role="form">

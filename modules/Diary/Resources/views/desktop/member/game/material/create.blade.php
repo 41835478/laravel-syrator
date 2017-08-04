@@ -38,7 +38,7 @@
     <div class="col-md-12">
         <div class="portlet light portlet-fit portlet-form bordered ">
         	<div class="portlet-title">
-        		<div class="caption"><i class="fa fa-gift"></i>新增角色</div>
+        		<div class="caption"><i class="fa fa-gift"></i>新增资源</div>
         	</div>
 			<div class="portlet-body form">
 				<form method="post" action="{{ _route('member:game.material.store') }}" accept-charset="utf-8" class="form-horizontal" role="form">
