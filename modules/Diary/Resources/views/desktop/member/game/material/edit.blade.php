@@ -22,11 +22,11 @@
         		<div class="caption"><i class="fa fa-gift"></i>编辑角色</div>
         	</div>
 			<div class="portlet-body form">
-				<form method="post" action="{{ _route('member:game.diary.update', $entity->id) }}" accept-charset="utf-8" class="form-horizontal" role="form">
+				<form method="post" action="{{ _route('member:game.material.update', $entity->id) }}" accept-charset="utf-8" class="form-horizontal" role="form">
                     {!! method_field('put') !!}
                     {!! csrf_field() !!}
                     <div class="form-body">
-                        @include('_widgets.edit.form-group-tabs')
+                        @include('_widgets.edit.form-group')
     					<div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
