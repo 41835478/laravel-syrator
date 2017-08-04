@@ -103,7 +103,7 @@ class RoleDiaryController extends GameController
         }
     
         //添加成功
-        return $this->backSuccess($request, '成功新增角色');
+        return $this->backSuccess($request, '新增成功');
     }
     
     public function edit($id)
